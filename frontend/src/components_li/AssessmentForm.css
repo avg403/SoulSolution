@@ -1,0 +1,165 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Prevents padding/borders from affecting width/height */
+}
+
+/* Ensuring full height of body and removing overflow */
+html,
+body {
+  height: 100%;
+  font-family: "Arial", sans-serif;
+  background-color: white; /* Light background for the page */
+  margin: 0;
+}
+
+/* Add top padding to body to ensure container is not stuck to top */
+body {
+  padding-top: 50px; /* Add padding at the top to ensure content is not clipped */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align content at the top of the page */
+  min-height: 100vh; /* Ensures body takes the full viewport height */
+}
+
+/* Container Styles */
+.container {
+  max-width: 800px; /* Increased max-width for readability */
+  margin: 50px auto; /* Centered horizontally and 50px margin on top and bottom */
+  padding: 30px 40px; /* Inside padding for spacing */
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  font-family: "Arial", sans-serif;
+  overflow: hidden; /* Prevents content overflow */
+  position: relative; /* Ensure proper positioning */
+}
+
+/* Heading Styles */
+h2 {
+  text-align: center;
+  font-size: 32px; /* Increased font-size */
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 30px; /* More space below the heading */
+  text-transform: uppercase;
+  padding-top: 0; /* Ensure no padding pushes the text down */
+}
+
+/* Error message styling */
+.alert-danger {
+  font-size: 16px;
+  margin-bottom: 15px; /* Reduced margin-bottom */
+  padding: 12px;
+  background-color: #f8d7da;
+  border: 1px solid #f5c2c7;
+  color: #842029;
+  border-radius: 8px;
+}
+
+/* Form styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Reduced gap between form fields */
+}
+
+/* Label Styles */
+label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px; /* Reduced margin-bottom */
+}
+
+/* Input and textarea styling */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px 16px; /* Reduced padding */
+  font-size: 16px;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+select:focus,
+textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Textarea minimum size */
+textarea {
+  min-height: 100px;
+}
+
+/* Button Styles */
+button {
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #28a745;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px 15px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 12px 16px;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="password"],
+  select,
+  textarea {
+    font-size: 14px;
+  }
+}
