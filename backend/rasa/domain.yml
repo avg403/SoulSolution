@@ -1,0 +1,136 @@
+version: "3.1"
+
+intents:
+  - greet
+  - admiration
+  - amusement
+  - anger
+  - annoyance
+  - approval
+  - caring
+  - confusion
+  - curiosity
+  - desire
+  - disappointment
+  - disapproval
+  - disgust
+  - embarrassment
+  - excitement
+  - fear
+  - gratitude
+  - grief
+  - joy
+  - love
+  - nervousness
+  - optimism
+  - pride
+  - realization
+  - relief
+  - remorse
+  - sadness
+  - surprise
+  - neutral
+  - goodbye
+  - bot_challenge
+
+responses:
+  utter_greet:
+    - text: "Hello! How can I assist you today?"
+
+  utter_goodbye:
+    - text: "Goodbye! Have a great day!"
+
+  utter_bot_challenge:
+    - text: "I am a bot, powered by Rasa!"
+
+  utter_iamabot:
+    - text: "I am a bot, here to assist you with your queries."  
+
+  utter_admiration:
+    - text: "Thank you for your kind words! It means a lot."
+
+  utter_amusement:
+    - text: "I'm glad you're enjoying yourself!"
+
+  utter_anger:
+    - text: "I understand you're upset. Can I help with anything?"
+
+  utter_annoyance:
+    - text: "I see this is frustrating for you. Let me know how I can help."
+
+  utter_approval:
+    - text: "I'm glad you approve! Let's keep going."
+
+  utter_caring:
+    - text: "I care about you! How are you feeling?"
+
+  utter_confusion:
+    - text: "It seems you're a bit confused. Let me explain."
+
+  utter_curiosity:
+    - text: "That's interesting! What else would you like to know?"
+
+  utter_desire:
+    - text: "I understand you want that. Let's work towards it."
+
+  utter_disappointment:
+    - text: "I'm really sorry that you're disappointed."
+
+  utter_disapproval:
+    - text: "I understand you're not happy with this. Let me know how I can improve."
+
+  utter_disgust:
+    - text: "I can see you're disgusted by this. What can I do to change that?"
+
+  utter_embarrassment:
+    - text: "It's okay to feel embarrassed. I'm here for you."
+
+  utter_excitement:
+    - text: "I'm glad you're excited! Let's make this even better."
+
+  utter_fear:
+    - text: "I understand you're feeling fearful. What can I do to help?"
+
+  utter_gratitude:
+    - text: "I'm so grateful for your kind words. Thank you!"
+
+  utter_grief:
+    - text: "I'm really sorry to hear you're feeling this way. Take your time."
+
+  utter_joy:
+    - text: "It's great to hear you're feeling joyful! What can we do to keep the mood going?"
+
+  utter_love:
+    - text: "I'm happy you're feeling loved! Let's keep spreading that positivity."
+
+  utter_nervousness:
+    - text: "I understand you're feeling nervous. It’s okay, take a deep breath."
+
+  utter_optimism:
+    - text: "It’s great to hear you're feeling optimistic! Let’s keep moving forward."
+
+  utter_pride:
+    - text: "You should feel proud! Well done!"
+
+  utter_realization:
+    - text: "It sounds like you've had a realization. How can I assist you further?"
+
+  utter_relief:
+    - text: "I'm glad you're feeling relieved. Is there anything else I can do for you?"
+
+  utter_remorse:
+    - text: "It seems you're feeling remorseful. I'm here to listen if you want to talk."
+
+  utter_sadness:
+    - text: "I'm really sorry you're feeling sad. Take your time, I'm here if you need anything."
+
+  utter_surprise:
+    - text: "It seems you're surprised! I hope it's a good surprise."
+
+  utter_neutral:
+    - text: "It seems like you're feeling neutral. Let me know if you'd like to talk or need help with something."
+
+actions:
+  - action_default_fallback
+  - action_listen
+  - action_restart

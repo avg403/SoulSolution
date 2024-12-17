@@ -1,0 +1,166 @@
+version: "3.1"
+stories:
+  - story: Greet and Admire
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: admiration
+      - action: utter_admiration
+
+  - story: Express Anger and Disappointment
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: anger
+      - action: utter_anger
+      - intent: disappointment
+      - action: utter_disappointment
+
+  - story: Show Care and Curiosity
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: caring
+      - action: utter_caring
+      - intent: curiosity
+      - action: utter_curiosity
+
+  - story: Express Amusement and Excitement
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: amusement
+      - action: utter_amusement
+      - intent: excitement
+      - action: utter_excitement
+
+  - story: Express Approval and Pride
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: approval
+      - action: utter_approval
+      - intent: pride
+      - action: utter_pride
+
+  - story: Show Gratitude and Joy
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: gratitude
+      - action: utter_gratitude
+      - intent: joy
+      - action: utter_joy
+
+  - story: Express Fear and Nervousness
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: fear
+      - action: utter_fear
+      - intent: nervousness
+      - action: utter_nervousness
+
+  - story: Show Desire and Curiosity
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: desire
+      - action: utter_desire
+      - intent: curiosity
+      - action: utter_curiosity
+
+  - story: Express Sadness and Grief
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: sadness
+      - action: utter_sadness
+      - intent: grief
+      - action: utter_grief
+
+  - story: Show Love and Remorse
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: love
+      - action: utter_love
+      - intent: remorse
+      - action: utter_remorse
+
+  - story: Express Surprise and Confusion
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: surprise
+      - action: utter_surprise
+      - intent: confusion
+      - action: utter_confusion
+
+  - story: Express Optimism and Relief
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: optimism
+      - action: utter_optimism
+      - intent: relief
+      - action: utter_relief
+
+  - story: Show Disgust and Annoyance
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: disgust
+      - action: utter_disgust
+      - intent: annoyance
+      - action: utter_annoyance
+
+  - story: Express Realization and Excitement
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: realization
+      - action: utter_realization
+      - intent: excitement
+      - action: utter_excitement
+
+  - story: Express Anger and Disapproval
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: anger
+      - action: utter_anger
+      - intent: disapproval
+      - action: utter_disapproval
+
+  - story: Show Gratitude and Surprise
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: gratitude
+      - action: utter_gratitude
+      - intent: surprise
+      - action: utter_surprise
+
+  - story: Express Embarrassment and Pride
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: embarrassment
+      - action: utter_embarrassment
+      - intent: pride
+      - action: utter_pride
+
+  - story: Show Joy and Amusement
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: joy
+      - action: utter_joy
+      - intent: amusement
+      - action: utter_amusement
+      
+  - story: Say Goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
