@@ -1,0 +1,198 @@
+version: "3.1"
+
+nlu:
+  - intent: admiration
+    examples: |
+      - I admire your work
+      - You're amazing
+      - I feel so inspired by you
+      - I'm impressed by your skills
+
+  - intent: amusement
+    examples: |
+      - That was so funny!
+      - I can't stop laughing
+      - This is hilarious
+      - I'm really amused by that
+
+  - intent: anger
+    examples: |
+      - I'm so angry right now
+      - This is frustrating
+      - I can't take this anymore
+      - I'm so upset
+
+  - intent: annoyance
+    examples: |
+      - This is so annoying
+      - I'm getting irritated
+      - Why does this keep happening?
+      - This is really bugging me
+
+  - intent: approval
+    examples: |
+      - I approve of this
+      - This is a good idea
+      - I agree with you
+      - Well done
+
+  - intent: caring
+    examples: |
+      - I care about you
+      - I'm here for you
+      - How are you feeling?
+      - Do you need help?
+
+  - intent: confusion
+    examples: |
+      - I'm not sure about this
+      - This doesn't make sense
+      - Can you explain that again?
+      - I don’t understand
+
+  - intent: curiosity
+    examples: |
+      - I'm curious about that
+      - Tell me more
+      - What’s that about?
+      - I wonder why that is
+
+  - intent: desire
+    examples: |
+      - I really want that
+      - I wish I could have it
+      - That’s something I desire
+      - I want to achieve this
+
+  - intent: disappointment
+    examples: |
+      - I’m so disappointed
+      - This is such a letdown
+      - I had high expectations
+      - This didn’t turn out the way I hoped
+
+  - intent: disapproval
+    examples: |
+      - I don't approve of this
+      - I disagree
+      - This isn't a good idea
+      - I don’t like this
+
+  - intent: disgust
+    examples: |
+      - This is disgusting
+      - I can't stand this
+      - This makes me feel sick
+      - I’m grossed out
+
+  - intent: embarrassment
+    examples: |
+      - I'm so embarrassed
+      - This is so awkward
+      - I feel like hiding
+      - I can't believe this happened
+
+  - intent: excitement
+    examples: |
+      - I'm so excited!
+      - I can’t wait!
+      - This is amazing
+      - I’m really looking forward to this
+
+  - intent: fear
+    examples: |
+      - I'm scared
+      - This is terrifying
+      - I’m afraid of this
+      - I don’t want to do this
+
+  - intent: gratitude
+    examples: |
+      - I’m so grateful
+      - Thank you so much
+      - I really appreciate this
+      - That means a lot to me
+
+  - intent: grief
+    examples: |
+      - I feel so sad
+      - This is heartbreaking
+      - I can’t believe this happened
+      - I’m in mourning
+
+  - intent: joy
+    examples: |
+      - I’m so happy
+      - I feel overjoyed
+      - This makes me smile
+      - I’m having such a great time
+
+  - intent: love
+    examples: |
+      - I love you
+      - I’m so in love
+      - I care deeply about you
+      - My heart is full
+
+  - intent: nervousness
+    examples: |
+      - I’m so nervous
+      - I feel jittery
+      - My hands are shaking
+      - I’m really anxious about this
+
+  - intent: optimism
+    examples: |
+      - I’m feeling hopeful
+      - Everything will be okay
+      - I’m staying positive
+      - Things will get better
+
+  - intent: pride
+    examples: |
+      - I’m so proud of this
+      - I feel accomplished
+      - I did it!
+      - This is my proud moment
+
+  - intent: realization
+    examples: |
+      - Oh, I just realized!
+      - That makes sense now
+      - I’ve had an epiphany
+      - I see things clearly now
+
+  - intent: relief
+    examples: |
+      - I’m relieved
+      - What a relief!
+      - I feel so much better now
+      - I can finally breathe easy
+
+  - intent: remorse
+    examples: |
+      - I regret this
+      - I feel bad about it
+      - I shouldn’t have done that
+      - I feel guilty
+
+  - intent: sadness
+    examples: |
+      - I’m feeling down
+      - I feel so sad
+      - This is really upsetting
+      - I can’t stop crying
+
+  - intent: surprise
+    examples: |
+      - I can't believe this!
+      - This is so surprising
+      - I didn’t see that coming
+      - Wow, I’m shocked
+
+  - intent: neutral
+    examples: |
+      - I’m just here
+      - I don’t feel much
+      - I’m indifferent
+      - I have no strong feelings about this
