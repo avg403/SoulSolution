@@ -3,164 +3,393 @@ stories:
   - story: Greet and Admire
     steps:
       - intent: greet
+      - action: action_set_emotion
       - action: utter_greet
       - intent: admiration
+      - action: action_set_emotion
       - action: utter_admiration
 
   - story: Express Anger and Disappointment
     steps:
       - intent: greet
+      - action: action_set_emotion
       - action: utter_greet
       - intent: anger
+      - action: action_set_emotion
       - action: utter_anger
       - intent: disappointment
+      - action: action_set_emotion
       - action: utter_disappointment
 
   - story: Show Care and Curiosity
     steps:
       - intent: greet
+      - action: action_set_emotion
       - action: utter_greet
       - intent: caring
+      - action: action_set_emotion
       - action: utter_caring
       - intent: curiosity
+      - action: action_set_emotion
       - action: utter_curiosity
 
   - story: Express Amusement and Excitement
     steps:
       - intent: greet
+      - action: action_set_emotion
       - action: utter_greet
       - intent: amusement
+      - action: action_set_emotion
       - action: utter_amusement
       - intent: excitement
+      - action: action_set_emotion
       - action: utter_excitement
 
   - story: Express Approval and Pride
     steps:
       - intent: greet
+      - action: action_set_emotion
       - action: utter_greet
       - intent: approval
+      - action: action_set_emotion
       - action: utter_approval
       - intent: pride
+      - action: action_set_emotion
       - action: utter_pride
 
   - story: Show Gratitude and Joy
     steps:
       - intent: greet
+      - action: action_set_emotion
       - action: utter_greet
       - intent: gratitude
+      - action: action_set_emotion
       - action: utter_gratitude
       - intent: joy
+      - action: action_set_emotion
       - action: utter_joy
 
   - story: Express Fear and Nervousness
     steps:
       - intent: greet
+      - action: action_set_emotion
       - action: utter_greet
       - intent: fear
+      - action: action_set_emotion
       - action: utter_fear
       - intent: nervousness
+      - action: action_set_emotion
       - action: utter_nervousness
 
   - story: Show Desire and Curiosity
     steps:
       - intent: greet
+      - action: action_set_emotion
       - action: utter_greet
       - intent: desire
+      - action: action_set_emotion
       - action: utter_desire
       - intent: curiosity
+      - action: action_set_emotion
       - action: utter_curiosity
 
   - story: Express Sadness and Grief
     steps:
       - intent: greet
+      - action: action_set_emotion
       - action: utter_greet
       - intent: sadness
+      - action: action_set_emotion
       - action: utter_sadness
       - intent: grief
+      - action: action_set_emotion
       - action: utter_grief
 
   - story: Show Love and Remorse
     steps:
       - intent: greet
+      - action: action_set_emotion
       - action: utter_greet
       - intent: love
+      - action: action_set_emotion
       - action: utter_love
       - intent: remorse
+      - action: action_set_emotion
       - action: utter_remorse
 
   - story: Express Surprise and Confusion
     steps:
       - intent: greet
+      - action: action_set_emotion
       - action: utter_greet
       - intent: surprise
+      - action: action_set_emotion
       - action: utter_surprise
       - intent: confusion
+      - action: action_set_emotion
       - action: utter_confusion
 
   - story: Express Optimism and Relief
     steps:
       - intent: greet
+      - action: action_set_emotion
       - action: utter_greet
       - intent: optimism
+      - action: action_set_emotion
       - action: utter_optimism
       - intent: relief
+      - action: action_set_emotion
       - action: utter_relief
 
   - story: Show Disgust and Annoyance
     steps:
       - intent: greet
+      - action: action_set_emotion
       - action: utter_greet
       - intent: disgust
+      - action: action_set_emotion
       - action: utter_disgust
       - intent: annoyance
+      - action: action_set_emotion
       - action: utter_annoyance
 
   - story: Express Realization and Excitement
     steps:
       - intent: greet
+      - action: action_set_emotion
       - action: utter_greet
       - intent: realization
+      - action: action_set_emotion
       - action: utter_realization
       - intent: excitement
+      - action: action_set_emotion
       - action: utter_excitement
 
   - story: Express Anger and Disapproval
     steps:
       - intent: greet
+      - action: action_set_emotion
       - action: utter_greet
       - intent: anger
+      - action: action_set_emotion
       - action: utter_anger
       - intent: disapproval
+      - action: action_set_emotion
       - action: utter_disapproval
 
   - story: Show Gratitude and Surprise
     steps:
       - intent: greet
+      - action: action_set_emotion
       - action: utter_greet
       - intent: gratitude
+      - action: action_set_emotion
       - action: utter_gratitude
       - intent: surprise
+      - action: action_set_emotion
       - action: utter_surprise
 
   - story: Express Embarrassment and Pride
     steps:
       - intent: greet
+      - action: action_set_emotion
       - action: utter_greet
       - intent: embarrassment
+      - action: action_set_emotion
       - action: utter_embarrassment
       - intent: pride
+      - action: action_set_emotion
       - action: utter_pride
 
   - story: Show Joy and Amusement
     steps:
       - intent: greet
+      - action: action_set_emotion
       - action: utter_greet
       - intent: joy
+      - action: action_set_emotion
       - action: utter_joy
       - intent: amusement
+      - action: action_set_emotion
       - action: utter_amusement
+
+  - story: Bot Challenge with Emotion
+    steps:
+      - intent: bot_challenge
+      - action: action_set_emotion
+      - action: utter_bot_challenge
       
-  - story: Say Goodbye
+  - story: Say Goodbye with Emotion
     steps:
       - intent: goodbye
-      - action: utter_goodbye
+      - action: action_set_emotion
+      - action: utter_goodbye
+
+  # Adding single-turn stories for each intent
+  - story: Handle Admiration
+    steps:
+      - intent: admiration
+      - action: action_set_emotion
+      - action: utter_admiration
+
+  - story: Handle Amusement
+    steps:
+      - intent: amusement
+      - action: action_set_emotion
+      - action: utter_amusement
+
+  - story: Handle Anger
+    steps:
+      - intent: anger
+      - action: action_set_emotion
+      - action: utter_anger
+
+  - story: Handle Annoyance
+    steps:
+      - intent: annoyance
+      - action: action_set_emotion
+      - action: utter_annoyance
+
+  - story: Handle Approval
+    steps:
+      - intent: approval
+      - action: action_set_emotion
+      - action: utter_approval
+
+  - story: Handle Caring
+    steps:
+      - intent: caring
+      - action: action_set_emotion
+      - action: utter_caring
+
+  - story: Handle Confusion
+    steps:
+      - intent: confusion
+      - action: action_set_emotion
+      - action: utter_confusion
+
+  - story: Handle Curiosity
+    steps:
+      - intent: curiosity
+      - action: action_set_emotion
+      - action: utter_curiosity
+
+  - story: Handle Desire
+    steps:
+      - intent: desire
+      - action: action_set_emotion
+      - action: utter_desire
+
+  - story: Handle Disappointment
+    steps:
+      - intent: disappointment
+      - action: action_set_emotion
+      - action: utter_disappointment
+
+  - story: Handle Disapproval
+    steps:
+      - intent: disapproval
+      - action: action_set_emotion
+      - action: utter_disapproval
+
+  - story: Handle Disgust
+    steps:
+      - intent: disgust
+      - action: action_set_emotion
+      - action: utter_disgust
+
+  - story: Handle Embarrassment
+    steps:
+      - intent: embarrassment
+      - action: action_set_emotion
+      - action: utter_embarrassment
+
+  - story: Handle Excitement
+    steps:
+      - intent: excitement
+      - action: action_set_emotion
+      - action: utter_excitement
+
+  - story: Handle Fear
+    steps:
+      - intent: fear
+      - action: action_set_emotion
+      - action: utter_fear
+
+  - story: Handle Gratitude
+    steps:
+      - intent: gratitude
+      - action: action_set_emotion
+      - action: utter_gratitude
+
+  - story: Handle Grief
+    steps:
+      - intent: grief
+      - action: action_set_emotion
+      - action: utter_grief
+
+  - story: Handle Joy
+    steps:
+      - intent: joy
+      - action: action_set_emotion
+      - action: utter_joy
+
+  - story: Handle Love
+    steps:
+      - intent: love
+      - action: action_set_emotion
+      - action: utter_love
+
+  - story: Handle Nervousness
+    steps:
+      - intent: nervousness
+      - action: action_set_emotion
+      - action: utter_nervousness
+
+  - story: Handle Optimism
+    steps:
+      - intent: optimism
+      - action: action_set_emotion
+      - action: utter_optimism
+
+  - story: Handle Pride
+    steps:
+      - intent: pride
+      - action: action_set_emotion
+      - action: utter_pride
+
+  - story: Handle Realization
+    steps:
+      - intent: realization
+      - action: action_set_emotion
+      - action: utter_realization
+
+  - story: Handle Relief
+    steps:
+      - intent: relief
+      - action: action_set_emotion
+      - action: utter_relief
+
+  - story: Handle Remorse
+    steps:
+      - intent: remorse
+      - action: action_set_emotion
+      - action: utter_remorse
+
+  - story: Handle Sadness
+    steps:
+      - intent: sadness
+      - action: action_set_emotion
+      - action: utter_sadness
+
+  - story: Handle Surprise
+    steps:
+      - intent: surprise
+      - action: action_set_emotion
+      - action: utter_surprise
+
+  - story: Handle Neutral
+    steps:
+      - intent: neutral
+      - action: action_set_emotion
+      - action: utter_neutral

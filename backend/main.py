@@ -16,22 +16,18 @@ class EmotionChatResponse(BaseModel):
     emotions: list
     bot_response: str
 
-# Function to load the Rasa agent
 async def load_rasa_agent():
     global rasa_agent
     try:
-        # Ensure correct model file path
         rasa_agent = await asyncio.to_thread(Agent.load, "rasa/models/model.tar.gz")
     except Exception as e:
         print(f"Error loading Rasa agent: {e}")
         raise HTTPException(status_code=500, detail="Error loading Rasa agent")
 
-# Startup event for FastAPI to load the Rasa agent
 @app.on_event("startup")
 async def startup_event():
     await load_rasa_agent()
 
-# Function to get Rasa bot's response
 async def get_rasa_response(text, emotions):
     global rasa_agent
 
@@ -39,28 +35,37 @@ async def get_rasa_response(text, emotions):
         raise HTTPException(status_code=500, detail="Rasa agent not initialized")
 
     try:
+        # Get primary emotion
         primary_emotion = (
             max(emotions, key=lambda x: x.get("score", 0)).get("label", "neutral")
             if emotions else "neutral"
         )
-        response = await rasa_agent.handle_text(text)
-        bot_response = response[0]['text'] if response else "I'm not sure how to respond."
-        return bot_response
+        
+        # Combine emotion with text input
+        enhanced_text = f"/inform{{\"emotion\": \"{primary_emotion}\"}} {text}"
+        responses = await rasa_agent.handle_text(enhanced_text)
+        
+        if responses and len(responses) > 0:
+            return responses[0].get("text", "I'm not sure how to respond.")
+        return "I'm not sure how to respond."
+        
     except Exception as e:
-        print(f"Rasa processing error: {e}")
-        return "Sorry, I'm having trouble processing your message right now."
+        print(f"Rasa processing error: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Rasa processing error: {str(e)}")
 
-# Endpoint for emotion-based chat with the bot
 @app.post("/emotion-chat/", response_model=EmotionChatResponse)
 async def emotion_chat(request: TextRequest):
     try:
+        # Analyze emotions
         try:
             emotions = analyze_emotion(request.text)
         except Exception as e:
             print(f"Emotion analysis error: {e}")
             emotions = []
         
+        # Get bot response with emotion context
         bot_response = await get_rasa_response(request.text, emotions)
+        
         return {
             "text": request.text,
             "emotions": emotions,
@@ -69,15 +74,13 @@ async def emotion_chat(request: TextRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-# Health check endpoint
 @app.get("/health")
 async def health_check():
     if rasa_agent is None:
         return {"status": "unhealthy", "details": "Rasa agent not loaded"}
     return {"status": "healthy"}
 
-# Run the FastAPI application
 if __name__ == "__main__":
     import uvicorn
-    asyncio.run(load_rasa_agent())  # Ensure Rasa agent is loaded before starting
+    asyncio.run(load_rasa_agent())
     uvicorn.run(app, host="0.0.0.0", port=8000)
