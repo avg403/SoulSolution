@@ -33,104 +33,428 @@ intents:
   - goodbye
   - bot_challenge
 
+slots:
+  detected_emotion:
+    type: text
+    influence_conversation: true
+    initial_value: "neutral"
+    mappings:
+    - type: custom
+
 responses:
   utter_greet:
+    - text: "Hello! You seem quite happy today. How can I assist you?"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: joy
+    - text: "Hi there. I can sense you're feeling down. I'm here to listen and help."
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: sadness
+    - text: "Hello! I notice you're feeling anxious. Let's take things one step at a time."
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: fear
     - text: "Hello! How can I assist you today?"
 
   utter_goodbye:
+    - text: "Take care! Remember to stay positive!"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: joy
+    - text: "Goodbye. Remember, tomorrow is a new day."
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: sadness
     - text: "Goodbye! Have a great day!"
 
   utter_bot_challenge:
+    - text: "I am a bot, powered by Rasa! I'm here to help and understand your emotions."
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: curiosity
     - text: "I am a bot, powered by Rasa!"
 
   utter_iamabot:
-    - text: "I am a bot, here to assist you with your queries."  
+    - text: "I am a bot, designed to understand and respond to your emotions."
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: curiosity
+    - text: "I am a bot, here to assist you with your queries."
 
   utter_admiration:
+    - text: "Your enthusiasm is wonderful! Thank you for your kind words!"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: joy
+    - text: "I appreciate your kind words. I sense some mixed feelings - would you like to talk about what's on your mind?"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: sadness
     - text: "Thank you for your kind words! It means a lot."
 
   utter_amusement:
+    - text: "Your joy is contagious! I'm glad you're having such a good time!"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: joy
+    - text: "I'm happy you found something amusing! Would you like to share what made you laugh?"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: curiosity
     - text: "I'm glad you're enjoying yourself!"
 
   utter_anger:
+    - text: "I can feel your frustration. Let's work through this together calmly."
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: anger
+    - text: "I understand you're angry. Would you like to talk about what's bothering you?"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: sadness
     - text: "I understand you're upset. Can I help with anything?"
 
   utter_annoyance:
+    - text: "I can tell this is really bothering you. Let's address what's causing your annoyance."
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: anger
+    - text: "Your frustration is valid. How can I help make this better?"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: sadness
     - text: "I see this is frustrating for you. Let me know how I can help."
 
   utter_approval:
+    - text: "Your positive energy is wonderful! I'm glad you approve!"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: joy
+    - text: "Thank you for your approval! What aspects do you like best?"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: curiosity
     - text: "I'm glad you approve! Let's keep going."
 
   utter_caring:
+    - text: "Your compassion is touching! Thank you for being so caring."
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: love
+    - text: "I appreciate your caring nature. How are you feeling?"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: sadness
     - text: "I care about you! How are you feeling?"
 
   utter_confusion:
+    - text: "Don't worry about being confused. Let's break this down together!"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: anxiety
+    - text: "I can help clarify things. What part is confusing you?"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: curiosity
     - text: "It seems you're a bit confused. Let me explain."
 
   utter_curiosity:
+    - text: "I love your enthusiasm to learn! What would you like to know more about?"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: joy
+    - text: "Your curiosity is wonderful! Let's explore your questions together."
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: curiosity
     - text: "That's interesting! What else would you like to know?"
 
   utter_desire:
+    - text: "Your enthusiasm is inspiring! Let's work on achieving what you want!"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: joy
+    - text: "I hear your desire. What steps can we take to reach your goal?"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: sadness
     - text: "I understand you want that. Let's work towards it."
 
   utter_disappointment:
+    - text: "I understand your disappointment. Let's focus on what we can improve."
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: sadness
+    - text: "I know this isn't what you hoped for. How can we make it better?"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: anger
     - text: "I'm really sorry that you're disappointed."
 
   utter_disapproval:
+    - text: "I understand your concerns. What specifically bothers you?"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: anger
+    - text: "I hear your disapproval. Would you like to discuss what's wrong?"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: sadness
     - text: "I understand you're not happy with this. Let me know how I can improve."
 
   utter_disgust:
+    - text: "I understand this is really upsetting you. Would you like to talk about it?"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: anger
+    - text: "I can tell this really bothers you. How can we address this?"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: sadness
     - text: "I can see you're disgusted by this. What can I do to change that?"
 
   utter_embarrassment:
+    - text: "Don't worry, embarrassment is a natural feeling. Let's move forward together."
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: sadness
+    - text: "Everyone feels embarrassed sometimes. How can I help you feel better?"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: anxiety
     - text: "It's okay to feel embarrassed. I'm here for you."
 
   utter_excitement:
+    - text: "Your excitement is contagious! Tell me more about what's making you so happy!"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: joy
+    - text: "I love seeing your enthusiasm! What's got you so excited?"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: curiosity
     - text: "I'm glad you're excited! Let's make this even better."
 
   utter_fear:
+    - text: "I understand you're scared. Remember to breathe - I'm here with you."
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: fear
+    - text: "Fear is natural. Let's face this together, one step at a time."
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: anxiety
     - text: "I understand you're feeling fearful. What can I do to help?"
 
   utter_gratitude:
+    - text: "Your gratitude fills me with joy! Thank you for sharing that!"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: joy
+    - text: "I'm touched by your thankfulness. It means a lot to me too!"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: love
     - text: "I'm so grateful for your kind words. Thank you!"
 
   utter_grief:
+    - text: "I'm here with you in this difficult time. Take all the time you need."
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: sadness
+    - text: "Grief is a journey. I'm here to listen whenever you need me."
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: pain
     - text: "I'm really sorry to hear you're feeling this way. Take your time."
 
   utter_joy:
+    - text: "Your happiness is infectious! Let's celebrate this wonderful moment!"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: joy
+    - text: "I'm so happy to see you in such good spirits! What's making you so joyful?"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: excitement
     - text: "It's great to hear you're feeling joyful! What can we do to keep the mood going?"
 
   utter_love:
+    - text: "Love is such a beautiful emotion! Thank you for sharing it!"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: joy
+    - text: "What a wonderful feeling to express! Tell me more about it."
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: excitement
     - text: "I'm happy you're feeling loved! Let's keep spreading that positivity."
 
   utter_nervousness:
-    - text: "I understand you're feeling nervous. It’s okay, take a deep breath."
+    - text: "Take deep breaths. We'll handle this together, step by step."
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: fear
+    - text: "It's okay to feel nervous. Would you like to talk about what's causing it?"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: anxiety
+    - text: "I understand you're feeling nervous. It's okay, take a deep breath."
 
   utter_optimism:
-    - text: "It’s great to hear you're feeling optimistic! Let’s keep moving forward."
+    - text: "Your positive outlook is inspiring! Let's build on that energy!"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: joy
+    - text: "I love your optimistic spirit! What are you looking forward to?"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: excitement
+    - text: "It's great to hear you're feeling optimistic! Let's keep moving forward."
 
   utter_pride:
+    - text: "You should be proud! Your accomplishment is worth celebrating!"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: joy
+    - text: "I can hear the pride in your words! Tell me more about your achievement!"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: excitement
     - text: "You should feel proud! Well done!"
 
   utter_realization:
+    - text: "Those 'aha' moments are wonderful! What did you discover?"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: joy
+    - text: "Realizations can be powerful. Would you like to share what you learned?"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: curiosity
     - text: "It sounds like you've had a realization. How can I assist you further?"
 
   utter_relief:
+    - text: "I'm so glad you're feeling relieved! Let's keep this positive energy going!"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: joy
+    - text: "Relief is such a welcome feeling. What helped resolve the situation?"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: curiosity
     - text: "I'm glad you're feeling relieved. Is there anything else I can do for you?"
 
   utter_remorse:
+    - text: "It takes courage to acknowledge remorse. Would you like to talk about it?"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: sadness
+    - text: "Everyone makes mistakes. How can we learn from this?"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: anxiety
     - text: "It seems you're feeling remorseful. I'm here to listen if you want to talk."
 
   utter_sadness:
+    - text: "I'm here with you in this difficult moment. Would you like to talk about it?"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: sadness
+    - text: "It's okay to feel sad. Take all the time you need."
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: grief
     - text: "I'm really sorry you're feeling sad. Take your time, I'm here if you need anything."
 
   utter_surprise:
+    - text: "Wow! What an unexpected moment! Tell me more about what surprised you!"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: joy
+    - text: "Surprises can be overwhelming. Would you like to talk about it?"
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: anxiety
     - text: "It seems you're surprised! I hope it's a good surprise."
 
   utter_neutral:
+    - text: "Sometimes a neutral state of mind can be quite peaceful."
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: calm
+    - text: "Taking things as they come - that's a good approach."
+      condition:
+        - type: slot
+          name: detected_emotion
+          value: neutral
     - text: "It seems like you're feeling neutral. Let me know if you'd like to talk or need help with something."
 
 actions:
   - action_default_fallback
   - action_listen
-  - action_restart
+  - action_restart
+  - action_set_emotion
