@@ -1,0 +1,173 @@
+/* MoodCheckIn.css */
+
+
+body {
+    background-color: white; /* Change this to any color you prefer */
+  }
+/* Container styling */
+.mood-checkin-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Title styling */
+  .mood-checkin-title {
+    font-size: 2rem;
+    color: #343a40;
+    margin-bottom: 2rem;
+  }
+  
+  /* Mood options container */
+  .mood-options {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for mood options */
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    max-width: 800px; /* Limit width for better spacing */
+  }
+  
+  /* Mood option styling */
+  .mood-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 120px;
+  }
+  
+  /* Active mood option styling */
+  .mood-option.active {
+    background-color: #41728f;
+    color: white;
+  }
+  
+  /* Hover effect for mood options */
+  .mood-option:hover {
+    background-color: #41728f;
+    color: white;
+    transform: scale(1.05);
+  }
+  
+  /* Emoji styling */
+  .mood-emoji {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Label styling */
+  .mood-label {
+    font-size: 1rem;
+    color: inherit;
+  }
+  
+  /* Selected mood text styling */
+  .selected-mood {
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    color: #6c757d;
+  }
+  
+  /* Submit button styling */
+  .submit-button2 {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    color: white;
+    background-color: #79afce;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1.5rem;
+    width: auto; /* Ensures it doesn't stretch */
+    min-width: 120px; /* Optional: Adjust as needed */
+    display: inline-block;
+  }
+  
+  /* Hover effect for submit button */
+  .submit-button2:hover {
+    background-color: #184d6b;
+    transform: scale(1.05);
+  }
+/* Close Button Styling */
+.close-page-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-page-button:hover {
+  color: #dc3545; /* Change color on hover */
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    z-index: 1000; /* Ensure modal is above other content */
+    height: 100vh; /* Full height of viewport */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  }
+  
+  /* Modal Body */
+  .modal-body {
+    margin-bottom: 20px;
+    font-size: 18px;
+    text-align: center;
+  }
+  
+  /* Modal Footer */
+  .modal-footer {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .modal-footer button {
+    padding: 10px 20px;
+    border: none;
+    background-color: rgb(216, 58, 58);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  /* Close button hover effect */
+  .modal-footer button:hover {
+    background-color: red;
+  }
+  

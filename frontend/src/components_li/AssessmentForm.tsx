@@ -1,7 +1,8 @@
 import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
-import { collection, addDoc } from "firebase/firestore";
-import { db } from "../firebase"; // Firebase import
+import { collection, addDoc, doc, updateDoc, getDoc } from "firebase/firestore";
+import { db, auth } from "../firebase"; // Firebase import
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./AssessmentForm.css"; // Import the CSS for styling
 
 // Define the type for the form data
@@ -9,34 +10,45 @@ interface FormData {
   username: string;
   age: string;
   gender: string;
-  occupation: string;
   mood: string;
   stressFrequency: string;
-  sleepQuality: string;
   professionalHelp: string;
-  copingStrategies: string;
 }
 
 const AssessmentForm: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
-    username: "John Doe", // Default name
-    age: "25", // Default age
-    gender: "", // Default gender
-    occupation: "Student", // Default occupation
+    username: "",
+    age: "",
+    gender: "",
     mood: "",
     stressFrequency: "",
-    sleepQuality: "",
     professionalHelp: "",
-    copingStrategies: "",
   });
 
   const [error, setError] = useState<string>(""); // Error message state
   const [loading, setLoading] = useState<boolean>(false); // Loading state to prevent multiple submissions
+  const [showModal, setShowModal] = useState<boolean>(false); // Modal visibility state
   const navigate = useNavigate();
 
   useEffect(() => {
-    window.scrollTo(0, 0); // Scroll to top on component load
-  }, []);
+    // Check if it's the first login
+    const checkFirstLogin = async () => {
+      const user = auth.currentUser;
+      if (user) {
+        const userDocRef = doc(db, "users", user.uid);
+        const userDoc = await getDoc(userDocRef);
+
+        if (userDoc.exists()) {
+          const userData = userDoc.data();
+          if (userData?.firstLogin === false) {
+            navigate("/dailymood"); // Redirect to daily mood check-in if not first login
+          }
+        }
+      }
+    };
+
+    checkFirstLogin();
+  }, [navigate]);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -50,35 +62,13 @@ const AssessmentForm: React.FC = () => {
     setError(""); // Reset error message
 
     // Basic client-side validation
-    if (
-      !formData.username ||
-      !formData.age ||
-      !formData.gender ||
-      !formData.occupation
-    ) {
+    if (!formData.username || !formData.age || !formData.gender) {
       setError("Please fill in all required fields.");
-      window.scrollTo(0, 0); // Scroll to top on error
       return;
     }
 
     if (parseInt(formData.age) <= 0 || parseInt(formData.age) > 120) {
       setError("Please enter a valid age.");
-      window.scrollTo(0, 0);
-      return;
-    }
-
-    if (parseInt(formData.mood) < 1 || parseInt(formData.mood) > 10) {
-      setError("Mood rating must be between 1 and 10.");
-      window.scrollTo(0, 0);
-      return;
-    }
-
-    if (
-      parseInt(formData.sleepQuality) < 1 ||
-      parseInt(formData.sleepQuality) > 10
-    ) {
-      setError("Sleep quality rating must be between 1 and 10.");
-      window.scrollTo(0, 0);
       return;
     }
 
@@ -87,135 +77,200 @@ const AssessmentForm: React.FC = () => {
       // Store data in Firebase Firestore
       await addDoc(collection(db, "assessments"), formData);
       console.log("Submitted Form Data:", formData);
-      alert("Assessment Submitted Successfully!");
 
       // Reset form data
       setFormData({
-        username: "John Doe",
-        age: "25",
+        username: "",
+        age: "",
         gender: "",
-        occupation: "Student",
         mood: "",
         stressFrequency: "",
-        sleepQuality: "",
         professionalHelp: "",
-        copingStrategies: "",
       });
 
-      window.scrollTo(0, 0); // Scroll to top after submission
-      // Navigate to the chat interface
-      navigate("/chatinterface");
+      // Update the firstLogin flag to false after the user completes the assessment
+      const user = auth.currentUser;
+      if (user) {
+        const userDocRef = doc(db, "users", user.uid);
+        await updateDoc(userDocRef, {
+          firstLogin: false,
+        });
+      }
+
+      // Show modal after successful submission
+      setShowModal(true);
     } catch (error) {
       console.error("Error submitting form: ", error);
       setError(
         "There was an error submitting the assessment. Please try again."
       );
-      window.scrollTo(0, 0); // Scroll to top on error
     } finally {
       setLoading(false);
     }
   };
 
+  const handleModalClose = () => {
+    setShowModal(false);
+    navigate("/dailymood"); // Navigate to the next page after closing modal
+  };
+
   return (
-    <div className="container">
-      <h2 className="text-center mb-4">Initial Assessment Form</h2>
+    <div className="assessment-form">
+      <div className="container">
+        <h2 className="text-center mb-4">Initial Assessment Form</h2>
 
-      {error && <div className="alert alert-danger">{error}</div>}
+        {error && <div className="alert alert-danger">{error}</div>}
 
-      <form onSubmit={handleSubmit} noValidate>
-        <div className="mb-3">
-          <label htmlFor="username" className="form-label">
-            Username
-          </label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            className="form-control"
-            value={formData.username}
-            onChange={handleChange}
-            placeholder="Enter your username"
-            required
-          />
-        </div>
-
-        {/* Wrap Age and Gender fields in the same row */}
-        <div className="row mb-3">
-          <div className="col-md-6">
-            <label htmlFor="age" className="form-label">
-              Age
+        <form onSubmit={handleSubmit} noValidate>
+          <div className="mb-3">
+            <label htmlFor="username" className="form-label">
+              Username
             </label>
             <input
-              type="number"
-              id="age"
-              name="age"
+              type="text"
+              id="username"
+              name="username"
               className="form-control"
-              value={formData.age}
+              value={formData.username}
               onChange={handleChange}
-              min="1"
-              max="120"
+              placeholder="Enter your username"
               required
             />
           </div>
 
-          <div className="col-md-6">
-            <label htmlFor="gender" className="form-label">
-              Gender
+          <div className="row mb-3">
+            <div className="col-md-6">
+              <label htmlFor="age" className="form-label">
+                Age
+              </label>
+              <input
+                type="number"
+                id="age"
+                name="age"
+                className="form-control"
+                value={formData.age}
+                onChange={handleChange}
+                placeholder="Enter your age"
+                min="1"
+                max="120"
+                required
+              />
+            </div>
+
+            <div className="col-md-6">
+              <label htmlFor="gender" className="form-label">
+                Gender
+              </label>
+              <select
+                id="gender"
+                name="gender"
+                className="form-select"
+                value={formData.gender}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="mb-3">
+            <label htmlFor="mood" className="form-label">
+              How do you usually feel most of the time?
             </label>
             <select
-              id="gender"
-              name="gender"
+              id="mood"
+              name="mood"
               className="form-select"
-              value={formData.gender}
+              value={formData.mood}
               onChange={handleChange}
               required
             >
-              <option value="">Select Gender</option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-              <option value="Other">Other</option>
+              <option value="">Select Mood</option>
+              <option value="Happy">Happy</option>
+              <option value="Neutral">Neutral</option>
+              <option value="Sad">Sad</option>
             </select>
           </div>
+
+          <div className="mb-3">
+            <label htmlFor="stressFrequency" className="form-label">
+              Stress Frequency
+            </label>
+            <select
+              id="stressFrequency"
+              name="stressFrequency"
+              className="form-select"
+              value={formData.stressFrequency}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Select Frequency</option>
+              <option value="Never">Never</option>
+              <option value="Rarely">Rarely</option>
+              <option value="Often">Often</option>
+              <option value="Very Often">Very Often</option>
+              <option value="Always">Always</option>
+            </select>
+          </div>
+
+          <div className="mb-3">
+            <label htmlFor="professionalHelp" className="form-label">
+              Have you ever received professional help before?
+            </label>
+            <select
+              id="professionalHelp"
+              name="professionalHelp"
+              className="form-select"
+              value={formData.professionalHelp}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Select Option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+
+          <button
+            type="submit"
+            className="btn btn-success w-100"
+            disabled={loading}
+          >
+            {loading ? "Submitting..." : "Finish Assessment"}
+          </button>
+        </form>
+      </div>
+
+      {/* Modal for Success Message */}
+      <div
+        className={`modal ${showModal ? "show" : ""}`}
+        tabIndex={-1}
+        style={{ display: showModal ? "block" : "none" }}
+      >
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title">Success</h5>
+            </div>
+            <div className="modal-body">
+              <p>Assessment Submitted Successfully!</p>
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={handleModalClose}
+              >
+                OK
+              </button>
+            </div>
+          </div>
         </div>
-
-        {/* Other fields can follow the same layout logic */}
-        {Object.entries(formData).map(
-          ([key, value]) =>
-            key !== "username" &&
-            key !== "age" &&
-            key !== "gender" &&
-            key !== "mentalHealth" &&
-            key !== "stressSources" && (
-              <div className="mb-3" key={key}>
-                <label htmlFor={key} className="form-label">
-                  {key
-                    .replace(/([A-Z])/g, " $1")
-                    .replace(/^./, (str) => str.toUpperCase())}
-                </label>
-                <input
-                  type={
-                    key === "mood" || key === "sleepQuality" ? "text" : "text"
-                  }
-                  id={key}
-                  name={key}
-                  className="form-control"
-                  value={value}
-                  onChange={handleChange}
-                  placeholder={`Enter your ${key}`}
-                  required={key !== "copingStrategies"}
-                />
-              </div>
-            )
-        )}
-
-        <button
-          type="submit"
-          className="btn btn-success w-100"
-          disabled={loading}
-        >
-          {loading ? "Submitting..." : "Finish Assessment"}
-        </button>
-      </form>
+      </div>
     </div>
   );
 };
