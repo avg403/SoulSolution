@@ -1,395 +1,428 @@
 version: "3.1"
+
 stories:
-  - story: Greet and Admire
+#28 emotions
+  - story: happy path greeting
     steps:
       - intent: greet
-      - action: action_set_emotion
       - action: utter_greet
-      - intent: admiration
-      - action: action_set_emotion
-      - action: utter_admiration
+      - intent: how_are_you
+      - action: utter_how_are_you
 
-  - story: Express Anger and Disappointment
-    steps:
-      - intent: greet
-      - action: action_set_emotion
-      - action: utter_greet
-      - intent: anger
-      - action: action_set_emotion
-      - action: utter_anger
-      - intent: disappointment
-      - action: action_set_emotion
-      - action: utter_disappointment
-
-  - story: Show Care and Curiosity
-    steps:
-      - intent: greet
-      - action: action_set_emotion
-      - action: utter_greet
-      - intent: caring
-      - action: action_set_emotion
-      - action: utter_caring
-      - intent: curiosity
-      - action: action_set_emotion
-      - action: utter_curiosity
-
-  - story: Express Amusement and Excitement
-    steps:
-      - intent: greet
-      - action: action_set_emotion
-      - action: utter_greet
-      - intent: amusement
-      - action: action_set_emotion
-      - action: utter_amusement
-      - intent: excitement
-      - action: action_set_emotion
-      - action: utter_excitement
-
-  - story: Express Approval and Pride
-    steps:
-      - intent: greet
-      - action: action_set_emotion
-      - action: utter_greet
-      - intent: approval
-      - action: action_set_emotion
-      - action: utter_approval
-      - intent: pride
-      - action: action_set_emotion
-      - action: utter_pride
-
-  - story: Show Gratitude and Joy
-    steps:
-      - intent: greet
-      - action: action_set_emotion
-      - action: utter_greet
-      - intent: gratitude
-      - action: action_set_emotion
-      - action: utter_gratitude
-      - intent: joy
-      - action: action_set_emotion
-      - action: utter_joy
-
-  - story: Express Fear and Nervousness
-    steps:
-      - intent: greet
-      - action: action_set_emotion
-      - action: utter_greet
-      - intent: fear
-      - action: action_set_emotion
-      - action: utter_fear
-      - intent: nervousness
-      - action: action_set_emotion
-      - action: utter_nervousness
-
-  - story: Show Desire and Curiosity
-    steps:
-      - intent: greet
-      - action: action_set_emotion
-      - action: utter_greet
-      - intent: desire
-      - action: action_set_emotion
-      - action: utter_desire
-      - intent: curiosity
-      - action: action_set_emotion
-      - action: utter_curiosity
-
-  - story: Express Sadness and Grief
-    steps:
-      - intent: greet
-      - action: action_set_emotion
-      - action: utter_greet
-      - intent: sadness
-      - action: action_set_emotion
-      - action: utter_sadness
-      - intent: grief
-      - action: action_set_emotion
-      - action: utter_grief
-
-  - story: Show Love and Remorse
-    steps:
-      - intent: greet
-      - action: action_set_emotion
-      - action: utter_greet
-      - intent: love
-      - action: action_set_emotion
-      - action: utter_love
-      - intent: remorse
-      - action: action_set_emotion
-      - action: utter_remorse
-
-  - story: Express Surprise and Confusion
-    steps:
-      - intent: greet
-      - action: action_set_emotion
-      - action: utter_greet
-      - intent: surprise
-      - action: action_set_emotion
-      - action: utter_surprise
-      - intent: confusion
-      - action: action_set_emotion
-      - action: utter_confusion
-
-  - story: Express Optimism and Relief
-    steps:
-      - intent: greet
-      - action: action_set_emotion
-      - action: utter_greet
-      - intent: optimism
-      - action: action_set_emotion
-      - action: utter_optimism
-      - intent: relief
-      - action: action_set_emotion
-      - action: utter_relief
-
-  - story: Show Disgust and Annoyance
-    steps:
-      - intent: greet
-      - action: action_set_emotion
-      - action: utter_greet
-      - intent: disgust
-      - action: action_set_emotion
-      - action: utter_disgust
-      - intent: annoyance
-      - action: action_set_emotion
-      - action: utter_annoyance
-
-  - story: Express Realization and Excitement
-    steps:
-      - intent: greet
-      - action: action_set_emotion
-      - action: utter_greet
-      - intent: realization
-      - action: action_set_emotion
-      - action: utter_realization
-      - intent: excitement
-      - action: action_set_emotion
-      - action: utter_excitement
-
-  - story: Express Anger and Disapproval
-    steps:
-      - intent: greet
-      - action: action_set_emotion
-      - action: utter_greet
-      - intent: anger
-      - action: action_set_emotion
-      - action: utter_anger
-      - intent: disapproval
-      - action: action_set_emotion
-      - action: utter_disapproval
-
-  - story: Show Gratitude and Surprise
-    steps:
-      - intent: greet
-      - action: action_set_emotion
-      - action: utter_greet
-      - intent: gratitude
-      - action: action_set_emotion
-      - action: utter_gratitude
-      - intent: surprise
-      - action: action_set_emotion
-      - action: utter_surprise
-
-  - story: Express Embarrassment and Pride
-    steps:
-      - intent: greet
-      - action: action_set_emotion
-      - action: utter_greet
-      - intent: embarrassment
-      - action: action_set_emotion
-      - action: utter_embarrassment
-      - intent: pride
-      - action: action_set_emotion
-      - action: utter_pride
-
-  - story: Show Joy and Amusement
-    steps:
-      - intent: greet
-      - action: action_set_emotion
-      - action: utter_greet
-      - intent: joy
-      - action: action_set_emotion
-      - action: utter_joy
-      - intent: amusement
-      - action: action_set_emotion
-      - action: utter_amusement
-
-  - story: Bot Challenge with Emotion
-    steps:
-      - intent: bot_challenge
-      - action: action_set_emotion
-      - action: utter_bot_challenge
-      
-  - story: Say Goodbye with Emotion
+  - story: goodbye path
     steps:
       - intent: goodbye
-      - action: action_set_emotion
       - action: utter_goodbye
 
-  # Adding single-turn stories for each intent
-  - story: Handle Admiration
+  - story: bot challenge path
     steps:
-      - intent: admiration
-      - action: action_set_emotion
+      - intent: bot_challenge
+      - action: utter_bot_challenge
+
+  - story: help request path
+    steps:
+      - intent: help
+      - action: utter_help
+      - intent: user_need_help
+      - action: utter_user_need_help
+
+  - story: thank you path
+    steps:
+      - intent: thank
+      - action: utter_thank
+
+  - story: ask capabilities path
+    steps:
+      - intent: ask_capabilities
+      - action: utter_ask_capabilities
+
+  - story: ask name path
+    steps:
+      - intent: ask_name
+      - action: utter_ask_name
+
+
+# Emotion Expression Stories
+  - story: admiration expression
+    steps:
+      - intent: express_admiration
       - action: utter_admiration
 
-  - story: Handle Amusement
+  - story: amusement expression
     steps:
-      - intent: amusement
-      - action: action_set_emotion
+      - intent: express_amusement
       - action: utter_amusement
 
-  - story: Handle Anger
+  - story: anger expression
     steps:
-      - intent: anger
-      - action: action_set_emotion
+      - intent: express_anger
       - action: utter_anger
 
-  - story: Handle Annoyance
+  - story: annoyance expression
     steps:
-      - intent: annoyance
-      - action: action_set_emotion
+      - intent: express_annoyance
       - action: utter_annoyance
 
-  - story: Handle Approval
+  - story: approval expression
     steps:
-      - intent: approval
-      - action: action_set_emotion
+      - intent: express_approval
       - action: utter_approval
 
-  - story: Handle Caring
+  - story: caring expression
     steps:
-      - intent: caring
-      - action: action_set_emotion
+      - intent: express_caring
       - action: utter_caring
 
-  - story: Handle Confusion
+  - story: confusion expression
     steps:
-      - intent: confusion
-      - action: action_set_emotion
+      - intent: express_confusion
       - action: utter_confusion
 
-  - story: Handle Curiosity
+  - story: curiosity expression
     steps:
-      - intent: curiosity
-      - action: action_set_emotion
+      - intent: express_curiosity
       - action: utter_curiosity
 
-  - story: Handle Desire
+  - story: desire expression
     steps:
-      - intent: desire
-      - action: action_set_emotion
+      - intent: express_desire
       - action: utter_desire
 
-  - story: Handle Disappointment
+  - story: disappointment expression
     steps:
-      - intent: disappointment
-      - action: action_set_emotion
+      - intent: express_disappointment
       - action: utter_disappointment
 
-  - story: Handle Disapproval
+  - story: disapproval expression
     steps:
-      - intent: disapproval
-      - action: action_set_emotion
+      - intent: express_disapproval
       - action: utter_disapproval
 
-  - story: Handle Disgust
+  - story: disgust expression
     steps:
-      - intent: disgust
-      - action: action_set_emotion
+      - intent: express_disgust
       - action: utter_disgust
 
-  - story: Handle Embarrassment
+  - story: embarrassment expression
     steps:
-      - intent: embarrassment
-      - action: action_set_emotion
+      - intent: express_embarrassment
       - action: utter_embarrassment
 
-  - story: Handle Excitement
+  - story: excitement expression
     steps:
-      - intent: excitement
-      - action: action_set_emotion
+      - intent: express_excitement
       - action: utter_excitement
 
-  - story: Handle Fear
+  - story: fear expression
     steps:
-      - intent: fear
-      - action: action_set_emotion
+      - intent: express_fear
       - action: utter_fear
 
-  - story: Handle Gratitude
+  - story: gratitude expression
     steps:
-      - intent: gratitude
-      - action: action_set_emotion
+      - intent: express_gratitude
       - action: utter_gratitude
 
-  - story: Handle Grief
+  - story: grief expression
     steps:
-      - intent: grief
-      - action: action_set_emotion
+      - intent: express_grief
       - action: utter_grief
 
-  - story: Handle Joy
+  - story: joy expression
     steps:
-      - intent: joy
-      - action: action_set_emotion
+      - intent: express_joy
       - action: utter_joy
 
-  - story: Handle Love
+  - story: love expression
     steps:
-      - intent: love
-      - action: action_set_emotion
+      - intent: express_love
       - action: utter_love
 
-  - story: Handle Nervousness
+  - story: nervousness expression
     steps:
-      - intent: nervousness
-      - action: action_set_emotion
+      - intent: express_nervousness
       - action: utter_nervousness
 
-  - story: Handle Optimism
+  - story: neutral expression
     steps:
-      - intent: optimism
-      - action: action_set_emotion
+      - intent: express_neutral
+      - action: utter_neutral
+
+  - story: optimism expression
+    steps:
+      - intent: express_optimism
       - action: utter_optimism
 
-  - story: Handle Pride
+  - story: pride expression
     steps:
-      - intent: pride
-      - action: action_set_emotion
+      - intent: express_pride
       - action: utter_pride
 
-  - story: Handle Realization
+  - story: realization expression
     steps:
-      - intent: realization
-      - action: action_set_emotion
+      - intent: express_realization
       - action: utter_realization
 
-  - story: Handle Relief
+  - story: relief expression
     steps:
-      - intent: relief
-      - action: action_set_emotion
+      - intent: express_relief
       - action: utter_relief
 
-  - story: Handle Remorse
+  - story: remorse expression
     steps:
-      - intent: remorse
-      - action: action_set_emotion
+      - intent: express_remorse
       - action: utter_remorse
 
-  - story: Handle Sadness
+  - story: sadness expression
     steps:
-      - intent: sadness
-      - action: action_set_emotion
+      - intent: express_sadness
       - action: utter_sadness
 
-  - story: Handle Surprise
+  - story: surprise expression
     steps:
-      - intent: surprise
-      - action: action_set_emotion
+      - intent: express_surprise
       - action: utter_surprise
 
-  - story: Handle Neutral
+
+
+#random
+  - story: bot name
     steps:
-      - intent: neutral
-      - action: action_set_emotion
-      - action: utter_neutral
+      - intent: bot_name
+      - action: utter_bot_name
+
+
+
+  - story: bot name story
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: bot_name
+      - action: utter_bot_name
+
+  - story: bot name after help
+    steps:
+      - intent: help
+      - action: utter_help
+      - intent: bot_name
+      - action: utter_bot_name
+
+  - story: verify bot name and continue
+    steps:
+      - intent: bot_name
+      - action: utter_bot_name
+      - intent: thank
+      - action: utter_thank
+
+  - story: ask name during conversation
+    steps:
+      - intent: user_need_help
+      - action: utter_user_need_help
+      - intent: bot_name
+      - action: utter_bot_name
+      - intent: affirm
+      - action: utter_affirm
+
+  - story: bot name and goodbye
+    steps:
+      - intent: bot_name
+      - action: utter_bot_name
+      - intent: goodbye
+      - action: utter_goodbye
+
+
+
+  # Combined Emotional Conversation Paths
+  - story: emotional greeting path
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: express_sadness
+      - action: utter_sadness
+      - intent: thank
+      - action: utter_thank
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: help with emotions path
+    steps:
+      - intent: user_need_help
+      - action: utter_user_need_help
+      - intent: express_fear
+      - action: utter_fear
+      - intent: express_grief
+      - action: utter_grief
+      - intent: thank
+      - action: utter_thank
+
+  - story: mixed emotions path
+    steps:
+      - intent: express_confusion
+      - action: utter_confusion
+      - intent: express_fear  
+      - intent: express_relief
+      - action: utter_relief
+
+  # Interactive paths
+  - story: restart conversation
+    steps:
+      - intent: restart
+      - action: utter_restart
+      - intent: greet
+      - action: utter_greet
+
+  - story: stop conversation
+    steps:
+      - intent: stop
+      - action: utter_stop
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: out of scope path
+    steps:
+      - intent: out_of_scope
+      - action: utter_out_of_scope
+      - intent: how_are_you
+      - action: utter_how_are_you
+
+  - story: affirmation path
+    steps:
+      - intent: affirm
+      - action: utter_affirm
+
+  - story: denial path
+    steps:
+      - intent: deny
+      - action: utter_deny
+
+
+
+
+
+
+
+
+
+
+
+
+  # Academic & Work paths
+  - story: express academic stress path
+    steps:
+      - intent: express_academic_stress
+      - action: utter_express_academic_stress
+
+  - story: express work stress path
+    steps:
+      - intent: express_work_stress
+      - action: utter_express_work_stress
+
+  - story: express performance anxiety path
+    steps:
+      - intent: express_performance_anxiety
+      - action: utter_express_performance_anxiety
+
+  # Relationship & Family paths
+  - story: express relationship problems path
+    steps:
+      - intent: express_relationship_problems
+      - action: utter_express_relationship_problems
+
+  - story: express family conflict path
+    steps:
+      - intent: express_family_conflict
+      - action: utter_express_family_conflict
+
+  - story: express divorce concerns path
+    steps:
+      - intent: express_divorce_concerns
+      - action: utter_express_divorce_concerns
+
+  - story: express loneliness path
+    steps:
+      - intent: express_loneliness
+      - action: utter_express_loneliness
+
+  # Mental Health Condition paths
+  - story: express depression path
+    steps:
+      - intent: express_depression
+      - action: utter_express_depression
+
+  - story: express anxiety path
+    steps:
+      - intent: express_anxiety
+      - action: utter_express_anxiety
+
+  - story: express addiction path
+    steps:
+      - intent: express_addiction
+      - action: utter_express_addiction
+
+  - story: express eating disorder path
+    steps:
+      - intent: express_eating_disorder
+      - action: utter_express_eating_disorder
+
+  - story: express phobia path
+    steps:
+      - intent: express_phobia
+      - action: utter_express_phobia
+
+  # Crisis & Trauma paths
+  - story: express suicidal thoughts path
+    steps:
+      - intent: express_suicidal_thoughts
+      - action: utter_express_suicidal_thoughts
+
+  - story: express grief loss path
+    steps:
+      - intent: express_grief_loss
+      - action: utter_express_grief_loss
+
+  - story: express trauma path
+    steps:
+      - intent: express_trauma
+      - action: utter_express_trauma
+
+  - story: express abuse path
+    steps:
+      - intent: express_abuse
+      - action: utter_express_abuse
+
+  - story: express bullying path
+    steps:
+      - intent: express_bullying
+      - action: utter_express_bullying
+
+  # Health & Medical paths
+  - story: express chronic illness path
+    steps:
+      - intent: express_chronic_illness
+      - action: utter_express_chronic_illness
+
+  - story: express reproductive health path
+    steps:
+      - intent: express_reproductive_health
+      - action: utter_express_reproductive_health
+
+  - story: express body image path
+    steps:
+      - intent: express_body_image
+      - action: utter_express_body_image
+
+  # Life Challenges paths
+  - story: express financial stress path
+    steps:
+      - intent: express_financial_stress
+      - action: utter_express_financial_stress
+
+  - story: express identity struggles path
+    steps:
+      - intent: express_identity_struggles
+      - action: utter_express_identity_struggles
+
+  - story: express social difficulties path
+    steps:
+      - intent: express_social_difficulties
+      - action: utter_express_social_difficulties

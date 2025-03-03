@@ -1,198 +1,2078 @@
 version: "3.1"
 
 nlu:
-  - intent: admiration
+#common conversation
+  - intent: greet
     examples: |
-      - I admire your work
-      - You're amazing
-      - I feel so inspired by you
-      - I'm impressed by your skills
+      - hey there
+      - hello
+      - hi
+      - hai
+      - good morning
+      - good evening
+      - hey
+      - what's up
+      - heya
+      - hello there
+      - hi there
+      - howdy
+      - hiya
+      - morning
+      - evening
+      - yo
+      - sup
+      - helo
+      - hai
+      - hi!!
+      - hello!!
+      - heyyy
+      - hellooo
+      - hi friend
+      - hey buddy
+      - greetings
+      - hello friend
+      - hi there!
+      - hey there!
+      - wassup
+      - hi bot
 
-  - intent: amusement
+  - intent: goodbye
     examples: |
-      - That was so funny!
-      - I can't stop laughing
-      - This is hilarious
-      - I'm really amused by that
+      - bye
+      - goodbye
+      - see you later
+      - see ya
+      - bye bye
+      - catch you later
+      - have a good one
+      - take care
+      - until next time
+      - gotta go
+      - farewell
+      - cya
+      - byee
+      - bye for now
+      - catch you soon
+      - gtg
+      - im leaving
+      - have to leave
+      - bye!
+      - good bye
+      - see u
+      - bye bye!
+      - later
+      - talk to you later
+      - goodbye!
+      - see you soon
+      - thanks bye
+      - ok bye
+      - ttyl
 
-  - intent: anger
+  - intent: affirm
     examples: |
-      - I'm so angry right now
-      - This is frustrating
-      - I can't take this anymore
-      - I'm so upset
+      - yes
+      - yeah
+      - indeed
+      - that's right
+      - correct
+      - yep
+      - right
+      - ok
+      - sure
+      - sounds good
+      - that works
+      - absolutely
+      - definitely
+      - of course
+      - yup
+      - ya
+      - okay
+      - ok sure
+      - alright
+      - fine
+      - i agree
+      - agreed
+      - yes please
+      - yes that's right
+      - yeah that's right
+      - yess
+      - yepp
+      - ye
+      - precisely
+      - exactly
 
-  - intent: annoyance
+  - intent: deny
     examples: |
-      - This is so annoying
-      - I'm getting irritated
-      - Why does this keep happening?
-      - This is really bugging me
+      - no
+      - nope
+      - not really
+      - no way
+      - definitely not
+      - never
+      - i don't think so
+      - don't like that
+      - no that's wrong
+      - not correct
+      - incorrect
+      - no thanks
+      - nah
+      - not at all
+      - absolutely not
+      - not exactly
+      - no no
+      - noo
+      - nooo
+      - no way!
+      - nope!
+      - na
+      - negative
+      - not right
+      - that's wrong
+      - wrong
+      - false
+      - that's not right
+      - that's incorrect
+      - i disagree
+      - not what i meant
 
-  - intent: approval
+  - intent: thank
     examples: |
-      - I approve of this
-      - This is a good idea
-      - I agree with you
-      - Well done
+      - thanks
+      - thank you
+      - thanks a lot
+      - thank you so much
+      - appreciate it
+      - thanks for helping
+      - that's helpful
+      - thank you for your help
+      - thx
+      - thankyou
+      - thanks!
+      - thank u
+      - tysm
+      - ty
+      - thanks for that
+      - that helps
+      - much appreciated
+      - appreciate your help
+      - grateful
+      - thank you!
+      - thanks a bunch
+      - thanks mate
+      - you're helpful
+      - that was helpful
+      - thanks for listening
+      - thank you for understanding
+      - thanks for your time
+      - really appreciate it
 
-  - intent: caring
+  - intent: bot_challenge
     examples: |
-      - I care about you
-      - I'm here for you
-      - How are you feeling?
-      - Do you need help?
+      - are you a bot?
+      - are you a human?
+      - am i talking to a bot?
+      - am i talking to a human?
+      - are you real?
+      - are you really a bot?
+      - what are you?
+      - who are you?
+      - are you ai?
+      - are you artificial intelligence?
+      - you're a bot aren't you
+      - i'm talking to a bot right
+      - this is a bot
+      - this must be a bot
+      - is this automated?
+      - is this a real person?
+      - are you automated?
+      - are you just a bot?
+      - human or bot?
+      - are you actually real?
+      - are you fake?
+      - is this fake?
+      - are you human?
+      - talking to a robot?
+      - robot?
+      - ai or human?
+      - chatbot?
+      - real person?
 
-  - intent: confusion
+  - intent: help
     examples: |
-      - I'm not sure about this
-      - This doesn't make sense
-      - Can you explain that again?
-      - I don’t understand
+      - help
+      - i need help
+      - can you help me
+      - what can you do
+      - how does this work
+      - help please
+      - assist me
+      - i'm stuck
+      - not sure what to do
+      - what should i do
+      - how can you help
+      - show me how
+      - guide me
+      - need assistance
+      - help me please
+      - could you help
+      - assistance needed
+      - can i get help
+      - help me out
+      - what are my options
+      - confused need help
+      - explain how this works
+      - show me the way
+      - give me guidance
+      - lost need help
+      - what now
+      - directions please
+      - help options
+      - need some help
 
-  - intent: curiosity
+  - intent: stop
     examples: |
-      - I'm curious about that
-      - Tell me more
-      - What’s that about?
-      - I wonder why that is
+      - stop
+      - quit
+      - end
+      - finish
+      - stop talking
+      - i want to stop
+      - exit
+      - cancel
+      - terminate
+      - done
+      - stop this
+      - end conversation
+      - quit talking
+      - lets stop
+      - i'm done
+      - finish this
+      - end this
+      - stop now
+      - that's enough
+      - no more
+      - break
+      - pause
+      - halt
+      - enough
+      - stop here
+      - let's end this
+      - need to stop
+      - finish up
+      - wrap up
+      - conclude
 
-  - intent: desire
+  - intent: restart
     examples: |
-      - I really want that
-      - I wish I could have it
-      - That’s something I desire
-      - I want to achieve this
+      - restart
+      - start over
+      - begin again
+      - reset
+      - start fresh
+      - can we start over
+      - restart conversation
+      - let's start again
+      - new start
+      - fresh start
+      - do over
+      - restart from beginning
+      - start from scratch
+      - reset everything
+      - clear and restart
+      - begin fresh
+      - lets restart
+      - new conversation
+      - clean slate
+      - start anew
+      - restart please
+      - can we reset
+      - restart this
+      - begin over
+      - reload
+      - reboot
+      - refresh
+      - retry
+      - redo
 
-  - intent: disappointment
+  - intent: out_of_scope
     examples: |
-      - I’m so disappointed
-      - This is such a letdown
-      - I had high expectations
-      - This didn’t turn out the way I hoped
+      - what's the weather like?
+      - order pizza
+      - book a flight
+      - play music
+      - what's 2+2?
+      - tell me a joke
+      - what's your favorite color
+      - sing a song
+      - do my homework
+      - what stocks should i buy
+      - write my essay
+      - fix my computer
+      - what's the meaning of life
+      - who is the president
+      - what time is it
+      - translate this
+      - solve this equation
+      - draw me a picture
+      - tell my fortune
+      - what's your name
+      - make me coffee
+      - find me a job
+      - cook dinner
+      - play games
+      - tell me about yourself
+      - what's on tv
+      - medical advice
+      - legal advice
+      - financial advice
 
-  - intent: disapproval
+  - intent: how_are_you
     examples: |
-      - I don't approve of this
-      - I disagree
-      - This isn't a good idea
-      - I don’t like this
+      - how are you
+      - how are you doing
+      - how's it going
+      - how do you feel
+      - are you okay
+      - how are things
+      - what's new
+      - how's your day
+      - how are you today
+      - how have you been
+      - how's everything
+      - how are you feeling
+      - you good?
+      - all good?
+      - doing okay?
+      - how's life
+      - how you doing
+      - how r u
+      - hows u
+      - how are ya
+      - you alright?
+      - everything ok?
+      - what's up with you
+      - how's your day going
+      - how are things going
+      - how's it hanging
+      - whats good
+      - how you been
+      - hope you're well
 
-  - intent: disgust
+  - intent: user_need_help
     examples: |
-      - This is disgusting
-      - I can't stand this
-      - This makes me feel sick
-      - I’m grossed out
+      - i'm struggling
+      - i need someone to talk to
+      - i'm having a hard time
+      - everything is difficult
+      - i don't know what to do
+      - i feel lost
+      - i need guidance
+      - i'm feeling overwhelmed
+      - can't cope
+      - feeling hopeless
+      - need support
+      - life is tough right now
+      - i'm in a dark place
+      - everything feels wrong
+      - need someone to listen
+      - having problems
+      - feeling stressed
+      - can't handle this
+      - need advice
+      - struggling with life
+      - things are hard
+      - feeling down
+      - need direction
+      - don't know where to turn
+      - everything's too much
+      - need perspective
+      - feeling stuck
+      - help me please
+      - can't deal with this
 
-  - intent: embarrassment
+  - intent: ask_name
     examples: |
-      - I'm so embarrassed
-      - This is so awkward
-      - I feel like hiding
-      - I can't believe this happened
+      - what's your name
+      - who are you
+      - what should i call you
+      - what do people call you
+      - do you have a name
+      - tell me your name
+      - what's your identity
+      - what are you called
+      - name please
+      - your name?
+      - what name do you go by
+      - introduce yourself
+      - may i know your name
+      - what's ur name
+      - whats your name
+      - what are you named
+      - tell me who you are
+      - what do you go by
+      - your name is?
+      - who am i talking to
+      - what's your title
+      - what are you known as
+      - how should i address you
+      - what do i call you
+      - what's your designation
+      - identify yourself
+      - state your name
+      - name?
 
-  - intent: excitement
+  - intent: ask_capabilities
     examples: |
-      - I'm so excited!
-      - I can’t wait!
-      - This is amazing
-      - I’m really looking forward to this
+      - what can you do
+      - what are your capabilities
+      - how can you help me
+      - what do you know
+      - what are your functions
+      - tell me what you do
+      - what services do you offer
+      - what are you capable of
+      - how do you work
+      - what's your purpose
+      - what are your skills
+      - what help can you provide
+      - explain your abilities
+      - show me what you can do
+      - list your features
+      - what are you good at
+      - what kind of help do you offer
+      - what's your expertise
+      - what tasks can you handle
+      - how can you assist me
+      - what problems can you solve
+      - tell me about your features
+      - what support do you offer
+      - what are your limitations
+      - explain your services
+      - what's your role
+      - what assistance can you give
+      - what are you designed for
 
-  - intent: fear
+  - intent: bot_name
     examples: |
-      - I'm scared
-      - This is terrifying
-      - I’m afraid of this
-      - I don’t want to do this
+      - what's your name again
+      - what did you say your name was
+      - your name is soul solution right
+      - are you soul solution
+      - your name was
+      - is your name soul solution
+      - soul solution?
+      - are you called soul solution
+      - so you're soul solution
+      - you're soul solution right
+      - your name is soul solution
+      - they call you soul solution
+      - soul solution is your name
+      - you go by soul solution
+      - you're called soul solution
+      - so your name is soul solution
+      - did you say you were soul solution
+      - soul solution is it
+      - that's your name right soul solution
+      - your name's soul solution
+      - you said you're soul solution
+      - i think your name is soul solution
+      - named soul solution
+      - you're soul solution aren't you
+      - remind me of your name
+      - soul solution that's you
+      - you mentioned your name was soul solution
+      - is it soul solution
+      - name is soul solution
 
-  - intent: gratitude
-    examples: |
-      - I’m so grateful
-      - Thank you so much
-      - I really appreciate this
-      - That means a lot to me
 
-  - intent: grief
+#28 emotions
+  - intent: express_admiration
     examples: |
-      - I feel so sad
-      - This is heartbreaking
-      - I can’t believe this happened
-      - I’m in mourning
+      - i really look up to you
+      - you're so amazing at what you do
+      - i admire your strength
+      - wow you're so talented
+      - i'm really impressed by your skills
+      - you inspire me so much
+      - i wish i could be like you
+      - your work is incredible
+      - you're such an inspiration
+      - i'm in awe of your abilities
+      - you're someone i really admire
+      - your achievements are remarkable
+      - i've always looked up to people like you
+      - you make it look so easy
+      - i can't believe how good you are at this
+      - you're seriously impressive
+      - the way you handle things is admirable
+      - i hope to be half as good as you someday
+      - ur so awesome cant believe how talented u r
+      - youre someone i aspire to be like
+      - amazing how u do that
+      - i truly respect your abilities
+      - your skills blow my mind
+      - im constantly impressed by u
+      - gotta say youre pretty amazing
 
-  - intent: joy
+  - intent: express_amusement
     examples: |
-      - I’m so happy
-      - I feel overjoyed
-      - This makes me smile
-      - I’m having such a great time
+      - haha that's funny
+      - lol you crack me up
+      - omg im laughing so hard right now
+      - that's hilarious
+      - you're so funny
+      - 😂😂😂
+      - lmao i can't stop laughing
+      - that made my day
+      - im dying of laughter here
+      - you have such a great sense of humor
+      - hahaha stop it you're killing me
+      - that was the funniest thing ever
+      - rofl you're too much
+      - i literally spit out my drink
+      - ur so funny lol
+      - cant stop giggling
+      - bahaha that's gold
+      - you always know how to make me laugh
+      - im howling with laughter
+      - too funny 🤣
+      - hehe that's amusing
+      - hilarious stuff
+      - lololol u crack me up
+      - im in stitches
+      - thats the best joke ive heard all day
 
-  - intent: love
+  - intent: express_anger
     examples: |
-      - I love you
-      - I’m so in love
-      - I care deeply about you
-      - My heart is full
+      - i'm so angry right now
+      - that really pisses me off
+      - i can't believe this!!! im furious
+      - this is making me so mad
+      - i'm absolutely livid
+      - im so angry i could scream
+      - you're making me really angry
+      - this situation is infuriating
+      - im boiling with rage
+      - i'm fed up with this crap
+      - this is complete bs
+      - i hate when this happens
+      - im absolutely fuming
+      - that really set me off
+      - im so frustrated i could punch something
+      - this is the last straw
+      - im absolutely seething
+      - i cant take this anymore!!!
+      - im so mad i cant even think straight
+      - ur making me lose my temper
+      - this makes my blood boil
+      - im sick and tired of this
+      - how dare they do this
+      - ugh this is making me so angry
+      - im absolutely outraged by this
 
-  - intent: nervousness
+  - intent: express_annoyance
     examples: |
-      - I’m so nervous
-      - I feel jittery
-      - My hands are shaking
-      - I’m really anxious about this
+      - this is so annoying
+      - you're irritating me
+      - ugh this is getting on my nerves
+      - this is such a pain
+      - im feeling irritated
+      - you're being really annoying right now
+      - that's really bugging me
+      - im getting fed up with this
+      - this is starting to annoy me
+      - im so tired of dealing with this
+      - cant you just stop? its annoying
+      - this is frustrating
+      - why is this so irritating
+      - ur getting on my last nerve
+      - this is such a hassle
+      - im so done with this
+      - this is really testing my patience
+      - this is annoying af
+      - ugh make it stop
+      - this is driving me crazy
+      - its seriously annoying when this happens
+      - im irritated by this whole situation
+      - this is getting really old
+      - such an inconvenience
+      - stop being so annoying
 
-  - intent: optimism
+  - intent: express_approval
     examples: |
-      - I’m feeling hopeful
-      - Everything will be okay
-      - I’m staying positive
-      - Things will get better
+      - that sounds good to me
+      - i approve of this plan
+      - yes i think that's a great idea
+      - i'm on board with that
+      - you have my approval
+      - that gets a thumbs up from me
+      - i'm totally fine with that
+      - that works for me
+      - i support this decision
+      - i agree completely
+      - sounds like a solid plan
+      - i back this 100%
+      - you've got my support
+      - im all for it
+      - that has my seal of approval
+      - good call
+      - im in agreement
+      - thats exactly what i was thinking
+      - id say yes to that
+      - you've got the green light from me
+      - approved!
+      - that aligns with what i want
+      - im definitely ok with that
+      - u have my blessing
+      - that gets my vote
 
-  - intent: pride
+  - intent: express_caring
     examples: |
-      - I’m so proud of this
-      - I feel accomplished
-      - I did it!
-      - This is my proud moment
+      - i really care about you
+      - i'm here for you if you need me
+      - just wanted to check in on you
+      - your wellbeing matters to me
+      - i'm concerned about you
+      - how are you feeling? i care
+      - i want you to be okay
+      - you mean a lot to me
+      - im worried about you
+      - please take care of yourself
+      - i care deeply about what happens to you
+      - your happiness is important to me
+      - i'm thinking about you
+      - let me know if you need anything
+      - i hope you're doing alright
+      - im here if you need to talk
+      - just checking if ur ok
+      - you're in my thoughts
+      - i genuinely care about your situation
+      - take care of yourself please
+      - im concerned about your wellbeing
+      - i want to make sure youre ok
+      - i care what happens to you
+      - let me know if i can help
+      - sending you caring thoughts
 
-  - intent: realization
+  - intent: express_confusion
     examples: |
-      - Oh, I just realized!
-      - That makes sense now
-      - I’ve had an epiphany
-      - I see things clearly now
+      - i don't understand
+      - i'm confused
+      - what do you mean?
+      - this doesn't make sense
+      - i'm not following
+      - you lost me there
+      - could you explain that again?
+      - i'm having trouble understanding
+      - i'm completely lost
+      - huh? i dont get it
+      - im confused about what you're saying
+      - this is confusing me
+      - im not sure i understand
+      - you're not making sense
+      - wait what?
+      - im totally confused right now
+      - ur explanation is confusing
+      - i cant wrap my head around this
+      - im feeling confused about this
+      - this is going over my head
+      - i have no idea what that means
+      - im puzzled by what youre saying
+      - can u explain differently? im confused
+      - i dont follow your logic
+      - that's really confusing me
 
-  - intent: relief
-    examples: |
-      - I’m relieved
-      - What a relief!
-      - I feel so much better now
-      - I can finally breathe easy
 
-  - intent: remorse
-    examples: |
-      - I regret this
-      - I feel bad about it
-      - I shouldn’t have done that
-      - I feel guilty
 
-  - intent: sadness
-    examples: |
-      - I’m feeling down
-      - I feel so sad
-      - This is really upsetting
-      - I can’t stop crying
 
-  - intent: surprise
-    examples: |
-      - I can't believe this!
-      - This is so surprising
-      - I didn’t see that coming
-      - Wow, I’m shocked
 
-  - intent: neutral
+  - intent: express_curiosity
     examples: |
-      - I’m just here
-      - I don’t feel much
-      - I’m indifferent
-      - I have no strong feelings about this
+      - i'm curious about that
+      - tell me more
+      - that sounds interesting
+      - i'd like to know more about this
+      - i wonder how that works
+      - what's that all about?
+      - im really curious
+      - could you explain more?
+      - thats fascinating
+      - im intrigued by what you said
+      - how does that work exactly?
+      - im curious to learn more
+      - that caught my interest
+      - i want to understand this better
+      - can u go into more detail?
+      - this has me wondering
+      - id love to hear more about that
+      - tell me more about this topic
+      - my curiosity is piqued
+      - im interested in understanding how this works
+      - what else can you tell me?
+      - this subject fascinates me
+      - im eager to learn more
+      - please elaborate on that
+      - whoa that got me curious
+      - hmm thats interesting tell me more
+
+  - intent: express_desire
+    examples: |
+      - i really want that
+      - i wish i could have that
+      - that's exactly what i want
+      - i've been hoping for this
+      - i desire this so much
+      - i long for this to happen
+      - if only i could have that
+      - i'm dreaming of this
+      - this is all i want
+      - i need this so badly
+      - im dying to have this
+      - i cant stop thinking about getting this
+      - ive always wanted something like this
+      - this is my greatest desire
+      - i hope this happens for me
+      - all i can think about is having this
+      - i crave this experience
+      - im desperate for this opportunity
+      - i would do anything to have this
+      - i want this more than anything
+      - this is everything i want
+      - i wish so badly for this
+      - i really really want this
+      - ive never wanted anything more
+      - i yearn for this to become reality
+      - my hearts desire is this
+
+  - intent: express_disappointment
+    examples: |
+      - i'm so disappointed
+      - that's really disappointing
+      - i was expecting more
+      - i feel let down
+      - this isn't what i hoped for
+      - i'm bummed about this
+      - that's such a letdown
+      - i had higher expectations
+      - this is really disappointing news
+      - i cant believe how disappointing this is
+      - im crushed by this outcome
+      - this falls short of what i expected
+      - im feeling pretty let down right now
+      - i was really hoping for something better
+      - this has been such a disappointment
+      - i feel so deflated about this
+      - not what i was hoping for at all
+      - im really disappointed with how this turned out
+      - this is below my expectations
+      - i feel so disheartened
+      - this outcome is disappointing
+      - i had such high hopes for this
+      - im sad about how this turned out
+      - this is a major disappointment
+      - this really let me down
+      - i feel so disappointed right now
+
+  - intent: express_disapproval
+    examples: |
+      - i don't agree with this
+      - i disapprove of this decision
+      - that's not okay with me
+      - i'm against this idea
+      - i don't support this
+      - this doesn't have my approval
+      - i think this is wrong
+      - i can't condone this
+      - i'm not on board with this
+      - this goes against my values
+      - im definitely opposed to this
+      - i cant back this decision
+      - i strongly disagree
+      - this doesn't sit right with me
+      - i really don't think this is appropriate
+      - im not comfortable with this
+      - this plan doesn't have my support
+      - i object to this approach
+      - i think this is a bad idea
+      - im not in favor of this at all
+      - this is completely unacceptable
+      - i dont approve of how this was handled
+      - im against this whole concept
+      - that doesn't align with what i believe is right
+      - this really rubs me the wrong way
+      - i cannot support this decision
+
+  - intent: express_disgust
+    examples: |
+      - that's disgusting
+      - ew gross
+      - this makes me sick
+      - i'm revolted by this
+      - this is so nasty
+      - i feel nauseous looking at this
+      - thats repulsive
+      - this is vile
+      - im completely grossed out
+      - this turns my stomach
+      - i cant even look at this
+      - how repulsive
+      - this is utterly disgusting
+      - im sickened by this
+      - this is so gross
+      - ugh i feel sick
+      - this is making me gag
+      - that's absolutely revolting
+      - i find this repulsive
+      - this disgusts me to my core
+      - so gross i cant even
+      - what a sickening thing
+      - that makes me want to throw up
+      - this is beyond disgusting
+      - i have never been so grossed out
+      - absolutely nauseating
+
+
+
+
+
+  - intent: express_embarrassment
+    examples: |
+      - i'm so embarrassed
+      - that was so awkward
+      - i can't believe i did that
+      - i'm cringing just thinking about it
+      - i feel so stupid right now
+      - im so embarrassed i could die
+      - that was so humiliating
+      - im mortified by what happened
+      - i wish the ground would swallow me up
+      - i cant show my face after that
+      - that was the most embarrassing moment of my life
+      - im blushing just thinking about it
+      - i made such a fool of myself
+      - im so ashamed
+      - everyone saw what happened im so embarrassed
+      - that was so awkward i wanted to disappear
+      - ugh how embarrassing
+      - i cant believe how embarrassing that was
+      - i feel so self-conscious right now
+      - this is so embarrassing
+      - i just want to hide forever
+      - im dying of embarrassment
+      - that was beyond awkward
+      - ive never been so embarrassed
+      - cant believe i embarrassed myself like that
+      - so humiliated right now
+
+  - intent: express_excitement
+    examples: |
+      - i'm so excited about this!
+      - i can't wait!
+      - this is going to be amazing!
+      - i'm beyond thrilled!
+      - i'm so pumped for this
+      - im literally buzzing with excitement
+      - so excited i cant contain myself
+      - i've been looking forward to this for ages!
+      - i'm stoked about this opportunity
+      - this is so exciting!!
+      - i cant even describe how excited i am
+      - im literally counting down the days
+      - i have butterflies im so excited
+      - omg im freaking out with excitement
+      - i cant believe this is happening im so excited
+      - aaaah this is amazing news
+      - im over the moon about this
+      - this is the most exciting thing ever
+      - im bouncing off the walls with excitement
+      - i could scream im so excited
+      - cant wait for this im so excited
+      - im like a kid on christmas morning
+      - this has me super excited
+      - im absolutely ecstatic
+      - im too excited to sleep
+      - my excitement levels are through the roof
+
+  - intent: express_fear
+    examples: |
+      - i'm really scared
+      - this terrifies me
+      - i'm afraid of what might happen
+      - i'm feeling really fearful
+      - i'm panicking right now
+      - im so scared i cant think straight
+      - this situation makes me really anxious
+      - i have a terrible feeling about this
+      - im paralyzed with fear
+      - im scared to death
+      - i cant stop worrying about this
+      - the thought of this terrifies me
+      - im living in constant fear
+      - im feeling really unsafe
+      - this is making me so afraid
+      - i have this fear that wont go away
+      - im afraid things will go wrong
+      - im really frightened by this
+      - i feel like something bad is going to happen
+      - i cant shake this feeling of dread
+      - im terrified of the consequences
+      - this fear is overwhelming me
+      - im so scared i feel sick
+      - i feel threatened by this situation
+      - im too scared to move forward
+      - the fear is paralyzing me
+
+  - intent: express_gratitude
+    examples: |
+      - thank you so much
+      - i really appreciate this
+      - i'm so grateful for your help
+      - thanks a million
+      - i can't thank you enough
+      - you have no idea how grateful i am
+      - i really appreciate what you did
+      - thank you from the bottom of my heart
+      - im truly thankful for this
+      - your help means the world to me
+      - i appreciate you more than you know
+      - words cant express how thankful i am
+      - im eternally grateful to you
+      - thank you for everything youve done
+      - thanks for being there for me
+      - i owe you big time
+      - you're amazing thank you
+      - thank u so so much
+      - im deeply grateful for your support
+      - thanks this means a lot to me
+      - i appreciate your kindness
+      - cant thank you enough for this
+      - i dont know how to thank you
+      - thank you for going above and beyond
+      - im so touched by your help
+      - thank you for making this possible
+
+  - intent: express_grief
+    examples: |
+      - i'm heartbroken
+      - i don't know how to handle this loss
+      - i feel completely devastated
+      - i'm in so much pain right now
+      - i can't stop crying
+      - the grief is overwhelming
+      - i feel like a part of me is missing
+      - i'm struggling to cope with this loss
+      - im so broken after what happened
+      - i dont know how ill get through this
+      - its like theres a hole in my heart
+      - i feel empty without them
+      - im mourning the loss deeply
+      - this grief is consuming me
+      - i cant imagine life without them
+      - im trying to process this devastating loss
+      - i feel like ill never be whole again
+      - the pain of this loss is unbearable
+      - i wake up and remember theyre gone
+      - im still in shock from the loss
+      - everything reminds me of what i lost
+      - im trying to make sense of this heartbreak
+      - grief comes in waves and im drowning
+      - i feel shattered by this loss
+      - i miss them so much it physically hurts
+      - i dont know how to live with this grief
+
+  - intent: express_joy
+    examples: |
+      - i'm so happy!
+      - this brings me so much joy
+      - i'm over the moon
+      - i couldn't be happier right now
+      - i'm absolutely delighted
+      - im on cloud nine
+      - this makes my heart sing
+      - i feel so joyful
+      - im beaming with happiness
+      - i cant stop smiling
+      - this news has made my day
+      - im filled with joy
+      - im so happy i could burst
+      - this brings me pure joy
+      - im absolutely thrilled
+      - im feeling on top of the world
+      - this happiness is overwhelming
+      - my heart is so full right now
+      - im walking on sunshine
+      - i havent felt this happy in ages
+      - im just so incredibly happy
+      - this joy is indescribable
+      - im grinning from ear to ear
+      - this is the best feeling ever
+      - im radiating happiness
+      - my heart is overflowing with joy
+
+
+
+
+
+
+  - intent: express_love
+    examples: |
+      - i love you
+      - i have such strong feelings for you
+      - you mean everything to me
+      - i adore you
+      - you're my whole world
+      - i can't imagine life without you
+      - my heart belongs to you
+      - i'm so in love with you
+      - you're the love of my life
+      - i love you more than words can express
+      - im crazy about you
+      - you make my heart skip a beat
+      - i love you to the moon and back
+      - i love everything about you
+      - you complete me
+      - my love for you grows stronger every day
+      - youre my soulmate
+      - i love u so much
+      - im head over heels for you
+      - you have my heart
+      - i cherish you deeply
+      - im completely in love with you
+      - i love you with all my heart
+      - youre the one i love
+      - no words can describe how much i love you
+      - you are my everything and i love you
+
+  - intent: express_nervousness
+    examples: |
+      - i'm so nervous
+      - i have butterflies in my stomach
+      - my hands are shaking
+      - i can't stop worrying about this
+      - i'm feeling really anxious
+      - im a nervous wreck right now
+      - i cant calm my nerves
+      - im on edge about this whole thing
+      - this makes me so nervous
+      - i feel jittery thinking about it
+      - my anxiety is through the roof
+      - im freaking out a bit
+      - ive got serious nerves about this
+      - this situation has me on pins and needles
+      - im really nervous about what might happen
+      - i cant shake this nervous feeling
+      - my hearts racing with nervousness
+      - im getting cold feet
+      - feeling super anxious about this
+      - im totally psyching myself out
+      - i cant stop my nervous thoughts
+      - im nervous as hell
+      - this has me so stressed and nervous
+      - im a bundle of nerves
+      - i feel like im about to have a panic attack
+      - my nervousness is overwhelming me
+
+  - intent: express_neutral
+    examples: |
+      - i don't have strong feelings about this
+      - i'm neutral on the topic
+      - i don't really care either way
+      - i have no particular opinion
+      - it doesn't matter to me
+      - i'm on the fence about this
+      - i don't feel strongly one way or another
+      - i'm indifferent to this
+      - im not bothered either way
+      - this doesn't affect me much
+      - i could take it or leave it
+      - im completely neutral on this
+      - i have mixed feelings so im staying neutral
+      - im not invested in the outcome
+      - it makes no difference to me
+      - im in the middle on this issue
+      - i dont have any emotional response to this
+      - it neither excites nor bothers me
+      - i have no bias in this matter
+      - im completely impartial
+      - i dont lean one way or the other
+      - i have zero feelings about it
+      - im entirely unaffected by this
+      - im just objective about the situation
+      - meh i feel nothing about this
+      - its not something i care about
+
+  - intent: express_optimism
+    examples: |
+      - i'm feeling optimistic
+      - things are looking up
+      - i believe it's going to work out
+      - i have a good feeling about this
+      - the future looks bright
+      - im hopeful things will improve
+      - i see the silver lining
+      - i know things will get better
+      - im staying positive about this
+      - this is going to turn out great
+      - i believe in positive outcomes
+      - im optimistic about our chances
+      - the glass is definitely half full
+      - im focusing on the positives
+      - tomorrow will be better
+      - i have high hopes for this
+      - things are going to be amazing
+      - i believe good things are coming
+      - im feeling really positive about this
+      - im expecting the best outcome
+      - the future holds great things
+      - im confident this will work out
+      - i trust that everything will be fine
+      - im looking on the bright side
+      - this situation will improve soon
+      - im keeping a positive outlook
+
+  - intent: express_pride
+    examples: |
+      - i'm so proud of myself
+      - i really achieved something great
+      - i'm proud of what i've accomplished
+      - i did it and i feel amazing
+      - i never thought i could do this
+      - im really proud of this work
+      - i deserve to celebrate this achievement
+      - i worked hard and im proud of the results
+      - this accomplishment means a lot to me
+      - i cant help feeling proud of this
+      - im holding my head high
+      - i finally reached my goal
+      - i surprised myself with what i achieved
+      - im proud of how far ive come
+      - i earned this and im proud of it
+      - my hard work has paid off
+      - i feel accomplished and proud
+      - this success makes me feel proud
+      - im proud of myself for not giving up
+      - i achieved something i thought was impossible
+      - i want to celebrate my accomplishment
+      - ive earned the right to feel proud
+      - i overcame so much to achieve this
+      - im so proud of what i did
+      - i exceeded my own expectations
+      - i feel a sense of pride in this
+
+  - intent: express_realization
+    examples: |
+      - i just realized something
+      - it suddenly clicked for me
+      - oh, now i get it
+      - i finally understand
+      - it all makes sense now
+      - i had an epiphany
+      - now i see what you mean
+      - it just dawned on me
+      - i suddenly understand what youre saying
+      - the light bulb just went on
+      - i never thought about it that way before
+      - now it all adds up
+      - i finally connected the dots
+      - im just now realizing this
+      - i see things clearly now
+      - its like a fog has lifted
+      - i just had a breakthrough
+      - i cant believe i didnt see this before
+      - now everything falls into place
+      - that moment when you finally get it
+      - oh i understand now
+      - i just figured it out
+      - now i understand the whole picture
+      - i suddenly see how it all works
+      - wow its so obvious now
+      - i finally grasp what youre explaining
+
+  - intent: express_relief
+    examples: |
+      - i'm so relieved
+      - that's such a relief
+      - i can finally breathe again
+      - thank goodness that's over
+      - i'm so glad that worked out
+      - phew, i was worried for nothing
+      - the weight has been lifted
+      - im so relieved its finally done
+      - what a relief this is
+      - its like a weight off my shoulders
+      - i can relax now that its over
+      - im feeling such relief right now
+      - my worries were for nothing thankfully
+      - i cant tell you how relieved i am
+      - ive never felt so relieved
+      - its such a relief to hear that
+      - that news is a huge relief
+      - i feel like i can breathe again
+      - the stress is finally gone
+      - im relieved beyond words
+      - thats the best news ive heard all day
+      - i feel so much better now
+      - i was so worried but now im relieved
+      - what a load off my mind
+      - finally i can stop worrying
+      - im incredibly relieved about this
+
+  - intent: express_remorse
+    examples: |
+      - i'm so sorry for what i did
+      - i really regret my actions
+      - i wish i could take it back
+      - i feel terrible about what happened
+      - i made a huge mistake
+      - i cant forgive myself for this
+      - im filled with regret
+      - what was i thinking? im so sorry
+      - i shouldnt have done that
+      - i take full responsibility for my mistake
+      - im truly sorry for hurting you
+      - i deeply regret my behavior
+      - i wish i had made a different choice
+      - im ashamed of what i did
+      - if i could go back and change things i would
+      - im genuinely sorry for my actions
+      - i cant stop feeling guilty about this
+      - im sorry from the bottom of my heart
+      - i know i messed up badly
+      - im beating myself up over this
+      - i hate that i caused this
+      - i feel so much remorse
+      - i regret everything about this situation
+      - im owning up to my mistake
+      - ive never felt so sorry in my life
+      - the guilt is eating me up inside
+
+  - intent: express_sadness
+    examples: |
+      - i'm feeling really sad
+      - i'm so upset right now
+      - i feel like crying
+      - i'm heartbroken
+      - i'm really down today
+      - im not doing well emotionally
+      - im feeling blue
+      - this has made me so sad
+      - i cant shake this sadness
+      - im just really unhappy
+      - im feeling depressed
+      - i feel empty inside
+      - my heart feels heavy
+      - im so sad i dont know what to do
+      - im just so down right now
+      - i cant stop feeling sad about this
+      - this situation has got me feeling low
+      - im really struggling with sadness
+      - im in a dark place emotionally
+      - my mood is really low
+      - im feeling really down in the dumps
+      - this sadness wont go away
+      - i feel like nothing will be good again
+      - im caught in this wave of sadness
+      - i havent felt this sad in a long time
+      - my heart hurts from all this sadness
+
+  - intent: express_surprise
+    examples: |
+      - wow! i didn't expect that
+      - i'm completely shocked
+      - that took me by surprise
+      - i can't believe it!
+      - i'm speechless
+      - this is so unexpected
+      - i never saw that coming
+      - im stunned
+      - my jaw just dropped
+      - what?! are you serious?
+      - that came out of nowhere
+      - im totally blown away
+      - well this is a surprise
+      - im absolutely astounded
+      - that was completely unexpected
+      - i couldnt be more surprised
+      - this is shocking news
+      - im in disbelief
+      - i wasnt expecting that at all
+      - that caught me off guard
+      - im utterly surprised
+      - i never wouldve guessed
+      - im shocked beyond words
+      - this is the biggest surprise ever
+      - im completely surprised by this
+      - i cant wrap my head around this surprise
+
+
+# Academic & Work examples
+  - intent: express_academic_stress
+    examples: |
+      - i'm struggling with my studies
+      - my grades are dropping and i don't know what to do
+      - i can't keep up with all my assignments
+      - feeling overwhelmed with school work
+      - the coursework is too much to handle
+      - i'm falling behind in my classes
+      - studying is making me so stressed
+      - i might fail this semester
+      - can't balance all my subjects
+      - the academic pressure is killing me
+      - my parents will kill me if i fail
+      - i'm not smart enough for this course
+      - everything is so difficult at university
+      - i can't understand anything in class
+      - my professors expect too much
+      - i'm worried about my exams
+      - the syllabus is too vast
+      - i'm having trouble focusing on studies
+      - my academic performance is getting worse
+      - i feel like dropping out
+      - school is becoming too much
+      - i hate studying but i have to do it
+      - can't handle the academic pressure
+      - my grades are stressing me out
+      - i'm not doing well in school
+      - the deadlines are overwhelming me
+      - i'm scared of failing my exams
+      - too many assignments due this week
+      - my thesis is stressing me out
+      - can't cope with school anymore
+
+  - intent: express_work_stress
+    examples: |
+      - my job is killing me
+      - i hate my workplace
+      - too much pressure at work
+      - my boss is always demanding more
+      - i can't handle my workload
+      - feeling burned out from work
+      - my work-life balance is terrible
+      - i might get fired
+      - the work environment is toxic
+      - my colleagues are difficult to work with
+      - i'm always working overtime
+      - the deadlines are impossible
+      - i'm not performing well at work
+      - my job is affecting my health
+      - can't keep up with work demands
+      - stressed about my job security
+      - work is making me anxious
+      - i feel undervalued at work
+      - too many responsibilities at work
+      - my job is draining me
+      - feeling stuck in my career
+      - workplace stress is affecting my life
+      - i'm always thinking about work
+      - can't sleep because of work stress
+      - my job is making me miserable
+      - the pressure at work is unbearable
+      - worried about my performance review
+      - i'm struggling to meet targets
+      - everything at work is going wrong
+      - my work environment is stressful
+
+  - intent: express_performance_anxiety
+    examples: |
+      - i'm scared of messing up
+      - what if i fail
+      - everyone is better than me
+      - i freeze during presentations
+      - can't perform under pressure
+      - always nervous about my performance
+      - fear of making mistakes
+      - worried about not being good enough
+      - i panic during evaluations
+      - performance anxiety is killing me
+      - scared of public speaking
+      - my hands shake when presenting
+      - can't focus when people watch me
+      - afraid of disappointing others
+      - my mind goes blank during tests
+      - worried about judgement
+      - fear of underperforming
+      - anxiety affects my performance
+      - scared of important meetings
+      - i doubt my abilities
+      - pressure makes me perform worse
+      - nervous about upcoming evaluation
+      - can't handle being assessed
+      - fear of criticism
+      - worried about making mistakes
+      - performance pressure is too much
+      - scared of important presentations
+      - anxiety ruins my performance
+      - stressed about being judged
+      - fear of not meeting expectations
+
+
+# Relationship & Family examples
+  - intent: express_relationship_problems
+    examples: |
+      - I'm having problems in my relationship
+      - My partner and I keep fighting all the time
+      - I don't know if my relationship is working anymore
+      - Things are tough between me and my spouse
+      - I'm not sure if I should stay in this relationship
+      - My relationship is falling apart
+      - I think my partner might leave me
+      - We're going through a rough patch
+      - My marriage is on the rocks
+      - I can't communicate with my partner anymore
+      - My significant other doesn't understand me
+      - We've been growing apart lately
+      - I feel like my relationship is toxic
+      - My partner has been distant
+      - I'm not happy in my relationship anymore
+      - We keep having the same argument over and over
+      - I think I'm falling out of love
+      - My partner and I have different expectations
+      - I don't feel appreciated by my significant other
+      - I feel like I'm walking on eggshells around my partner
+      - The spark is gone from our relationship
+      - I'm struggling to connect with my partner
+      - We don't have intimacy anymore
+      - I think my partner is cheating on me
+      - I'm considering breaking up with my partner
+      - Relationship problems are making me depressed
+      - How do I fix my broken relationship?
+      - I'm worried about where my relationship is heading
+      - My relationship feels one-sided
+      - I don't know if they love me anymore
+
+  - intent: express_family_conflict
+    examples: |
+      - My family fights all the time
+      - I can't deal with family drama anymore
+      - My parents and I are constantly arguing
+      - There's so much tension in my household
+      - My siblings and I don't get along
+      - Family gatherings always end in fights
+      - My in-laws are causing problems in my marriage
+      - I'm the black sheep of the family
+      - There's a huge rift in my family
+      - My family doesn't accept my life choices
+      - My parents disapprove of my relationship
+      - I've been cut off from my family
+      - My family is toxic and it's affecting my mental health
+      - I have a strained relationship with my parents
+      - My family members don't speak to each other
+      - I feel caught in the middle of family conflicts
+      - My family disagrees about caring for an elderly relative
+      - I don't feel like I belong in my family
+      - My family doesn't respect my boundaries
+      - There's a lot of unresolved issues in my family
+      - I feel pressured by family expectations
+      - My parents always criticize me
+      - Holidays with my family are a nightmare
+      - My family doesn't understand me
+      - I'm thinking of cutting ties with toxic family members
+      - My family won't stop interfering in my life
+      - I'm exhausted by constant family fighting
+      - My family holds grudges forever
+      - My step-family situation is causing conflict
+      - I feel rejected by certain family members
+
+  - intent: express_divorce_concerns
+    examples: |
+      - I think I want a divorce
+      - My spouse asked for a divorce
+      - How do I know if divorce is the right choice?
+      - I'm worried about getting divorced
+      - The divorce process is overwhelming me
+      - I don't know how to tell my kids about our divorce
+      - I'm scared of being alone after my divorce
+      - I'm going through a messy divorce right now
+      - My ex is making the divorce difficult
+      - We're trying to co-parent after our divorce
+      - I'm struggling financially after my divorce
+      - Dating after divorce feels impossible
+      - My divorce has left me feeling like a failure
+      - I feel guilty about wanting a divorce
+      - How do I rebuild my life after divorce?
+      - I'm dealing with divorce paperwork and it's stressing me out
+      - My friends are taking sides in my divorce
+      - I'm worried about custody issues in my divorce
+      - My family doesn't support my decision to divorce
+      - My soon-to-be ex is threatening me during our divorce
+      - I miss my ex even though the divorce was my idea
+      - I can't afford a lawyer for my divorce
+      - The divorce is affecting my work performance
+      - I'm grieving the end of my marriage
+      - I'm having trouble adjusting to life after divorce
+      - My divorce is dragging on forever
+      - The loneliness after my divorce is unbearable
+      - I'm trying to keep the divorce amicable but it's hard
+      - I'm worried about the effect of divorce on my kids
+      - I never thought I'd be getting divorced
+
+  - intent: express_loneliness
+    examples: |
+      - I feel so alone
+      - I have no one to talk to
+      - I'm always by myself
+      - I feel lonely even when I'm with people
+      - I don't have any friends
+      - I'm struggling with loneliness
+      - No one really understands me
+      - I haven't connected with anyone in a long time
+      - Everyone else seems to have friends but me
+      - I feel isolated all the time
+      - My loneliness is making me depressed
+      - I moved to a new city and haven't made friends yet
+      - I spend all my weekends alone
+      - I wish I had someone to share my life with
+      - Since my partner left, I've been so lonely
+      - I feel disconnected from everyone
+      - My social skills are terrible and I'm always alone
+      - I work from home and barely see anyone
+      - I'm an introvert but still feel too lonely
+      - Ever since graduating, I've lost touch with everyone
+      - I feel invisible to others
+      - I'm tired of doing everything by myself
+      - My loneliness is affecting my mental health
+      - I don't know how to meet new people
+      - I feel like I'll always be alone
+      - Being alone all the time is unbearable
+      - I have acquaintances but no close friends
+      - I'm surrounded by people but still feel lonely
+      - Everyone else seems to have someone but me
+      - It's been months since I had a real conversation
+
+
+# Mental Health Condition examples
+  - intent: express_depression
+    examples: |
+      - I think I'm depressed
+      - I've been feeling really down lately
+      - I can't get out of bed in the morning
+      - Nothing brings me joy anymore
+      - I feel empty all the time
+      - I think I might have depression
+      - I'm so sad and I don't know why
+      - Everything feels hopeless
+      - I've lost interest in things I used to enjoy
+      - I feel worthless and useless
+      - I'm struggling with depression
+      - I cry all the time for no reason
+      - I feel numb to everything around me
+      - My depression is getting worse
+      - I don't see the point in anything anymore
+      - I'm having dark thoughts
+      - I've been depressed for months now
+      - I feel like a burden to everyone
+      - I can't remember the last time I was happy
+      - My depression is affecting my work/school
+      - I keep having negative thoughts
+      - I'm exhausted all the time but can't sleep
+      - I feel so heavy and tired
+      - Some days I can't even get myself to shower
+      - I don't have the energy to do basic things
+      - Everything feels like a huge effort
+      - I'm in a really dark place right now
+      - I feel like nothing will ever get better
+      - I think my depression is coming back
+      - I'm struggling to see any light at the end of the tunnel
+
+  - intent: express_anxiety
+    examples: |
+      - I'm feeling really anxious
+      - My heart won't stop racing
+      - I'm constantly worried about everything
+      - I think I'm having a panic attack
+      - I can't stop overthinking
+      - My anxiety is through the roof
+      - I'm so stressed I can't function
+      - I feel like something bad is going to happen
+      - I can't control my anxious thoughts
+      - I'm nervous all the time for no reason
+      - My anxiety is affecting my sleep
+      - I feel on edge constantly
+      - I worry about things that probably won't happen
+      - My mind won't shut off at night
+      - I've been having anxiety attacks
+      - I keep playing worst-case scenarios in my head
+      - I'm paralyzed by fear and don't know why
+      - Social situations make me extremely anxious
+      - I feel like I can't breathe sometimes
+      - My anxiety is interfering with my daily life
+      - I'm always waiting for the other shoe to drop
+      - I'm scared to leave my house sometimes
+      - Everything feels overwhelming
+      - I have physical symptoms from anxiety
+      - My thoughts are spiraling out of control
+      - I'm always anticipating disaster
+      - I'm jumpy and easily startled lately
+      - My anxiety makes it hard to concentrate
+      - I feel like I'm losing control
+      - I'm worried I might have an anxiety disorder
+
+  - intent: express_addiction
+    examples: |
+      - I think I have a drinking problem
+      - I can't stop using drugs
+      - I'm struggling with addiction
+      - I feel like I can't control my gambling
+      - My smoking is out of control
+      - I'm addicted to painkillers
+      - I can't stop looking at porn
+      - I'm worried about my relationship with alcohol
+      - My gaming habits are affecting my life
+      - I think I'm addicted to social media
+      - I can't go a day without using
+      - I tried to quit but I always relapse
+      - My addiction is ruining my relationships
+      - I hide my substance use from others
+      - I need more and more to feel the same effect
+      - I feel ashamed about my addiction
+      - I get withdrawal symptoms when I try to stop
+      - My addiction is affecting my job/school
+      - I spend all my money on my addiction
+      - I've been lying to cover up my substance use
+      - I want to stop but don't know how
+      - I've tried rehab but it didn't work
+      - I'm worried I'll lose everything to my addiction
+      - I feel trapped by my addiction
+      - My family is concerned about my substance use
+      - I use to cope with stress and negative feelings
+      - I've lost control over how much I use
+      - I feel guilty after using but can't stop
+      - I need help with my addiction
+      - My life revolves around using/drinking
+
+  - intent: express_eating_disorder
+    examples: |
+      - I think I have an eating disorder
+      - I'm obsessed with my weight
+      - I binge eat and then feel guilty
+      - I'm afraid of gaining weight
+      - I make myself throw up after eating
+      - I restrict what I eat severely
+      - I hate my body and how I look
+      - Food controls my life
+      - I'm always on a new diet
+      - I exercise excessively to burn calories
+      - I count every calorie I consume
+      - I feel out of control when I eat
+      - I hide my eating habits from others
+      - I'm underweight but still feel fat
+      - I use laxatives to control my weight
+      - I'm constantly thinking about food
+      - My relationship with food is unhealthy
+      - I feel guilt and shame around eating
+      - I avoid eating in front of others
+      - My eating habits are affecting my health
+      - I binge eat when I'm stressed or upset
+      - I follow strict food rules
+      - I'm obsessed with clean eating
+      - I feel anxious when I can't exercise
+      - My weight determines my self-worth
+      - I'm tired of this cycle with food
+      - I know my eating is disordered but can't stop
+      - My periods have stopped because of my weight
+      - I'm worried about my relationship with food
+      - I need help with my eating disorder
+
+  - intent: express_phobia
+    examples: |
+      - I have an extreme fear of heights
+      - I can't handle being in enclosed spaces
+      - The sight of blood makes me faint
+      - I have a severe phobia of spiders
+      - I'm terrified of flying
+      - My fear of public speaking is paralyzing
+      - I avoid driving because I'm so afraid
+      - I have an irrational fear of dogs
+      - My phobia is affecting my daily life
+      - I panic when I see needles
+      - I'm afraid of leaving my house
+      - Crowds make me extremely anxious
+      - I have a phobia of thunderstorms
+      - I can't go near water because I'm so afraid
+      - My fear is totally controlling me
+      - I avoid social situations due to my phobia
+      - I have panic attacks about my specific fear
+      - My phobia is getting worse over time
+      - I'm embarrassed about my irrational fear
+      - I know my fear doesn't make sense but I can't help it
+      - My heart races when I encounter my phobia trigger
+      - I go out of my way to avoid what I'm afraid of
+      - I want to overcome my phobia but don't know how
+      - Even thinking about my fear makes me anxious
+      - I've had this phobia since childhood
+      - My fear is limiting what I can do in life
+      - I freeze up completely when facing my fear
+      - I need help dealing with this specific phobia
+      - My fear response is extreme and uncontrollable
+      - I wish I wasn't controlled by this irrational fear
+
+
+# Crisis & Trauma examples
+  - intent: express_suicidal_thoughts
+    examples: |
+      - I don't want to live anymore
+      - I'm thinking about ending it all
+      - I can't see a reason to keep going
+      - I feel like everyone would be better off without me
+      - I've been having thoughts about suicide
+      - I just want the pain to stop
+      - I'm considering taking my own life
+      - I don't see a way out
+      - I've been planning how to kill myself
+      - I don't think I can keep going
+      - Life feels too painful to continue
+      - I don't see a future for myself
+      - I've been writing goodbye letters
+      - I feel like a burden to everyone
+      - I'm tired of living this way
+      - I'm ready to end it
+      - I've been thinking about death a lot
+      - I've gathered materials to harm myself
+      - Everything would be easier if I wasn't here
+      - I feel hopeless about the future
+      - I've been giving away my possessions
+      - I can't handle this pain anymore
+      - I keep thinking about suicide
+      - I wish I could go to sleep and never wake up
+      - No one would miss me if I was gone
+      - I'm a waste of space
+      - I've tried everything and nothing helps
+      - I'm too exhausted to keep fighting
+      - I feel trapped with no way out
+      - I don't know how to keep living like this
+
+  - intent: express_grief_loss
+    examples: |
+      - I lost someone close to me
+      - I'm struggling to cope with a death in the family
+      - My grief is overwhelming me
+      - I miss them so much it physically hurts
+      - I can't move on after losing my loved one
+      - I feel empty since they died
+      - I'm having a hard time accepting their death
+      - The pain of loss isn't getting any better
+      - I keep reliving the moment they died
+      - I feel guilty for still being alive
+      - I can't stop crying since the funeral
+      - I'm trying to be strong but I'm falling apart
+      - I lost my pet and I'm devastated
+      - How do people survive this kind of grief?
+      - I feel like I lost a part of myself
+      - Their birthday/anniversary is coming up and I'm struggling
+      - I'm angry they left me
+      - I feel numb since the loss
+      - I'm having trouble functioning since they passed
+      - It's been years but I still can't accept they're gone
+      - I keep expecting them to walk through the door
+      - I don't know how to live without them
+      - I feel guilty for not being there when they died
+      - I'm struggling with complicated grief
+      - The holidays are unbearable since they died
+      - I'm having a grief anniversary reaction
+      - I lost my baby/had a miscarriage and don't know how to cope
+      - I feel like no one understands what I'm going through
+      - I thought I was doing better but grief hit me again
+      - I can't imagine ever being happy again after this loss
+
+  - intent: express_trauma
+    examples: |
+      - I can't stop thinking about the traumatic event
+      - I have flashbacks about what happened to me
+      - I'm struggling with PTSD
+      - I feel like I'm always on high alert
+      - I have nightmares about my trauma
+      - Certain triggers bring everything back
+      - I don't feel safe anymore after what happened
+      - I avoid places that remind me of the trauma
+      - I can't talk about what happened without breaking down
+      - I feel like I'll never be the same after what I experienced
+      - My trauma is affecting my relationships
+      - I feel disconnected from myself since the incident
+      - I'm having trouble trusting people after what happened
+      - I blame myself for the traumatic event
+      - I feel like no one understands what I went through
+      - I get panic attacks when reminded of my trauma
+      - I feel like I'm overreacting to what happened
+      - Loud noises/certain smells trigger my trauma responses
+      - I feel broken by my traumatic experiences
+      - I can't sleep because of trauma memories
+      - I'm exhausted from being hypervigilant
+      - I'm struggling with complex trauma
+      - I feel shame about what happened to me
+      - My body reacts even when my mind tries to forget
+      - I don't know how to move forward from this
+      - The anniversary of the trauma is approaching and I'm struggling
+      - I feel like I have two lives - before and after the trauma
+      - I've never told anyone what happened to me
+      - I feel like the trauma defines me now
+      - I want to heal but don't know how to start
+
+  - intent: express_abuse
+    examples: |
+      - I think I'm in an abusive relationship
+      - My partner controls everything I do
+      - I'm afraid of my spouse/partner
+      - I don't know if what I'm experiencing is abuse
+      - My partner hits me when they get angry
+      - I feel trapped in my relationship
+      - I'm being emotionally abused
+      - My family member is hurting me
+      - I'm being manipulated and gaslighted
+      - I don't have access to our finances
+      - I'm not allowed to see my friends or family
+      - My partner threatens to hurt themselves if I leave
+      - I'm scared for my safety
+      - I want to leave but don't know how
+      - They say it's my fault they hurt me
+      - I grew up in an abusive household
+      - I was abused as a child and still struggle with it
+      - I'm being sexually coerced by my partner
+      - They apologize after hurting me but it happens again
+      - I'm afraid to leave my abusive relationship
+      - My abuser monitors my phone and messages
+      - I don't want my children to witness the abuse
+      - I feel isolated and controlled
+      - The abuse is getting worse
+      - I'm being verbally degraded constantly
+      - I don't recognize myself anymore in this relationship
+      - People don't believe me about the abuse
+      - I'm afraid to report the abuse
+      - I'm being stalked by my ex
+      - I feel worthless because of how they treat me
+
+  - intent: express_bullying
+    examples: |
+      - I'm being bullied at school/work
+      - People are constantly mocking me
+      - I'm the target of mean gossip
+      - A group of people exclude me on purpose
+      - I'm being cyberbullied
+      - My coworkers are harassing me
+      - I get threatening messages online
+      - Someone is spreading rumors about me
+      - I'm afraid to go to school because of bullies
+      - My boss is bullying me
+      - I'm being targeted because I'm different
+      - The bullying is affecting my mental health
+      - They make fun of my appearance/accent/disability
+      - I feel unsafe at work/school due to bullying
+      - My child is being bullied and I don't know how to help
+      - People tag me in humiliating posts
+      - I'm being intimidated by a group of people
+      - The teachers/supervisors ignore the bullying
+      - I'm being socially excluded on purpose
+      - I'm being blackmailed with private information/photos
+      - The bullying is happening on social media
+      - I feel helpless against the bullies
+      - I'm being verbally abused by classmates/colleagues
+      - I'm experiencing racial/sexual/religious harassment
+      - They're trying to turn everyone against me
+      - I'm being targeted online by anonymous accounts
+      - I'm scared to report the bullying
+      - The bullying has been going on for months/years
+      - I've changed my behavior to avoid being bullied
+      - I don't know how to make the bullying stop
+
+
+# Health & Medical examples
+  - intent: express_chronic_illness
+    examples: |
+      - I'm struggling with my chronic illness
+      - Living with chronic pain is exhausting
+      - I was recently diagnosed with a chronic condition
+      - My illness is getting worse and I'm scared
+      - I feel like no one understands what it's like to be sick all the time
+      - I'm tired of managing my chronic health issues
+      - I can't do the things I used to because of my condition
+      - My chronic illness is affecting my mental health
+      - I feel like a burden because of my health problems
+      - It's hard to make plans with my unpredictable symptoms
+      - I'm having a flare-up and don't know how to cope
+      - Managing medications for my condition is overwhelming
+      - I'm worried about affording treatment for my chronic illness
+      - I feel isolated because of my health limitations
+      - My chronic condition is invisible and people don't believe me
+      - I'm grieving my life before chronic illness
+      - I'm struggling to work with my health condition
+      - The fatigue from my illness is debilitating
+      - I feel like my chronic illness controls my life
+      - I'm tired of explaining my condition to people
+      - I need to adapt to new limitations from my illness
+      - My relationships are suffering because of my chronic condition
+      - I feel guilty when I can't keep up because of my illness
+      - I'm afraid my condition will get worse over time
+      - I don't know how to balance self-care with responsibilities
+      - Finding doctors who understand my condition is hard
+      - I feel defined by my chronic illness
+      - I'm trying to accept that my condition won't go away
+      - I'm having trouble adapting to life with chronic illness
+      - The brain fog from my condition affects my daily functioning
+
+  - intent: express_reproductive_health
+    examples: |
+      - I'm having issues with my period
+      - I think I might be pregnant
+      - My fertility struggles are affecting my mental health
+      - I'm going through menopause and it's difficult
+      - I need information about birth control options
+      - I'm experiencing painful menstrual cramps
+      - I've been trying to conceive for months without success
+      - I'm having unusual discharge and I'm concerned
+      - My partner and I are having trouble conceiving
+      - I'm worried about my reproductive health
+      - I'm experiencing symptoms of PCOS
+      - My periods are irregular and I don't know why
+      - I had a miscarriage and don't know how to cope
+      - My endometriosis pain is getting worse
+      - I'm concerned about my fertility as I get older
+      - I've missed several periods in a row
+      - I'm struggling with PMS symptoms
+      - I'm going through IVF and it's emotionally draining
+      - The hormonal changes are affecting my mood
+      - I need advice on managing menopause symptoms
+      - I feel embarrassed talking about my reproductive issues
+      - My partner and I disagree about family planning
+      - I'm having side effects from my birth control
+      - I'm experiencing postpartum depression
+      - I'm struggling with the decision to have children
+      - I have concerns about my sexual health
+      - I'm worried about STIs and reproductive health
+      - My cycle affects my chronic health condition
+      - I feel alone in my fertility journey
+      - I don't know where to get reliable reproductive health information
+
+  - intent: express_body_image
+    examples: |
+      - I hate how I look
+      - I'm obsessed with my appearance
+      - I avoid mirrors because I don't like what I see
+      - I feel ugly compared to everyone else
+      - My body image issues are affecting my confidence
+      - I can't stop criticizing how I look
+      - I'm embarrassed about my weight
+      - I feel like I need to change my appearance to be accepted
+      - I'm constantly comparing my body to others
+      - I avoid photos because I hate how I look in them
+      - Social media makes me feel terrible about my body
+      - I'm ashamed of certain parts of my body
+      - I spend hours fixating on my flaws
+      - I feel like I'll never be attractive enough
+      - I'm struggling to accept my body after pregnancy/surgery/illness
+      - I can't wear certain clothes because I'm insecure
+      - My negative body image affects my relationships
+      - I want to love my body but don't know how
+      - I feel judged for my appearance all the time
+      - I'm worried my body image issues are becoming unhealthy
+      - I feel disconnected from my body
+      - I avoid social situations because of how I look
+      - I'm aging and struggling with my changing appearance
+      - My culture puts too much pressure on looking a certain way
+      - I spend too much money trying to "fix" my appearance
+      - I know I should accept myself but it's so hard
+      - I feel defined by my physical appearance
+      - I wish I could see what others see when they look at me
+      - I'm trying to improve my body image but keep failing
+      - My poor body image is affecting my mental health
+
+
+# Life Challenges examples
+  - intent: express_financial_stress
+    examples: |
+      - I'm so stressed about money
+      - I can't pay my bills this month
+      - I'm drowning in debt
+      - I lost my job and don't know what to do
+      - I'm worried about making rent
+      - My financial situation is overwhelming
+      - I don't know how to budget properly
+      - I feel ashamed about my money problems
+      - I'm living paycheck to paycheck
+      - I can't afford the basics right now
+      - My credit card debt is out of control
+      - I'm behind on payments and getting collection calls
+      - I'm stressed about my student loans
+      - I feel like I'll never get ahead financially
+      - My partner and I argue about money all the time
+      - I don't make enough to cover my expenses
+      - I'm worried about becoming homeless
+      - I had an unexpected expense and now I'm broke
+      - I feel hopeless about my financial future
+      - I'm working two jobs and still can't make ends meet
+      - I'm spending too much on emotional shopping
+      - I don't know how to invest or save properly
+      - I'm embarrassed that I need financial help
+      - My medical bills are crushing me
+      - I feel like a failure because of my money issues
+      - I'm constantly anxious about checking my bank account
+      - I never learned how to manage money growing up
+      - My kids need things I can't afford
+      - I'm unable to save anything for emergencies
+      - Financial stress is ruining my mental health
+
+  - intent: express_identity_struggles
+    examples: |
+      - I don't know who I really am
+      - I'm questioning my gender identity
+      - I'm struggling with my sexual orientation
+      - I feel lost about my purpose in life
+      - I don't fit in with my cultural background
+      - I'm having an identity crisis
+      - I feel caught between two cultures
+      - I'm afraid to come out to my family
+      - I don't know what I believe in anymore
+      - My values are changing and it's confusing
+      - I feel like I'm living someone else's life
+      - I'm trying to figure out who I am
+      - I don't recognize myself anymore
+      - My religious identity is conflicting with my lifestyle
+      - I feel like I'm wearing a mask all the time
+      - I'm scared of what others will think if I show my true self
+      - I feel disconnected from my heritage/background
+      - I don't know what I want to do with my life
+      - I feel like I'm going through a midlife crisis
+      - I'm struggling with my identity after a major life change
+      - I feel inauthentic in most situations
+      - I'm not sure what my values are anymore
+      - I've lost my sense of self in my relationship
+      - I'm trying to reconcile different parts of my identity
+      - I feel like an impostor in my own life
+      - I don't know how to express who I really am
+      - My professional identity doesn't match my personal one
+      - I feel pressure to be someone I'm not
+      - I'm questioning everything I thought I knew about myself
+      - I don't feel comfortable in my own skin
+
+  - intent: express_social_difficulties
+    examples: |
+      - I have trouble making friends
+      - I feel awkward in social situations
+      - I don't know how to start conversations
+      - People always seem to misunderstand me
+      - I get anxious at social gatherings
+      - I feel like I don't fit in anywhere
+      - I'm always saying the wrong thing
+      - I struggle with small talk
+      - I feel invisible in group settings
+      - I have no social life
+      - I don't know how to connect with others
+      - I feel judged when I'm around people
+      - I avoid social events because they're so stressful
+      - I freeze up when meeting new people
+      - I'm terrible at reading social cues
+      - I feel like everyone else has friends but me
+      - I'm afraid of being rejected socially
+      - I overthink everything I say in conversations
+      - I feel exhausted after socializing
+      - I never know what to say to keep a conversation going
+      - I feel like I'm faking it in social situations
+      - I'm always on the outside looking in
+      - I want to make friends but don't know how
+      - I struggle to maintain relationships
+      - I feel like I'm too different to connect with others
+      - I get overwhelmed in large groups
+      - I have social anxiety that prevents me from joining activities
+      - I feel awkward and out of place at parties
+      - I wish I knew how to approach people
+      - Making eye contact is really hard for me
+
+
