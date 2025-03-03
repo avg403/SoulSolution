@@ -1,70 +1,102 @@
 import React, { useState, FormEvent } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { auth } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { Link, useNavigate } from "react-router-dom";
+import { getDoc, doc } from "firebase/firestore";
+import { auth, db } from "../firebase";
+import "./Login.css";
+import logo from "../../Image/logo.png";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [error, setError] = useState<string | null>(null); // Initialize as null
+  const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
 
   const handleLogin = async (e: FormEvent) => {
     e.preventDefault();
+    setError(null);
+
     try {
-      // Firebase Authentication Login
-      await signInWithEmailAndPassword(auth, email, password);
-      navigate("/assessment"); // Redirect to assessment after login
-    } catch (err: any) {
-      // Capture Firebase specific error messages
-      if (err.code === "auth/invalid-email") {
-        setError("Invalid email format");
-      } else if (err.code === "auth/user-not-found") {
-        setError("User not found");
-      } else if (err.code === "auth/wrong-password") {
-        setError("Incorrect password");
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCredential.user;
+
+      // Fetch user document from Firestore
+      const userDoc = await getDoc(doc(db, "users", user.uid));
+      if (userDoc.exists()) {
+        const userData = userDoc.data();
+
+        // Check if it's the user's first login
+        if (userData?.firstLogin) {
+          navigate("/assessment"); // Redirect to assessment page on first login
+        } else {
+          const lastMoodCheckin = userData?.lastMoodCheckin;
+          const today = new Date().toISOString().split("T")[0]; // Today's date in "YYYY-MM-DD" format
+
+          if (lastMoodCheckin && lastMoodCheckin.startsWith(today)) {
+            navigate("/chatinterface"); // Navigate to chat interface if mood is already checked in
+          } else {
+            navigate("/dailymood"); // Navigate to daily mood check-in
+          }
+        }
       } else {
-        setError("An unknown error occurred");
+        setError("User data not found. Please check your account.");
+      }
+    } catch (err: any) {
+      if (err.code === "auth/invalid-email") {
+        setError("Invalid email format.");
+      } else if (err.code === "auth/user-not-found") {
+        setError("No user found with this email.");
+      } else if (err.code === "auth/wrong-password") {
+        setError("Incorrect password.");
+      } else {
+        setError("An unknown error occurred.");
       }
     }
   };
 
   return (
-    <div className="container mt-5 d-flex justify-content-center">
-      <div className="card p-4 shadow" style={{ maxWidth: "400px" }}>
-        <h2 className="text-center mb-4">Login</h2>
+    <div className="wrapper">
+      <div className="logo">
+        <img src={logo} alt="Logo" />
+      </div>
+      <div className="text-center mt-4 name">SoulSolution</div>
+      <form className="p-3 mt-3" onSubmit={handleLogin}>
         {error && <div className="alert alert-danger">{error}</div>}
-        <form onSubmit={handleLogin}>
-          <div className="mb-3">
-            <input
-              type="email"
-              className="form-control"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
-          <div className="mb-3">
-            <input
-              type="password"
-              className="form-control"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
-          <button type="submit" className="btn btn-primary w-100">
-            Login
-          </button>
-        </form>
-        <p className="mt-3 text-center">
-          Don't have an account?{" "}
-          <Link to="/signup" className="text-decoration-none">
-            Sign up
-          </Link>
-        </p>
+        <div className="form-field d-flex align-items-center">
+          <span className="far fa-user"></span>
+          <input
+            type="email"
+            name="userName"
+            id="userName"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-field d-flex align-items-center">
+          <span className="fas fa-key"></span>
+          <input
+            type="password"
+            name="password"
+            id="pwd"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <button className="btn mt-3" type="submit">
+          Login
+        </button>
+      </form>
+      <div className="text-center fs-6">
+        <Link to="/forgotpassword">Forget password?</Link> or{" "}
+        <Link to="/signup">Sign up</Link>
       </div>
     </div>
   );

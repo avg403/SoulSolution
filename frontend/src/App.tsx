@@ -6,21 +6,70 @@ import {
 } from "react-router-dom";
 import Login from "./components_li/Login";
 import Signup from "./components_li/Signup";
+import ForgotPassword from "./components_li/ForgotPassword"; // Forgot Password component
 import AssessmentForm from "./components_li/AssessmentForm";
-import PrivateRoute from "./components_li/PrivateRoute";
+import DailyMoodCheckin from "./components_li/DailyMoodCheckin";
+import ChatInterface from "./components_li/ChatInterface";
+import PrivateRoute from "./components_li/PrivateRoute"; // Private route for protected pages
+import MoodCheckin from "./components_li/MoodCheckin";
+import DataVisualization from "./components_li/DataVisualization";
+import Home from "./components_li/Home";
 
 const App = () => {
   return (
     <Router>
       <Routes>
+        {/* Default route - Redirect to login */}
         <Route path="/" element={<Navigate to="/login" replace />} />
+
+        {/* Home Route */}
+        <Route path="/home" element={<Home />} />
+
+        {/* Login and Signup Routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+
+        {/* Forgot Password Route */}
+        <Route path="/forgotpassword" element={<ForgotPassword />} />
+
+        {/* Protected Routes */}
         <Route
           path="/assessment"
           element={
             <PrivateRoute>
               <AssessmentForm />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/dailymood"
+          element={
+            <PrivateRoute>
+              <DailyMoodCheckin />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/chatinterface"
+          element={
+            <PrivateRoute>
+              <ChatInterface />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/mood-checkin"
+          element={
+            <PrivateRoute>
+              <MoodCheckin />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/data-visualization"
+          element={
+            <PrivateRoute>
+              <DataVisualization />
             </PrivateRoute>
           }
         />
