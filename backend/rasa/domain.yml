@@ -1,460 +1,1318 @@
+# domain.yml
 version: "3.1"
 
 intents:
-  - greet
-  - admiration
-  - amusement
-  - anger
-  - annoyance
-  - approval
-  - caring
-  - confusion
-  - curiosity
-  - desire
-  - disappointment
-  - disapproval
-  - disgust
-  - embarrassment
-  - excitement
-  - fear
-  - gratitude
-  - grief
-  - joy
-  - love
-  - nervousness
-  - optimism
-  - pride
-  - realization
-  - relief
-  - remorse
-  - sadness
-  - surprise
-  - neutral
-  - goodbye
-  - bot_challenge
 
-slots:
-  detected_emotion:
-    type: text
-    influence_conversation: true
-    initial_value: "neutral"
-    mappings:
-    - type: custom
+# Common conversational intents
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - thank
+  - bot_challenge
+  - help
+  - stop
+  - restart
+  - out_of_scope
+  - how_are_you
+  - user_need_help
+  - ask_name
+  - ask_capabilities
+  - bot_name
+
+#28 emotions
+  - express_admiration
+  - express_amusement
+  - express_anger
+  - express_annoyance
+  - express_approval
+  - express_caring
+  - express_confusion
+  - express_curiosity
+  - express_desire
+  - express_disappointment
+  - express_disapproval
+  - express_disgust
+  - express_embarrassment
+  - express_excitement
+  - express_fear
+  - express_gratitude
+  - express_grief
+  - express_joy
+  - express_love
+  - express_nervousness
+  - express_neutral
+  - express_optimism
+  - express_pride
+  - express_realization
+  - express_relief
+  - express_remorse
+  - express_sadness
+  - express_surprise
+
+
+
+
+
+
+
+
+
+
+  # Academic & Work
+  - express_academic_stress
+  - express_work_stress
+  - express_performance_anxiety
+
+  # Relationship & Family
+  - express_relationship_problems
+  - express_family_conflict
+  - express_divorce_concerns
+  - express_loneliness
+
+  # Mental Health Conditions
+  - express_depression
+  - express_anxiety
+  - express_addiction
+  - express_eating_disorder
+  - express_phobia
+
+  # Crisis & Trauma
+  - express_suicidal_thoughts
+  - express_grief_loss
+  - express_trauma
+  - express_abuse
+  - express_bullying
+
+  # Health & Medical
+  - express_chronic_illness
+  - express_reproductive_health
+  - express_body_image
+
+  # Life Challenges
+  - express_financial_stress
+  - express_identity_struggles
+  - express_social_difficulties
+
+
+
+
+
+
 
 responses:
+# Common conversational responses
   utter_greet:
-    - text: "Hello! You seem quite happy today. How can I assist you?"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: joy
-    - text: "Hi there. I can sense you're feeling down. I'm here to listen and help."
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: sadness
-    - text: "Hello! I notice you're feeling anxious. Let's take things one step at a time."
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: fear
-    - text: "Hello! How can I assist you today?"
+    - text: |
+        👋 Hello! I'm here to support and listen to you. How can I help you today?
 
   utter_goodbye:
-    - text: "Take care! Remember to stay positive!"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: joy
-    - text: "Goodbye. Remember, tomorrow is a new day."
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: sadness
-    - text: "Goodbye! Have a great day!"
+    - text: |
+        🌟 Take care! Remember, you're stronger than you think. Feel free to return anytime you need support.
+
+  utter_affirm:
+    - text: |
+        ✨ I understand. Thank you for confirming. Let's continue our conversation.
+
+  utter_deny:
+    - text: |
+        🎯 I appreciate your honesty. Let's try a different approach that works better for you.
+
+  utter_thank:
+    - text: |
+        💝 You're very welcome! Your well-being matters, and I'm glad I could help.
 
   utter_bot_challenge:
-    - text: "I am a bot, powered by Rasa! I'm here to help and understand your emotions."
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: curiosity
-    - text: "I am a bot, powered by Rasa!"
+    - text: |
+        🤖 Yes, I'm an AI counseling assistant. While I'm not human, I'm here to listen and support you with genuine care.
 
-  utter_iamabot:
-    - text: "I am a bot, designed to understand and respond to your emotions."
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: curiosity
-    - text: "I am a bot, here to assist you with your queries."
+  utter_help:
+    - text: |
+        💡 I'm here to help! I can:
+        🎯 Listen and provide support
+        💭 Help you explore your thoughts
+        🌟 Offer guidance and resources
+        What would you like to focus on?
 
+  utter_stop:
+    - text: |
+        🌅 I understand you'd like to stop. Remember, it's okay to take breaks. Take care of yourself!
+
+  utter_restart:
+    - text: |
+        🔄 Let's start fresh! Sometimes a new beginning is exactly what we need.
+
+  utter_out_of_scope:
+    - text: |
+        💭 I understand you're asking about something I'm not equipped to help with. I'm here primarily for emotional support and counseling. How can I support you in that way?
+
+  utter_how_are_you:
+    - text: |
+        💫 Thank you for asking! I'm here and ready to focus on supporting you. How are you feeling today?
+
+  utter_user_need_help:
+    - text: |
+        🫂 I hear you, and I want you to know that you're not alone. It takes courage to reach out for help. Let's talk about what's troubling you, and we'll work through this together.
+
+  utter_ask_name:
+    - text: |
+        👋 I'm your counseling assistant. You can call me Hope. I'm here to support you on your journey.
+
+  utter_ask_capabilities:
+    - text: |
+        💫 I'm here to:
+        🎯 Provide emotional support
+        👂 Listen without judgment
+        💭 Help you explore your feelings
+        🌟 Offer guidance when needed
+        Would you like to know more about any of these areas?
+
+  utter_bot_name:
+    - text: |
+        ✨ Yes, I'm Soul Solution! I'm your dedicated AI counseling companion, here to support you on your journey to emotional well-being.
+
+
+
+#28 emotions response
   utter_admiration:
-    - text: "Your enthusiasm is wonderful! Thank you for your kind words!"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: joy
-    - text: "I appreciate your kind words. I sense some mixed feelings - would you like to talk about what's on your mind?"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: sadness
-    - text: "Thank you for your kind words! It means a lot."
+    - text: |
+        I appreciate your kind words! 🌟 It's wonderful to hear such positive feedback.
+        
+        What makes admiration powerful:
+        📌 Recognizing qualities you value helps define your own goals
+        💫 Admiration can be a great motivator for personal growth
+        ✨ Seeing greatness in others reveals the potential in yourself
+        
+        Ways to channel admiration:
+        🌱 Consider what specific qualities inspire you most
+        💪 Use that inspiration to set meaningful personal goals
+        ⭐ Remember that everyone starts somewhere - progress takes time
+        
+        Remember:
+        💫 Your capacity to admire shows your ability to recognize excellence
+        ✨ The qualities you admire often reflect your own values
+        🌟 Your appreciation of others' qualities is a beautiful strength!
 
   utter_amusement:
-    - text: "Your joy is contagious! I'm glad you're having such a good time!"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: joy
-    - text: "I'm happy you found something amusing! Would you like to share what made you laugh?"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: curiosity
-    - text: "I'm glad you're enjoying yourself!"
+    - text: |
+        I'm glad that brought you joy! 😄 Laughter is such a wonderful part of life.
+        
+        Benefits of humor and laughter:
+        📌 Laughter releases endorphins that boost your mood naturally
+        💫 Finding humor helps build resilience during challenging times
+        ✨ Shared laughter strengthens connections with others
+        
+        Ways to bring more humor into your life:
+        🌱 Notice the little absurdities in everyday situations
+        💪 Share moments that make you smile with others
+        ⭐ Find content creators whose humor resonates with you
+        
+        Remember:
+        💫 Your sense of humor is uniquely yours - embrace it!
+        ✨ Even small moments of amusement can brighten your day
+        🌟 The ability to laugh and find joy is a genuine superpower!
 
   utter_anger:
-    - text: "I can feel your frustration. Let's work through this together calmly."
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: anger
-    - text: "I understand you're angry. Would you like to talk about what's bothering you?"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: sadness
-    - text: "I understand you're upset. Can I help with anything?"
+    - text: |
+        I hear that you're feeling angry, and that's completely valid. 🌟 Strong emotions like this deserve acknowledgment.
+        
+        Understanding your anger:
+        📌 Anger often signals that an important boundary has been crossed
+        💫 This emotion can provide valuable information about your needs
+        ✨ Recognizing anger is the first step to processing it healthily
+        
+        Healthy ways to process anger:
+        🌱 Take slow, deep breaths to activate your body's calming response
+        💪 Express your feelings clearly using "I" statements when possible
+        ⭐ Channel the energy into physical activity like walking or exercise
+        
+        Remember:
+        💫 Your anger is a normal human emotion that everyone experiences
+        ✨ Acknowledging feelings doesn't mean acting on them impulsively
+        🌟 You have the power to process this emotion in constructive ways!
 
   utter_annoyance:
-    - text: "I can tell this is really bothering you. Let's address what's causing your annoyance."
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: anger
-    - text: "Your frustration is valid. How can I help make this better?"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: sadness
-    - text: "I see this is frustrating for you. Let me know how I can help."
+    - text: |
+        I understand feeling annoyed - it's perfectly natural! 🌟 Let's find ways to handle this feeling.
+        
+        Why annoyance happens:
+        📌 Small frustrations can build up over time and affect your mood
+        💫 Irritation often signals when something isn't aligned with your needs
+        ✨ Annoyance can be your mind's way of saying "something needs to change"
+        
+        Helpful approaches:
+        🌱 Take a short break to reset your mental state
+        💪 Focus on what you can control in the situation
+        ⭐ Consider if expressing your needs clearly could help
+        
+        Remember:
+        💫 Everyone experiences irritation - you're not alone in this feeling
+        ✨ Small shifts in perspective can often reduce annoyance
+        🌟 Your ability to recognize and address irritation shows emotional awareness!
 
   utter_approval:
-    - text: "Your positive energy is wonderful! I'm glad you approve!"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: joy
-    - text: "Thank you for your approval! What aspects do you like best?"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: curiosity
-    - text: "I'm glad you approve! Let's keep going."
+    - text: |
+        Thank you for your positive feedback! 🌟 I'm glad to hear we're aligned.
+        
+        Benefits of alignment:
+        📌 Shared agreement creates momentum toward positive outcomes
+        💫 Clear approval helps establish trust and understanding
+        ✨ Being on the same page reduces confusion and friction
+        
+        Moving forward positively:
+        🌱 Building on your approval helps strengthen collaboration
+        💪 Clarity about what works well guides future interactions
+        ⭐ Expressing agreement creates a foundation for progress
+        
+        Remember:
+        💫 Your positive feedback contributes to better outcomes
+        ✨ Clear communication of approval is valuable
+        🌟 Finding common ground is a wonderful way to move forward!
 
   utter_caring:
-    - text: "Your compassion is touching! Thank you for being so caring."
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: love
-    - text: "I appreciate your caring nature. How are you feeling?"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: sadness
-    - text: "I care about you! How are you feeling?"
+    - text: |
+        I'm touched by your caring nature! 🌟 Your compassion makes a real difference.
+        
+        The power of caring:
+        📌 Expressing concern strengthens human connections
+        💫 Caring for others reflects emotional intelligence
+        ✨ Compassion creates safety for those around you
+        
+        Ways to practice caring effectively:
+        🌱 Balance caring for others with self-care
+        💪 Express your concern clearly and authentically
+        ⭐ Listen actively when others share their feelings
+        
+        Remember:
+        💫 Your capacity for compassion is a genuine strength
+        ✨ Small gestures of caring often have profound impact
+        🌟 The world becomes better through acts of kindness like yours!
 
   utter_confusion:
-    - text: "Don't worry about being confused. Let's break this down together!"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: anxiety
-    - text: "I can help clarify things. What part is confusing you?"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: curiosity
-    - text: "It seems you're a bit confused. Let me explain."
+    - text: |
+        I understand feeling confused - it's completely normal! 🌟 Let's find clarity together.
+        
+        Why confusion happens:
+        📌 New information takes time to process and integrate
+        💫 Complex topics naturally create moments of uncertainty
+        ✨ Confusion is often the first step toward deeper understanding
+        
+        Ways to find clarity:
+        🌱 Break down complex ideas into smaller, manageable parts
+        💪 Try approaching the topic from different angles
+        ⭐ Consider writing down what specifically feels unclear
+        
+        Remember:
+        💫 Feeling confused means your brain is working to make connections
+        ✨ Questions are valuable tools for building understanding
+        🌟 Clarity often emerges gradually - give yourself time to process!
 
   utter_curiosity:
-    - text: "I love your enthusiasm to learn! What would you like to know more about?"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: joy
-    - text: "Your curiosity is wonderful! Let's explore your questions together."
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: curiosity
-    - text: "That's interesting! What else would you like to know?"
+    - text: |
+        I appreciate your curiosity! 🌟 It's wonderful to explore and learn new things.
+        
+        Benefits of curiosity:
+        📌 Curiosity drives learning and personal growth
+        💫 Asking questions helps build deeper understanding
+        ✨ Being curious opens doors to new ideas and perspectives
+        
+        Ways to nurture your curiosity:
+        🌱 Follow your interests without judgment
+        💪 Ask "what if" and "why" questions regularly
+        ⭐ Explore topics from multiple angles
+        
+        Remember:
+        💫 Your curiosity is a powerful tool for discovery
+        ✨ Every question leads to new understanding
+        🌟 The joy of learning comes from embracing your natural curiosity!
 
   utter_desire:
-    - text: "Your enthusiasm is inspiring! Let's work on achieving what you want!"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: joy
-    - text: "I hear your desire. What steps can we take to reach your goal?"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: sadness
-    - text: "I understand you want that. Let's work towards it."
+    - text: |
+        I hear your desire clearly! 🌟 Wanting something deeply is a powerful motivator.
+        
+        Understanding desires:
+        📌 Strong desires reflect what truly matters to you
+        💫 Desires help clarify your personal values and priorities
+        ✨ Recognizing what you want is the first step toward achievement
+        
+        Healthy approaches to desires:
+        🌱 Visualize your desired outcome in specific detail
+        💪 Break down big desires into actionable steps
+        ⭐ Balance passion with patience as you work toward goals
+        
+        Remember:
+        💫 Your desires reveal what's meaningful to you
+        ✨ The path toward what you want builds character
+        🌟 You have the inner resources to pursue what matters most!
 
   utter_disappointment:
-    - text: "I understand your disappointment. Let's focus on what we can improve."
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: sadness
-    - text: "I know this isn't what you hoped for. How can we make it better?"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: anger
-    - text: "I'm really sorry that you're disappointed."
+    - text: |
+        I understand you're feeling disappointed, and that's completely valid. 🌟 Let's work through this together.
+        
+        Why disappointment happens:
+        📌 Unmet expectations create natural feelings of letdown
+        💫 Disappointment shows you cared about the outcome
+        ✨ This feeling is a normal part of processing setbacks
+        
+        Healthy ways to handle disappointment:
+        🌱 Allow yourself to feel the emotion without judgment
+        💪 Reflect on what this experience teaches you
+        ⭐ Adjust expectations while maintaining hope
+        
+        Remember:
+        💫 Disappointment is temporary - it will pass with time
+        ✨ Every setback contains lessons for growth
+        🌟 Your resilience helps you bounce back stronger!
 
   utter_disapproval:
-    - text: "I understand your concerns. What specifically bothers you?"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: anger
-    - text: "I hear your disapproval. Would you like to discuss what's wrong?"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: sadness
-    - text: "I understand you're not happy with this. Let me know how I can improve."
+    - text: |
+        I understand you have concerns about this. 🌟 It's important to honor your values and boundaries.
+        
+        Why disapproval matters:
+        📌 Standing by your principles shows integrity
+        💫 Expressing disagreement helps establish boundaries
+        ✨ Your perspective offers valuable alternative viewpoints
+        
+        Constructive approaches:
+        🌱 Clearly express what specifically concerns you
+        💪 Consider suggesting alternatives when possible
+        ⭐ Focus on the issue rather than people involved
+        
+        Remember:
+        💫 Your values guide your responses for good reason
+        ✨ Standing your ground respectfully shows strength
+        🌟 Your authentic perspective contributes to better outcomes!
 
   utter_disgust:
-    - text: "I understand this is really upsetting you. Would you like to talk about it?"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: anger
-    - text: "I can tell this really bothers you. How can we address this?"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: sadness
-    - text: "I can see you're disgusted by this. What can I do to change that?"
+    - text: |
+        I understand that's triggering a strong negative reaction. 🌟 It's natural to feel disgusted by certain things.
+        
+        Understanding disgust reactions:
+        📌 Disgust is a protective emotion that helps us avoid harm
+        💫 Strong negative reactions often relate to personal boundaries
+        ✨ These feelings help us recognize what feels wrong to us
+        
+        Handling feelings of disgust:
+        🌱 Take a moment to step back if needed
+        💪 Remind yourself that disgust is your mind's protection system
+        ⭐ Consider whether distance or boundaries are needed
+        
+        Remember:
+        💫 Your reactions protect what matters to you
+        ✨ It's okay to set boundaries around what you find disturbing
+        🌟 Taking care of your wellbeing includes honoring your comfort levels!
 
   utter_embarrassment:
-    - text: "Don't worry, embarrassment is a natural feeling. Let's move forward together."
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: sadness
-    - text: "Everyone feels embarrassed sometimes. How can I help you feel better?"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: anxiety
-    - text: "It's okay to feel embarrassed. I'm here for you."
+    - text: |
+        I understand feeling embarrassed - it's a completely normal emotion! 🌟 Let's work through this together.
+        
+        Understanding embarrassment:
+        📌 Everyone experiences embarrassment - it's a universal human emotion
+        💫 Embarrassment often feels more intense to you than it appears to others
+        ✨ This feeling shows you care about social connections
+        
+        Ways to cope with embarrassment:
+        🌱 Take a deep breath and remind yourself that this feeling will pass
+        💪 Try to find humor in the situation when possible
+        ⭐ Show yourself the same compassion you'd show a friend
+        
+        Remember:
+        💫 Embarrassing moments happen to everyone - you're in good company!
+        ✨ Most people are focused on themselves, not on your moments
+        🌟 How you respond to embarrassment shows your resilience!
 
   utter_excitement:
-    - text: "Your excitement is contagious! Tell me more about what's making you so happy!"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: joy
-    - text: "I love seeing your enthusiasm! What's got you so excited?"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: curiosity
-    - text: "I'm glad you're excited! Let's make this even better."
+    - text: |
+        Your excitement is contagious! 🌟 It's wonderful to see such enthusiasm.
+        
+        Why excitement matters:
+        📌 Excitement brings positive energy and motivation
+        💫 Looking forward to things enhances wellbeing
+        ✨ Excitement helps us stay present and engaged
+        
+        Channeling your excitement:
+        🌱 Capture this feeling by journaling or sharing with others
+        💪 Use your enthusiasm to fuel preparation
+        ⭐ Savor the anticipation as well as the event itself
+        
+        Remember:
+        💫 Your excitement is a gift - it brings vitality to experiences
+        ✨ The energy of enthusiasm can inspire those around you
+        🌟 This positive feeling boosts your resilience and joy!
 
   utter_fear:
-    - text: "I understand you're scared. Remember to breathe - I'm here with you."
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: fear
-    - text: "Fear is natural. Let's face this together, one step at a time."
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: anxiety
-    - text: "I understand you're feeling fearful. What can I do to help?"
+    - text: |
+        I hear that you're feeling afraid, and that's completely valid. 🌟 Fear is a natural response to perceived threats.
+        
+        Understanding fear:
+        📌 Fear is your brain's way of trying to protect you
+        💫 Your body responds to fear to help you stay safe
+        ✨ Acknowledging fear is an important first step
+        
+        Ways to cope with fear:
+        🌱 Practice deep breathing to calm your nervous system
+        💪 Name your fears specifically to reduce their power
+        ⭐ Break down what scares you into smaller, manageable parts
+        
+        Remember:
+        💫 Feeling afraid doesn't mean you're in actual danger
+        ✨ Courage isn't the absence of fear, but moving forward despite it
+        🌟 You have inner resources to handle difficult situations!
 
   utter_gratitude:
-    - text: "Your gratitude fills me with joy! Thank you for sharing that!"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: joy
-    - text: "I'm touched by your thankfulness. It means a lot to me too!"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: love
-    - text: "I'm so grateful for your kind words. Thank you!"
+    - text: |
+        You're very welcome! 🌟 It's wonderful that you express gratitude so openly.
+        
+        The power of gratitude:
+        📌 Expressing thanks strengthens social connections
+        💫 Gratitude shifts focus to what's positive in your life
+        ✨ Thankfulness is linked to greater wellbeing
+        
+        Building on gratitude:
+        🌱 Consider keeping a gratitude journal for daily reflection
+        💪 Express appreciation to others when you feel it
+        ⭐ Notice even small things that bring value to your life
+        
+        Remember:
+        💫 Your capacity for gratitude reflects emotional intelligence
+        ✨ Thankfulness creates positive cycles in relationships
+        🌟 Gratitude is a strength that enhances life's experiences!
 
   utter_grief:
-    - text: "I'm here with you in this difficult time. Take all the time you need."
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: sadness
-    - text: "Grief is a journey. I'm here to listen whenever you need me."
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: pain
-    - text: "I'm really sorry to hear you're feeling this way. Take your time."
+    - text: |
+        I'm truly sorry for your loss. 🌟 Grief is deeply personal, and your feelings are valid.
+        
+        Understanding grief:
+        📌 Grief is the natural response to loss and shows your capacity to love
+        💫 Everyone experiences grief differently - there's no "right way"
+        ✨ Grief often comes in waves and can include many emotions
+        
+        Supporting yourself through grief:
+        🌱 Allow yourself to feel without judgment
+        💪 Be patient and gentle with yourself during this process
+        ⭐ Consider connecting with others who understand loss
+        
+        Remember:
+        💫 Your grief honors the significance of your loss
+        ✨ Healing happens gradually and in its own time
+        🌟 You can carry both grief and hope forward with you!
 
   utter_joy:
-    - text: "Your happiness is infectious! Let's celebrate this wonderful moment!"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: joy
-    - text: "I'm so happy to see you in such good spirits! What's making you so joyful?"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: excitement
-    - text: "It's great to hear you're feeling joyful! What can we do to keep the mood going?"
+    - text: |
+        I'm delighted to hear you're feeling such joy! 🌟 Happiness is wonderful to experience and share.
+        
+        The magic of joy:
+        📌 Joyful moments enhance overall wellbeing
+        💫 Positive emotions broaden our perspective
+        ✨ Joy creates meaningful memories that sustain us
+        
+        Making the most of happy feelings:
+        🌱 Savor this moment fully by noticing details
+        💪 Share your happiness with others to multiply it
+        ⭐ Capture this feeling through journaling or photos
+        
+        Remember:
+        💫 Your capacity for joy is a beautiful human trait
+        ✨ These positive moments build resilience for harder times
+        🌟 Celebrating happiness creates more opportunities for joy!
 
   utter_love:
-    - text: "Love is such a beautiful emotion! Thank you for sharing it!"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: joy
-    - text: "What a wonderful feeling to express! Tell me more about it."
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: excitement
-    - text: "I'm happy you're feeling loved! Let's keep spreading that positivity."
+    - text: |
+        I appreciate your warm feelings! 🌟 Expressing love shows your capacity for connection.
+        
+        Understanding love expressions:
+        📌 Love takes many forms - from romantic to friendship to familial bonds
+        💫 Expressing love requires courage and vulnerability
+        ✨ Sharing feelings builds stronger connections
+        
+        Healthy approaches to expressing love:
+        🌱 Consider the many ways to show love beyond words (acts, time, gifts)
+        💪 Remember that self-love forms the foundation for loving others
+        ⭐ Practice clear communication about your feelings and needs
+        
+        Remember:
+        💫 Your capacity to love shows emotional intelligence
+        ✨ Expressing appreciation strengthens relationships
+        🌟 Love in all its forms makes life more meaningful!
 
   utter_nervousness:
-    - text: "Take deep breaths. We'll handle this together, step by step."
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: fear
-    - text: "It's okay to feel nervous. Would you like to talk about what's causing it?"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: anxiety
-    - text: "I understand you're feeling nervous. It's okay, take a deep breath."
-
-  utter_optimism:
-    - text: "Your positive outlook is inspiring! Let's build on that energy!"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: joy
-    - text: "I love your optimistic spirit! What are you looking forward to?"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: excitement
-    - text: "It's great to hear you're feeling optimistic! Let's keep moving forward."
-
-  utter_pride:
-    - text: "You should be proud! Your accomplishment is worth celebrating!"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: joy
-    - text: "I can hear the pride in your words! Tell me more about your achievement!"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: excitement
-    - text: "You should feel proud! Well done!"
-
-  utter_realization:
-    - text: "Those 'aha' moments are wonderful! What did you discover?"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: joy
-    - text: "Realizations can be powerful. Would you like to share what you learned?"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: curiosity
-    - text: "It sounds like you've had a realization. How can I assist you further?"
-
-  utter_relief:
-    - text: "I'm so glad you're feeling relieved! Let's keep this positive energy going!"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: joy
-    - text: "Relief is such a welcome feeling. What helped resolve the situation?"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: curiosity
-    - text: "I'm glad you're feeling relieved. Is there anything else I can do for you?"
-
-  utter_remorse:
-    - text: "It takes courage to acknowledge remorse. Would you like to talk about it?"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: sadness
-    - text: "Everyone makes mistakes. How can we learn from this?"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: anxiety
-    - text: "It seems you're feeling remorseful. I'm here to listen if you want to talk."
-
-  utter_sadness:
-    - text: "I'm here with you in this difficult moment. Would you like to talk about it?"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: sadness
-    - text: "It's okay to feel sad. Take all the time you need."
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: grief
-    - text: "I'm really sorry you're feeling sad. Take your time, I'm here if you need anything."
-
-  utter_surprise:
-    - text: "Wow! What an unexpected moment! Tell me more about what surprised you!"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: joy
-    - text: "Surprises can be overwhelming. Would you like to talk about it?"
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: anxiety
-    - text: "It seems you're surprised! I hope it's a good surprise."
+    - text: |
+        I understand feeling nervous - it's completely normal! 🌟 Let's find ways to help you feel more grounded.
+        
+        Why nervousness happens:
+        📌 Your body's natural response to uncertainty or pressure
+        💫 Nervousness often accompanies situations that matter to you
+        ✨ Even confident people experience nerves regularly
+        
+        Helpful techniques to manage nervousness:
+        🌱 Take slow, deep breaths to activate your calming system
+        💪 Focus on what you can control in the situation
+        ⭐ Remind yourself of past successes in challenging moments
+        
+        Remember:
+        💫 Nervousness is your body's way of preparing for something important
+        ✨ This feeling will pass - it's temporary, not permanent
+        🌟 You have inner resources to handle this situation successfully!
 
   utter_neutral:
-    - text: "Sometimes a neutral state of mind can be quite peaceful."
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: calm
-    - text: "Taking things as they come - that's a good approach."
-      condition:
-        - type: slot
-          name: detected_emotion
-          value: neutral
-    - text: "It seems like you're feeling neutral. Let me know if you'd like to talk or need help with something."
+    - text: |
+        I understand your neutral stance. 🌟 Not having strong feelings about something is perfectly valid.
+        
+        Benefits of neutrality:
+        📌 A neutral perspective can help maintain objectivity
+        💫 Not taking sides allows for more balanced consideration
+        ✨ Neutrality can reduce unnecessary stress and conflict
+        
+        Ways to engage with neutrality:
+        🌱 Consider if you need more information to form an opinion
+        💪 Use this neutral space to listen to different perspectives
+        ⭐ Remember it's okay to not have strong feelings about everything
+        
+        Remember:
+        💫 Neutrality can be a thoughtful choice, not just a lack of opinion
+        ✨ You can change your stance if new information resonates with you
+        🌟 Choosing when to engage emotionally is a valuable skill!
 
-actions:
-  - action_default_fallback
-  - action_listen
-  - action_restart
-  - action_set_emotion
+  utter_optimism:
+    - text: |
+        Your optimism is refreshing! 🌟 This positive outlook can be truly empowering.
+        
+        Benefits of optimism:
+        📌 Positive thinking helps build resilience for challenges
+        💫 Optimism is linked to better problem-solving abilities
+        ✨ Hopeful perspectives can reduce stress and improve wellbeing
+        
+        Ways to nurture your optimism:
+        🌱 Celebrate small victories along the way
+        💪 Surround yourself with positive influences when possible
+        ⭐ Practice reframing challenges as opportunities
+        
+        Remember:
+        💫 Your optimism creates possibilities you might otherwise miss
+        ✨ Believing in positive outcomes helps you take constructive action
+        🌟 Hope is a powerful force for creating the future you want!
+
+  utter_pride:
+    - text: |
+        Congratulations on your achievement! 🌟 You deserve to feel proud of yourself.
+        
+        Why pride matters:
+        📌 Acknowledging accomplishments builds confidence
+        💫 Healthy pride reflects genuine effort and perseverance
+        ✨ Celebrating victories motivates future achievements
+        
+        Ways to honor your success:
+        🌱 Take time to truly appreciate what you've accomplished
+        💪 Document your achievement to remind yourself in challenging times
+        ⭐ Share your success with supportive people in your life
+        
+        Remember:
+        💫 Your hard work and dedication made this possible
+        ✨ This achievement becomes part of your growth story
+        🌟 Each success builds your confidence for future challenges!
+
+  utter_realization:
+    - text: |
+        Those "aha" moments are powerful! 🌟 New understanding can be truly transformative.
+        
+        Why realizations matter:
+        📌 New insights create pathways for growth and change
+        💫 Understanding connects pieces of information in meaningful ways
+        ✨ Realizations often create a foundation for action
+        
+        Making the most of new insights:
+        🌱 Write down your realization while it's fresh
+        💪 Consider how this new understanding changes your perspective
+        ⭐ Think about how to apply this new knowledge
+        
+        Remember:
+        💫 Your ability to gain new insights shows intellectual curiosity
+        ✨ Realizations often come after periods of reflection or challenge
+        🌟 This new understanding can open doors to positive change!
+
+  utter_relief:
+    - text: |
+        I'm glad you're feeling relieved! 🌟 That release of tension can feel wonderful.
+        
+        Why relief matters:
+        📌 Relief signals the end of a stressful period
+        💫 This feeling helps your body and mind recover
+        ✨ Relief creates space for new possibilities
+        
+        Ways to savor relief:
+        🌱 Take a moment to notice how your body feels more relaxed
+        💪 Reflect on what you learned from the challenging situation
+        ⭐ Consider celebrating in a way that feels meaningful
+        
+        Remember:
+        💫 This relief you're feeling is well-earned
+        ✨ Your resilience helped you reach this point
+        🌟 Each experience of overcoming challenges builds confidence!
+
+  utter_remorse:
+    - text: |
+        I hear your regret, and acknowledging mistakes takes courage. 🌟 Let's find a constructive path forward.
+        
+        Understanding remorse:
+        📌 Feeling sorry shows your capacity for empathy and growth
+        💫 Remorse is a natural response to recognizing a mistake
+        ✨ This feeling often signals your commitment to doing better
+        
+        Constructive ways forward:
+        🌱 Consider what amends would be meaningful and appropriate
+        💪 Reflect on what you've learned from this experience
+        ⭐ Focus on actions that align with your values moving forward
+        
+        Remember:
+        💫 Making mistakes is part of being human
+        ✨ How you respond to errors shows your character
+        🌟 This remorse can be transformed into positive change!
+
+  utter_sadness:
+    - text: |
+        I'm sorry you're feeling sad. 🌟 Your feelings are valid, and you're not alone in this.
+        
+        Understanding sadness:
+        📌 Sadness is a natural response to loss or disappointment
+        💫 This emotion helps us process difficult experiences
+        ✨ Feeling sad is part of the full human experience
+        
+        Gentle ways to care for yourself:
+        🌱 Allow yourself to feel without judgment
+        💪 Practice self-compassion during this difficult time
+        ⭐ Connect with supportive people when you feel ready
+        
+        Remember:
+        💫 Sadness, like all emotions, will eventually shift
+        ✨ Taking care of yourself during sad times builds resilience
+        🌟 You have the inner strength to move through this challenge!
+
+  utter_surprise:
+    - text: |
+        Wow, I can see you're surprised! 🌟 Unexpected moments can certainly catch us off guard.
+        
+        Understanding surprise:
+        📌 Surprise shows your ability to engage with the unexpected
+        💫 This reaction helps your brain update its understanding
+        ✨ Being surprised can lead to new discoveries
+        
+        Ways to process surprise:
+        🌱 Take a moment to let the unexpected information sink in
+        💪 Consider how this changes your understanding
+        ⭐ Reflect on what new possibilities this might create
+        
+        Remember:
+        💫 Surprise keeps life interesting and full of discovery
+        ✨ Your ability to adapt to the unexpected is a strength
+        🌟 Unexpected moments often lead to growth and new paths!
+
+
+
+
+
+# Academic & Work responses
+  utter_express_academic_stress:
+    - text: |
+        I understand how overwhelming academic stress can be. Let me help you with some effective strategies! 🌟
+
+        Ways to manage your studies better:
+        📚 Break work into smaller, manageable tasks
+        ⏰ Use the Pomodoro technique (25 min study + 5 min break)
+        📋 Focus on one subject at a time
+        
+        Taking care of yourself is important:
+        😴 Maintain a regular sleep schedule
+        🚶‍♂️ Take short walks between study sessions
+        🧘‍♂️ Practice deep breathing when stressed
+        
+        Remember:
+        💪 You're stronger than you think
+        🤝 It's okay to ask for help from professors or advisors
+        ✨ Small progress is still progress
+
+  utter_express_work_stress:
+    - text: |
+        I understand work stress can feel overwhelming. Here are some helpful strategies to manage it better! 🌟
+
+        Daily work management:
+        📝 Prioritize tasks and tackle one at a time
+        ⏱️ Take regular short breaks
+        🎯 Focus on what you can control
+        
+        Stress relief techniques:
+        🧘‍♀️ Try quick breathing exercises
+        🚶‍♀️ Take short walks during breaks
+        ✍️ Keep a work accomplishment journal
+        
+        Healthy habits:
+        😴 Set clear work-life boundaries
+        💪 Maintain a regular routine
+        ⭐ Celebrate small wins
+
+  utter_express_performance_anxiety:
+    - text: |
+        Performance anxiety is completely natural. Let's work on managing it together! 🌟
+
+        Quick calming techniques:
+        🫁 Deep breathing: 4 counts in, hold 4, out 4
+        👁️ Visualize success
+        🎯 Focus on the task, not others' judgment
+        
+        Building confidence:
+        💪 Remember past successes
+        🗣️ Use positive self-talk
+        ✨ Prepare well, but avoid over-preparing
+        
+        Remember:
+        ⭐ Some anxiety means you care
+        🌱 Each experience helps you grow
+        💫 You're capable of amazing things
+
+
+
+
+
+# Relationship & Family responses
+  utter_express_relationship_problems:
+    - text: |
+        I understand relationship struggles can be really painful, and I'm here to support you! 🌟
+
+        Recognizing relationship issues:
+        📌 It's normal for relationships to have ups and downs - you're not alone
+        💫 Acknowledging there's a problem is an important first step
+        ✨ Your feelings are valid, whatever they may be
+
+        Communication strategies:
+        🌱 Try using "I" statements to express your feelings without blame
+        💪 Set aside a specific time to talk when you're both calm
+        ⭐ Focus on listening as much as sharing
+        🌈 Consider writing down your thoughts before difficult conversations
+
+        Taking care of yourself:
+        ❤️ Make self-care a priority during relationship stress
+        🌻 Set healthy boundaries to protect your wellbeing
+        🌟 Reach out to trusted friends for perspective
+        🧘 Practice stress-reduction techniques like deep breathing
+
+        Remember:
+        💫 Relationship problems don't define your worth
+        ✨ Small positive changes can make a big difference
+        🌟 You deserve a healthy, supportive relationship
+
+  utter_express_family_conflict:
+    - text: |
+        I hear you're dealing with family conflict, and that can be incredibly stressful - I'm here to help! 🌟
+
+        Understanding family dynamics:
+        📌 Family conflicts are common and don't mean your family is "broken"
+        💫 Different generations and personalities naturally clash sometimes
+        ✨ Your feelings about family tension are completely valid
+
+        Setting healthy boundaries:
+        🌱 It's okay to limit time with difficult family members
+        💪 Practice polite but firm responses to intrusive comments
+        ⭐ Remove yourself from heated situations before they escalate
+        🛡️ You can love family while protecting your mental health
+
+        Communication techniques:
+        ❤️ Try addressing issues one-on-one rather than in group settings
+        🌻 Focus on specific behaviors rather than character criticisms
+        🌟 Use "time-outs" when discussions become unproductive
+        🤝 Look for common ground even in disagreements
+
+        Remember:
+        💫 You can't control others' behavior, only your responses
+        ✨ Some family conflicts may never fully resolve, and that's okay
+        🌟 You can create your own chosen family of supportive people
+
+  utter_express_divorce_concerns:
+    - text: |
+        I understand divorce is an incredibly difficult experience, and I'm here to support you through it! 🌟
+
+        Processing your emotions:
+        📌 The grief of divorce is real - it's okay to mourn the relationship
+        💫 Your feelings may fluctuate widely - this is completely normal
+        ✨ Be patient with yourself as you navigate this major life change
+        💔 There's no "right" timeline for healing after divorce
+
+        Practical considerations:
+        🌱 Create a support system of friends, family, or a support group
+        💪 Consider working with a mediator to reduce conflict
+        ⭐ Make a financial plan to address immediate concerns
+        📝 Keep important documents organized to reduce stress
+
+        Self-care strategies:
+        ❤️ Establish new routines that bring comfort and stability
+        🌻 Focus on small daily achievements during this transition
+        🌟 Try journaling to process complex emotions
+        🧘 Prioritize basic needs like sleep, nutrition, and exercise
+
+        Remember:
+        💫 Many people have rebuilt fulfilling lives after divorce
+        ✨ This difficult time will not last forever
+        🌟 You have the strength to create a positive new chapter
+
+  utter_express_loneliness:
+    - text: |
+        I understand feeling lonely can be really painful, and I want you to know you're not truly alone in this! 🌟
+
+        Understanding loneliness:
+        📌 Loneliness is a common human experience, not a personal failing
+        💫 You can feel lonely even when surrounded by others
+        ✨ Your feelings are valid and deserve compassion
+
+        Building connections:
+        🌱 Start small - even brief interactions can help reduce isolation
+        💪 Consider volunteering, classes, or groups based on your interests
+        ⭐ Online communities can provide meaningful connections too
+        🤝 Reconnect with old friends - many would welcome hearing from you
+
+        Self-connection strategies:
+        ❤️ Use this time to develop your relationship with yourself
+        🌻 Explore activities that bring you joy and fulfillment
+        🌟 Practice self-compassion through difficult emotions
+        🧘 Mindfulness can help manage the discomfort of loneliness
+
+        Remember:
+        💫 Loneliness is a feeling, not a permanent state
+        ✨ Meaningful connections often develop gradually
+        🌟 You are worthy of connection and belonging
+
+
+
+
+
+# Mental Health Condition responses
+  utter_express_depression:
+    - text: |
+        I hear you're struggling with feelings of depression, and I want you to know you're not alone in this! 🌟
+
+        Understanding depression:
+        📌 Depression is a real health condition, not a personal weakness
+        💫 Your feelings are valid, even if they seem overwhelming right now
+        ✨ Depression can affect anyone, regardless of circumstances
+
+        Immediate coping strategies:
+        🌱 Try to maintain basic self-care (sleep, nutrition, movement)
+        💪 Break tasks into very small steps when everything feels too much
+        ⭐ Limit exposure to negative news or social media
+        🌈 Find tiny moments of light - even noticing a bird or the sky counts
+
+        Support options:
+        ❤️ Consider reaching out to your doctor or a mental health professional
+        🌻 Depression responds well to proper treatment and support
+        🌟 Crisis lines are available 24/7 if you need immediate help
+        🤝 Sharing with even one trusted person can lighten the burden
+
+        Remember:
+        💫 Depression lies - things can and will get better
+        ✨ You don't have to face this alone
+        🌟 Your presence in this world matters, even on the darkest days
+
+  utter_express_anxiety:
+    - text: |
+        I understand anxiety can feel overwhelming, and I'm here to help you navigate these difficult feelings! 🌟
+
+        Understanding anxiety:
+        📌 Anxiety is your body's natural alarm system - sometimes it's just too sensitive
+        💫 Physical symptoms (racing heart, tight chest) are real and not dangerous
+        ✨ Anxious thoughts feel urgent but aren't necessarily accurate
+
+        Immediate calming techniques:
+        🌱 Try box breathing: inhale (4 counts), hold (4), exhale (4), hold (4), repeat
+        💪 Ground yourself by naming 5 things you see, 4 you feel, 3 you hear, 2 you smell, 1 you taste
+        ⭐ Tense and release muscle groups to reduce physical tension
+        🌊 Visualize anxiety as a wave that will naturally rise and fall
+
+        Daily management strategies:
+        ❤️ Reduce caffeine, alcohol, and sugar which can trigger anxiety
+        🌻 Move your body daily to release built-up stress hormones
+        🌟 Create worry time - schedule 15 minutes to address concerns, then let them go
+        🧘 Practice mindfulness to build your "anxiety muscle"
+
+        Remember:
+        💫 You've survived 100% of your anxious moments so far
+        ✨ Anxiety is uncomfortable but not dangerous
+        🌟 Small steps consistently taken lead to significant relief
+
+  utter_express_addiction:
+    - text: |
+        Recognizing addiction concerns takes courage, and I'm here to support you on this journey! 🌟
+
+        Understanding addiction:
+        📌 Addiction is a health condition, not a moral failing
+        💫 Recovery is possible, even after multiple attempts
+        ✨ Slips and relapses are normal parts of the recovery process
+
+        First steps toward recovery:
+        🌱 Consider speaking with your doctor about safe withdrawal options
+        💪 Look into support groups (in-person or online) for community
+        ⭐ Identify your triggers and begin planning alternatives
+        🌊 Start tracking patterns to better understand your usage
+
+        Building recovery skills:
+        ❤️ Create a daily routine that supports your wellbeing
+        🌻 Develop healthy coping mechanisms for stress and emotions
+        🌟 Practice H.A.L.T: address Hunger, Anger, Loneliness, Tiredness
+        🧠 Learn about urge surfing to ride out cravings
+
+        Remember:
+        💫 Many people have recovered from situations just like yours
+        ✨ Each day of recovery builds strength, even with setbacks
+        🌟 You deserve support and a life free from addiction
+
+  utter_express_eating_disorder:
+    - text: |
+        I hear your concerns about disordered eating, and want you to know recovery is possible! 🌟
+
+        Understanding eating disorders:
+        📌 Eating disorders are serious health conditions that require proper treatment
+        💫 These struggles affect people of all genders, ages, and body types
+        ✨ Recovery is possible, even if it feels impossible right now
+
+        Supportive first steps:
+        🌱 Consider speaking with your doctor or a specialist in eating disorders
+        💪 Try keeping a non-judgmental journal of thoughts around food and body
+        ⭐ Work on identifying feelings that trigger disordered behaviors
+        💭 Challenge ED thoughts by asking "Is this really true?" or "Who says?"
+
+        Self-compassion practices:
+        ❤️ Speak to yourself as you would to a struggling friend
+        🌻 Focus on what your body can do rather than how it looks
+        🌟 Practice mindful eating when possible (no pressure)
+        🌈 Celebrate small victories in your healing process
+
+        Remember:
+        💫 Your worth is not determined by your weight or appearance
+        ✨ Recovery isn't linear - ups and downs are normal
+        🌟 You deserve nourishment, care, and freedom from food struggles
+
+  utter_express_phobia:
+    - text: |
+        I understand how distressing specific phobias can be, and I'm here to help you find relief! 🌟
+
+        Understanding phobias:
+        📌 Phobias are among the most common anxiety disorders
+        💫 Your fear response is real, even if you know it's irrational
+        ✨ Specific phobias can be effectively treated with proper help
+
+        Immediate coping strategies:
+        🌱 Practice deep breathing when facing your fear trigger
+        💪 Use positive self-talk: "This feeling will pass" or "I am safe"
+        ⭐ Gradually expose yourself to your fear in very small, manageable steps
+        🌊 Visualize successfully handling the feared situation
+
+        Building confidence:
+        ❤️ Learn about your specific fear to demystify it
+        🌻 Create a "fear ladder" with small challenges, easiest to hardest
+        🌟 Celebrate every small victory over your phobia
+        🧠 Practice relaxation techniques regularly to lower baseline anxiety
+
+        Remember:
+        💫 Many people have overcome severe phobias with proper support
+        ✨ Progress may be slow but steady - persistence is key
+        🌟 You have the strength to face your fears at your own pace
+
+
+
+
+
+# Crisis & Trauma responses
+  utter_express_suicidal_thoughts:
+    - text: |
+        I'm deeply concerned about what you're experiencing, and I want you to know that help is available right now. 🌟
+
+        Important information:
+        📌 Please contact a crisis helpline immediately - they're available 24/7
+        💫 Call/text 9152987821 for the Suicide & Crisis Lifeline
+        ✨ In crisis: Call emergency services (911/local equivalent) or go to the nearest ER
+        🆘 International: Visit befrienders.org for local resources
+
+        While you seek help:
+        🌱 Stay in a safe environment and remove access to harmful items
+        💪 Reach out to someone you trust right now - you don't have to be alone
+        ⭐ Remember that strong emotions and crises are temporary
+        🌈 Professionals have effective treatments for the pain you're feeling
+
+        Hope for the future:
+        ❤️ Many people who've felt this way have found relief and recovery
+        🌻 Your presence in this world matters more than you can see right now
+        🌟 Each day you stay gives hope a chance to find you
+        🤝 You deserve support and care during this difficult time
+
+        Remember:
+        💫 These feelings can change with proper support
+        ✨ You are not alone in this struggle
+        🌟 Please reach out for professional help immediately
+
+  utter_express_grief_loss:
+    - text: |
+        I'm so sorry for your loss. Grief can be overwhelming, and your pain is valid and important. 🌟
+
+        Understanding grief:
+        📌 Grief has no timeline or "right way" to experience it
+        💫 The intensity of your feelings reflects the importance of your connection
+        ✨ Waves of different emotions - sadness, anger, numbness - are all normal
+        🌊 Grief can affect you physically, emotionally, and spiritually
+
+        Coping day by day:
+        🌱 Give yourself permission to grieve in whatever way feels right
+        💪 Take care of basic needs - rest, hydration, and gentle movement
+        ⭐ Create simple rituals to honor your loved one
+        🌈 Find safe spaces to express your grief without judgment
+
+        Finding support:
+        ❤️ Consider grief support groups where others understand
+        🌻 Professional grief counselors offer specialized guidance
+        🌟 Allow trusted friends to help, even in small ways
+        🤲 Spiritual or community resources may offer comfort
+
+        Remember:
+        💫 Your relationship continues in a new way through memories
+        ✨ Healing doesn't mean forgetting - it means finding a way forward
+        🌟 The pain may change shape over time, but your love remains
+
+  utter_express_trauma:
+    - text: |
+        I hear you sharing about your trauma, and I want you to know your reactions are valid responses to extraordinary circumstances. 🌟
+
+        Understanding trauma responses:
+        📌 Trauma reactions (flashbacks, hypervigilance, avoidance) are normal protections
+        💫 Your body and mind are trying to keep you safe
+        ✨ Healing is possible, even when it doesn't feel that way
+        🧠 Trauma affects the nervous system - your reactions aren't "weakness"
+
+        Stabilization strategies:
+        🌱 Ground yourself with the 5-4-3-2-1 technique (name 5 things you see, 4 you feel...)
+        💪 Practice deep belly breathing to signal safety to your nervous system
+        ⭐ Create a "safe place" visualization you can return to when triggered
+        🌈 Use "then vs now" reminders to orient to present safety
+
+        Healing approaches:
+        ❤️ Trauma-specific therapies (EMDR, CPT, SE) can be very effective
+        🌻 Build a support network that respects your boundaries
+        🌟 Reclaim choice and control in small, manageable ways
+        🧘 Learn about trauma symptoms to reduce self-judgment
+
+        Remember:
+        💫 Trauma may be part of your story, but it doesn't define you
+        ✨ Recovery happens in your own time and way
+        🌟 You've survived 100% of your worst days - that shows incredible strength
+
+  utter_express_abuse:
+    - text: |
+        Your safety is the absolute priority, and I want you to know that what you're experiencing is not your fault. 🌟
+
+        Important safety information:
+        📌 If in immediate danger, call emergency services (911/local equivalent)
+        💫 National Domestic Violence Hotline (US): 1-800-799-7233 or text START to 88788
+        ✨ Trained advocates can help with safety planning
+        🆘 Consider using a safe computer/incognito browsing to research resources
+
+        Understanding abuse:
+        🌱 Abuse often escalates over time and is about power and control
+        💪 Abusers typically cycle between kindness and harm - this is manipulation
+        ⭐ You deserve respect and safety in all relationships
+        🌈 The abuse is never your fault, regardless of what the abuser claims
+
+        Considering next steps:
+        ❤️ Document incidents if safe to do so
+        🌻 Create a safety plan with professional help
+        🌟 Consider telling trusted people what you're experiencing
+        🤝 Local shelters offer confidential services and support
+
+        Remember:
+        💫 Many people have successfully escaped abuse and rebuilt their lives
+        ✨ Your instincts about your situation are valid
+        🌟 You deserve a life free from fear and abuse
+
+  utter_express_bullying:
+    - text: |
+        I'm sorry you're going through this experience - bullying is never acceptable, and you deserve to be treated with respect! 🌟
+
+        Understanding bullying:
+        📌 Bullying reflects problems with the bully, not with you
+        💫 No one deserves to be bullied or harassed
+        ✨ Your feelings and experiences are valid
+        🛡️ You have the right to feel safe in your environment
+
+        Safety strategies:
+        🌱 Document incidents (dates, details, witnesses, screenshots)
+        💪 Report to appropriate authorities (school administration, HR, platform moderators)
+        ⭐ Avoid engaging with bullies when possible
+        🌈 Block harassers on social media and adjust privacy settings
+
+        Building support:
+        ❤️ Tell trusted adults, friends, or colleagues what's happening
+        🌻 Connect with support groups who understand bullying experiences
+        🌟 Consider speaking with a counselor or therapist
+        🤝 Know your rights - many places have anti-bullying policies
+
+        Remember:
+        💫 This situation is temporary, even when it feels endless
+        ✨ Your value isn't determined by how others treat you
+        🌟 Many people have overcome bullying and found their community
+
+
+
+
+
+# Health & Medical responses
+  utter_express_chronic_illness:
+    - text: |
+        Living with chronic illness can be incredibly challenging, and your feelings are completely valid! 🌟
+
+        Understanding chronic illness:
+        📌 Chronic conditions require ongoing adjustment - this is normal
+        💫 The emotional impact of chronic illness is just as real as physical symptoms
+        ✨ Your worth is not determined by what you can or cannot do
+
+        Daily management strategies:
+        🌱 Prioritize tasks based on your energy levels (spoon theory)
+        💪 Build a symptom tracking system to identify patterns
+        ⭐ Create micro-self-care routines that work with your limitations
+        🌈 Practice setting boundaries around your health needs
+
+        Building support:
+        ❤️ Connect with others who understand through support groups
+        🌻 Educate close friends/family about your specific condition
+        🌟 Consider working with a therapist who specializes in chronic illness
+        🤝 Explore patient advocacy resources for practical help
+
+        Remember:
+        💫 You are more than your illness - it's something you have, not who you are
+        ✨ Adapting to limitations shows incredible strength and resilience
+        🌟 Your experience matters and deserves compassion, especially from yourself
+
+  utter_express_reproductive_health:
+    - text: |
+        Reproductive health concerns can feel very personal and overwhelming, and your feelings deserve care and attention! 🌟
+
+        Understanding reproductive health:
+        📌 Reproductive health issues are incredibly common but often not discussed
+        💫 Your concerns are valid medical issues deserving proper attention
+        ✨ Hormonal fluctuations can affect both physical and emotional wellbeing
+
+        Finding support:
+        🌱 Consider connecting with a healthcare provider you feel comfortable with
+        💪 Research reputable sources for evidence-based information
+        ⭐ Join support communities with others sharing similar experiences
+        🌈 Remember that reproductive health is an important part of overall wellness
+
+        Self-advocacy strategies:
+        ❤️ Track your symptoms to help identify patterns and triggers
+        🌻 Prepare specific questions before medical appointments
+        🌟 Trust your body's signals - you know your body best
+        🧘 Practice stress-reduction techniques for hormonal balance
+
+        Remember:
+        💫 Your reproductive health concerns deserve to be taken seriously
+        ✨ You're not alone - many people face similar challenges
+        🌟 Your journey is unique and worthy of compassionate care
+
+  utter_express_body_image:
+    - text: |
+        Body image struggles can be so painful, and I want you to know your feelings are valid and you're not alone! 🌟
+
+        Understanding body image:
+        📌 Negative body image is influenced by many factors outside your control
+        💫 Our bodies are meant to change throughout our lives - it's normal
+        ✨ Your worth extends far beyond your appearance
+
+        Building a healthier relationship with your body:
+        🌱 Practice neutral body statements ("my arms help me hug loved ones")
+        💪 Curate your social media to include diverse, realistic bodies
+        ⭐ Focus on what your body can do rather than how it looks
+        🌈 Challenge negative thoughts with "would I say this to a friend?"
+
+        Self-compassion practices:
+        ❤️ Treat your body with basic care regardless of how you feel about it
+        🌻 Write down three non-appearance qualities you appreciate about yourself
+        🌟 Create boundaries with people who comment on your body
+        🧘 Practice mindfulness to notice when you're being self-critical
+
+        Remember:
+        💫 Your body is the vessel that carries you through life's experiences
+        ✨ Healing your relationship with your body takes time and patience
+        🌟 You deserve to feel at peace in your body exactly as it is
+
+
+
+# Life Challenges responses
+  utter_express_financial_stress:
+    - text: |
+        Financial stress can feel overwhelming, and I want you to know you're not alone in these struggles! 🌟
+
+        Understanding financial stress:
+        📌 Money worries affect most people at some point in life
+        💫 Financial challenges don't define your worth or character
+        ✨ Feeling overwhelmed is a normal response to financial pressure
+
+        Practical steps to consider:
+        🌱 Create a simple budget listing all income and essential expenses
+        💪 Contact creditors to discuss hardship options or payment plans
+        ⭐ Look into community resources (food banks, assistance programs)
+        🌈 Find one small expense to reduce for immediate relief
+
+        Building financial resilience:
+        ❤️ Practice self-compassion - money management is a learned skill
+        🌻 Set small, achievable financial goals to build confidence
+        🌟 Seek free financial counseling through nonprofits or libraries
+        🧮 Track spending patterns to identify possible adjustments
+
+        Remember:
+        💫 Financial situations can change - this stress is temporary
+        ✨ Many people have recovered from severe financial setbacks
+        🌟 Your value as a person extends far beyond your bank account
+
+  utter_express_identity_struggles:
+    - text: |
+        Questioning your identity takes courage, and I'm here to support you through this journey of self-discovery! 🌟
+
+        Understanding identity exploration:
+        📌 Identity questioning is a natural part of human development
+        💫 Self-discovery is often a lifelong process, not a destination
+        ✨ Uncertainty about identity is common and completely normal
+
+        Exploration strategies:
+        🌱 Try journaling about different aspects of yourself
+        💪 Experiment safely with expressing different parts of your identity
+        ⭐ Seek out stories from others with similar experiences
+        🌈 Give yourself permission to evolve and change over time
+
+        Building self-acceptance:
+        ❤️ Practice stating "I am enough" exactly as you are right now
+        🌻 Identify your core values separate from external expectations
+        🌟 Create boundaries with those who don't support your authentic self
+        🧠 Notice when you're being critical and practice self-compassion instead
+
+        Remember:
+        💫 Your identity belongs to you alone - there's no "right way" to be
+        ✨ Growth often feels uncomfortable but leads to greater authenticity
+        🌟 You're worthy of love and belonging exactly as you are
+
+  utter_express_social_difficulties:
+    - text: |
+        Social challenges can feel isolating, but you're not alone in struggling with connections! 🌟
+
+        Understanding social difficulties:
+        📌 Social skills are learned abilities that improve with practice
+        💫 Many people feel anxious or awkward in social situations
+        ✨ Different personality types approach socializing differently
+
+        Building social confidence:
+        🌱 Start small - brief interactions with service workers or neighbors
+        💪 Prepare conversation starters or questions before social events
+        ⭐ Focus on being curious about others rather than impressing them
+        🌈 Remember that most people are focusing on themselves, not judging you
+
+        Creating meaningful connections:
+        ❤️ Look for activity-based gatherings where conversation is secondary
+        🌻 Practice active listening to build rapport naturally
+        🌟 Remember quality matters more than quantity with friendships
+        🤝 Consider volunteering where you'll meet people with shared values
+
+        Remember:
+        💫 Social skills improve with practice - awkwardness is temporary
+        ✨ Authentic connections often start with showing vulnerability
+        🌟 You bring unique qualities that others appreciate and need
