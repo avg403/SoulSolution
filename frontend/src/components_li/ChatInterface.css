@@ -220,3 +220,89 @@ body {
     font-size: 0.85rem;
   }
 }
+
+
+
+
+
+
+
+
+/* Add these styles to your existing ChatInterface.css */
+
+.typing-indicator {
+  display: flex;
+  align-items: center;
+}
+
+.typing-indicator span {
+  height: 8px;
+  width: 8px;
+  margin: 0 2px;
+  background-color: #888;
+  border-radius: 50%;
+  display: inline-block;
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.typing-indicator span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes bounce {
+  0%, 80%, 100% { 
+    transform: scale(0);
+  } 40% { 
+    transform: scale(1.0);
+  }
+}
+
+.emotion-tags {
+  margin-top: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.emotion-tag {
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #666;
+}
+
+.message.assistant .emotion-tag {
+  background-color: rgba(0, 123, 255, 0.1);
+  color: #0056b3;
+}
+
+.message-content {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.input-container {
+  position: relative;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.chat-input:disabled,
+.send-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+
+
+
+
+
