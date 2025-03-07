@@ -7,7 +7,8 @@ import {
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth, db } from "../firebase";
+import { collection, doc, getDoc, setDoc, query, orderBy, limit, getDocs } from "firebase/firestore";
 import "./ChatInterface.css";
 import logoround from "../../Image/logoround.png";
 
@@ -15,7 +16,10 @@ interface Message {
   content: string;
   isUser: boolean;
   emotions?: Array<{ label: string; score: number }>;
+  timestamp: number;
 }
+
+const MESSAGES_TO_RETAIN = 10; // Number of recent messages to load when returning to chat
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -120,12 +124,101 @@ const Message = ({ message }: { message: Message }) => (
 );
 
 const ChatInterface = () => {
-  const [messages, setMessages] = useState<Message[]>([
-    { content: "Hello! I'm here to listen and help. How are you feeling today?", isUser: false }
-  ]);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isInitialized, setIsInitialized] = useState<boolean>(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // Load messages when component mounts
+  useEffect(() => {
+    const loadChatHistory = async () => {
+      if (!auth.currentUser) return;
+      
+      try {
+        const userId = auth.currentUser.uid;
+        
+        // Check if user has a chat history
+        const chatHistoryRef = doc(db, "chatHistory", userId);
+        const chatHistoryDoc = await getDoc(chatHistoryRef);
+        
+        if (chatHistoryDoc.exists()) {
+          // Get the recent messages
+          const messagesRef = collection(db, "chatHistory", userId, "messages");
+          const q = query(messagesRef, orderBy("timestamp", "desc"), limit(MESSAGES_TO_RETAIN));
+          const querySnapshot = await getDocs(q);
+          
+          const loadedMessages: Message[] = [];
+          querySnapshot.forEach((doc) => {
+            loadedMessages.push(doc.data() as Message);
+          });
+          
+          // Reverse to get chronological order
+          setMessages(loadedMessages.reverse());
+        } else {
+          // Initialize with welcome message if no history exists
+          const welcomeMessage: Message = {
+            content: "Hello! I'm here to listen and help. How are you feeling today?",
+            isUser: false,
+            timestamp: Date.now()
+          };
+          setMessages([welcomeMessage]);
+          
+          // Create the chat history document
+          await setDoc(chatHistoryRef, { 
+            created: Date.now(),
+            lastActive: Date.now()
+          });
+          
+          // Save the welcome message
+          await setDoc(
+            doc(db, "chatHistory", userId, "messages", Date.now().toString()),
+            welcomeMessage
+          );
+        }
+        
+        setIsInitialized(true);
+      } catch (error) {
+        console.error("Error loading chat history:", error);
+        // Fallback to welcome message if there's an error
+        setMessages([{
+          content: "Hello! I'm here to listen and help. How are you feeling today?",
+          isUser: false,
+          timestamp: Date.now()
+        }]);
+        setIsInitialized(true);
+      }
+    };
+    
+    loadChatHistory();
+  }, []);
+
+  // Save messages to Firestore when they change
+  useEffect(() => {
+    const saveChatHistory = async () => {
+      if (!auth.currentUser || !isInitialized || messages.length === 0) return;
+      
+      try {
+        const userId = auth.currentUser.uid;
+        
+        // Update last active timestamp
+        await setDoc(doc(db, "chatHistory", userId), { 
+          lastActive: Date.now() 
+        }, { merge: true });
+        
+        // Save only the most recent message (optimization)
+        const latestMessage = messages[messages.length - 1];
+        await setDoc(
+          doc(db, "chatHistory", userId, "messages", latestMessage.timestamp.toString()),
+          latestMessage
+        );
+      } catch (error) {
+        console.error("Error saving chat history:", error);
+      }
+    };
+    
+    saveChatHistory();
+  }, [messages, isInitialized]);
 
   // Scroll to bottom of messages
   useEffect(() => {
@@ -137,21 +230,39 @@ const ChatInterface = () => {
       const userMessage = input;
       setInput("");
       
-      // Add user message to chat
-      setMessages(prev => [...prev, { content: userMessage, isUser: true }]);
+      // Add user message to chat with timestamp
+      const userMessageObj: Message = {
+        content: userMessage,
+        isUser: true,
+        timestamp: Date.now()
+      };
+      
+      setMessages(prev => [...prev, userMessageObj]);
       
       // Set loading state
       setIsLoading(true);
       
       try {
         console.log("Sending request to:", "http://localhost:8000/emotion-chat/");
+        
+        // Get the last few messages to provide context
+        const recentMessages = messages.slice(-3)
+          .map(msg => msg.content)
+          .join("\n\n");
+        
+        // Include previous messages context in the request
+        const requestBody = {
+          text: userMessage,
+          context: recentMessages
+        };
+        
         // Make API call to backend
         const response = await fetch("http://localhost:8000/emotion-chat/", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ text: userMessage }),
+          body: JSON.stringify(requestBody),
         });
         
         console.log("Response status:", response.status);
@@ -165,25 +276,25 @@ const ChatInterface = () => {
         const data = await response.json();
         console.log("Response data:", data);
         
-        // Add bot response to chat
-        setMessages(prev => [
-          ...prev, 
-          { 
-            content: data.bot_response, 
-            isUser: false,
-            emotions: data.emotions
-          }
-        ]);
+        // Add bot response to chat with timestamp
+        const botMessageObj: Message = {
+          content: data.bot_response,
+          isUser: false,
+          emotions: data.emotions,
+          timestamp: Date.now()
+        };
+        
+        setMessages(prev => [...prev, botMessageObj]);
       } catch (error) {
         console.error("Detailed error:", error);
         // Add error message
-        setMessages(prev => [
-          ...prev, 
-          { 
-            content: "Sorry, I'm having trouble connecting right now. Please try again later.", 
-            isUser: false 
-          }
-        ]);
+        const errorMessageObj: Message = {
+          content: "Sorry, I'm having trouble connecting right now. Please try again later.",
+          isUser: false,
+          timestamp: Date.now()
+        };
+        
+        setMessages(prev => [...prev, errorMessageObj]);
       } finally {
         setIsLoading(false);
       }
@@ -196,7 +307,7 @@ const ChatInterface = () => {
       <div className="chat-area">
         <div className="messages-container">
           {messages.map((message, index) => (
-            <Message key={index} message={message} />
+            <Message key={`${index}-${message.timestamp}`} message={message} />
           ))}
           {isLoading && (
             <div className="message assistant">
