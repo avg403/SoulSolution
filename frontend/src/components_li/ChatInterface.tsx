@@ -11,15 +11,18 @@ import { auth, db } from "../firebase";
 import { collection, doc, getDoc, setDoc, query, orderBy, limit, getDocs } from "firebase/firestore";
 import "./ChatInterface.css";
 import logoround from "../../Image/logoround.png";
+import botAvatar from '../../Image/logoround.png';
+
 
 interface Message {
   content: string;
   isUser: boolean;
   emotions?: Array<{ label: string; score: number }>;
   timestamp: number;
+  source?: string; // Added to track source of response (rasa/fallback)
 }
 
-const MESSAGES_TO_RETAIN = 10; // Number of recent messages to load when returning to chat
+const MESSAGES_TO_RETAIN = 20; // Increased to provide better context
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -102,7 +105,10 @@ const MessageInput = ({
 
 const Message = ({ message }: { message: Message }) => (
   <div className={`message ${message.isUser ? "user" : "assistant"}`}>
-    <div className="avatar" />
+    <div className="avatar">
+      {/* Add image for assistant messages */}
+      {!message.isUser && <img src={botAvatar} alt="Bot Avatar" />}
+    </div>
     <div className="message-content">
       {message.content.split('\n').map((line, i) => (
         <React.Fragment key={i}>
@@ -111,13 +117,34 @@ const Message = ({ message }: { message: Message }) => (
         </React.Fragment>
       ))}
     </div>
-    {message.emotions && message.emotions.length > 0 && (
-      <div className="emotion-tags">
-        {message.emotions.slice(0, 3).map((emotion, idx) => (
-          <span key={idx} className="emotion-tag">
-            {emotion.label}: {(emotion.score * 100).toFixed(0)}%
-          </span>
-        ))}
+    
+    {(message.emotions || message.source) && (
+      <div className="message-info">
+        {message.emotions && message.emotions.length > 0 && (
+          <div className="emotion-tags">
+            {message.emotions.slice(0, 2).map((emotion, idx) => (
+              <span key={idx} className="emotion-tag">
+                {emotion.label}: {(emotion.score * 100).toFixed(0)}%
+              </span>
+            ))}
+          </div>
+        )}
+        
+        {message.source === "rasa" && (
+          <div className="source-tag rasa">🏠</div>
+        )}
+        {message.source === "fallback" && (
+          <div className="source-tag fallback">🤖</div>
+        )}
+        {message.source === "system" && (
+          <div className="source-tag system">⚙️</div>
+        )}
+        {message.source === "error" && (
+          <div className="source-tag error">⚠️</div>
+        )}
+        {message.source === "unknown" && (
+          <div className="source-tag unknown">❓</div>
+        )}
       </div>
     )}
   </div>
@@ -128,6 +155,7 @@ const ChatInterface = () => {
   const [input, setInput] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isInitialized, setIsInitialized] = useState<boolean>(false);
+  const [sessionId, setSessionId] = useState<string>("");
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // Load messages when component mounts
@@ -143,7 +171,7 @@ const ChatInterface = () => {
         const chatHistoryDoc = await getDoc(chatHistoryRef);
         
         if (chatHistoryDoc.exists()) {
-          // Get the recent messages
+          // Get the recent messages - increased limit for better context
           const messagesRef = collection(db, "chatHistory", userId, "messages");
           const q = query(messagesRef, orderBy("timestamp", "desc"), limit(MESSAGES_TO_RETAIN));
           const querySnapshot = await getDocs(q);
@@ -155,19 +183,40 @@ const ChatInterface = () => {
           
           // Reverse to get chronological order
           setMessages(loadedMessages.reverse());
+          
+          // Get or create a session ID
+          const sessionData = chatHistoryDoc.data();
+          if (sessionData && sessionData.sessionId) {
+            setSessionId(sessionData.sessionId);
+          } else {
+            // Create a new session ID
+            const newSessionId = crypto.randomUUID();
+            setSessionId(newSessionId);
+            // Save the session ID to Firestore
+            await setDoc(chatHistoryRef, { 
+              sessionId: newSessionId,
+              lastActive: Date.now()
+            }, { merge: true });
+          }
         } else {
           // Initialize with welcome message if no history exists
           const welcomeMessage: Message = {
             content: "Hello! I'm here to listen and help. How are you feeling today?",
             isUser: false,
-            timestamp: Date.now()
+            timestamp: Date.now(),
+            source: "system"
           };
           setMessages([welcomeMessage]);
+          
+          // Create a new session ID
+          const newSessionId = crypto.randomUUID();
+          setSessionId(newSessionId);
           
           // Create the chat history document
           await setDoc(chatHistoryRef, { 
             created: Date.now(),
-            lastActive: Date.now()
+            lastActive: Date.now(),
+            sessionId: newSessionId
           });
           
           // Save the welcome message
@@ -184,8 +233,12 @@ const ChatInterface = () => {
         setMessages([{
           content: "Hello! I'm here to listen and help. How are you feeling today?",
           isUser: false,
-          timestamp: Date.now()
+          timestamp: Date.now(),
+          source: "system"
         }]);
+        
+        // Create a new session ID without saving to Firebase
+        setSessionId(crypto.randomUUID());
         setIsInitialized(true);
       }
     };
@@ -203,7 +256,8 @@ const ChatInterface = () => {
         
         // Update last active timestamp
         await setDoc(doc(db, "chatHistory", userId), { 
-          lastActive: Date.now() 
+          lastActive: Date.now(),
+          sessionId: sessionId
         }, { merge: true });
         
         // Save only the most recent message (optimization)
@@ -218,7 +272,7 @@ const ChatInterface = () => {
     };
     
     saveChatHistory();
-  }, [messages, isInitialized]);
+  }, [messages, isInitialized, sessionId]);
 
   // Scroll to bottom of messages
   useEffect(() => {
@@ -234,7 +288,8 @@ const ChatInterface = () => {
       const userMessageObj: Message = {
         content: userMessage,
         isUser: true,
-        timestamp: Date.now()
+        timestamp: Date.now(),
+        source: "user"
       };
       
       setMessages(prev => [...prev, userMessageObj]);
@@ -243,17 +298,13 @@ const ChatInterface = () => {
       setIsLoading(true);
       
       try {
-        console.log("Sending request to:", "http://localhost:8000/emotion-chat/");
+        // We don't need to create a full context string, the backend will handle it
+        // We'll just pass the session ID which will be used to retrieve conversation context
         
-        // Get the last few messages to provide context
-        const recentMessages = messages.slice(-3)
-          .map(msg => msg.content)
-          .join("\n\n");
-        
-        // Include previous messages context in the request
+        // Include session ID in the request
         const requestBody = {
           text: userMessage,
-          context: recentMessages
+          session_id: sessionId
         };
         
         // Make API call to backend
@@ -265,8 +316,6 @@ const ChatInterface = () => {
           body: JSON.stringify(requestBody),
         });
         
-        console.log("Response status:", response.status);
-        
         if (!response.ok) {
           const errorText = await response.text();
           console.error("Error response:", response.status, errorText);
@@ -274,14 +323,27 @@ const ChatInterface = () => {
         }
         
         const data = await response.json();
-        console.log("Response data:", data);
         
-        // Add bot response to chat with timestamp
+        // Update session ID if returned from backend
+        if (data.session_id && data.session_id !== sessionId) {
+          setSessionId(data.session_id);
+          
+          // Update session ID in Firebase
+          if (auth.currentUser) {
+            await setDoc(doc(db, "chatHistory", auth.currentUser.uid), {
+              sessionId: data.session_id,
+              lastActive: Date.now()
+            }, { merge: true });
+          }
+        }
+        
+        // Add bot response to chat with timestamp and source
         const botMessageObj: Message = {
           content: data.bot_response,
           isUser: false,
           emotions: data.emotions,
-          timestamp: Date.now()
+          timestamp: Date.now(),
+          source: data.response_source || "unknown"
         };
         
         setMessages(prev => [...prev, botMessageObj]);
@@ -291,7 +353,8 @@ const ChatInterface = () => {
         const errorMessageObj: Message = {
           content: "Sorry, I'm having trouble connecting right now. Please try again later.",
           isUser: false,
-          timestamp: Date.now()
+          timestamp: Date.now(),
+          source: "error"
         };
         
         setMessages(prev => [...prev, errorMessageObj]);
