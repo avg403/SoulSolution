@@ -9,7 +9,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth, db } from "../firebase";
-import { collection, doc, getDoc, setDoc, query, orderBy, limit, getDocs } from "firebase/firestore";
+import { collection, doc, getDoc, setDoc, query, orderBy, limit, getDocs, Timestamp } from "firebase/firestore";
 import "./ChatInterface.css";
 import logoround from "../../Image/logoround.png";
 import botAvatar from '../../Image/logoround.png';
@@ -142,7 +142,7 @@ const Message = ({ message }: { message: Message }) => (
           <div className="source-tag fallback">🤖</div>
         )}
         {message.source === "system" && (
-          <div className="source-tag system">⚙️</div>
+          <div className="source-tag system">👻</div>
         )}
         {message.source === "error" && (
           <div className="source-tag error">⚠️</div>
@@ -162,6 +162,7 @@ const ChatInterface = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isInitialized, setIsInitialized] = useState<boolean>(false);
   const [sessionId, setSessionId] = useState<string>("");
+  const [clearTimestamp, setClearTimestamp] = useState<number | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // Load messages when component mounts
@@ -177,7 +178,26 @@ const ChatInterface = () => {
         const chatHistoryDoc = await getDoc(chatHistoryRef);
         
         if (chatHistoryDoc.exists()) {
-          // Get the recent messages - increased limit for better context
+          const chatData = chatHistoryDoc.data();
+          
+          // Get the clearTimestamp (when chat was last cleared)
+          const storedClearTimestamp = chatData.clearTimestamp || null;
+          setClearTimestamp(storedClearTimestamp);
+          
+          // Get session ID
+          let currentSessionId = chatData.sessionId;
+          if (!currentSessionId) {
+            // Create a new session ID if none exists
+            currentSessionId = crypto.randomUUID();
+            // Save the session ID to Firestore
+            await setDoc(chatHistoryRef, { 
+              sessionId: currentSessionId,
+              lastActive: Date.now()
+            }, { merge: true });
+          }
+          setSessionId(currentSessionId);
+          
+          // Get all messages
           const messagesRef = collection(db, "chatHistory", userId, "messages");
           const q = query(messagesRef, orderBy("timestamp", "desc"), limit(MESSAGES_TO_RETAIN));
           const querySnapshot = await getDocs(q);
@@ -187,24 +207,42 @@ const ChatInterface = () => {
             loadedMessages.push(doc.data() as Message);
           });
           
-          // Reverse to get chronological order
+          // Sort messages chronologically
           const sortedMessages = loadedMessages.reverse();
-          setMessages(sortedMessages);
-          setDisplayedMessages(sortedMessages);
           
-          // Get or create a session ID
-          const sessionData = chatHistoryDoc.data();
-          if (sessionData && sessionData.sessionId) {
-            setSessionId(sessionData.sessionId);
+          // Store all messages for context
+          setMessages(sortedMessages);
+          
+          // For display, only show messages after the last clear timestamp
+          if (storedClearTimestamp) {
+            const filteredMessages = sortedMessages.filter(
+              msg => msg.timestamp > storedClearTimestamp
+            );
+            
+            if (filteredMessages.length === 0) {
+              // If no messages after clearing, show welcome message
+              const welcomeMessage: Message = {
+                content: "Chat cleared. How can I help you today?",
+                isUser: false,
+                timestamp: Date.now(),
+                source: "system"
+              };
+              setDisplayedMessages([welcomeMessage]);
+              
+              // Add welcome message to Firebase
+              await setDoc(
+                doc(db, "chatHistory", userId, "messages", Date.now().toString()),
+                welcomeMessage
+              );
+              
+              // Add to messages array too
+              setMessages(prev => [...prev, welcomeMessage]);
+            } else {
+              setDisplayedMessages(filteredMessages);
+            }
           } else {
-            // Create a new session ID
-            const newSessionId = crypto.randomUUID();
-            setSessionId(newSessionId);
-            // Save the session ID to Firestore
-            await setDoc(chatHistoryRef, { 
-              sessionId: newSessionId,
-              lastActive: Date.now()
-            }, { merge: true });
+            // If no clear timestamp, show all messages
+            setDisplayedMessages(sortedMessages);
           }
         } else {
           // Initialize with welcome message if no history exists
@@ -225,7 +263,8 @@ const ChatInterface = () => {
           await setDoc(chatHistoryRef, { 
             created: Date.now(),
             lastActive: Date.now(),
-            sessionId: newSessionId
+            sessionId: newSessionId,
+            clearTimestamp: null
           });
           
           // Save the welcome message
@@ -240,7 +279,7 @@ const ChatInterface = () => {
         console.error("Error loading chat history:", error);
         // Fallback to welcome message if there's an error
         const welcomeMessage = {
-          content: "Hello! I'm here to listen and help. How are you feeling today?",
+          content: "Hello! I'm here to listen and help. How are you feeling today?💞",
           isUser: false,
           timestamp: Date.now(),
           source: "system"
@@ -258,16 +297,42 @@ const ChatInterface = () => {
   }, []);
 
   // Handle clearing the chat
-  const handleClearChat = () => {
-    // Keep messages in state for backend context
-    // but clear the displayed messages
-    const welcomeMessage: Message = {
-      content: "Chat cleared. How can I help you today?",
-      isUser: false,
-      timestamp: Date.now(),
-      source: "system"
-    };
-    setDisplayedMessages([welcomeMessage]);
+  const handleClearChat = async () => {
+    if (!auth.currentUser) return;
+    
+    try {
+      const now = Date.now();
+      setClearTimestamp(now);
+      
+      // Generate and display welcome message
+      const welcomeMessage: Message = {
+        content: "Hello! I'm here to listen and help. How are you feeling today?🫂",
+        isUser: false,
+        timestamp: now + 1, // Add 1ms to ensure it's after the clear timestamp
+        source: "system"
+      };
+      
+      // Set displayed messages to only show the welcome message
+      setDisplayedMessages([welcomeMessage]);
+      
+      // Keep full message history but add welcome message
+      setMessages(prev => [...prev, welcomeMessage]);
+      
+      // Update clearTimestamp in Firebase
+      const userId = auth.currentUser.uid;
+      await setDoc(doc(db, "chatHistory", userId), { 
+        lastActive: now,
+        clearTimestamp: now
+      }, { merge: true });
+      
+      // Save welcome message to Firebase
+      await setDoc(
+        doc(db, "chatHistory", userId, "messages", welcomeMessage.timestamp.toString()),
+        welcomeMessage
+      );
+    } catch (error) {
+      console.error("Error clearing chat:", error);
+    }
   };
 
   // Save messages to Firestore when they change
@@ -281,7 +346,8 @@ const ChatInterface = () => {
         // Update last active timestamp
         await setDoc(doc(db, "chatHistory", userId), { 
           lastActive: Date.now(),
-          sessionId: sessionId
+          sessionId: sessionId,
+          clearTimestamp: clearTimestamp
         }, { merge: true });
         
         // Save only the most recent message (optimization)
@@ -296,7 +362,7 @@ const ChatInterface = () => {
     };
     
     saveChatHistory();
-  }, [messages, isInitialized, sessionId]);
+  }, [messages, isInitialized, sessionId, clearTimestamp]);
 
   // Scroll to bottom of messages
   useEffect(() => {
@@ -309,24 +375,24 @@ const ChatInterface = () => {
       setInput("");
       
       // Add user message to chat with timestamp
+      const now = Date.now();
       const userMessageObj: Message = {
         content: userMessage,
         isUser: true,
-        timestamp: Date.now(),
+        timestamp: now,
         source: "user"
       };
       
-      // Update both the full message history and displayed messages
+      // Update both the full message history 
       setMessages(prev => [...prev, userMessageObj]);
+      
+      // Add to displayed messages
       setDisplayedMessages(prev => [...prev, userMessageObj]);
       
       // Set loading state
       setIsLoading(true);
       
       try {
-        // We don't need to create a full context string, the backend will handle it
-        // We'll just pass the session ID which will be used to retrieve conversation context
-        
         // Include session ID in the request
         const requestBody = {
           text: userMessage,
@@ -404,7 +470,9 @@ const ChatInterface = () => {
           ))}
           {isLoading && (
             <div className="message assistant">
-              <div className="avatar" />
+              <div className="avatar">
+                <img src={botAvatar} alt="Bot Avatar" />
+              </div>
               <div className="message-content typing-indicator">
                 <span></span><span></span><span></span>
               </div>
