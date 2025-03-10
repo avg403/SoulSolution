@@ -4,6 +4,7 @@ import {
   FaChartBar,
   FaPaperPlane,
   FaSignOutAlt,
+  FaTrash,
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
@@ -24,7 +25,7 @@ interface Message {
 
 const MESSAGES_TO_RETAIN = 20; // Increased to provide better context
 
-const Navbar = () => {
+const Navbar = ({ onClearChat }: { onClearChat: () => void }) => {
   const navigate = useNavigate();
 
   const handleLogout = async () => {
@@ -60,6 +61,10 @@ const Navbar = () => {
         <button className="nav-button">
           <span>🎥</span>
           <span>Watch Video</span>
+        </button>
+        <button className="nav-button" onClick={onClearChat}>
+          <FaTrash />
+          <span>Clear Chat</span>
         </button>
         <button className="nav-button logout-button" onClick={handleLogout}>
           <FaSignOutAlt />
@@ -152,6 +157,7 @@ const Message = ({ message }: { message: Message }) => (
 
 const ChatInterface = () => {
   const [messages, setMessages] = useState<Message[]>([]);
+  const [displayedMessages, setDisplayedMessages] = useState<Message[]>([]);
   const [input, setInput] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isInitialized, setIsInitialized] = useState<boolean>(false);
@@ -182,7 +188,9 @@ const ChatInterface = () => {
           });
           
           // Reverse to get chronological order
-          setMessages(loadedMessages.reverse());
+          const sortedMessages = loadedMessages.reverse();
+          setMessages(sortedMessages);
+          setDisplayedMessages(sortedMessages);
           
           // Get or create a session ID
           const sessionData = chatHistoryDoc.data();
@@ -207,6 +215,7 @@ const ChatInterface = () => {
             source: "system"
           };
           setMessages([welcomeMessage]);
+          setDisplayedMessages([welcomeMessage]);
           
           // Create a new session ID
           const newSessionId = crypto.randomUUID();
@@ -230,12 +239,14 @@ const ChatInterface = () => {
       } catch (error) {
         console.error("Error loading chat history:", error);
         // Fallback to welcome message if there's an error
-        setMessages([{
+        const welcomeMessage = {
           content: "Hello! I'm here to listen and help. How are you feeling today?",
           isUser: false,
           timestamp: Date.now(),
           source: "system"
-        }]);
+        };
+        setMessages([welcomeMessage]);
+        setDisplayedMessages([welcomeMessage]);
         
         // Create a new session ID without saving to Firebase
         setSessionId(crypto.randomUUID());
@@ -245,6 +256,19 @@ const ChatInterface = () => {
     
     loadChatHistory();
   }, []);
+
+  // Handle clearing the chat
+  const handleClearChat = () => {
+    // Keep messages in state for backend context
+    // but clear the displayed messages
+    const welcomeMessage: Message = {
+      content: "Chat cleared. How can I help you today?",
+      isUser: false,
+      timestamp: Date.now(),
+      source: "system"
+    };
+    setDisplayedMessages([welcomeMessage]);
+  };
 
   // Save messages to Firestore when they change
   useEffect(() => {
@@ -277,7 +301,7 @@ const ChatInterface = () => {
   // Scroll to bottom of messages
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+  }, [displayedMessages]);
 
   const handleSendMessage = async () => {
     if (input.trim() && !isLoading) {
@@ -292,7 +316,9 @@ const ChatInterface = () => {
         source: "user"
       };
       
+      // Update both the full message history and displayed messages
       setMessages(prev => [...prev, userMessageObj]);
+      setDisplayedMessages(prev => [...prev, userMessageObj]);
       
       // Set loading state
       setIsLoading(true);
@@ -346,7 +372,9 @@ const ChatInterface = () => {
           source: data.response_source || "unknown"
         };
         
+        // Update both the full message history and displayed messages
         setMessages(prev => [...prev, botMessageObj]);
+        setDisplayedMessages(prev => [...prev, botMessageObj]);
       } catch (error) {
         console.error("Detailed error:", error);
         // Add error message
@@ -357,7 +385,9 @@ const ChatInterface = () => {
           source: "error"
         };
         
+        // Update both the full message history and displayed messages
         setMessages(prev => [...prev, errorMessageObj]);
+        setDisplayedMessages(prev => [...prev, errorMessageObj]);
       } finally {
         setIsLoading(false);
       }
@@ -366,10 +396,10 @@ const ChatInterface = () => {
 
   return (
     <div className="chat-interface">
-      <Navbar />
+      <Navbar onClearChat={handleClearChat} />
       <div className="chat-area">
         <div className="messages-container">
-          {messages.map((message, index) => (
+          {displayedMessages.map((message, index) => (
             <Message key={`${index}-${message.timestamp}`} message={message} />
           ))}
           {isLoading && (

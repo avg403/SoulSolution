@@ -1710,6 +1710,7 @@ nlu:
 # Crisis & Trauma examples
   - intent: express_suicidal_thoughts
     examples: |
+      - I want to die
       - I don't want to live anymore
       - I'm thinking about ending it all
       - I can't see a reason to keep going

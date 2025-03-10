@@ -2,37 +2,59 @@ import React, { useState, FormEvent } from "react";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
-import "./ForgotPassword.css"; // Import the CSS for styling
+import "./ForgotPassword.css";
 import logo from "../../Image/logo.png";
+import { getFirestore, collection, query, where, getDocs } from "firebase/firestore";
 
 const ForgotPassword: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const navigate = useNavigate();
+  const db = getFirestore();
 
   const handlePasswordReset = async (e: FormEvent) => {
     e.preventDefault();
     setError(null);
     setSuccessMessage(null);
+    setIsLoading(true);
 
     try {
+      // First, check if the email exists in your Firestore database
+      const usersRef = collection(db, "users");
+      const q = query(usersRef, where("email", "==", email));
+      const querySnapshot = await getDocs(q);
+      
+      // If no documents match, the email doesn't exist
+      if (querySnapshot.empty) {
+        setError("You don't have an account with this email. Please sign up first.");
+        setIsLoading(false);
+        
+        // Redirect to signup page after 2 seconds
+        setTimeout(() => {
+          navigate("/signup");
+        }, 2000);
+        
+        return;
+      }
+
+      // Email exists, proceed with password reset
       await sendPasswordResetEmail(auth, email);
-      setSuccessMessage(
-        "Password reset email sent successfully! Check your inbox."
-      );
-      setEmail(""); // Clear the email input
+      setSuccessMessage("Password reset email sent successfully! Check your inbox.");
+      setEmail("");
       setTimeout(() => {
-        navigate("/login"); // Redirect to login page after successful password reset request
+        navigate("/login");
       }, 3000);
     } catch (err: any) {
+      console.error("Password reset error:", err);
       if (err.code === "auth/invalid-email") {
         setError("Invalid email format.");
-      } else if (err.code === "auth/user-not-found") {
-        setError("No user found with this email.");
       } else {
-        setError("An unknown error occurred.");
+        setError("An error occurred. Please try again later.");
       }
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -60,8 +82,8 @@ const ForgotPassword: React.FC = () => {
             required
           />
         </div>
-        <button className="btn mt-3" type="submit">
-          Send Reset Link
+        <button className="btn mt-3" type="submit" disabled={isLoading}>
+          {isLoading ? "Processing..." : "Send Reset Link"}
         </button>
       </form>
       <div className="text-center fs-6">
