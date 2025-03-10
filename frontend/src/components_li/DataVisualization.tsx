@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Firestore, auth } from "../firebase"; // Import Firebase configuration
-import { doc, getDoc } from "firebase/firestore";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
+const firestore = getFirestore(); 
 import { useNavigate } from "react-router-dom";
 
 // Register Chart.js components
@@ -60,11 +61,12 @@ const DataVisualization: React.FC = () => {
     const user = auth.currentUser;
     if (user) {
       try {
-        const userDocRef = doc(Firestore, "users", user.uid);
+        const userDocRef = doc(firestore, "users", user.uid);
         const userDoc = await getDoc(userDocRef);
         if (userDoc.exists()) {
           const userData = userDoc.data();
           const moodHistory = userData?.moodHistory || [];
+          const dailyMood = userData?.dailyMood;
           const today = new Date().toISOString().split("T")[0];
 
           let filteredData = moodHistory.filter((entry: any) => {
@@ -83,8 +85,27 @@ const DataVisualization: React.FC = () => {
             return false;
           });
 
+          // Create a combined dataset including dailyMood if it's within the timeframe
+          const combinedData = [...filteredData];
+          
+          // Include dailyMood in appropriate time frames if it exists
+          if (dailyMood) {
+            // For daily mood, we'll consider it as if it was recorded today
+            // This assumes dailyMood is frequently updated and represents "today's" mood
+            const dailyMoodEntry = {
+              mood: dailyMood,
+              timestamp: new Date().toISOString(),
+              isDaily: true // Add a marker to identify daily mood entries
+            };
+            
+            // Add daily mood to the appropriate time frame
+            if (timeFrame === "daily" || timeFrame === "weekly" || timeFrame === "monthly") {
+              combinedData.push(dailyMoodEntry);
+            }
+          }
+
           const groupedMoods: any = {};
-          filteredData.forEach((entry: any) => {
+          combinedData.forEach((entry: any) => {
             const mood = entry.mood;
             groupedMoods[mood] = groupedMoods[mood]
               ? groupedMoods[mood] + 1
@@ -169,7 +190,7 @@ const DataVisualization: React.FC = () => {
           <h3 style={styles.chartTitle}>
             {`Mood Data for ${
               timeFrame.charAt(0).toUpperCase() + timeFrame.slice(1)
-            }`}
+            } Period`}
           </h3>
         </div>
       </div>
