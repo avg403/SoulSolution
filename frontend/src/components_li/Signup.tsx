@@ -1,11 +1,13 @@
-import React, { useState, FormEvent } from "react";
+import React, { useState, FormEvent, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import {
   createUserWithEmailAndPassword,
+  sendEmailVerification,
   fetchSignInMethodsForEmail,
-} from "firebase/auth"; // Import this for email check
+  onAuthStateChanged,
+} from "firebase/auth";
 import { setDoc, doc } from "firebase/firestore";
-import { auth, db } from "../firebase"; // Firebase imports
+import { auth, db } from "../firebase";
 import logo from "../../Image/logo.png";
 
 interface FormData {
@@ -23,11 +25,87 @@ const Signup: React.FC = () => {
 
   const [error, setError] = useState<string>("");
   const [success, setSuccess] = useState<string>("");
-  const [passwordStrength, setPasswordStrength] = useState<number>(0); // Strength from 0 to 100
+  const [passwordStrength, setPasswordStrength] = useState<number>(0);
   const [strengthMessage, setStrengthMessage] = useState<string>("");
-  const [emailError, setEmailError] = useState<string>(""); // Email error state
+  const [emailError, setEmailError] = useState<string>("");
+  const [isCheckingEmail, setIsCheckingEmail] = useState<boolean>(false);
+  const [verificationSent, setVerificationSent] = useState<boolean>(false);
   const navigate = useNavigate();
 
+  // Monitor auth state
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user?.emailVerified) {
+        // If the user is already verified, redirect to the home page or dashboard
+        navigate("/dashboard");
+      }
+    });
+
+    return () => unsubscribe();
+  }, [navigate]);
+
+  // Email format validation
+  const validateEmailFormat = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  // Check if email already exists in Firebase
+  const checkEmailExists = async (email: string) => {
+    if (!validateEmailFormat(email)) {
+      setEmailError("Please enter a valid email address");
+      return false;
+    }
+
+    try {
+      setIsCheckingEmail(true);
+      const methods = await fetchSignInMethodsForEmail(auth, email);
+      if (methods.length > 0) {
+        setEmailError(
+          "Email already exists. Please use a different email or login."
+        );
+        setIsCheckingEmail(false);
+        return true;
+      } else {
+        setEmailError("");
+        setIsCheckingEmail(false);
+        return false;
+      }
+    } catch (error) {
+      console.error("Error checking email: ", error);
+      setEmailError("Error verifying email. Please try again.");
+      setIsCheckingEmail(false);
+      return false;
+    }
+  };
+
+  // Handle email change with debounce
+  const handleEmailChange = (email: string) => {
+    setFormData({ ...formData, email });
+
+    if (!email) {
+      setEmailError("");
+      return;
+    }
+
+    // Basic format validation first
+    if (!validateEmailFormat(email)) {
+      setEmailError("Please enter a valid email address");
+      return;
+    }
+
+    // Use setTimeout for debouncing
+    if (window.emailCheckTimeout) {
+      clearTimeout(window.emailCheckTimeout);
+    }
+
+    setIsCheckingEmail(true);
+    window.emailCheckTimeout = setTimeout(() => {
+      checkEmailExists(email);
+    }, 500);
+  };
+
+  // Password strength checker
   const checkPasswordStrength = (password: string) => {
     const length = password.length;
     const hasUpperCase = /[A-Z]/.test(password);
@@ -36,11 +114,11 @@ const Signup: React.FC = () => {
     const hasSpecialChars = /[!@#$%^&*(),.?":{}|<>]/.test(password);
 
     let strength = 0;
-    if (length >= 8) strength += 20; // Length requirement
-    if (hasUpperCase) strength += 20; // Uppercase check
-    if (hasLowerCase) strength += 20; // Lowercase check
-    if (hasNumbers) strength += 20; // Numbers check
-    if (hasSpecialChars) strength += 20; // Special characters check
+    if (length >= 8) strength += 20;
+    if (hasUpperCase) strength += 20;
+    if (hasLowerCase) strength += 20;
+    if (hasNumbers) strength += 20;
+    if (hasSpecialChars) strength += 20;
 
     setPasswordStrength(strength);
 
@@ -53,21 +131,22 @@ const Signup: React.FC = () => {
     }
   };
 
-  // Check if email already exists
-  const checkEmailExists = async (email: string) => {
+  // Resend verification email function
+  const resendVerificationEmail = async () => {
     try {
-      const methods = await fetchSignInMethodsForEmail(auth, email);
-      if (methods.length > 0) {
-        setEmailError("Email already exists");
-        setFormData({ email: "", password: "", confirmPassword: "" }); // Clear email and password
-      } else {
-        setEmailError(""); // Clear error if email doesn't exist
+      if (!auth.currentUser) {
+        setError("No user signed in. Please refresh and try again.");
+        return;
       }
-    } catch (error) {
-      console.error("Error checking email: ", error);
+
+      await sendEmailVerification(auth.currentUser);
+      setSuccess("Verification email resent. Please check your inbox.");
+    } catch (error: any) {
+      setError(`Failed to resend verification email: ${error.message}`);
     }
   };
 
+  // Form submission handler
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setError("");
@@ -75,13 +154,30 @@ const Signup: React.FC = () => {
 
     const { email, password, confirmPassword } = formData;
 
+    // Final validations
+    if (!validateEmailFormat(email)) {
+      setError("Please enter a valid email address");
+      return;
+    }
+
     if (password !== confirmPassword) {
       setError("Passwords do not match");
       return;
     }
 
+    if (passwordStrength < 60) {
+      setError("Please use a stronger password");
+      return;
+    }
+
+    // Check if email exists one last time
+    const emailExists = await checkEmailExists(email);
+    if (emailExists) {
+      return;
+    }
+
     try {
-      // Create user with email and password
+      // Create the user account
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
@@ -89,37 +185,86 @@ const Signup: React.FC = () => {
       );
       const user = userCredential.user;
 
-      // Save user data to Firestore, including 'firstLogin' flag set to true
+      // Send verification email
+      await sendEmailVerification(user);
+
+      // Save user data to Firestore
       await setDoc(doc(db, "users", user.uid), {
         email: user.email,
-        firstLogin: true, // Flag indicating first login
+        firstLogin: true,
+        emailVerified: false, // Will be updated when user verifies
+        createdAt: new Date().toISOString(),
       });
 
-      setSuccess("Signup successful! Redirecting to login page...");
+      setVerificationSent(true);
+      setSuccess(
+        "Account created successfully! Please check your email to verify your account."
+      );
 
-      // Reset form data
+      // Clear form
       setFormData({ email: "", password: "", confirmPassword: "" });
-
-      // Redirect to login page after 2 seconds
-      setTimeout(() => navigate("/"), 2000);
     } catch (error: any) {
       console.error("Error during signup: ", error.message);
       setError(error.message);
     }
   };
 
+  // If verification email is sent, show verification instructions
+  if (verificationSent) {
+    return (
+      <div className="wrapper">
+        <div className="logo">
+          <img src={logo} alt="Logo" />
+        </div>
+        <div className="text-center mt-4 name">SoulSolution</div>
+
+        <div className="email-verification-container p-4 text-center">
+          <h2>Verify Your Email</h2>
+
+          {error && <div className="alert alert-danger">{error}</div>}
+          {success && <div className="alert alert-success">{success}</div>}
+
+          <div className="verification-message my-4">
+            <p>We've sent a verification Link to your email account</p>
+            <p>
+              Please check your inbox and click the verification link to
+              complete your registration.
+            </p>
+            <p className="text-muted small">
+              If you don't see the email, check your spam folder.
+            </p>
+          </div>
+
+          <div className="verification-actions">
+            <button
+              className="btn mt-3 w-100"
+              onClick={resendVerificationEmail}
+            >
+              Resend Link
+            </button>
+
+            <div className="mt-3">
+              <Link to="/" className="btn btn-secondary w-100">
+                Return to Login
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Regular signup form
   return (
     <div className="wrapper">
       <div className="logo">
         <img src={logo} alt="Logo" />
       </div>
       <div className="text-center mt-4 name">SoulSolution</div>
+
       {error && <div className="alert alert-danger">{error}</div>}
       {success && <div className="alert alert-success">{success}</div>}
-      {emailError && (
-        <div className="alert alert-danger">{emailError}</div>
-      )}{" "}
-      {/* Display email error */}
+
       <form className="p-3 mt-3" onSubmit={handleSubmit}>
         <div className="form-field d-flex align-items-center">
           <span className="far fa-user"></span>
@@ -129,14 +274,15 @@ const Signup: React.FC = () => {
             id="email"
             placeholder="Email"
             value={formData.email}
-            onChange={(e) => {
-              const email = e.target.value;
-              setFormData({ ...formData, email });
-              checkEmailExists(email); // Check email while typing
-            }}
+            onChange={(e) => handleEmailChange(e.target.value)}
             required
           />
         </div>
+
+        {isCheckingEmail && (
+          <div className="text-info small">Checking email...</div>
+        )}
+        {emailError && <div className="text-danger small">{emailError}</div>}
 
         <div className="form-field d-flex align-items-center">
           <span className="fas fa-key"></span>
@@ -149,7 +295,7 @@ const Signup: React.FC = () => {
             onChange={(e) => {
               const password = e.target.value;
               setFormData({ ...formData, password });
-              checkPasswordStrength(password); // Check strength as user types
+              checkPasswordStrength(password);
             }}
             required
           />
@@ -213,12 +359,15 @@ const Signup: React.FC = () => {
           />
         </div>
 
-        <button className="btn mt-3" type="submit" disabled={emailError !== ""}>
-          {" "}
-          {/* Disable button if email is invalid */}
-          Sign Up
+        <button
+          className="btn mt-3"
+          type="submit"
+          disabled={isCheckingEmail || !!emailError}
+        >
+          {isCheckingEmail ? "Checking..." : "Sign Up"}
         </button>
       </form>
+
       <div className="text-center fs-6">
         <span className="already-have-account">Already have an account? </span>
         <Link to="/" className="login-link">
@@ -228,5 +377,12 @@ const Signup: React.FC = () => {
     </div>
   );
 };
+
+// Declare window.emailCheckTimeout for TypeScript
+declare global {
+  interface Window {
+    emailCheckTimeout: NodeJS.Timeout;
+  }
+}
 
 export default Signup;
