@@ -1,7 +1,10 @@
 import React, { useState, FormEvent } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  signInWithEmailAndPassword,
+  sendEmailVerification,
+} from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
-import { getDoc, doc } from "firebase/firestore";
+import { getDoc, doc, updateDoc } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import "./Login.css";
 import logo from "../../Image/logo.png";
@@ -10,11 +13,15 @@ const Login: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
+  const [unverifiedEmail, setUnverifiedEmail] = useState<boolean>(false);
+  const [resendSuccess, setResendSuccess] = useState<string | null>(null);
   const navigate = useNavigate();
 
   const handleLogin = async (e: FormEvent) => {
     e.preventDefault();
     setError(null);
+    setResendSuccess(null);
+    setUnverifiedEmail(false);
 
     try {
       const userCredential = await signInWithEmailAndPassword(
@@ -24,10 +31,28 @@ const Login: React.FC = () => {
       );
       const user = userCredential.user;
 
+      // Check if email is verified
+      if (!user.emailVerified) {
+        // Set unverified email state to true to show the verification message
+        setUnverifiedEmail(true);
+        // Sign out the user since they're not verified
+        await auth.signOut();
+        return;
+      }
+
+      // Email is verified, continue with the login flow
       // Fetch user document from Firestore
       const userDoc = await getDoc(doc(db, "users", user.uid));
+
       if (userDoc.exists()) {
         const userData = userDoc.data();
+
+        // Update emailVerified flag in Firestore if needed
+        if (userData.emailVerified === false) {
+          await updateDoc(doc(db, "users", user.uid), {
+            emailVerified: true,
+          });
+        }
 
         // Check if it's the user's first login
         if (userData?.firstLogin) {
@@ -53,10 +78,74 @@ const Login: React.FC = () => {
       } else if (err.code === "auth/wrong-password") {
         setError("Incorrect password.");
       } else {
-        setError("An unknown error occurred.");
+        setError("An unknown error occurred: " + err.message);
       }
     }
   };
+
+  const handleResendVerification = async () => {
+    try {
+      // Sign in the user temporarily to get the user object
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCredential.user;
+
+      // Send verification email
+      await sendEmailVerification(user);
+
+      // Sign out since we don't want unverified users to be logged in
+      await auth.signOut();
+
+      setResendSuccess(
+        "Verification email has been resent. Please check your inbox."
+      );
+    } catch (err: any) {
+      setError("Failed to resend verification email: " + err.message);
+    }
+  };
+
+  // If the user has entered correct credentials but email is not verified
+  if (unverifiedEmail) {
+    return (
+      <div className="wrapper">
+        <div className="logo">
+          <img src={logo} alt="Logo" />
+        </div>
+        <div className="text-center mt-4 name">SoulSolution</div>
+        <div className="p-3 mt-3 text-center">
+          <div className="alert alert-warning">
+            <h4>Email Not Verified</h4>
+            <p>
+              Your email address has not been verified yet. Please check your
+              inbox for a verification link.
+            </p>
+            <p>
+              If you can't find the email, you can request a new verification
+              link below.
+            </p>
+          </div>
+
+          {resendSuccess && (
+            <div className="alert alert-success">{resendSuccess}</div>
+          )}
+          {error && <div className="alert alert-danger">{error}</div>}
+
+          <button className="btn mt-3" onClick={handleResendVerification}>
+            Resend Link
+          </button>
+
+          <div className="mt-3">
+            <Link to="/signup" className="btn btn-outline-secondary">
+              Return to Sign Up
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="wrapper">
