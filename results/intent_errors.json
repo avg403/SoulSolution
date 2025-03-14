@@ -1,0 +1,6754 @@
+[
+  {
+    "text": "farewell",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "restart",
+      "confidence": 0.18612881004810333
+    }
+  },
+  {
+    "text": "gtg",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.3283252716064453
+    }
+  },
+  {
+    "text": "correct",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.6273275017738342
+    }
+  },
+  {
+    "text": "absolutely",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "express_joy",
+      "confidence": 0.28196993470191956
+    }
+  },
+  {
+    "text": "okay",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "how_are_you",
+      "confidence": 0.9414387345314026
+    }
+  },
+  {
+    "text": "precisely",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "thank",
+      "confidence": 0.2756265699863434
+    }
+  },
+  {
+    "text": "incorrect",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.1519308239221573
+    }
+  },
+  {
+    "text": "that's incorrect",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.15902984142303467
+    }
+  },
+  {
+    "text": "thank you so much",
+    "intent": "thank",
+    "intent_prediction": {
+      "name": "express_gratitude",
+      "confidence": 0.932174563407898
+    }
+  },
+  {
+    "text": "that helps",
+    "intent": "thank",
+    "intent_prediction": {
+      "name": "express_suicidal_thoughts",
+      "confidence": 0.4511076807975769
+    }
+  },
+  {
+    "text": "grateful",
+    "intent": "thank",
+    "intent_prediction": {
+      "name": "express_gratitude",
+      "confidence": 0.8433578610420227
+    }
+  },
+  {
+    "text": "i'm stuck",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "user_need_help",
+      "confidence": 0.9031146764755249
+    }
+  },
+  {
+    "text": "help me please",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "user_need_help",
+      "confidence": 0.9600370526313782
+    }
+  },
+  {
+    "text": "help me out",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "user_need_help",
+      "confidence": 0.6104592680931091
+    }
+  },
+  {
+    "text": "do over",
+    "intent": "restart",
+    "intent_prediction": {
+      "name": "help",
+      "confidence": 0.8632149696350098
+    }
+  },
+  {
+    "text": "what's the weather like?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "express_relief",
+      "confidence": 0.21425506472587585
+    }
+  },
+  {
+    "text": "do my homework",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "user_need_help",
+      "confidence": 0.37634262442588806
+    }
+  },
+  {
+    "text": "what stocks should i buy",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "express_remorse",
+      "confidence": 0.18264810740947723
+    }
+  },
+  {
+    "text": "write my essay",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "express_surprise",
+      "confidence": 0.09559871256351471
+    }
+  },
+  {
+    "text": "what's your name",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "ask_name",
+      "confidence": 0.9477829337120056
+    }
+  },
+  {
+    "text": "play games",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "express_addiction",
+      "confidence": 0.2052036076784134
+    }
+  },
+  {
+    "text": "how's it hanging",
+    "intent": "how_are_you",
+    "intent_prediction": {
+      "name": "restart",
+      "confidence": 0.09709513187408447
+    }
+  },
+  {
+    "text": "hope you're well",
+    "intent": "how_are_you",
+    "intent_prediction": {
+      "name": "express_admiration",
+      "confidence": 0.3099384009838104
+    }
+  },
+  {
+    "text": "i don't know what to do",
+    "intent": "user_need_help",
+    "intent_prediction": {
+      "name": "ask_capabilities",
+      "confidence": 0.3560098111629486
+    }
+  },
+  {
+    "text": "feeling hopeless",
+    "intent": "user_need_help",
+    "intent_prediction": {
+      "name": "express_depression",
+      "confidence": 0.7708694338798523
+    }
+  },
+  {
+    "text": "i'm in a dark place",
+    "intent": "user_need_help",
+    "intent_prediction": {
+      "name": "express_depression",
+      "confidence": 0.9449824094772339
+    }
+  },
+  {
+    "text": "having problems",
+    "intent": "user_need_help",
+    "intent_prediction": {
+      "name": "express_excitement",
+      "confidence": 0.14388692378997803
+    }
+  },
+  {
+    "text": "can't handle this",
+    "intent": "user_need_help",
+    "intent_prediction": {
+      "name": "express_curiosity",
+      "confidence": 0.20605860650539398
+    }
+  },
+  {
+    "text": "can't deal with this",
+    "intent": "user_need_help",
+    "intent_prediction": {
+      "name": "express_disapproval",
+      "confidence": 0.524462103843689
+    }
+  },
+  {
+    "text": "who are you",
+    "intent": "ask_name",
+    "intent_prediction": {
+      "name": "bot_challenge",
+      "confidence": 0.9745303392410278
+    }
+  },
+  {
+    "text": "tell me who you are",
+    "intent": "ask_name",
+    "intent_prediction": {
+      "name": "bot_challenge",
+      "confidence": 0.8824998736381531
+    }
+  },
+  {
+    "text": "how do you work",
+    "intent": "ask_capabilities",
+    "intent_prediction": {
+      "name": "how_are_you",
+      "confidence": 0.25045621395111084
+    }
+  },
+  {
+    "text": "what are you designed for",
+    "intent": "ask_capabilities",
+    "intent_prediction": {
+      "name": "ask_name",
+      "confidence": 0.4475451409816742
+    }
+  },
+  {
+    "text": "i'm really impressed by your skills",
+    "intent": "express_admiration",
+    "intent_prediction": {
+      "name": "express_caring",
+      "confidence": 0.310719758272171
+    }
+  },
+  {
+    "text": "your work is incredible",
+    "intent": "express_admiration",
+    "intent_prediction": {
+      "name": "express_work_stress",
+      "confidence": 0.7920503616333008
+    }
+  },
+  {
+    "text": "amazing how u do that",
+    "intent": "express_admiration",
+    "intent_prediction": {
+      "name": "how_are_you",
+      "confidence": 0.2811768054962158
+    }
+  },
+  {
+    "text": "im constantly impressed by u",
+    "intent": "express_admiration",
+    "intent_prediction": {
+      "name": "express_anxiety",
+      "confidence": 0.7942554950714111
+    }
+  },
+  {
+    "text": "gotta say youre pretty amazing",
+    "intent": "express_admiration",
+    "intent_prediction": {
+      "name": "express_pride",
+      "confidence": 0.1939835250377655
+    }
+  },
+  {
+    "text": "lol you crack me up",
+    "intent": "express_amusement",
+    "intent_prediction": {
+      "name": "bot_challenge",
+      "confidence": 0.24935762584209442
+    }
+  },
+  {
+    "text": "thats the best joke ive heard all day",
+    "intent": "express_amusement",
+    "intent_prediction": {
+      "name": "express_relief",
+      "confidence": 0.939348042011261
+    }
+  },
+  {
+    "text": "that really set me off",
+    "intent": "express_anger",
+    "intent_prediction": {
+      "name": "express_trauma",
+      "confidence": 0.2117844820022583
+    }
+  },
+  {
+    "text": "ugh this is making me so angry",
+    "intent": "express_anger",
+    "intent_prediction": {
+      "name": "express_disgust",
+      "confidence": 0.3124786913394928
+    }
+  },
+  {
+    "text": "that's really bugging me",
+    "intent": "express_annoyance",
+    "intent_prediction": {
+      "name": "express_embarrassment",
+      "confidence": 0.10281054675579071
+    }
+  },
+  {
+    "text": "i agree completely",
+    "intent": "express_approval",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.5338345170021057
+    }
+  },
+  {
+    "text": "thats exactly what i was thinking",
+    "intent": "express_approval",
+    "intent_prediction": {
+      "name": "express_desire",
+      "confidence": 0.3007614314556122
+    }
+  },
+  {
+    "text": "i hope you're doing alright",
+    "intent": "express_caring",
+    "intent_prediction": {
+      "name": "express_admiration",
+      "confidence": 0.3199181854724884
+    }
+  },
+  {
+    "text": "let me know if i can help",
+    "intent": "express_caring",
+    "intent_prediction": {
+      "name": "ask_capabilities",
+      "confidence": 0.17923080921173096
+    }
+  },
+  {
+    "text": "what do you mean?",
+    "intent": "express_confusion",
+    "intent_prediction": {
+      "name": "express_love",
+      "confidence": 0.3666703402996063
+    }
+  },
+  {
+    "text": "could you explain that again?",
+    "intent": "express_confusion",
+    "intent_prediction": {
+      "name": "bot_name",
+      "confidence": 0.29745274782180786
+    }
+  },
+  {
+    "text": "i'm completely lost",
+    "intent": "express_confusion",
+    "intent_prediction": {
+      "name": "user_need_help",
+      "confidence": 0.32660678029060364
+    }
+  },
+  {
+    "text": "i dont follow your logic",
+    "intent": "express_confusion",
+    "intent_prediction": {
+      "name": "express_admiration",
+      "confidence": 0.17126716673374176
+    }
+  },
+  {
+    "text": "how does that work exactly?",
+    "intent": "express_curiosity",
+    "intent_prediction": {
+      "name": "help",
+      "confidence": 0.9140640497207642
+    }
+  },
+  {
+    "text": "ive always wanted something like this",
+    "intent": "express_desire",
+    "intent_prediction": {
+      "name": "express_disappointment",
+      "confidence": 0.11853934079408646
+    }
+  },
+  {
+    "text": "im desperate for this opportunity",
+    "intent": "express_desire",
+    "intent_prediction": {
+      "name": "express_excitement",
+      "confidence": 0.827181339263916
+    }
+  },
+  {
+    "text": "i feel so disheartened",
+    "intent": "express_disappointment",
+    "intent_prediction": {
+      "name": "express_relief",
+      "confidence": 0.16653519868850708
+    }
+  },
+  {
+    "text": "im sad about how this turned out",
+    "intent": "express_disappointment",
+    "intent_prediction": {
+      "name": "express_sadness",
+      "confidence": 0.676751434803009
+    }
+  },
+  {
+    "text": "i can't condone this",
+    "intent": "express_disapproval",
+    "intent_prediction": {
+      "name": "express_loneliness",
+      "confidence": 0.4105597734451294
+    }
+  },
+  {
+    "text": "i think this is a bad idea",
+    "intent": "express_disapproval",
+    "intent_prediction": {
+      "name": "express_fear",
+      "confidence": 0.3559642434120178
+    }
+  },
+  {
+    "text": "this is completely unacceptable",
+    "intent": "express_disapproval",
+    "intent_prediction": {
+      "name": "express_neutral",
+      "confidence": 0.39726752042770386
+    }
+  },
+  {
+    "text": "i dont approve of how this was handled",
+    "intent": "express_disapproval",
+    "intent_prediction": {
+      "name": "express_grief",
+      "confidence": 0.20081064105033875
+    }
+  },
+  {
+    "text": "this is vile",
+    "intent": "express_disgust",
+    "intent_prediction": {
+      "name": "express_excitement",
+      "confidence": 0.21485982835292816
+    }
+  },
+  {
+    "text": "absolutely nauseating",
+    "intent": "express_disgust",
+    "intent_prediction": {
+      "name": "express_embarrassment",
+      "confidence": 0.1352701187133789
+    }
+  },
+  {
+    "text": "i can't believe i did that",
+    "intent": "express_embarrassment",
+    "intent_prediction": {
+      "name": "express_remorse",
+      "confidence": 0.6979896426200867
+    }
+  },
+  {
+    "text": "i made such a fool of myself",
+    "intent": "express_embarrassment",
+    "intent_prediction": {
+      "name": "express_eating_disorder",
+      "confidence": 0.4308009147644043
+    }
+  },
+  {
+    "text": "im so ashamed",
+    "intent": "express_embarrassment",
+    "intent_prediction": {
+      "name": "express_anger",
+      "confidence": 0.35204842686653137
+    }
+  },
+  {
+    "text": "i can't wait!",
+    "intent": "express_excitement",
+    "intent_prediction": {
+      "name": "express_confusion",
+      "confidence": 0.8651527166366577
+    }
+  },
+  {
+    "text": "im absolutely ecstatic",
+    "intent": "express_excitement",
+    "intent_prediction": {
+      "name": "express_anger",
+      "confidence": 0.38170796632766724
+    }
+  },
+  {
+    "text": "i'm panicking right now",
+    "intent": "express_fear",
+    "intent_prediction": {
+      "name": "express_phobia",
+      "confidence": 0.27852389216423035
+    }
+  },
+  {
+    "text": "im afraid things will go wrong",
+    "intent": "express_fear",
+    "intent_prediction": {
+      "name": "express_optimism",
+      "confidence": 0.3630658984184265
+    }
+  },
+  {
+    "text": "its like theres a hole in my heart",
+    "intent": "express_grief",
+    "intent_prediction": {
+      "name": "express_sadness",
+      "confidence": 0.5428805947303772
+    }
+  },
+  {
+    "text": "i feel like ill never be whole again",
+    "intent": "express_grief",
+    "intent_prediction": {
+      "name": "express_social_difficulties",
+      "confidence": 0.17373883724212646
+    }
+  },
+  {
+    "text": "i wake up and remember theyre gone",
+    "intent": "express_grief",
+    "intent_prediction": {
+      "name": "express_depression",
+      "confidence": 0.6647375822067261
+    }
+  },
+  {
+    "text": "i miss them so much it physically hurts",
+    "intent": "express_grief",
+    "intent_prediction": {
+      "name": "express_grief_loss",
+      "confidence": 0.9701868295669556
+    }
+  },
+  {
+    "text": "this makes my heart sing",
+    "intent": "express_joy",
+    "intent_prediction": {
+      "name": "express_annoyance",
+      "confidence": 0.11288865655660629
+    }
+  },
+  {
+    "text": "i cant stop smiling",
+    "intent": "express_joy",
+    "intent_prediction": {
+      "name": "express_addiction",
+      "confidence": 0.2104787975549698
+    }
+  },
+  {
+    "text": "my heart is so full right now",
+    "intent": "express_joy",
+    "intent_prediction": {
+      "name": "express_eating_disorder",
+      "confidence": 0.10627942532300949
+    }
+  },
+  {
+    "text": "i adore you",
+    "intent": "express_love",
+    "intent_prediction": {
+      "name": "bot_challenge",
+      "confidence": 0.5455383062362671
+    }
+  },
+  {
+    "text": "im head over heels for you",
+    "intent": "express_love",
+    "intent_prediction": {
+      "name": "express_confusion",
+      "confidence": 0.7432831525802612
+    }
+  },
+  {
+    "text": "my hands are shaking",
+    "intent": "express_nervousness",
+    "intent_prediction": {
+      "name": "express_performance_anxiety",
+      "confidence": 0.11230573803186417
+    }
+  },
+  {
+    "text": "im getting cold feet",
+    "intent": "express_nervousness",
+    "intent_prediction": {
+      "name": "express_annoyance",
+      "confidence": 0.4924331605434418
+    }
+  },
+  {
+    "text": "im totally psyching myself out",
+    "intent": "express_nervousness",
+    "intent_prediction": {
+      "name": "express_desire",
+      "confidence": 0.1874835193157196
+    }
+  },
+  {
+    "text": "i have no particular opinion",
+    "intent": "express_neutral",
+    "intent_prediction": {
+      "name": "express_optimism",
+      "confidence": 0.10113237798213959
+    }
+  },
+  {
+    "text": "im just objective about the situation",
+    "intent": "express_neutral",
+    "intent_prediction": {
+      "name": "express_suicidal_thoughts",
+      "confidence": 0.44673869013786316
+    }
+  },
+  {
+    "text": "its not something i care about",
+    "intent": "express_neutral",
+    "intent_prediction": {
+      "name": "express_caring",
+      "confidence": 0.3850410282611847
+    }
+  },
+  {
+    "text": "things are looking up",
+    "intent": "express_optimism",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.6813201904296875
+    }
+  },
+  {
+    "text": "i see the silver lining",
+    "intent": "express_optimism",
+    "intent_prediction": {
+      "name": "express_joy",
+      "confidence": 0.14573723077774048
+    }
+  },
+  {
+    "text": "this is going to turn out great",
+    "intent": "express_optimism",
+    "intent_prediction": {
+      "name": "express_desire",
+      "confidence": 0.28407931327819824
+    }
+  },
+  {
+    "text": "im holding my head high",
+    "intent": "express_pride",
+    "intent_prediction": {
+      "name": "express_confusion",
+      "confidence": 0.8853738903999329
+    }
+  },
+  {
+    "text": "i finally reached my goal",
+    "intent": "express_pride",
+    "intent_prediction": {
+      "name": "express_relief",
+      "confidence": 0.750675618648529
+    }
+  },
+  {
+    "text": "now i see what you mean",
+    "intent": "express_realization",
+    "intent_prediction": {
+      "name": "ask_name",
+      "confidence": 0.1453920602798462
+    }
+  },
+  {
+    "text": "i finally connected the dots",
+    "intent": "express_realization",
+    "intent_prediction": {
+      "name": "express_relief",
+      "confidence": 0.7355880737304688
+    }
+  },
+  {
+    "text": "its like a fog has lifted",
+    "intent": "express_realization",
+    "intent_prediction": {
+      "name": "express_relief",
+      "confidence": 0.909683883190155
+    }
+  },
+  {
+    "text": "i cant believe i didnt see this before",
+    "intent": "express_realization",
+    "intent_prediction": {
+      "name": "express_surprise",
+      "confidence": 0.40189626812934875
+    }
+  },
+  {
+    "text": "that moment when you finally get it",
+    "intent": "express_realization",
+    "intent_prediction": {
+      "name": "express_relief",
+      "confidence": 0.444912314414978
+    }
+  },
+  {
+    "text": "thank goodness that's over",
+    "intent": "express_relief",
+    "intent_prediction": {
+      "name": "express_gratitude",
+      "confidence": 0.42191681265830994
+    }
+  },
+  {
+    "text": "i'm so glad that worked out",
+    "intent": "express_relief",
+    "intent_prediction": {
+      "name": "express_optimism",
+      "confidence": 0.4886784851551056
+    }
+  },
+  {
+    "text": "i feel so much better now",
+    "intent": "express_relief",
+    "intent_prediction": {
+      "name": "express_curiosity",
+      "confidence": 0.5176498889923096
+    }
+  },
+  {
+    "text": "i cant stop feeling guilty about this",
+    "intent": "express_remorse",
+    "intent_prediction": {
+      "name": "express_fear",
+      "confidence": 0.5176917314529419
+    }
+  },
+  {
+    "text": "i know i messed up badly",
+    "intent": "express_remorse",
+    "intent_prediction": {
+      "name": "express_desire",
+      "confidence": 0.8499072790145874
+    }
+  },
+  {
+    "text": "i feel empty inside",
+    "intent": "express_sadness",
+    "intent_prediction": {
+      "name": "express_remorse",
+      "confidence": 0.7596228718757629
+    }
+  },
+  {
+    "text": "im just so down right now",
+    "intent": "express_sadness",
+    "intent_prediction": {
+      "name": "express_optimism",
+      "confidence": 0.27850133180618286
+    }
+  },
+  {
+    "text": "i never saw that coming",
+    "intent": "express_surprise",
+    "intent_prediction": {
+      "name": "express_embarrassment",
+      "confidence": 0.34363090991973877
+    }
+  },
+  {
+    "text": "what?! are you serious?",
+    "intent": "express_surprise",
+    "intent_prediction": {
+      "name": "express_curiosity",
+      "confidence": 0.16903778910636902
+    }
+  },
+  {
+    "text": "that came out of nowhere",
+    "intent": "express_surprise",
+    "intent_prediction": {
+      "name": "express_identity_struggles",
+      "confidence": 0.15885207056999207
+    }
+  },
+  {
+    "text": "im absolutely astounded",
+    "intent": "express_surprise",
+    "intent_prediction": {
+      "name": "express_anger",
+      "confidence": 0.24220755696296692
+    }
+  },
+  {
+    "text": "that caught me off guard",
+    "intent": "express_surprise",
+    "intent_prediction": {
+      "name": "express_approval",
+      "confidence": 0.1900252401828766
+    }
+  },
+  {
+    "text": "my parents will kill me if i fail",
+    "intent": "express_academic_stress",
+    "intent_prediction": {
+      "name": "express_family_conflict",
+      "confidence": 0.46009325981140137
+    }
+  },
+  {
+    "text": "everything is so difficult at university",
+    "intent": "express_academic_stress",
+    "intent_prediction": {
+      "name": "express_disappointment",
+      "confidence": 0.1386302262544632
+    }
+  },
+  {
+    "text": "i'm having trouble focusing on studies",
+    "intent": "express_academic_stress",
+    "intent_prediction": {
+      "name": "express_addiction",
+      "confidence": 0.5737600922584534
+    }
+  },
+  {
+    "text": "my boss is always demanding more",
+    "intent": "express_work_stress",
+    "intent_prediction": {
+      "name": "express_confusion",
+      "confidence": 0.1323234885931015
+    }
+  },
+  {
+    "text": "i'm always working overtime",
+    "intent": "express_work_stress",
+    "intent_prediction": {
+      "name": "express_financial_stress",
+      "confidence": 0.1661701798439026
+    }
+  },
+  {
+    "text": "stressed about my job security",
+    "intent": "express_work_stress",
+    "intent_prediction": {
+      "name": "express_financial_stress",
+      "confidence": 0.7436225414276123
+    }
+  },
+  {
+    "text": "can't sleep because of work stress",
+    "intent": "express_work_stress",
+    "intent_prediction": {
+      "name": "express_chronic_illness",
+      "confidence": 0.44656625390052795
+    }
+  },
+  {
+    "text": "i'm scared of messing up",
+    "intent": "express_performance_anxiety",
+    "intent_prediction": {
+      "name": "express_fear",
+      "confidence": 0.5067710280418396
+    }
+  },
+  {
+    "text": "We're going through a rough patch",
+    "intent": "express_relationship_problems",
+    "intent_prediction": {
+      "name": "express_optimism",
+      "confidence": 0.1417362093925476
+    }
+  },
+  {
+    "text": "How do I fix my broken relationship?",
+    "intent": "express_relationship_problems",
+    "intent_prediction": {
+      "name": "express_grief",
+      "confidence": 0.2472042441368103
+    }
+  },
+  {
+    "text": "My parents and I are constantly arguing",
+    "intent": "express_family_conflict",
+    "intent_prediction": {
+      "name": "express_anxiety",
+      "confidence": 0.4454859495162964
+    }
+  },
+  {
+    "text": "I'm tired of doing everything by myself",
+    "intent": "express_loneliness",
+    "intent_prediction": {
+      "name": "express_depression",
+      "confidence": 0.3135778307914734
+    }
+  },
+  {
+    "text": "I have acquaintances but no close friends",
+    "intent": "express_loneliness",
+    "intent_prediction": {
+      "name": "express_grief_loss",
+      "confidence": 0.39053937792778015
+    }
+  },
+  {
+    "text": "I feel worthless and useless",
+    "intent": "express_depression",
+    "intent_prediction": {
+      "name": "express_abuse",
+      "confidence": 0.7465082406997681
+    }
+  },
+  {
+    "text": "I've been depressed for months now",
+    "intent": "express_depression",
+    "intent_prediction": {
+      "name": "express_loneliness",
+      "confidence": 0.2604207396507263
+    }
+  },
+  {
+    "text": "I'm exhausted all the time but can't sleep",
+    "intent": "express_depression",
+    "intent_prediction": {
+      "name": "express_grief_loss",
+      "confidence": 0.16833041608333588
+    }
+  },
+  {
+    "text": "Some days I can't even get myself to shower",
+    "intent": "express_depression",
+    "intent_prediction": {
+      "name": "express_social_difficulties",
+      "confidence": 0.18903836607933044
+    }
+  },
+  {
+    "text": "I can't stop overthinking",
+    "intent": "express_anxiety",
+    "intent_prediction": {
+      "name": "express_amusement",
+      "confidence": 0.07971743494272232
+    }
+  },
+  {
+    "text": "My anxiety is through the roof",
+    "intent": "express_anxiety",
+    "intent_prediction": {
+      "name": "express_nervousness",
+      "confidence": 0.966141402721405
+    }
+  },
+  {
+    "text": "Everything feels overwhelming",
+    "intent": "express_anxiety",
+    "intent_prediction": {
+      "name": "user_need_help",
+      "confidence": 0.7509806156158447
+    }
+  },
+  {
+    "text": "My anxiety makes it hard to concentrate",
+    "intent": "express_anxiety",
+    "intent_prediction": {
+      "name": "express_phobia",
+      "confidence": 0.19622932374477386
+    }
+  },
+  {
+    "text": "I can't stop looking at porn",
+    "intent": "express_addiction",
+    "intent_prediction": {
+      "name": "express_admiration",
+      "confidence": 0.1713550090789795
+    }
+  },
+  {
+    "text": "I've tried rehab but it didn't work",
+    "intent": "express_addiction",
+    "intent_prediction": {
+      "name": "express_abuse",
+      "confidence": 0.22252321243286133
+    }
+  },
+  {
+    "text": "I'm afraid of gaining weight",
+    "intent": "express_eating_disorder",
+    "intent_prediction": {
+      "name": "express_body_image",
+      "confidence": 0.3562223017215729
+    }
+  },
+  {
+    "text": "I feel out of control when I eat",
+    "intent": "express_eating_disorder",
+    "intent_prediction": {
+      "name": "express_anxiety",
+      "confidence": 0.6361538767814636
+    }
+  },
+  {
+    "text": "I feel anxious when I can't exercise",
+    "intent": "express_eating_disorder",
+    "intent_prediction": {
+      "name": "express_phobia",
+      "confidence": 0.11207881569862366
+    }
+  },
+  {
+    "text": "I'm terrified of flying",
+    "intent": "express_phobia",
+    "intent_prediction": {
+      "name": "express_fear",
+      "confidence": 0.24211803078651428
+    }
+  },
+  {
+    "text": "I can't handle this pain anymore",
+    "intent": "express_suicidal_thoughts",
+    "intent_prediction": {
+      "name": "express_anger",
+      "confidence": 0.4152883291244507
+    }
+  },
+  {
+    "text": "I wish I could go to sleep and never wake up",
+    "intent": "express_suicidal_thoughts",
+    "intent_prediction": {
+      "name": "express_loneliness",
+      "confidence": 0.11353840678930283
+    }
+  },
+  {
+    "text": "I feel trapped with no way out",
+    "intent": "express_suicidal_thoughts",
+    "intent_prediction": {
+      "name": "express_abuse",
+      "confidence": 0.6328552961349487
+    }
+  },
+  {
+    "text": "My grief is overwhelming me",
+    "intent": "express_grief_loss",
+    "intent_prediction": {
+      "name": "express_grief",
+      "confidence": 0.9491916298866272
+    }
+  },
+  {
+    "text": "I lost my pet and I'm devastated",
+    "intent": "express_grief_loss",
+    "intent_prediction": {
+      "name": "express_grief",
+      "confidence": 0.8360015749931335
+    }
+  },
+  {
+    "text": "I'm having trouble functioning since they passed",
+    "intent": "express_grief_loss",
+    "intent_prediction": {
+      "name": "express_chronic_illness",
+      "confidence": 0.3819260895252228
+    }
+  },
+  {
+    "text": "I lost my baby/had a miscarriage and don't know how to cope",
+    "intent": "express_grief_loss",
+    "intent_prediction": {
+      "name": "express_reproductive_health",
+      "confidence": 0.9502611756324768
+    }
+  },
+  {
+    "text": "I can't imagine ever being happy again after this loss",
+    "intent": "express_grief_loss",
+    "intent_prediction": {
+      "name": "express_grief",
+      "confidence": 0.8601760268211365
+    }
+  },
+  {
+    "text": "I'm having trouble trusting people after what happened",
+    "intent": "express_trauma",
+    "intent_prediction": {
+      "name": "express_remorse",
+      "confidence": 0.29774144291877747
+    }
+  },
+  {
+    "text": "I feel like no one understands what I went through",
+    "intent": "express_trauma",
+    "intent_prediction": {
+      "name": "express_grief_loss",
+      "confidence": 0.8329029679298401
+    }
+  },
+  {
+    "text": "I don't know how to move forward from this",
+    "intent": "express_trauma",
+    "intent_prediction": {
+      "name": "express_social_difficulties",
+      "confidence": 0.3140539228916168
+    }
+  },
+  {
+    "text": "I'm afraid of my spouse/partner",
+    "intent": "express_abuse",
+    "intent_prediction": {
+      "name": "express_relationship_problems",
+      "confidence": 0.8580124974250793
+    }
+  },
+  {
+    "text": "I feel isolated and controlled",
+    "intent": "express_abuse",
+    "intent_prediction": {
+      "name": "express_loneliness",
+      "confidence": 0.39083001017570496
+    }
+  },
+  {
+    "text": "I'm the target of mean gossip",
+    "intent": "express_bullying",
+    "intent_prediction": {
+      "name": "express_approval",
+      "confidence": 0.29629984498023987
+    }
+  },
+  {
+    "text": "A group of people exclude me on purpose",
+    "intent": "express_bullying",
+    "intent_prediction": {
+      "name": "express_identity_struggles",
+      "confidence": 0.2917519509792328
+    }
+  },
+  {
+    "text": "I'm being intimidated by a group of people",
+    "intent": "express_bullying",
+    "intent_prediction": {
+      "name": "express_social_difficulties",
+      "confidence": 0.27944302558898926
+    }
+  },
+  {
+    "text": "I'm being socially excluded on purpose",
+    "intent": "express_bullying",
+    "intent_prediction": {
+      "name": "express_identity_struggles",
+      "confidence": 0.24231259524822235
+    }
+  },
+  {
+    "text": "I'm experiencing racial/sexual/religious harassment",
+    "intent": "express_bullying",
+    "intent_prediction": {
+      "name": "express_embarrassment",
+      "confidence": 0.2909271717071533
+    }
+  },
+  {
+    "text": "Living with chronic pain is exhausting",
+    "intent": "express_chronic_illness",
+    "intent_prediction": {
+      "name": "express_suicidal_thoughts",
+      "confidence": 0.7407068610191345
+    }
+  },
+  {
+    "text": "I feel like no one understands what it's like to be sick all the time",
+    "intent": "express_chronic_illness",
+    "intent_prediction": {
+      "name": "express_grief_loss",
+      "confidence": 0.3385900557041168
+    }
+  },
+  {
+    "text": "I don't know how to balance self-care with responsibilities",
+    "intent": "express_chronic_illness",
+    "intent_prediction": {
+      "name": "express_addiction",
+      "confidence": 0.15362249314785004
+    }
+  },
+  {
+    "text": "I think I might be pregnant",
+    "intent": "express_reproductive_health",
+    "intent_prediction": {
+      "name": "express_body_image",
+      "confidence": 0.12360436469316483
+    }
+  },
+  {
+    "text": "I have concerns about my sexual health",
+    "intent": "express_reproductive_health",
+    "intent_prediction": {
+      "name": "express_identity_struggles",
+      "confidence": 0.29427817463874817
+    }
+  },
+  {
+    "text": "I feel disconnected from my body",
+    "intent": "express_body_image",
+    "intent_prediction": {
+      "name": "express_eating_disorder",
+      "confidence": 0.2950981855392456
+    }
+  },
+  {
+    "text": "I feel ashamed about my money problems",
+    "intent": "express_financial_stress",
+    "intent_prediction": {
+      "name": "express_loneliness",
+      "confidence": 0.27486810088157654
+    }
+  },
+  {
+    "text": "I'm living paycheck to paycheck",
+    "intent": "express_financial_stress",
+    "intent_prediction": {
+      "name": "express_caring",
+      "confidence": 0.29695063829421997
+    }
+  },
+  {
+    "text": "I'm trying to figure out who I am",
+    "intent": "express_identity_struggles",
+    "intent_prediction": {
+      "name": "express_loneliness",
+      "confidence": 0.30793899297714233
+    }
+  },
+  {
+    "text": "I've lost my sense of self in my relationship",
+    "intent": "express_identity_struggles",
+    "intent_prediction": {
+      "name": "express_relationship_problems",
+      "confidence": 0.22911976277828217
+    }
+  },
+  {
+    "text": "I feel like I don't fit in anywhere",
+    "intent": "express_social_difficulties",
+    "intent_prediction": {
+      "name": "express_identity_struggles",
+      "confidence": 0.5361375212669373
+    }
+  },
+  {
+    "text": "I struggle with small talk",
+    "intent": "express_social_difficulties",
+    "intent_prediction": {
+      "name": "express_academic_stress",
+      "confidence": 0.5343115329742432
+    }
+  },
+  {
+    "text": "I feel invisible in group settings",
+    "intent": "express_social_difficulties",
+    "intent_prediction": {
+      "name": "express_loneliness",
+      "confidence": 0.9248888492584229
+    }
+  },
+  {
+    "text": "I'm afraid of being rejected socially",
+    "intent": "express_social_difficulties",
+    "intent_prediction": {
+      "name": "express_phobia",
+      "confidence": 0.3549506664276123
+    }
+  },
+  {
+    "text": "what's up",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "help",
+      "confidence": 0.44550177454948425
+    }
+  },
+  {
+    "text": "cya",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.8191438317298889
+    }
+  },
+  {
+    "text": "thanks bye",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "thank",
+      "confidence": 0.6948356628417969
+    }
+  },
+  {
+    "text": "ok",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "how_are_you",
+      "confidence": 0.8431864976882935
+    }
+  },
+  {
+    "text": "of course",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "express_academic_stress",
+      "confidence": 0.8177902102470398
+    }
+  },
+  {
+    "text": "na",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.2790072560310364
+    }
+  },
+  {
+    "text": "i disagree",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "express_disapproval",
+      "confidence": 0.8091901540756226
+    }
+  },
+  {
+    "text": "thank you for your help",
+    "intent": "thank",
+    "intent_prediction": {
+      "name": "express_gratitude",
+      "confidence": 0.7461768388748169
+    }
+  },
+  {
+    "text": "thx",
+    "intent": "thank",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.7405366897583008
+    }
+  },
+  {
+    "text": "thanks for your time",
+    "intent": "thank",
+    "intent_prediction": {
+      "name": "express_gratitude",
+      "confidence": 0.49162429571151733
+    }
+  },
+  {
+    "text": "are you artificial intelligence?",
+    "intent": "bot_challenge",
+    "intent_prediction": {
+      "name": "express_body_image",
+      "confidence": 0.18030445277690887
+    }
+  },
+  {
+    "text": "is this fake?",
+    "intent": "bot_challenge",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.3298105299472809
+    }
+  },
+  {
+    "text": "how does this work",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "express_curiosity",
+      "confidence": 0.7414299249649048
+    }
+  },
+  {
+    "text": "what should i do",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "ask_name",
+      "confidence": 0.2559126913547516
+    }
+  },
+  {
+    "text": "directions please",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "user_need_help",
+      "confidence": 0.8414362072944641
+    }
+  },
+  {
+    "text": "cancel",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "user_need_help",
+      "confidence": 0.6794533133506775
+    }
+  },
+  {
+    "text": "terminate",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "express_curiosity",
+      "confidence": 0.21963073313236237
+    }
+  },
+  {
+    "text": "halt",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.2631084620952606
+    }
+  },
+  {
+    "text": "new conversation",
+    "intent": "restart",
+    "intent_prediction": {
+      "name": "how_are_you",
+      "confidence": 0.4891381561756134
+    }
+  },
+  {
+    "text": "redo",
+    "intent": "restart",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.41296741366386414
+    }
+  },
+  {
+    "text": "who is the president",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "express_sadness",
+      "confidence": 0.3593379855155945
+    }
+  },
+  {
+    "text": "what time is it",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "user_need_help",
+      "confidence": 0.26126357913017273
+    }
+  },
+  {
+    "text": "tell my fortune",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "express_approval",
+      "confidence": 0.2943476140499115
+    }
+  },
+  {
+    "text": "find me a job",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "express_work_stress",
+      "confidence": 0.7557501792907715
+    }
+  },
+  {
+    "text": "legal advice",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "user_need_help",
+      "confidence": 0.3746705949306488
+    }
+  },
+  {
+    "text": "how are you today",
+    "intent": "how_are_you",
+    "intent_prediction": {
+      "name": "bot_challenge",
+      "confidence": 0.24598926305770874
+    }
+  },
+  {
+    "text": "what's up with you",
+    "intent": "how_are_you",
+    "intent_prediction": {
+      "name": "express_love",
+      "confidence": 0.2782299220561981
+    }
+  },
+  {
+    "text": "can't cope",
+    "intent": "user_need_help",
+    "intent_prediction": {
+      "name": "ask_capabilities",
+      "confidence": 0.11489513516426086
+    }
+  },
+  {
+    "text": "need support",
+    "intent": "user_need_help",
+    "intent_prediction": {
+      "name": "express_approval",
+      "confidence": 0.5175498723983765
+    }
+  },
+  {
+    "text": "help me please",
+    "intent": "user_need_help",
+    "intent_prediction": {
+      "name": "help",
+      "confidence": 0.9270049929618835
+    }
+  },
+  {
+    "text": "what do you know",
+    "intent": "ask_capabilities",
+    "intent_prediction": {
+      "name": "ask_name",
+      "confidence": 0.4101472496986389
+    }
+  },
+  {
+    "text": "show me what you can do",
+    "intent": "ask_capabilities",
+    "intent_prediction": {
+      "name": "help",
+      "confidence": 0.5894757509231567
+    }
+  },
+  {
+    "text": "what problems can you solve",
+    "intent": "ask_capabilities",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.6928491592407227
+    }
+  },
+  {
+    "text": "that made my day",
+    "intent": "express_amusement",
+    "intent_prediction": {
+      "name": "express_joy",
+      "confidence": 0.6368807554244995
+    }
+  },
+  {
+    "text": "you have such a great sense of humor",
+    "intent": "express_amusement",
+    "intent_prediction": {
+      "name": "express_love",
+      "confidence": 0.5407659411430359
+    }
+  },
+  {
+    "text": "i'm absolutely livid",
+    "intent": "express_anger",
+    "intent_prediction": {
+      "name": "express_work_stress",
+      "confidence": 0.2580544650554657
+    }
+  },
+  {
+    "text": "i'm fed up with this crap",
+    "intent": "express_anger",
+    "intent_prediction": {
+      "name": "express_annoyance",
+      "confidence": 0.9275230169296265
+    }
+  },
+  {
+    "text": "this is complete bs",
+    "intent": "express_anger",
+    "intent_prediction": {
+      "name": "express_love",
+      "confidence": 0.39459702372550964
+    }
+  },
+  {
+    "text": "im so frustrated i could punch something",
+    "intent": "express_anger",
+    "intent_prediction": {
+      "name": "express_annoyance",
+      "confidence": 0.23584763705730438
+    }
+  },
+  {
+    "text": "im so tired of dealing with this",
+    "intent": "express_annoyance",
+    "intent_prediction": {
+      "name": "express_anger",
+      "confidence": 0.6924169659614563
+    }
+  },
+  {
+    "text": "ur getting on my last nerve",
+    "intent": "express_annoyance",
+    "intent_prediction": {
+      "name": "express_nervousness",
+      "confidence": 0.23489153385162354
+    }
+  },
+  {
+    "text": "this is really testing my patience",
+    "intent": "express_annoyance",
+    "intent_prediction": {
+      "name": "express_pride",
+      "confidence": 0.23259694874286652
+    }
+  },
+  {
+    "text": "this is getting really old",
+    "intent": "express_annoyance",
+    "intent_prediction": {
+      "name": "express_nervousness",
+      "confidence": 0.13144516944885254
+    }
+  },
+  {
+    "text": "such an inconvenience",
+    "intent": "express_annoyance",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.19286561012268066
+    }
+  },
+  {
+    "text": "that aligns with what i want",
+    "intent": "express_approval",
+    "intent_prediction": {
+      "name": "express_disapproval",
+      "confidence": 0.2804989516735077
+    }
+  },
+  {
+    "text": "u have my blessing",
+    "intent": "express_approval",
+    "intent_prediction": {
+      "name": "express_admiration",
+      "confidence": 0.20466624200344086
+    }
+  },
+  {
+    "text": "you mean a lot to me",
+    "intent": "express_caring",
+    "intent_prediction": {
+      "name": "express_gratitude",
+      "confidence": 0.5859484672546387
+    }
+  },
+  {
+    "text": "i'm not following",
+    "intent": "express_confusion",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.5882241725921631
+    }
+  },
+  {
+    "text": "im puzzled by what youre saying",
+    "intent": "express_confusion",
+    "intent_prediction": {
+      "name": "express_joy",
+      "confidence": 0.23250630497932434
+    }
+  },
+  {
+    "text": "can u go into more detail?",
+    "intent": "express_curiosity",
+    "intent_prediction": {
+      "name": "express_grief",
+      "confidence": 0.17066334187984467
+    }
+  },
+  {
+    "text": "i've been hoping for this",
+    "intent": "express_desire",
+    "intent_prediction": {
+      "name": "express_disappointment",
+      "confidence": 0.810907781124115
+    }
+  },
+  {
+    "text": "i'm dreaming of this",
+    "intent": "express_desire",
+    "intent_prediction": {
+      "name": "express_anger",
+      "confidence": 0.23675119876861572
+    }
+  },
+  {
+    "text": "i yearn for this to become reality",
+    "intent": "express_desire",
+    "intent_prediction": {
+      "name": "express_anxiety",
+      "confidence": 0.13502565026283264
+    }
+  },
+  {
+    "text": "i had such high hopes for this",
+    "intent": "express_disappointment",
+    "intent_prediction": {
+      "name": "express_optimism",
+      "confidence": 0.7709911465644836
+    }
+  },
+  {
+    "text": "im definitely opposed to this",
+    "intent": "express_disapproval",
+    "intent_prediction": {
+      "name": "help",
+      "confidence": 0.1345788687467575
+    }
+  },
+  {
+    "text": "i object to this approach",
+    "intent": "express_disapproval",
+    "intent_prediction": {
+      "name": "express_neutral",
+      "confidence": 0.4515519440174103
+    }
+  },
+  {
+    "text": "this is so nasty",
+    "intent": "express_disgust",
+    "intent_prediction": {
+      "name": "ask_name",
+      "confidence": 0.1734946072101593
+    }
+  },
+  {
+    "text": "ugh i feel sick",
+    "intent": "express_disgust",
+    "intent_prediction": {
+      "name": "express_annoyance",
+      "confidence": 0.25530871748924255
+    }
+  },
+  {
+    "text": "i'm cringing just thinking about it",
+    "intent": "express_embarrassment",
+    "intent_prediction": {
+      "name": "express_suicidal_thoughts",
+      "confidence": 0.29655012488365173
+    }
+  },
+  {
+    "text": "i wish the ground would swallow me up",
+    "intent": "express_embarrassment",
+    "intent_prediction": {
+      "name": "express_suicidal_thoughts",
+      "confidence": 0.2781640291213989
+    }
+  },
+  {
+    "text": "i just want to hide forever",
+    "intent": "express_embarrassment",
+    "intent_prediction": {
+      "name": "express_suicidal_thoughts",
+      "confidence": 0.12700311839580536
+    }
+  },
+  {
+    "text": "i'm so pumped for this",
+    "intent": "express_excitement",
+    "intent_prediction": {
+      "name": "express_disappointment",
+      "confidence": 0.4550071954727173
+    }
+  },
+  {
+    "text": "aaaah this is amazing news",
+    "intent": "express_excitement",
+    "intent_prediction": {
+      "name": "express_disappointment",
+      "confidence": 0.11125148832798004
+    }
+  },
+  {
+    "text": "im paralyzed with fear",
+    "intent": "express_fear",
+    "intent_prediction": {
+      "name": "express_anxiety",
+      "confidence": 0.7548418045043945
+    }
+  },
+  {
+    "text": "im really frightened by this",
+    "intent": "express_fear",
+    "intent_prediction": {
+      "name": "express_disappointment",
+      "confidence": 0.18821074068546295
+    }
+  },
+  {
+    "text": "the fear is paralyzing me",
+    "intent": "express_fear",
+    "intent_prediction": {
+      "name": "express_phobia",
+      "confidence": 0.597978949546814
+    }
+  },
+  {
+    "text": "i really appreciate this",
+    "intent": "express_gratitude",
+    "intent_prediction": {
+      "name": "thank",
+      "confidence": 0.8890380263328552
+    }
+  },
+  {
+    "text": "thanks a million",
+    "intent": "express_gratitude",
+    "intent_prediction": {
+      "name": "thank",
+      "confidence": 0.708020806312561
+    }
+  },
+  {
+    "text": "im so touched by your help",
+    "intent": "express_gratitude",
+    "intent_prediction": {
+      "name": "ask_capabilities",
+      "confidence": 0.44939377903938293
+    }
+  },
+  {
+    "text": "im so broken after what happened",
+    "intent": "express_grief",
+    "intent_prediction": {
+      "name": "express_trauma",
+      "confidence": 0.692829966545105
+    }
+  },
+  {
+    "text": "i'm over the moon",
+    "intent": "express_joy",
+    "intent_prediction": {
+      "name": "express_excitement",
+      "confidence": 0.9276493787765503
+    }
+  },
+  {
+    "text": "im feeling on top of the world",
+    "intent": "express_joy",
+    "intent_prediction": {
+      "name": "express_love",
+      "confidence": 0.2537462115287781
+    }
+  },
+  {
+    "text": "you mean everything to me",
+    "intent": "express_love",
+    "intent_prediction": {
+      "name": "express_confusion",
+      "confidence": 0.7245317101478577
+    }
+  },
+  {
+    "text": "i can't imagine life without you",
+    "intent": "express_love",
+    "intent_prediction": {
+      "name": "express_grief",
+      "confidence": 0.695739209651947
+    }
+  },
+  {
+    "text": "im crazy about you",
+    "intent": "express_love",
+    "intent_prediction": {
+      "name": "express_annoyance",
+      "confidence": 0.8628492951393127
+    }
+  },
+  {
+    "text": "you make my heart skip a beat",
+    "intent": "express_love",
+    "intent_prediction": {
+      "name": "express_gratitude",
+      "confidence": 0.21320782601833344
+    }
+  },
+  {
+    "text": "i'm feeling really anxious",
+    "intent": "express_nervousness",
+    "intent_prediction": {
+      "name": "express_anxiety",
+      "confidence": 0.8394017219543457
+    }
+  },
+  {
+    "text": "i feel jittery thinking about it",
+    "intent": "express_nervousness",
+    "intent_prediction": {
+      "name": "express_curiosity",
+      "confidence": 0.22015129029750824
+    }
+  },
+  {
+    "text": "i feel like im about to have a panic attack",
+    "intent": "express_nervousness",
+    "intent_prediction": {
+      "name": "express_anxiety",
+      "confidence": 0.9042587876319885
+    }
+  },
+  {
+    "text": "im in the middle on this issue",
+    "intent": "express_neutral",
+    "intent_prediction": {
+      "name": "express_depression",
+      "confidence": 0.2192312330007553
+    }
+  },
+  {
+    "text": "i dont have any emotional response to this",
+    "intent": "express_neutral",
+    "intent_prediction": {
+      "name": "express_sadness",
+      "confidence": 0.6355828642845154
+    }
+  },
+  {
+    "text": "meh i feel nothing about this",
+    "intent": "express_neutral",
+    "intent_prediction": {
+      "name": "express_sadness",
+      "confidence": 0.7791591882705688
+    }
+  },
+  {
+    "text": "i believe it's going to work out",
+    "intent": "express_optimism",
+    "intent_prediction": {
+      "name": "express_work_stress",
+      "confidence": 0.8331974148750305
+    }
+  },
+  {
+    "text": "i know things will get better",
+    "intent": "express_optimism",
+    "intent_prediction": {
+      "name": "express_depression",
+      "confidence": 0.5215765237808228
+    }
+  },
+  {
+    "text": "i feel a sense of pride in this",
+    "intent": "express_pride",
+    "intent_prediction": {
+      "name": "express_grief",
+      "confidence": 0.19375644624233246
+    }
+  },
+  {
+    "text": "im just now realizing this",
+    "intent": "express_realization",
+    "intent_prediction": {
+      "name": "express_social_difficulties",
+      "confidence": 0.395790159702301
+    }
+  },
+  {
+    "text": "i see things clearly now",
+    "intent": "express_realization",
+    "intent_prediction": {
+      "name": "express_relief",
+      "confidence": 0.1673620492219925
+    }
+  },
+  {
+    "text": "now everything falls into place",
+    "intent": "express_realization",
+    "intent_prediction": {
+      "name": "user_need_help",
+      "confidence": 0.9109777212142944
+    }
+  },
+  {
+    "text": "now i understand the whole picture",
+    "intent": "express_realization",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.5085891485214233
+    }
+  },
+  {
+    "text": "phew, i was worried for nothing",
+    "intent": "express_relief",
+    "intent_prediction": {
+      "name": "express_sadness",
+      "confidence": 0.45518407225608826
+    }
+  },
+  {
+    "text": "i can relax now that its over",
+    "intent": "express_relief",
+    "intent_prediction": {
+      "name": "express_academic_stress",
+      "confidence": 0.24176432192325592
+    }
+  },
+  {
+    "text": "i wish i could take it back",
+    "intent": "express_remorse",
+    "intent_prediction": {
+      "name": "express_desire",
+      "confidence": 0.6256248950958252
+    }
+  },
+  {
+    "text": "i feel terrible about what happened",
+    "intent": "express_remorse",
+    "intent_prediction": {
+      "name": "express_trauma",
+      "confidence": 0.4790322780609131
+    }
+  },
+  {
+    "text": "i'm so upset right now",
+    "intent": "express_sadness",
+    "intent_prediction": {
+      "name": "express_amusement",
+      "confidence": 0.19978401064872742
+    }
+  },
+  {
+    "text": "i feel like crying",
+    "intent": "express_sadness",
+    "intent_prediction": {
+      "name": "express_grief",
+      "confidence": 0.9606979489326477
+    }
+  },
+  {
+    "text": "wow! i didn't expect that",
+    "intent": "express_surprise",
+    "intent_prediction": {
+      "name": "express_addiction",
+      "confidence": 0.4980945289134979
+    }
+  },
+  {
+    "text": "im totally blown away",
+    "intent": "express_surprise",
+    "intent_prediction": {
+      "name": "express_phobia",
+      "confidence": 0.20373204350471497
+    }
+  },
+  {
+    "text": "this is shocking news",
+    "intent": "express_surprise",
+    "intent_prediction": {
+      "name": "express_fear",
+      "confidence": 0.3465650975704193
+    }
+  },
+  {
+    "text": "i never wouldve guessed",
+    "intent": "express_surprise",
+    "intent_prediction": {
+      "name": "express_remorse",
+      "confidence": 0.32868024706840515
+    }
+  },
+  {
+    "text": "i can't keep up with all my assignments",
+    "intent": "express_academic_stress",
+    "intent_prediction": {
+      "name": "express_pride",
+      "confidence": 0.1868889331817627
+    }
+  },
+  {
+    "text": "can't balance all my subjects",
+    "intent": "express_academic_stress",
+    "intent_prediction": {
+      "name": "express_curiosity",
+      "confidence": 0.3440975844860077
+    }
+  },
+  {
+    "text": "too many assignments due this week",
+    "intent": "express_academic_stress",
+    "intent_prediction": {
+      "name": "express_work_stress",
+      "confidence": 0.39592134952545166
+    }
+  },
+  {
+    "text": "i hate my workplace",
+    "intent": "express_work_stress",
+    "intent_prediction": {
+      "name": "user_need_help",
+      "confidence": 0.8602195978164673
+    }
+  },
+  {
+    "text": "workplace stress is affecting my life",
+    "intent": "express_work_stress",
+    "intent_prediction": {
+      "name": "user_need_help",
+      "confidence": 0.4309539496898651
+    }
+  },
+  {
+    "text": "worried about my performance review",
+    "intent": "express_work_stress",
+    "intent_prediction": {
+      "name": "express_performance_anxiety",
+      "confidence": 0.905974805355072
+    }
+  },
+  {
+    "text": "always nervous about my performance",
+    "intent": "express_performance_anxiety",
+    "intent_prediction": {
+      "name": "express_nervousness",
+      "confidence": 0.5068426728248596
+    }
+  },
+  {
+    "text": "scared of public speaking",
+    "intent": "express_performance_anxiety",
+    "intent_prediction": {
+      "name": "express_fear",
+      "confidence": 0.5326253175735474
+    }
+  },
+  {
+    "text": "afraid of disappointing others",
+    "intent": "express_performance_anxiety",
+    "intent_prediction": {
+      "name": "express_disappointment",
+      "confidence": 0.8051416873931885
+    }
+  },
+  {
+    "text": "We keep having the same argument over and over",
+    "intent": "express_relationship_problems",
+    "intent_prediction": {
+      "name": "express_addiction",
+      "confidence": 0.11163284629583359
+    }
+  },
+  {
+    "text": "There's so much tension in my household",
+    "intent": "express_family_conflict",
+    "intent_prediction": {
+      "name": "express_depression",
+      "confidence": 0.12830038368701935
+    }
+  },
+  {
+    "text": "My in-laws are causing problems in my marriage",
+    "intent": "express_family_conflict",
+    "intent_prediction": {
+      "name": "express_relationship_problems",
+      "confidence": 0.7015950083732605
+    }
+  },
+  {
+    "text": "I'm grieving the end of my marriage",
+    "intent": "express_divorce_concerns",
+    "intent_prediction": {
+      "name": "express_relationship_problems",
+      "confidence": 0.6002056002616882
+    }
+  },
+  {
+    "text": "I have no one to talk to",
+    "intent": "express_loneliness",
+    "intent_prediction": {
+      "name": "express_suicidal_thoughts",
+      "confidence": 0.2048952430486679
+    }
+  },
+  {
+    "text": "I feel isolated all the time",
+    "intent": "express_loneliness",
+    "intent_prediction": {
+      "name": "express_depression",
+      "confidence": 0.8000087738037109
+    }
+  },
+  {
+    "text": "My loneliness is making me depressed",
+    "intent": "express_loneliness",
+    "intent_prediction": {
+      "name": "express_depression",
+      "confidence": 0.3527424931526184
+    }
+  },
+  {
+    "text": "Since my partner left, I've been so lonely",
+    "intent": "express_loneliness",
+    "intent_prediction": {
+      "name": "express_grief_loss",
+      "confidence": 0.7774458527565002
+    }
+  },
+  {
+    "text": "Ever since graduating, I've lost touch with everyone",
+    "intent": "express_loneliness",
+    "intent_prediction": {
+      "name": "express_grief_loss",
+      "confidence": 0.4578666687011719
+    }
+  },
+  {
+    "text": "I think I'm depressed",
+    "intent": "express_depression",
+    "intent_prediction": {
+      "name": "express_sadness",
+      "confidence": 0.4693676829338074
+    }
+  },
+  {
+    "text": "I've been feeling really down lately",
+    "intent": "express_depression",
+    "intent_prediction": {
+      "name": "express_suicidal_thoughts",
+      "confidence": 0.29067108035087585
+    }
+  },
+  {
+    "text": "Nothing brings me joy anymore",
+    "intent": "express_depression",
+    "intent_prediction": {
+      "name": "express_joy",
+      "confidence": 0.5142266750335693
+    }
+  },
+  {
+    "text": "I've lost interest in things I used to enjoy",
+    "intent": "express_depression",
+    "intent_prediction": {
+      "name": "express_addiction",
+      "confidence": 0.1381978839635849
+    }
+  },
+  {
+    "text": "I feel numb to everything around me",
+    "intent": "express_depression",
+    "intent_prediction": {
+      "name": "express_grief_loss",
+      "confidence": 0.4522610306739807
+    }
+  },
+  {
+    "text": "I feel like a burden to everyone",
+    "intent": "express_depression",
+    "intent_prediction": {
+      "name": "express_chronic_illness",
+      "confidence": 0.7655088305473328
+    }
+  },
+  {
+    "text": "My heart won't stop racing",
+    "intent": "express_anxiety",
+    "intent_prediction": {
+      "name": "express_amusement",
+      "confidence": 0.15973685681819916
+    }
+  },
+  {
+    "text": "I'm so stressed I can't function",
+    "intent": "express_anxiety",
+    "intent_prediction": {
+      "name": "express_grief_loss",
+      "confidence": 0.30623340606689453
+    }
+  },
+  {
+    "text": "I feel like something bad is going to happen",
+    "intent": "express_anxiety",
+    "intent_prediction": {
+      "name": "express_fear",
+      "confidence": 0.877871036529541
+    }
+  },
+  {
+    "text": "I'm always waiting for the other shoe to drop",
+    "intent": "express_anxiety",
+    "intent_prediction": {
+      "name": "express_neutral",
+      "confidence": 0.21913281083106995
+    }
+  },
+  {
+    "text": "I feel like I'm losing control",
+    "intent": "express_anxiety",
+    "intent_prediction": {
+      "name": "express_grief_loss",
+      "confidence": 0.45863017439842224
+    }
+  },
+  {
+    "text": "My smoking is out of control",
+    "intent": "express_addiction",
+    "intent_prediction": {
+      "name": "express_abuse",
+      "confidence": 0.4120853841304779
+    }
+  },
+  {
+    "text": "My gaming habits are affecting my life",
+    "intent": "express_addiction",
+    "intent_prediction": {
+      "name": "express_identity_struggles",
+      "confidence": 0.3377908766269684
+    }
+  },
+  {
+    "text": "I get withdrawal symptoms when I try to stop",
+    "intent": "express_addiction",
+    "intent_prediction": {
+      "name": "express_reproductive_health",
+      "confidence": 0.685829758644104
+    }
+  },
+  {
+    "text": "I hate my body and how I look",
+    "intent": "express_eating_disorder",
+    "intent_prediction": {
+      "name": "express_body_image",
+      "confidence": 0.9829887747764587
+    }
+  },
+  {
+    "text": "My periods have stopped because of my weight",
+    "intent": "express_eating_disorder",
+    "intent_prediction": {
+      "name": "express_reproductive_health",
+      "confidence": 0.6982045769691467
+    }
+  },
+  {
+    "text": "I panic when I see needles",
+    "intent": "express_phobia",
+    "intent_prediction": {
+      "name": "express_anxiety",
+      "confidence": 0.32910531759262085
+    }
+  },
+  {
+    "text": "I'm afraid of leaving my house",
+    "intent": "express_phobia",
+    "intent_prediction": {
+      "name": "express_anxiety",
+      "confidence": 0.5204704999923706
+    }
+  },
+  {
+    "text": "I feel like a burden to everyone",
+    "intent": "express_suicidal_thoughts",
+    "intent_prediction": {
+      "name": "express_chronic_illness",
+      "confidence": 0.7655088305473328
+    }
+  },
+  {
+    "text": "I've been thinking about death a lot",
+    "intent": "express_suicidal_thoughts",
+    "intent_prediction": {
+      "name": "express_grief_loss",
+      "confidence": 0.39818012714385986
+    }
+  },
+  {
+    "text": "I lost someone close to me",
+    "intent": "express_grief_loss",
+    "intent_prediction": {
+      "name": "express_identity_struggles",
+      "confidence": 0.3290894627571106
+    }
+  },
+  {
+    "text": "I feel like I lost a part of myself",
+    "intent": "express_grief_loss",
+    "intent_prediction": {
+      "name": "express_identity_struggles",
+      "confidence": 0.47536173462867737
+    }
+  },
+  {
+    "text": "I don't know how to live without them",
+    "intent": "express_grief_loss",
+    "intent_prediction": {
+      "name": "express_grief",
+      "confidence": 0.8217019438743591
+    }
+  },
+  {
+    "text": "I'm struggling with PTSD",
+    "intent": "express_trauma",
+    "intent_prediction": {
+      "name": "express_grief_loss",
+      "confidence": 0.15323998034000397
+    }
+  },
+  {
+    "text": "I feel like I'm always on high alert",
+    "intent": "express_trauma",
+    "intent_prediction": {
+      "name": "express_grief_loss",
+      "confidence": 0.17599384486675262
+    }
+  },
+  {
+    "text": "Certain triggers bring everything back",
+    "intent": "express_trauma",
+    "intent_prediction": {
+      "name": "express_body_image",
+      "confidence": 0.35985201597213745
+    }
+  },
+  {
+    "text": "I feel disconnected from myself since the incident",
+    "intent": "express_trauma",
+    "intent_prediction": {
+      "name": "express_grief_loss",
+      "confidence": 0.42592304944992065
+    }
+  },
+  {
+    "text": "I feel trapped in my relationship",
+    "intent": "express_abuse",
+    "intent_prediction": {
+      "name": "express_relationship_problems",
+      "confidence": 0.4220666289329529
+    }
+  },
+  {
+    "text": "I want to leave but don't know how",
+    "intent": "express_abuse",
+    "intent_prediction": {
+      "name": "express_addiction",
+      "confidence": 0.5801602602005005
+    }
+  },
+  {
+    "text": "People are constantly mocking me",
+    "intent": "express_bullying",
+    "intent_prediction": {
+      "name": "express_anxiety",
+      "confidence": 0.4751107096672058
+    }
+  },
+  {
+    "text": "I'm being targeted because I'm different",
+    "intent": "express_bullying",
+    "intent_prediction": {
+      "name": "express_abuse",
+      "confidence": 0.15223833918571472
+    }
+  },
+  {
+    "text": "They make fun of my appearance/accent/disability",
+    "intent": "express_bullying",
+    "intent_prediction": {
+      "name": "express_body_image",
+      "confidence": 0.8288896679878235
+    }
+  },
+  {
+    "text": "It's hard to make plans with my unpredictable symptoms",
+    "intent": "express_chronic_illness",
+    "intent_prediction": {
+      "name": "express_reproductive_health",
+      "confidence": 0.5470010042190552
+    }
+  },
+  {
+    "text": "My partner and I are having trouble conceiving",
+    "intent": "express_reproductive_health",
+    "intent_prediction": {
+      "name": "express_relationship_problems",
+      "confidence": 0.8995933532714844
+    }
+  },
+  {
+    "text": "My partner and I disagree about family planning",
+    "intent": "express_reproductive_health",
+    "intent_prediction": {
+      "name": "express_family_conflict",
+      "confidence": 0.5383667349815369
+    }
+  },
+  {
+    "text": "I'm experiencing postpartum depression",
+    "intent": "express_reproductive_health",
+    "intent_prediction": {
+      "name": "express_depression",
+      "confidence": 0.8820298910140991
+    }
+  },
+  {
+    "text": "I'm embarrassed about my weight",
+    "intent": "express_body_image",
+    "intent_prediction": {
+      "name": "express_embarrassment",
+      "confidence": 0.6430569887161255
+    }
+  },
+  {
+    "text": "I spend hours fixating on my flaws",
+    "intent": "express_body_image",
+    "intent_prediction": {
+      "name": "express_eating_disorder",
+      "confidence": 0.12435813993215561
+    }
+  },
+  {
+    "text": "I know I should accept myself but it's so hard",
+    "intent": "express_body_image",
+    "intent_prediction": {
+      "name": "express_identity_struggles",
+      "confidence": 0.27263036370277405
+    }
+  },
+  {
+    "text": "My partner and I argue about money all the time",
+    "intent": "express_financial_stress",
+    "intent_prediction": {
+      "name": "express_relationship_problems",
+      "confidence": 0.5047587752342224
+    }
+  },
+  {
+    "text": "I had an unexpected expense and now I'm broke",
+    "intent": "express_financial_stress",
+    "intent_prediction": {
+      "name": "express_surprise",
+      "confidence": 0.23744873702526093
+    }
+  },
+  {
+    "text": "I'm constantly anxious about checking my bank account",
+    "intent": "express_financial_stress",
+    "intent_prediction": {
+      "name": "express_anxiety",
+      "confidence": 0.48613041639328003
+    }
+  },
+  {
+    "text": "I'm afraid to come out to my family",
+    "intent": "express_identity_struggles",
+    "intent_prediction": {
+      "name": "express_anxiety",
+      "confidence": 0.25803422927856445
+    }
+  },
+  {
+    "text": "I don't recognize myself anymore",
+    "intent": "express_identity_struggles",
+    "intent_prediction": {
+      "name": "express_abuse",
+      "confidence": 0.9444143176078796
+    }
+  },
+  {
+    "text": "I don't feel comfortable in my own skin",
+    "intent": "express_identity_struggles",
+    "intent_prediction": {
+      "name": "express_suicidal_thoughts",
+      "confidence": 0.26069217920303345
+    }
+  },
+  {
+    "text": "I don't know how to start conversations",
+    "intent": "express_social_difficulties",
+    "intent_prediction": {
+      "name": "restart",
+      "confidence": 0.45367157459259033
+    }
+  },
+  {
+    "text": "I'm always saying the wrong thing",
+    "intent": "express_social_difficulties",
+    "intent_prediction": {
+      "name": "express_disapproval",
+      "confidence": 0.19285272061824799
+    }
+  },
+  {
+    "text": "I don't know how to connect with others",
+    "intent": "express_social_difficulties",
+    "intent_prediction": {
+      "name": "express_relationship_problems",
+      "confidence": 0.13116179406642914
+    }
+  },
+  {
+    "text": "I freeze up when meeting new people",
+    "intent": "express_social_difficulties",
+    "intent_prediction": {
+      "name": "express_performance_anxiety",
+      "confidence": 0.656448245048523
+    }
+  },
+  {
+    "text": "I feel like I'm too different to connect with others",
+    "intent": "express_social_difficulties",
+    "intent_prediction": {
+      "name": "express_relationship_problems",
+      "confidence": 0.38706931471824646
+    }
+  },
+  {
+    "text": "I get overwhelmed in large groups",
+    "intent": "express_social_difficulties",
+    "intent_prediction": {
+      "name": "express_identity_struggles",
+      "confidence": 0.5494053959846497
+    }
+  },
+  {
+    "text": "yo",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.6031943559646606
+    }
+  },
+  {
+    "text": "until next time",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.2708016037940979
+    }
+  },
+  {
+    "text": "gotta go",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "express_admiration",
+      "confidence": 0.4778502583503723
+    }
+  },
+  {
+    "text": "indeed",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.18204544484615326
+    }
+  },
+  {
+    "text": "yup",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.6693850755691528
+    }
+  },
+  {
+    "text": "i agree",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "express_approval",
+      "confidence": 0.8015159964561462
+    }
+  },
+  {
+    "text": "exactly",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "express_curiosity",
+      "confidence": 0.7556464672088623
+    }
+  },
+  {
+    "text": "no thanks",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "thank",
+      "confidence": 0.5544002056121826
+    }
+  },
+  {
+    "text": "nah",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.22408230602741241
+    }
+  },
+  {
+    "text": "false",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.2579708695411682
+    }
+  },
+  {
+    "text": "really appreciate it",
+    "intent": "thank",
+    "intent_prediction": {
+      "name": "express_gratitude",
+      "confidence": 0.5041639804840088
+    }
+  },
+  {
+    "text": "can you help me",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "ask_capabilities",
+      "confidence": 0.7396749258041382
+    }
+  },
+  {
+    "text": "what can you do",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "ask_capabilities",
+      "confidence": 0.9087597131729126
+    }
+  },
+  {
+    "text": "not sure what to do",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.6870676875114441
+    }
+  },
+  {
+    "text": "no more",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "express_curiosity",
+      "confidence": 0.39414358139038086
+    }
+  },
+  {
+    "text": "pause",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "express_reproductive_health",
+      "confidence": 0.17653489112854004
+    }
+  },
+  {
+    "text": "reload",
+    "intent": "restart",
+    "intent_prediction": {
+      "name": "express_relief",
+      "confidence": 0.7927591800689697
+    }
+  },
+  {
+    "text": "order pizza",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "restart",
+      "confidence": 0.3216518759727478
+    }
+  },
+  {
+    "text": "tell me a joke",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "express_amusement",
+      "confidence": 0.7623352408409119
+    }
+  },
+  {
+    "text": "sing a song",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "express_joy",
+      "confidence": 0.35619592666625977
+    }
+  },
+  {
+    "text": "solve this equation",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "ask_capabilities",
+      "confidence": 0.20528417825698853
+    }
+  },
+  {
+    "text": "cook dinner",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "how_are_you",
+      "confidence": 0.17430391907691956
+    }
+  },
+  {
+    "text": "all good?",
+    "intent": "how_are_you",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.6555888652801514
+    }
+  },
+  {
+    "text": "doing okay?",
+    "intent": "how_are_you",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.8789647817611694
+    }
+  },
+  {
+    "text": "i need someone to talk to",
+    "intent": "user_need_help",
+    "intent_prediction": {
+      "name": "express_loneliness",
+      "confidence": 0.5684999823570251
+    }
+  },
+  {
+    "text": "i need guidance",
+    "intent": "user_need_help",
+    "intent_prediction": {
+      "name": "help",
+      "confidence": 0.919394314289093
+    }
+  },
+  {
+    "text": "don't know where to turn",
+    "intent": "user_need_help",
+    "intent_prediction": {
+      "name": "express_optimism",
+      "confidence": 0.21439789235591888
+    }
+  },
+  {
+    "text": "introduce yourself",
+    "intent": "ask_name",
+    "intent_prediction": {
+      "name": "express_reproductive_health",
+      "confidence": 0.2830345928668976
+    }
+  },
+  {
+    "text": "what are you known as",
+    "intent": "ask_name",
+    "intent_prediction": {
+      "name": "ask_capabilities",
+      "confidence": 0.317461222410202
+    }
+  },
+  {
+    "text": "identify yourself",
+    "intent": "ask_name",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.5067762136459351
+    }
+  },
+  {
+    "text": "remind me of your name",
+    "intent": "bot_name",
+    "intent_prediction": {
+      "name": "express_grief",
+      "confidence": 0.24244433641433716
+    }
+  },
+  {
+    "text": "i can't believe how good you are at this",
+    "intent": "express_admiration",
+    "intent_prediction": {
+      "name": "ask_capabilities",
+      "confidence": 0.28269264101982117
+    }
+  },
+  {
+    "text": "your skills blow my mind",
+    "intent": "express_admiration",
+    "intent_prediction": {
+      "name": "express_amusement",
+      "confidence": 0.19594021141529083
+    }
+  },
+  {
+    "text": "cant stop giggling",
+    "intent": "express_amusement",
+    "intent_prediction": {
+      "name": "express_anger",
+      "confidence": 0.15099765360355377
+    }
+  },
+  {
+    "text": "im in stitches",
+    "intent": "express_amusement",
+    "intent_prediction": {
+      "name": "express_social_difficulties",
+      "confidence": 0.1762993037700653
+    }
+  },
+  {
+    "text": "that really pisses me off",
+    "intent": "express_anger",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.2349112629890442
+    }
+  },
+  {
+    "text": "i can't believe this!!! im furious",
+    "intent": "express_anger",
+    "intent_prediction": {
+      "name": "express_embarrassment",
+      "confidence": 0.3047240078449249
+    }
+  },
+  {
+    "text": "i hate when this happens",
+    "intent": "express_anger",
+    "intent_prediction": {
+      "name": "express_desire",
+      "confidence": 0.4055677652359009
+    }
+  },
+  {
+    "text": "this is such a pain",
+    "intent": "express_annoyance",
+    "intent_prediction": {
+      "name": "express_disappointment",
+      "confidence": 0.144128680229187
+    }
+  },
+  {
+    "text": "im getting fed up with this",
+    "intent": "express_annoyance",
+    "intent_prediction": {
+      "name": "express_anger",
+      "confidence": 0.6870610117912292
+    }
+  },
+  {
+    "text": "yes i think that's a great idea",
+    "intent": "express_approval",
+    "intent_prediction": {
+      "name": "express_disapproval",
+      "confidence": 0.5881541967391968
+    }
+  },
+  {
+    "text": "i'm totally fine with that",
+    "intent": "express_approval",
+    "intent_prediction": {
+      "name": "express_disappointment",
+      "confidence": 0.11323469132184982
+    }
+  },
+  {
+    "text": "i support this decision",
+    "intent": "express_approval",
+    "intent_prediction": {
+      "name": "express_disapproval",
+      "confidence": 0.9706354141235352
+    }
+  },
+  {
+    "text": "good call",
+    "intent": "express_approval",
+    "intent_prediction": {
+      "name": "ask_name",
+      "confidence": 0.3862900137901306
+    }
+  },
+  {
+    "text": "i'm concerned about you",
+    "intent": "express_caring",
+    "intent_prediction": {
+      "name": "express_reproductive_health",
+      "confidence": 0.3293456435203552
+    }
+  },
+  {
+    "text": "i'm thinking about you",
+    "intent": "express_caring",
+    "intent_prediction": {
+      "name": "bot_challenge",
+      "confidence": 0.3903084993362427
+    }
+  },
+  {
+    "text": "this is going over my head",
+    "intent": "express_confusion",
+    "intent_prediction": {
+      "name": "express_realization",
+      "confidence": 0.1424708068370819
+    }
+  },
+  {
+    "text": "i have no idea what that means",
+    "intent": "express_confusion",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.12652605772018433
+    }
+  },
+  {
+    "text": "im intrigued by what you said",
+    "intent": "express_curiosity",
+    "intent_prediction": {
+      "name": "ask_name",
+      "confidence": 0.10992486029863358
+    }
+  },
+  {
+    "text": "id love to hear more about that",
+    "intent": "express_curiosity",
+    "intent_prediction": {
+      "name": "express_love",
+      "confidence": 0.681869626045227
+    }
+  },
+  {
+    "text": "i wish i could have that",
+    "intent": "express_desire",
+    "intent_prediction": {
+      "name": "express_remorse",
+      "confidence": 0.22340163588523865
+    }
+  },
+  {
+    "text": "all i can think about is having this",
+    "intent": "express_desire",
+    "intent_prediction": {
+      "name": "express_grief",
+      "confidence": 0.16358263790607452
+    }
+  },
+  {
+    "text": "i crave this experience",
+    "intent": "express_desire",
+    "intent_prediction": {
+      "name": "express_neutral",
+      "confidence": 0.2182478904724121
+    }
+  },
+  {
+    "text": "i'm bummed about this",
+    "intent": "express_disappointment",
+    "intent_prediction": {
+      "name": "express_trauma",
+      "confidence": 0.17972339689731598
+    }
+  },
+  {
+    "text": "i feel so deflated about this",
+    "intent": "express_disappointment",
+    "intent_prediction": {
+      "name": "express_nervousness",
+      "confidence": 0.15659984946250916
+    }
+  },
+  {
+    "text": "this is below my expectations",
+    "intent": "express_disappointment",
+    "intent_prediction": {
+      "name": "help",
+      "confidence": 0.16710221767425537
+    }
+  },
+  {
+    "text": "i don't agree with this",
+    "intent": "express_disapproval",
+    "intent_prediction": {
+      "name": "express_approval",
+      "confidence": 0.7829837203025818
+    }
+  },
+  {
+    "text": "this goes against my values",
+    "intent": "express_disapproval",
+    "intent_prediction": {
+      "name": "express_identity_struggles",
+      "confidence": 0.7759953737258911
+    }
+  },
+  {
+    "text": "i cant even look at this",
+    "intent": "express_disgust",
+    "intent_prediction": {
+      "name": "express_admiration",
+      "confidence": 0.7027108073234558
+    }
+  },
+  {
+    "text": "this is making me gag",
+    "intent": "express_disgust",
+    "intent_prediction": {
+      "name": "express_confusion",
+      "confidence": 0.1494535356760025
+    }
+  },
+  {
+    "text": "im mortified by what happened",
+    "intent": "express_embarrassment",
+    "intent_prediction": {
+      "name": "express_remorse",
+      "confidence": 0.701411247253418
+    }
+  },
+  {
+    "text": "i cant show my face after that",
+    "intent": "express_embarrassment",
+    "intent_prediction": {
+      "name": "express_work_stress",
+      "confidence": 0.10483939945697784
+    }
+  },
+  {
+    "text": "im blushing just thinking about it",
+    "intent": "express_embarrassment",
+    "intent_prediction": {
+      "name": "express_sadness",
+      "confidence": 0.3962230980396271
+    }
+  },
+  {
+    "text": "this is going to be amazing!",
+    "intent": "express_excitement",
+    "intent_prediction": {
+      "name": "express_admiration",
+      "confidence": 0.27219322323799133
+    }
+  },
+  {
+    "text": "i've been looking forward to this for ages!",
+    "intent": "express_excitement",
+    "intent_prediction": {
+      "name": "express_trauma",
+      "confidence": 0.8245885968208313
+    }
+  },
+  {
+    "text": "im literally counting down the days",
+    "intent": "express_excitement",
+    "intent_prediction": {
+      "name": "express_sadness",
+      "confidence": 0.29875853657722473
+    }
+  },
+  {
+    "text": "im over the moon about this",
+    "intent": "express_excitement",
+    "intent_prediction": {
+      "name": "express_joy",
+      "confidence": 0.9281976819038391
+    }
+  },
+  {
+    "text": "im like a kid on christmas morning",
+    "intent": "express_excitement",
+    "intent_prediction": {
+      "name": "express_grief",
+      "confidence": 0.18010316789150238
+    }
+  },
+  {
+    "text": "i cant stop worrying about this",
+    "intent": "express_fear",
+    "intent_prediction": {
+      "name": "express_nervousness",
+      "confidence": 0.9219961762428284
+    }
+  },
+  {
+    "text": "im feeling really unsafe",
+    "intent": "express_fear",
+    "intent_prediction": {
+      "name": "express_sadness",
+      "confidence": 0.16465790569782257
+    }
+  },
+  {
+    "text": "im too scared to move forward",
+    "intent": "express_fear",
+    "intent_prediction": {
+      "name": "express_trauma",
+      "confidence": 0.9156750440597534
+    }
+  },
+  {
+    "text": "thank you so much",
+    "intent": "express_gratitude",
+    "intent_prediction": {
+      "name": "thank",
+      "confidence": 0.7806044220924377
+    }
+  },
+  {
+    "text": "i feel completely devastated",
+    "intent": "express_grief",
+    "intent_prediction": {
+      "name": "user_need_help",
+      "confidence": 0.22490274906158447
+    }
+  },
+  {
+    "text": "i'm in so much pain right now",
+    "intent": "express_grief",
+    "intent_prediction": {
+      "name": "express_caring",
+      "confidence": 0.1591409593820572
+    }
+  },
+  {
+    "text": "im trying to make sense of this heartbreak",
+    "intent": "express_grief",
+    "intent_prediction": {
+      "name": "express_sadness",
+      "confidence": 0.5061793923377991
+    }
+  },
+  {
+    "text": "im just so incredibly happy",
+    "intent": "express_joy",
+    "intent_prediction": {
+      "name": "express_admiration",
+      "confidence": 0.5352128148078918
+    }
+  },
+  {
+    "text": "this is the best feeling ever",
+    "intent": "express_joy",
+    "intent_prediction": {
+      "name": "express_excitement",
+      "confidence": 0.12423653900623322
+    }
+  },
+  {
+    "text": "you complete me",
+    "intent": "express_love",
+    "intent_prediction": {
+      "name": "express_confusion",
+      "confidence": 0.39930713176727295
+    }
+  },
+  {
+    "text": "youre my soulmate",
+    "intent": "express_love",
+    "intent_prediction": {
+      "name": "bot_name",
+      "confidence": 0.29192686080932617
+    }
+  },
+  {
+    "text": "my anxiety is through the roof",
+    "intent": "express_nervousness",
+    "intent_prediction": {
+      "name": "express_anxiety",
+      "confidence": 0.9800631999969482
+    }
+  },
+  {
+    "text": "this situation has me on pins and needles",
+    "intent": "express_nervousness",
+    "intent_prediction": {
+      "name": "express_fear",
+      "confidence": 0.367542028427124
+    }
+  },
+  {
+    "text": "i don't have strong feelings about this",
+    "intent": "express_neutral",
+    "intent_prediction": {
+      "name": "express_disapproval",
+      "confidence": 0.10486362129449844
+    }
+  },
+  {
+    "text": "im not invested in the outcome",
+    "intent": "express_neutral",
+    "intent_prediction": {
+      "name": "express_disgust",
+      "confidence": 0.159682035446167
+    }
+  },
+  {
+    "text": "it neither excites nor bothers me",
+    "intent": "express_neutral",
+    "intent_prediction": {
+      "name": "express_excitement",
+      "confidence": 0.3621278703212738
+    }
+  },
+  {
+    "text": "i have a good feeling about this",
+    "intent": "express_optimism",
+    "intent_prediction": {
+      "name": "user_need_help",
+      "confidence": 0.398612380027771
+    }
+  },
+  {
+    "text": "things are going to be amazing",
+    "intent": "express_optimism",
+    "intent_prediction": {
+      "name": "express_admiration",
+      "confidence": 0.19821079075336456
+    }
+  },
+  {
+    "text": "i trust that everything will be fine",
+    "intent": "express_optimism",
+    "intent_prediction": {
+      "name": "express_embarrassment",
+      "confidence": 0.26570945978164673
+    }
+  },
+  {
+    "text": "i never thought i could do this",
+    "intent": "express_pride",
+    "intent_prediction": {
+      "name": "express_desire",
+      "confidence": 0.2904687821865082
+    }
+  },
+  {
+    "text": "i surprised myself with what i achieved",
+    "intent": "express_pride",
+    "intent_prediction": {
+      "name": "express_surprise",
+      "confidence": 0.4318681061267853
+    }
+  },
+  {
+    "text": "i finally understand",
+    "intent": "express_realization",
+    "intent_prediction": {
+      "name": "express_relief",
+      "confidence": 0.5852715373039246
+    }
+  },
+  {
+    "text": "i had an epiphany",
+    "intent": "express_realization",
+    "intent_prediction": {
+      "name": "express_annoyance",
+      "confidence": 0.10087043046951294
+    }
+  },
+  {
+    "text": "wow its so obvious now",
+    "intent": "express_realization",
+    "intent_prediction": {
+      "name": "how_are_you",
+      "confidence": 0.22814932465553284
+    }
+  },
+  {
+    "text": "its like a weight off my shoulders",
+    "intent": "express_relief",
+    "intent_prediction": {
+      "name": "express_eating_disorder",
+      "confidence": 0.5829480886459351
+    }
+  },
+  {
+    "text": "my worries were for nothing thankfully",
+    "intent": "express_relief",
+    "intent_prediction": {
+      "name": "express_gratitude",
+      "confidence": 0.925654411315918
+    }
+  },
+  {
+    "text": "i feel like i can breathe again",
+    "intent": "express_relief",
+    "intent_prediction": {
+      "name": "express_anxiety",
+      "confidence": 0.20717839896678925
+    }
+  },
+  {
+    "text": "i cant forgive myself for this",
+    "intent": "express_remorse",
+    "intent_prediction": {
+      "name": "express_joy",
+      "confidence": 0.24471622705459595
+    }
+  },
+  {
+    "text": "i shouldnt have done that",
+    "intent": "express_remorse",
+    "intent_prediction": {
+      "name": "help",
+      "confidence": 0.7479767799377441
+    }
+  },
+  {
+    "text": "i feel so much remorse",
+    "intent": "express_remorse",
+    "intent_prediction": {
+      "name": "express_amusement",
+      "confidence": 0.15257790684700012
+    }
+  },
+  {
+    "text": "the guilt is eating me up inside",
+    "intent": "express_remorse",
+    "intent_prediction": {
+      "name": "express_eating_disorder",
+      "confidence": 0.6719458103179932
+    }
+  },
+  {
+    "text": "im feeling depressed",
+    "intent": "express_sadness",
+    "intent_prediction": {
+      "name": "express_depression",
+      "confidence": 0.48152968287467957
+    }
+  },
+  {
+    "text": "i feel like nothing will be good again",
+    "intent": "express_sadness",
+    "intent_prediction": {
+      "name": "express_depression",
+      "confidence": 0.308877557516098
+    }
+  },
+  {
+    "text": "my jaw just dropped",
+    "intent": "express_surprise",
+    "intent_prediction": {
+      "name": "express_academic_stress",
+      "confidence": 0.4169042110443115
+    }
+  },
+  {
+    "text": "im shocked beyond words",
+    "intent": "express_surprise",
+    "intent_prediction": {
+      "name": "express_disgust",
+      "confidence": 0.21299560368061066
+    }
+  },
+  {
+    "text": "i'm not smart enough for this course",
+    "intent": "express_academic_stress",
+    "intent_prediction": {
+      "name": "express_disapproval",
+      "confidence": 0.21655337512493134
+    }
+  },
+  {
+    "text": "the syllabus is too vast",
+    "intent": "express_academic_stress",
+    "intent_prediction": {
+      "name": "express_abuse",
+      "confidence": 0.26816585659980774
+    }
+  },
+  {
+    "text": "the deadlines are overwhelming me",
+    "intent": "express_academic_stress",
+    "intent_prediction": {
+      "name": "express_fear",
+      "confidence": 0.13863371312618256
+    }
+  },
+  {
+    "text": "my thesis is stressing me out",
+    "intent": "express_academic_stress",
+    "intent_prediction": {
+      "name": "express_nervousness",
+      "confidence": 0.13117732107639313
+    }
+  },
+  {
+    "text": "feeling burned out from work",
+    "intent": "express_work_stress",
+    "intent_prediction": {
+      "name": "restart",
+      "confidence": 0.1431887447834015
+    }
+  },
+  {
+    "text": "the deadlines are impossible",
+    "intent": "express_work_stress",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.24666938185691833
+    }
+  },
+  {
+    "text": "my job is draining me",
+    "intent": "express_work_stress",
+    "intent_prediction": {
+      "name": "ask_capabilities",
+      "confidence": 0.18211956322193146
+    }
+  },
+  {
+    "text": "can't focus when people watch me",
+    "intent": "express_performance_anxiety",
+    "intent_prediction": {
+      "name": "express_loneliness",
+      "confidence": 0.45637163519859314
+    }
+  },
+  {
+    "text": "can't handle being assessed",
+    "intent": "express_performance_anxiety",
+    "intent_prediction": {
+      "name": "user_need_help",
+      "confidence": 0.23824426531791687
+    }
+  },
+  {
+    "text": "My partner and I keep fighting all the time",
+    "intent": "express_relationship_problems",
+    "intent_prediction": {
+      "name": "express_reproductive_health",
+      "confidence": 0.5646492838859558
+    }
+  },
+  {
+    "text": "I think I'm falling out of love",
+    "intent": "express_relationship_problems",
+    "intent_prediction": {
+      "name": "express_suicidal_thoughts",
+      "confidence": 0.31453844904899597
+    }
+  },
+  {
+    "text": "I don't feel appreciated by my significant other",
+    "intent": "express_relationship_problems",
+    "intent_prediction": {
+      "name": "express_gratitude",
+      "confidence": 0.26600000262260437
+    }
+  },
+  {
+    "text": "I don't know if they love me anymore",
+    "intent": "express_relationship_problems",
+    "intent_prediction": {
+      "name": "express_love",
+      "confidence": 0.3387293219566345
+    }
+  },
+  {
+    "text": "I have a strained relationship with my parents",
+    "intent": "express_family_conflict",
+    "intent_prediction": {
+      "name": "express_relationship_problems",
+      "confidence": 0.4758446514606476
+    }
+  },
+  {
+    "text": "My parents always criticize me",
+    "intent": "express_family_conflict",
+    "intent_prediction": {
+      "name": "express_academic_stress",
+      "confidence": 0.2820054888725281
+    }
+  },
+  {
+    "text": "I moved to a new city and haven't made friends yet",
+    "intent": "express_loneliness",
+    "intent_prediction": {
+      "name": "express_financial_stress",
+      "confidence": 0.15601898729801178
+    }
+  },
+  {
+    "text": "I feel disconnected from everyone",
+    "intent": "express_loneliness",
+    "intent_prediction": {
+      "name": "express_phobia",
+      "confidence": 0.10467971861362457
+    }
+  },
+  {
+    "text": "I feel invisible to others",
+    "intent": "express_loneliness",
+    "intent_prediction": {
+      "name": "express_social_difficulties",
+      "confidence": 0.8972423076629639
+    }
+  },
+  {
+    "text": "I don't know how to meet new people",
+    "intent": "express_loneliness",
+    "intent_prediction": {
+      "name": "express_financial_stress",
+      "confidence": 0.15930689871311188
+    }
+  },
+  {
+    "text": "I don't see the point in anything anymore",
+    "intent": "express_depression",
+    "intent_prediction": {
+      "name": "express_suicidal_thoughts",
+      "confidence": 0.6437745690345764
+    }
+  },
+  {
+    "text": "I keep having negative thoughts",
+    "intent": "express_depression",
+    "intent_prediction": {
+      "name": "express_suicidal_thoughts",
+      "confidence": 0.5128093361854553
+    }
+  },
+  {
+    "text": "Everything feels like a huge effort",
+    "intent": "express_depression",
+    "intent_prediction": {
+      "name": "express_amusement",
+      "confidence": 0.12105593830347061
+    }
+  },
+  {
+    "text": "I'm struggling to see any light at the end of the tunnel",
+    "intent": "express_depression",
+    "intent_prediction": {
+      "name": "express_work_stress",
+      "confidence": 0.22268566489219666
+    }
+  },
+  {
+    "text": "I'm nervous all the time for no reason",
+    "intent": "express_anxiety",
+    "intent_prediction": {
+      "name": "express_depression",
+      "confidence": 0.6178837418556213
+    }
+  },
+  {
+    "text": "My mind won't shut off at night",
+    "intent": "express_anxiety",
+    "intent_prediction": {
+      "name": "express_family_conflict",
+      "confidence": 0.16016721725463867
+    }
+  },
+  {
+    "text": "I'm paralyzed by fear and don't know why",
+    "intent": "express_anxiety",
+    "intent_prediction": {
+      "name": "express_phobia",
+      "confidence": 0.29277604818344116
+    }
+  },
+  {
+    "text": "Social situations make me extremely anxious",
+    "intent": "express_anxiety",
+    "intent_prediction": {
+      "name": "express_phobia",
+      "confidence": 0.5873898267745972
+    }
+  },
+  {
+    "text": "I'm jumpy and easily startled lately",
+    "intent": "express_anxiety",
+    "intent_prediction": {
+      "name": "express_depression",
+      "confidence": 0.5528281331062317
+    }
+  },
+  {
+    "text": "I feel like I can't control my gambling",
+    "intent": "express_addiction",
+    "intent_prediction": {
+      "name": "express_anxiety",
+      "confidence": 0.7159759402275085
+    }
+  },
+  {
+    "text": "I tried to quit but I always relapse",
+    "intent": "express_addiction",
+    "intent_prediction": {
+      "name": "express_relationship_problems",
+      "confidence": 0.3200635612010956
+    }
+  },
+  {
+    "text": "I need more and more to feel the same effect",
+    "intent": "express_addiction",
+    "intent_prediction": {
+      "name": "express_chronic_illness",
+      "confidence": 0.22614267468452454
+    }
+  },
+  {
+    "text": "I'm always on a new diet",
+    "intent": "express_eating_disorder",
+    "intent_prediction": {
+      "name": "express_anxiety",
+      "confidence": 0.15678811073303223
+    }
+  },
+  {
+    "text": "The sight of blood makes me faint",
+    "intent": "express_phobia",
+    "intent_prediction": {
+      "name": "express_anger",
+      "confidence": 0.08107814937829971
+    }
+  },
+  {
+    "text": "I don't think I can keep going",
+    "intent": "express_suicidal_thoughts",
+    "intent_prediction": {
+      "name": "express_anxiety",
+      "confidence": 0.2871866524219513
+    }
+  },
+  {
+    "text": "Life feels too painful to continue",
+    "intent": "express_suicidal_thoughts",
+    "intent_prediction": {
+      "name": "express_reproductive_health",
+      "confidence": 0.3017541766166687
+    }
+  },
+  {
+    "text": "I've been writing goodbye letters",
+    "intent": "express_suicidal_thoughts",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.5865991115570068
+    }
+  },
+  {
+    "text": "I'm ready to end it",
+    "intent": "express_suicidal_thoughts",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.668616533279419
+    }
+  },
+  {
+    "text": "I've been giving away my possessions",
+    "intent": "express_suicidal_thoughts",
+    "intent_prediction": {
+      "name": "express_pride",
+      "confidence": 0.1635391265153885
+    }
+  },
+  {
+    "text": "I'm struggling to cope with a death in the family",
+    "intent": "express_grief_loss",
+    "intent_prediction": {
+      "name": "express_family_conflict",
+      "confidence": 0.8831828832626343
+    }
+  },
+  {
+    "text": "I can't move on after losing my loved one",
+    "intent": "express_grief_loss",
+    "intent_prediction": {
+      "name": "express_anxiety",
+      "confidence": 0.16424813866615295
+    }
+  },
+  {
+    "text": "I feel like no one understands what I'm going through",
+    "intent": "express_grief_loss",
+    "intent_prediction": {
+      "name": "express_identity_struggles",
+      "confidence": 0.13417448103427887
+    }
+  },
+  {
+    "text": "I feel like I'll never be the same after what I experienced",
+    "intent": "express_trauma",
+    "intent_prediction": {
+      "name": "express_relationship_problems",
+      "confidence": 0.3274087607860565
+    }
+  },
+  {
+    "text": "I feel like I'm overreacting to what happened",
+    "intent": "express_trauma",
+    "intent_prediction": {
+      "name": "express_remorse",
+      "confidence": 0.5956853628158569
+    }
+  },
+  {
+    "text": "I feel shame about what happened to me",
+    "intent": "express_trauma",
+    "intent_prediction": {
+      "name": "express_remorse",
+      "confidence": 0.40828806161880493
+    }
+  },
+  {
+    "text": "I've never told anyone what happened to me",
+    "intent": "express_trauma",
+    "intent_prediction": {
+      "name": "express_grief_loss",
+      "confidence": 0.2450486123561859
+    }
+  },
+  {
+    "text": "I want to heal but don't know how to start",
+    "intent": "express_trauma",
+    "intent_prediction": {
+      "name": "express_financial_stress",
+      "confidence": 0.15081460773944855
+    }
+  },
+  {
+    "text": "My partner controls everything I do",
+    "intent": "express_abuse",
+    "intent_prediction": {
+      "name": "express_relationship_problems",
+      "confidence": 0.31942880153656006
+    }
+  },
+  {
+    "text": "I don't have access to our finances",
+    "intent": "express_abuse",
+    "intent_prediction": {
+      "name": "express_body_image",
+      "confidence": 0.25138312578201294
+    }
+  },
+  {
+    "text": "I'm not allowed to see my friends or family",
+    "intent": "express_abuse",
+    "intent_prediction": {
+      "name": "express_family_conflict",
+      "confidence": 0.9525895118713379
+    }
+  },
+  {
+    "text": "I'm being verbally degraded constantly",
+    "intent": "express_abuse",
+    "intent_prediction": {
+      "name": "express_bullying",
+      "confidence": 0.25005075335502625
+    }
+  },
+  {
+    "text": "I don't recognize myself anymore in this relationship",
+    "intent": "express_abuse",
+    "intent_prediction": {
+      "name": "express_identity_struggles",
+      "confidence": 0.9359503984451294
+    }
+  },
+  {
+    "text": "I feel worthless because of how they treat me",
+    "intent": "express_abuse",
+    "intent_prediction": {
+      "name": "express_depression",
+      "confidence": 0.20648187398910522
+    }
+  },
+  {
+    "text": "I get threatening messages online",
+    "intent": "express_bullying",
+    "intent_prediction": {
+      "name": "express_gratitude",
+      "confidence": 0.2634369432926178
+    }
+  },
+  {
+    "text": "Someone is spreading rumors about me",
+    "intent": "express_bullying",
+    "intent_prediction": {
+      "name": "express_trauma",
+      "confidence": 0.22117866575717926
+    }
+  },
+  {
+    "text": "People tag me in humiliating posts",
+    "intent": "express_bullying",
+    "intent_prediction": {
+      "name": "express_embarrassment",
+      "confidence": 0.5769456624984741
+    }
+  },
+  {
+    "text": "I'm tired of managing my chronic health issues",
+    "intent": "express_chronic_illness",
+    "intent_prediction": {
+      "name": "express_reproductive_health",
+      "confidence": 0.5631946325302124
+    }
+  },
+  {
+    "text": "My endometriosis pain is getting worse",
+    "intent": "express_reproductive_health",
+    "intent_prediction": {
+      "name": "express_addiction",
+      "confidence": 0.13388633728027344
+    }
+  },
+  {
+    "text": "I hate how I look",
+    "intent": "express_body_image",
+    "intent_prediction": {
+      "name": "express_eating_disorder",
+      "confidence": 0.8583357334136963
+    }
+  },
+  {
+    "text": "I avoid social situations because of how I look",
+    "intent": "express_body_image",
+    "intent_prediction": {
+      "name": "express_social_difficulties",
+      "confidence": 0.3523445129394531
+    }
+  },
+  {
+    "text": "I wish I could see what others see when they look at me",
+    "intent": "express_body_image",
+    "intent_prediction": {
+      "name": "express_admiration",
+      "confidence": 0.08974266797304153
+    }
+  },
+  {
+    "text": "I lost my job and don't know what to do",
+    "intent": "express_financial_stress",
+    "intent_prediction": {
+      "name": "express_identity_struggles",
+      "confidence": 0.3013516068458557
+    }
+  },
+  {
+    "text": "I'm behind on payments and getting collection calls",
+    "intent": "express_financial_stress",
+    "intent_prediction": {
+      "name": "express_academic_stress",
+      "confidence": 0.4258377254009247
+    }
+  },
+  {
+    "text": "I don't make enough to cover my expenses",
+    "intent": "express_financial_stress",
+    "intent_prediction": {
+      "name": "express_identity_struggles",
+      "confidence": 0.28905820846557617
+    }
+  },
+  {
+    "text": "I feel like I'm wearing a mask all the time",
+    "intent": "express_identity_struggles",
+    "intent_prediction": {
+      "name": "express_social_difficulties",
+      "confidence": 0.15902583301067352
+    }
+  },
+  {
+    "text": "I'm always on the outside looking in",
+    "intent": "express_social_difficulties",
+    "intent_prediction": {
+      "name": "express_optimism",
+      "confidence": 0.7904149889945984
+    }
+  },
+  {
+    "text": "I feel awkward and out of place at parties",
+    "intent": "express_social_difficulties",
+    "intent_prediction": {
+      "name": "express_embarrassment",
+      "confidence": 0.5728206038475037
+    }
+  },
+  {
+    "text": "I wish I knew how to approach people",
+    "intent": "express_social_difficulties",
+    "intent_prediction": {
+      "name": "express_disapproval",
+      "confidence": 0.41296306252479553
+    }
+  },
+  {
+    "text": "greetings",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "express_remorse",
+      "confidence": 0.14674143493175507
+    }
+  },
+  {
+    "text": "have a good one",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "express_loneliness",
+      "confidence": 0.5091463327407837
+    }
+  },
+  {
+    "text": "catch you soon",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "user_need_help",
+      "confidence": 0.1238364651799202
+    }
+  },
+  {
+    "text": "have to leave",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "express_abuse",
+      "confidence": 0.11039924621582031
+    }
+  },
+  {
+    "text": "ttyl",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.31714171171188354
+    }
+  },
+  {
+    "text": "sure",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "help",
+      "confidence": 0.6995934247970581
+    }
+  },
+  {
+    "text": "that works",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "express_approval",
+      "confidence": 0.7503836154937744
+    }
+  },
+  {
+    "text": "definitely",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "express_approval",
+      "confidence": 0.4585500955581665
+    }
+  },
+  {
+    "text": "ok sure",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "help",
+      "confidence": 0.544950008392334
+    }
+  },
+  {
+    "text": "ty",
+    "intent": "thank",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.47204145789146423
+    }
+  },
+  {
+    "text": "much appreciated",
+    "intent": "thank",
+    "intent_prediction": {
+      "name": "express_gratitude",
+      "confidence": 0.5466543436050415
+    }
+  },
+  {
+    "text": "what are you?",
+    "intent": "bot_challenge",
+    "intent_prediction": {
+      "name": "how_are_you",
+      "confidence": 0.7541789412498474
+    }
+  },
+  {
+    "text": "are you ai?",
+    "intent": "bot_challenge",
+    "intent_prediction": {
+      "name": "how_are_you",
+      "confidence": 0.28710705041885376
+    }
+  },
+  {
+    "text": "how can you help",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "ask_capabilities",
+      "confidence": 0.724103569984436
+    }
+  },
+  {
+    "text": "confused need help",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "express_confusion",
+      "confidence": 0.8685388565063477
+    }
+  },
+  {
+    "text": "explain how this works",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "express_confusion",
+      "confidence": 0.29405397176742554
+    }
+  },
+  {
+    "text": "finish",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.6035000085830688
+    }
+  },
+  {
+    "text": "finish this",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.3158772587776184
+    }
+  },
+  {
+    "text": "break",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "express_relief",
+      "confidence": 0.1843865066766739
+    }
+  },
+  {
+    "text": "let's end this",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "express_disappointment",
+      "confidence": 0.2629425823688507
+    }
+  },
+  {
+    "text": "finish up",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.45287778973579407
+    }
+  },
+  {
+    "text": "conclude",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "express_confusion",
+      "confidence": 0.22359532117843628
+    }
+  },
+  {
+    "text": "book a flight",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.41016697883605957
+    }
+  },
+  {
+    "text": "what's 2+2?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "express_depression",
+      "confidence": 0.2790071666240692
+    }
+  },
+  {
+    "text": "draw me a picture",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "express_realization",
+      "confidence": 0.641032338142395
+    }
+  },
+  {
+    "text": "make me coffee",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "ask_capabilities",
+      "confidence": 0.28982505202293396
+    }
+  },
+  {
+    "text": "everything ok?",
+    "intent": "how_are_you",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.3220176100730896
+    }
+  },
+  {
+    "text": "i feel lost",
+    "intent": "user_need_help",
+    "intent_prediction": {
+      "name": "express_confusion",
+      "confidence": 0.9123303890228271
+    }
+  },
+  {
+    "text": "life is tough right now",
+    "intent": "user_need_help",
+    "intent_prediction": {
+      "name": "express_disgust",
+      "confidence": 0.2895154356956482
+    }
+  },
+  {
+    "text": "everything feels wrong",
+    "intent": "user_need_help",
+    "intent_prediction": {
+      "name": "express_abuse",
+      "confidence": 0.0950155034661293
+    }
+  },
+  {
+    "text": "need advice",
+    "intent": "user_need_help",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.8809806704521179
+    }
+  },
+  {
+    "text": "need direction",
+    "intent": "user_need_help",
+    "intent_prediction": {
+      "name": "help",
+      "confidence": 0.8982293605804443
+    }
+  },
+  {
+    "text": "what do you go by",
+    "intent": "ask_name",
+    "intent_prediction": {
+      "name": "ask_capabilities",
+      "confidence": 0.26129481196403503
+    }
+  },
+  {
+    "text": "what's your title",
+    "intent": "ask_name",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.14502869546413422
+    }
+  },
+  {
+    "text": "how should i address you",
+    "intent": "ask_name",
+    "intent_prediction": {
+      "name": "express_caring",
+      "confidence": 0.2778772711753845
+    }
+  },
+  {
+    "text": "what can you do",
+    "intent": "ask_capabilities",
+    "intent_prediction": {
+      "name": "help",
+      "confidence": 0.7663916349411011
+    }
+  },
+  {
+    "text": "what help can you provide",
+    "intent": "ask_capabilities",
+    "intent_prediction": {
+      "name": "help",
+      "confidence": 0.1931731402873993
+    }
+  },
+  {
+    "text": "what are you good at",
+    "intent": "ask_capabilities",
+    "intent_prediction": {
+      "name": "express_admiration",
+      "confidence": 0.4237540066242218
+    }
+  },
+  {
+    "text": "what are your limitations",
+    "intent": "ask_capabilities",
+    "intent_prediction": {
+      "name": "express_chronic_illness",
+      "confidence": 0.25740787386894226
+    }
+  },
+  {
+    "text": "what's your role",
+    "intent": "ask_capabilities",
+    "intent_prediction": {
+      "name": "express_admiration",
+      "confidence": 0.24781888723373413
+    }
+  },
+  {
+    "text": "your name was",
+    "intent": "bot_name",
+    "intent_prediction": {
+      "name": "ask_name",
+      "confidence": 0.6776211261749268
+    }
+  },
+  {
+    "text": "i wish i could be like you",
+    "intent": "express_admiration",
+    "intent_prediction": {
+      "name": "express_joy",
+      "confidence": 0.44687771797180176
+    }
+  },
+  {
+    "text": "i'm in awe of your abilities",
+    "intent": "express_admiration",
+    "intent_prediction": {
+      "name": "ask_capabilities",
+      "confidence": 0.9041720628738403
+    }
+  },
+  {
+    "text": "your achievements are remarkable",
+    "intent": "express_admiration",
+    "intent_prediction": {
+      "name": "express_pride",
+      "confidence": 0.5413843989372253
+    }
+  },
+  {
+    "text": "i hope to be half as good as you someday",
+    "intent": "express_admiration",
+    "intent_prediction": {
+      "name": "ask_name",
+      "confidence": 0.3029347062110901
+    }
+  },
+  {
+    "text": "rofl you're too much",
+    "intent": "express_amusement",
+    "intent_prediction": {
+      "name": "express_caring",
+      "confidence": 0.2581930458545685
+    }
+  },
+  {
+    "text": "i literally spit out my drink",
+    "intent": "express_amusement",
+    "intent_prediction": {
+      "name": "express_excitement",
+      "confidence": 0.23075571656227112
+    }
+  },
+  {
+    "text": "im absolutely fuming",
+    "intent": "express_anger",
+    "intent_prediction": {
+      "name": "express_optimism",
+      "confidence": 0.12922154366970062
+    }
+  },
+  {
+    "text": "this is the last straw",
+    "intent": "express_anger",
+    "intent_prediction": {
+      "name": "express_surprise",
+      "confidence": 0.4029127359390259
+    }
+  },
+  {
+    "text": "ur making me lose my temper",
+    "intent": "express_anger",
+    "intent_prediction": {
+      "name": "express_optimism",
+      "confidence": 0.13090427219867706
+    }
+  },
+  {
+    "text": "im sick and tired of this",
+    "intent": "express_anger",
+    "intent_prediction": {
+      "name": "express_fear",
+      "confidence": 0.3632214069366455
+    }
+  },
+  {
+    "text": "how dare they do this",
+    "intent": "express_anger",
+    "intent_prediction": {
+      "name": "how_are_you",
+      "confidence": 0.35867515206336975
+    }
+  },
+  {
+    "text": "im so done with this",
+    "intent": "express_annoyance",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.23114387691020966
+    }
+  },
+  {
+    "text": "ugh make it stop",
+    "intent": "express_annoyance",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.5855046510696411
+    }
+  },
+  {
+    "text": "i'm on board with that",
+    "intent": "express_approval",
+    "intent_prediction": {
+      "name": "express_disapproval",
+      "confidence": 0.8335953950881958
+    }
+  },
+  {
+    "text": "i back this 100%",
+    "intent": "express_approval",
+    "intent_prediction": {
+      "name": "express_neutral",
+      "confidence": 0.1217406690120697
+    }
+  },
+  {
+    "text": "you've got my support",
+    "intent": "express_approval",
+    "intent_prediction": {
+      "name": "user_need_help",
+      "confidence": 0.518279492855072
+    }
+  },
+  {
+    "text": "i want you to be okay",
+    "intent": "express_caring",
+    "intent_prediction": {
+      "name": "express_desire",
+      "confidence": 0.24073849618434906
+    }
+  },
+  {
+    "text": "your happiness is important to me",
+    "intent": "express_caring",
+    "intent_prediction": {
+      "name": "express_joy",
+      "confidence": 0.7723934650421143
+    }
+  },
+  {
+    "text": "i want to make sure youre ok",
+    "intent": "express_caring",
+    "intent_prediction": {
+      "name": "express_desire",
+      "confidence": 0.16635900735855103
+    }
+  },
+  {
+    "text": "huh? i dont get it",
+    "intent": "express_confusion",
+    "intent_prediction": {
+      "name": "express_disapproval",
+      "confidence": 0.21998779475688934
+    }
+  },
+  {
+    "text": "you're not making sense",
+    "intent": "express_confusion",
+    "intent_prediction": {
+      "name": "express_realization",
+      "confidence": 0.4386507570743561
+    }
+  },
+  {
+    "text": "wait what?",
+    "intent": "express_confusion",
+    "intent_prediction": {
+      "name": "express_excitement",
+      "confidence": 0.9134098291397095
+    }
+  },
+  {
+    "text": "what's that all about?",
+    "intent": "express_curiosity",
+    "intent_prediction": {
+      "name": "express_desire",
+      "confidence": 0.16645582020282745
+    }
+  },
+  {
+    "text": "could you explain more?",
+    "intent": "express_curiosity",
+    "intent_prediction": {
+      "name": "express_confusion",
+      "confidence": 0.5571761727333069
+    }
+  },
+  {
+    "text": "i want to understand this better",
+    "intent": "express_curiosity",
+    "intent_prediction": {
+      "name": "express_desire",
+      "confidence": 0.45739230513572693
+    }
+  },
+  {
+    "text": "please elaborate on that",
+    "intent": "express_curiosity",
+    "intent_prediction": {
+      "name": "express_gratitude",
+      "confidence": 0.38023343682289124
+    }
+  },
+  {
+    "text": "i cant stop thinking about getting this",
+    "intent": "express_desire",
+    "intent_prediction": {
+      "name": "express_annoyance",
+      "confidence": 0.8037941455841064
+    }
+  },
+  {
+    "text": "i hope this happens for me",
+    "intent": "express_desire",
+    "intent_prediction": {
+      "name": "express_anger",
+      "confidence": 0.39031779766082764
+    }
+  },
+  {
+    "text": "i was expecting more",
+    "intent": "express_disappointment",
+    "intent_prediction": {
+      "name": "express_work_stress",
+      "confidence": 0.22555837035179138
+    }
+  },
+  {
+    "text": "that's not okay with me",
+    "intent": "express_disapproval",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.6431213617324829
+    }
+  },
+  {
+    "text": "i think this is wrong",
+    "intent": "express_disapproval",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.7709010243415833
+    }
+  },
+  {
+    "text": "that doesn't align with what i believe is right",
+    "intent": "express_disapproval",
+    "intent_prediction": {
+      "name": "express_approval",
+      "confidence": 0.36589547991752625
+    }
+  },
+  {
+    "text": "i cannot support this decision",
+    "intent": "express_disapproval",
+    "intent_prediction": {
+      "name": "express_approval",
+      "confidence": 0.8170952796936035
+    }
+  },
+  {
+    "text": "this turns my stomach",
+    "intent": "express_disgust",
+    "intent_prediction": {
+      "name": "express_disappointment",
+      "confidence": 0.7039373517036438
+    }
+  },
+  {
+    "text": "i feel so stupid right now",
+    "intent": "express_embarrassment",
+    "intent_prediction": {
+      "name": "express_sadness",
+      "confidence": 0.162412628531456
+    }
+  },
+  {
+    "text": "i feel so self-conscious right now",
+    "intent": "express_embarrassment",
+    "intent_prediction": {
+      "name": "express_confusion",
+      "confidence": 0.3372279107570648
+    }
+  },
+  {
+    "text": "this terrifies me",
+    "intent": "express_fear",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.19993700087070465
+    }
+  },
+  {
+    "text": "this situation makes me really anxious",
+    "intent": "express_fear",
+    "intent_prediction": {
+      "name": "express_nervousness",
+      "confidence": 0.7432906627655029
+    }
+  },
+  {
+    "text": "i have a terrible feeling about this",
+    "intent": "express_fear",
+    "intent_prediction": {
+      "name": "express_remorse",
+      "confidence": 0.872695803642273
+    }
+  },
+  {
+    "text": "the thought of this terrifies me",
+    "intent": "express_fear",
+    "intent_prediction": {
+      "name": "express_performance_anxiety",
+      "confidence": 0.1606387495994568
+    }
+  },
+  {
+    "text": "this fear is overwhelming me",
+    "intent": "express_fear",
+    "intent_prediction": {
+      "name": "express_phobia",
+      "confidence": 0.3895071744918823
+    }
+  },
+  {
+    "text": "i owe you big time",
+    "intent": "express_gratitude",
+    "intent_prediction": {
+      "name": "express_love",
+      "confidence": 0.2846357226371765
+    }
+  },
+  {
+    "text": "i can't stop crying",
+    "intent": "express_grief",
+    "intent_prediction": {
+      "name": "express_sadness",
+      "confidence": 0.8895739912986755
+    }
+  },
+  {
+    "text": "i feel like a part of me is missing",
+    "intent": "express_grief",
+    "intent_prediction": {
+      "name": "express_approval",
+      "confidence": 0.17009073495864868
+    }
+  },
+  {
+    "text": "everything reminds me of what i lost",
+    "intent": "express_grief",
+    "intent_prediction": {
+      "name": "express_confusion",
+      "confidence": 0.5167147517204285
+    }
+  },
+  {
+    "text": "this news has made my day",
+    "intent": "express_joy",
+    "intent_prediction": {
+      "name": "express_amusement",
+      "confidence": 0.3497031331062317
+    }
+  },
+  {
+    "text": "im absolutely thrilled",
+    "intent": "express_joy",
+    "intent_prediction": {
+      "name": "express_excitement",
+      "confidence": 0.9534501433372498
+    }
+  },
+  {
+    "text": "im grinning from ear to ear",
+    "intent": "express_joy",
+    "intent_prediction": {
+      "name": "express_performance_anxiety",
+      "confidence": 0.3175603449344635
+    }
+  },
+  {
+    "text": "you're my whole world",
+    "intent": "express_love",
+    "intent_prediction": {
+      "name": "express_caring",
+      "confidence": 0.29369840025901794
+    }
+  },
+  {
+    "text": "i cherish you deeply",
+    "intent": "express_love",
+    "intent_prediction": {
+      "name": "express_caring",
+      "confidence": 0.8202291131019592
+    }
+  },
+  {
+    "text": "i have butterflies in my stomach",
+    "intent": "express_nervousness",
+    "intent_prediction": {
+      "name": "express_optimism",
+      "confidence": 0.12890295684337616
+    }
+  },
+  {
+    "text": "i can't stop worrying about this",
+    "intent": "express_nervousness",
+    "intent_prediction": {
+      "name": "express_fear",
+      "confidence": 0.9380452036857605
+    }
+  },
+  {
+    "text": "i could take it or leave it",
+    "intent": "express_neutral",
+    "intent_prediction": {
+      "name": "express_nervousness",
+      "confidence": 0.32906267046928406
+    }
+  },
+  {
+    "text": "i have mixed feelings so im staying neutral",
+    "intent": "express_neutral",
+    "intent_prediction": {
+      "name": "express_optimism",
+      "confidence": 0.5440704822540283
+    }
+  },
+  {
+    "text": "im completely impartial",
+    "intent": "express_neutral",
+    "intent_prediction": {
+      "name": "express_approval",
+      "confidence": 0.09952819347381592
+    }
+  },
+  {
+    "text": "i have zero feelings about it",
+    "intent": "express_neutral",
+    "intent_prediction": {
+      "name": "express_optimism",
+      "confidence": 0.7259008884429932
+    }
+  },
+  {
+    "text": "im entirely unaffected by this",
+    "intent": "express_neutral",
+    "intent_prediction": {
+      "name": "express_surprise",
+      "confidence": 0.20664945244789124
+    }
+  },
+  {
+    "text": "the glass is definitely half full",
+    "intent": "express_optimism",
+    "intent_prediction": {
+      "name": "express_joy",
+      "confidence": 0.6458229422569275
+    }
+  },
+  {
+    "text": "my hard work has paid off",
+    "intent": "express_pride",
+    "intent_prediction": {
+      "name": "express_work_stress",
+      "confidence": 0.8291154503822327
+    }
+  },
+  {
+    "text": "the light bulb just went on",
+    "intent": "express_realization",
+    "intent_prediction": {
+      "name": "express_trauma",
+      "confidence": 0.33489251136779785
+    }
+  },
+  {
+    "text": "i just had a breakthrough",
+    "intent": "express_realization",
+    "intent_prediction": {
+      "name": "express_disappointment",
+      "confidence": 0.2671085596084595
+    }
+  },
+  {
+    "text": "i just figured it out",
+    "intent": "express_realization",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.1693550944328308
+    }
+  },
+  {
+    "text": "the stress is finally gone",
+    "intent": "express_relief",
+    "intent_prediction": {
+      "name": "express_realization",
+      "confidence": 0.6384089589118958
+    }
+  },
+  {
+    "text": "what a load off my mind",
+    "intent": "express_relief",
+    "intent_prediction": {
+      "name": "express_admiration",
+      "confidence": 0.37428519129753113
+    }
+  },
+  {
+    "text": "finally i can stop worrying",
+    "intent": "express_relief",
+    "intent_prediction": {
+      "name": "express_fear",
+      "confidence": 0.6552788019180298
+    }
+  },
+  {
+    "text": "im ashamed of what i did",
+    "intent": "express_remorse",
+    "intent_prediction": {
+      "name": "express_embarrassment",
+      "confidence": 0.6837755441665649
+    }
+  },
+  {
+    "text": "i hate that i caused this",
+    "intent": "express_remorse",
+    "intent_prediction": {
+      "name": "express_desire",
+      "confidence": 0.2787306606769562
+    }
+  },
+  {
+    "text": "i'm heartbroken",
+    "intent": "express_sadness",
+    "intent_prediction": {
+      "name": "express_grief",
+      "confidence": 0.9070827960968018
+    }
+  },
+  {
+    "text": "im feeling blue",
+    "intent": "express_sadness",
+    "intent_prediction": {
+      "name": "user_need_help",
+      "confidence": 0.35806146264076233
+    }
+  },
+  {
+    "text": "my heart feels heavy",
+    "intent": "express_sadness",
+    "intent_prediction": {
+      "name": "express_depression",
+      "confidence": 0.4234060049057007
+    }
+  },
+  {
+    "text": "i can't believe it!",
+    "intent": "express_surprise",
+    "intent_prediction": {
+      "name": "user_need_help",
+      "confidence": 0.5345786213874817
+    }
+  },
+  {
+    "text": "im in disbelief",
+    "intent": "express_surprise",
+    "intent_prediction": {
+      "name": "express_relief",
+      "confidence": 0.5795568823814392
+    }
+  },
+  {
+    "text": "the coursework is too much to handle",
+    "intent": "express_academic_stress",
+    "intent_prediction": {
+      "name": "user_need_help",
+      "confidence": 0.35035374760627747
+    }
+  },
+  {
+    "text": "i might fail this semester",
+    "intent": "express_academic_stress",
+    "intent_prediction": {
+      "name": "express_performance_anxiety",
+      "confidence": 0.6222460865974426
+    }
+  },
+  {
+    "text": "i can't understand anything in class",
+    "intent": "express_academic_stress",
+    "intent_prediction": {
+      "name": "express_desire",
+      "confidence": 0.21399684250354767
+    }
+  },
+  {
+    "text": "my work-life balance is terrible",
+    "intent": "express_work_stress",
+    "intent_prediction": {
+      "name": "express_remorse",
+      "confidence": 0.4328571856021881
+    }
+  },
+  {
+    "text": "i might get fired",
+    "intent": "express_work_stress",
+    "intent_prediction": {
+      "name": "express_fear",
+      "confidence": 0.2119854986667633
+    }
+  },
+  {
+    "text": "i'm struggling to meet targets",
+    "intent": "express_work_stress",
+    "intent_prediction": {
+      "name": "express_loneliness",
+      "confidence": 0.20662379264831543
+    }
+  },
+  {
+    "text": "worried about not being good enough",
+    "intent": "express_performance_anxiety",
+    "intent_prediction": {
+      "name": "express_academic_stress",
+      "confidence": 0.3562537729740143
+    }
+  },
+  {
+    "text": "i doubt my abilities",
+    "intent": "express_performance_anxiety",
+    "intent_prediction": {
+      "name": "ask_capabilities",
+      "confidence": 0.7905098795890808
+    }
+  },
+  {
+    "text": "fear of criticism",
+    "intent": "express_performance_anxiety",
+    "intent_prediction": {
+      "name": "express_phobia",
+      "confidence": 0.34608399868011475
+    }
+  },
+  {
+    "text": "Things are tough between me and my spouse",
+    "intent": "express_relationship_problems",
+    "intent_prediction": {
+      "name": "express_identity_struggles",
+      "confidence": 0.23449139297008514
+    }
+  },
+  {
+    "text": "My marriage is on the rocks",
+    "intent": "express_relationship_problems",
+    "intent_prediction": {
+      "name": "express_family_conflict",
+      "confidence": 0.364584743976593
+    }
+  },
+  {
+    "text": "My parents disapprove of my relationship",
+    "intent": "express_family_conflict",
+    "intent_prediction": {
+      "name": "express_relationship_problems",
+      "confidence": 0.5336722731590271
+    }
+  },
+  {
+    "text": "I wish I had someone to share my life with",
+    "intent": "express_loneliness",
+    "intent_prediction": {
+      "name": "express_identity_struggles",
+      "confidence": 0.9569902420043945
+    }
+  },
+  {
+    "text": "I can't get out of bed in the morning",
+    "intent": "express_depression",
+    "intent_prediction": {
+      "name": "express_family_conflict",
+      "confidence": 0.13190516829490662
+    }
+  },
+  {
+    "text": "I can't remember the last time I was happy",
+    "intent": "express_depression",
+    "intent_prediction": {
+      "name": "express_grief_loss",
+      "confidence": 0.3329492211341858
+    }
+  },
+  {
+    "text": "I don't have the energy to do basic things",
+    "intent": "express_depression",
+    "intent_prediction": {
+      "name": "express_financial_stress",
+      "confidence": 0.29468902945518494
+    }
+  },
+  {
+    "text": "I feel like nothing will ever get better",
+    "intent": "express_depression",
+    "intent_prediction": {
+      "name": "express_suicidal_thoughts",
+      "confidence": 0.45163702964782715
+    }
+  },
+  {
+    "text": "I'm constantly worried about everything",
+    "intent": "express_anxiety",
+    "intent_prediction": {
+      "name": "express_body_image",
+      "confidence": 0.12209320813417435
+    }
+  },
+  {
+    "text": "I feel on edge constantly",
+    "intent": "express_anxiety",
+    "intent_prediction": {
+      "name": "express_nervousness",
+      "confidence": 0.5400314331054688
+    }
+  },
+  {
+    "text": "I feel like I can't breathe sometimes",
+    "intent": "express_anxiety",
+    "intent_prediction": {
+      "name": "express_grief_loss",
+      "confidence": 0.30332985520362854
+    }
+  },
+  {
+    "text": "I'm always anticipating disaster",
+    "intent": "express_anxiety",
+    "intent_prediction": {
+      "name": "express_relationship_problems",
+      "confidence": 0.21685142815113068
+    }
+  },
+  {
+    "text": "I'm worried about my relationship with alcohol",
+    "intent": "express_addiction",
+    "intent_prediction": {
+      "name": "express_relationship_problems",
+      "confidence": 0.5666298866271973
+    }
+  },
+  {
+    "text": "I can't handle being in enclosed spaces",
+    "intent": "express_phobia",
+    "intent_prediction": {
+      "name": "express_grief_loss",
+      "confidence": 0.27602478861808777
+    }
+  },
+  {
+    "text": "My fear of public speaking is paralyzing",
+    "intent": "express_phobia",
+    "intent_prediction": {
+      "name": "express_performance_anxiety",
+      "confidence": 0.4843156635761261
+    }
+  },
+  {
+    "text": "I want to die",
+    "intent": "express_suicidal_thoughts",
+    "intent_prediction": {
+      "name": "express_embarrassment",
+      "confidence": 0.3483096659183502
+    }
+  },
+  {
+    "text": "I've been planning how to kill myself",
+    "intent": "express_suicidal_thoughts",
+    "intent_prediction": {
+      "name": "express_reproductive_health",
+      "confidence": 0.45145031809806824
+    }
+  },
+  {
+    "text": "I'm a waste of space",
+    "intent": "express_suicidal_thoughts",
+    "intent_prediction": {
+      "name": "express_body_image",
+      "confidence": 0.46656525135040283
+    }
+  },
+  {
+    "text": "The pain of loss isn't getting any better",
+    "intent": "express_grief_loss",
+    "intent_prediction": {
+      "name": "express_grief",
+      "confidence": 0.2917690873146057
+    }
+  },
+  {
+    "text": "I keep reliving the moment they died",
+    "intent": "express_grief_loss",
+    "intent_prediction": {
+      "name": "express_eating_disorder",
+      "confidence": 0.24489763379096985
+    }
+  },
+  {
+    "text": "I'm trying to be strong but I'm falling apart",
+    "intent": "express_grief_loss",
+    "intent_prediction": {
+      "name": "express_relationship_problems",
+      "confidence": 0.8306159377098083
+    }
+  },
+  {
+    "text": "How do people survive this kind of grief?",
+    "intent": "express_grief_loss",
+    "intent_prediction": {
+      "name": "express_grief",
+      "confidence": 0.27967751026153564
+    }
+  },
+  {
+    "text": "I don't feel safe anymore after what happened",
+    "intent": "express_trauma",
+    "intent_prediction": {
+      "name": "express_identity_struggles",
+      "confidence": 0.168584406375885
+    }
+  },
+  {
+    "text": "I can't talk about what happened without breaking down",
+    "intent": "express_trauma",
+    "intent_prediction": {
+      "name": "express_identity_struggles",
+      "confidence": 0.3669734299182892
+    }
+  },
+  {
+    "text": "I'm exhausted from being hypervigilant",
+    "intent": "express_trauma",
+    "intent_prediction": {
+      "name": "express_depression",
+      "confidence": 0.2619832754135132
+    }
+  },
+  {
+    "text": "My family member is hurting me",
+    "intent": "express_abuse",
+    "intent_prediction": {
+      "name": "express_family_conflict",
+      "confidence": 0.9385248422622681
+    }
+  },
+  {
+    "text": "I'm scared for my safety",
+    "intent": "express_abuse",
+    "intent_prediction": {
+      "name": "express_anxiety",
+      "confidence": 0.46710386872291565
+    }
+  },
+  {
+    "text": "I was abused as a child and still struggle with it",
+    "intent": "express_abuse",
+    "intent_prediction": {
+      "name": "express_reproductive_health",
+      "confidence": 0.347730815410614
+    }
+  },
+  {
+    "text": "I'm being sexually coerced by my partner",
+    "intent": "express_abuse",
+    "intent_prediction": {
+      "name": "express_reproductive_health",
+      "confidence": 0.32854053378105164
+    }
+  },
+  {
+    "text": "My coworkers are harassing me",
+    "intent": "express_bullying",
+    "intent_prediction": {
+      "name": "express_body_image",
+      "confidence": 0.3874035179615021
+    }
+  },
+  {
+    "text": "I'm being verbally abused by classmates/colleagues",
+    "intent": "express_bullying",
+    "intent_prediction": {
+      "name": "express_abuse",
+      "confidence": 0.8801745176315308
+    }
+  },
+  {
+    "text": "I feel like a burden because of my health problems",
+    "intent": "express_chronic_illness",
+    "intent_prediction": {
+      "name": "express_depression",
+      "confidence": 0.516388475894928
+    }
+  },
+  {
+    "text": "I'm having a flare-up and don't know how to cope",
+    "intent": "express_chronic_illness",
+    "intent_prediction": {
+      "name": "express_grief_loss",
+      "confidence": 0.38527151942253113
+    }
+  },
+  {
+    "text": "My periods are irregular and I don't know why",
+    "intent": "express_reproductive_health",
+    "intent_prediction": {
+      "name": "express_eating_disorder",
+      "confidence": 0.6697254776954651
+    }
+  },
+  {
+    "text": "I had a miscarriage and don't know how to cope",
+    "intent": "express_reproductive_health",
+    "intent_prediction": {
+      "name": "express_grief_loss",
+      "confidence": 0.8341412544250488
+    }
+  },
+  {
+    "text": "I've missed several periods in a row",
+    "intent": "express_reproductive_health",
+    "intent_prediction": {
+      "name": "express_eating_disorder",
+      "confidence": 0.8126707673072815
+    }
+  },
+  {
+    "text": "The hormonal changes are affecting my mood",
+    "intent": "express_reproductive_health",
+    "intent_prediction": {
+      "name": "express_addiction",
+      "confidence": 0.5182360410690308
+    }
+  },
+  {
+    "text": "I'm having side effects from my birth control",
+    "intent": "express_reproductive_health",
+    "intent_prediction": {
+      "name": "express_addiction",
+      "confidence": 0.25992175936698914
+    }
+  },
+  {
+    "text": "I feel like I'll never be attractive enough",
+    "intent": "express_body_image",
+    "intent_prediction": {
+      "name": "express_suicidal_thoughts",
+      "confidence": 0.17460554838180542
+    }
+  },
+  {
+    "text": "I'm struggling to accept my body after pregnancy/surgery/illness",
+    "intent": "express_body_image",
+    "intent_prediction": {
+      "name": "express_chronic_illness",
+      "confidence": 0.7659140229225159
+    }
+  },
+  {
+    "text": "My culture puts too much pressure on looking a certain way",
+    "intent": "express_body_image",
+    "intent_prediction": {
+      "name": "express_identity_struggles",
+      "confidence": 0.16211991012096405
+    }
+  },
+  {
+    "text": "I'm worried about making rent",
+    "intent": "express_financial_stress",
+    "intent_prediction": {
+      "name": "express_body_image",
+      "confidence": 0.16946962475776672
+    }
+  },
+  {
+    "text": "I'm stressed about my student loans",
+    "intent": "express_financial_stress",
+    "intent_prediction": {
+      "name": "express_anxiety",
+      "confidence": 0.33391115069389343
+    }
+  },
+  {
+    "text": "I'm working two jobs and still can't make ends meet",
+    "intent": "express_financial_stress",
+    "intent_prediction": {
+      "name": "express_reproductive_health",
+      "confidence": 0.24831199645996094
+    }
+  },
+  {
+    "text": "I'm struggling with my sexual orientation",
+    "intent": "express_identity_struggles",
+    "intent_prediction": {
+      "name": "express_reproductive_health",
+      "confidence": 0.44434037804603577
+    }
+  },
+  {
+    "text": "I don't know what I believe in anymore",
+    "intent": "express_identity_struggles",
+    "intent_prediction": {
+      "name": "express_suicidal_thoughts",
+      "confidence": 0.4910169243812561
+    }
+  },
+  {
+    "text": "I feel judged when I'm around people",
+    "intent": "express_social_difficulties",
+    "intent_prediction": {
+      "name": "express_loneliness",
+      "confidence": 0.3075551390647888
+    }
+  },
+  {
+    "text": "I avoid social events because they're so stressful",
+    "intent": "express_social_difficulties",
+    "intent_prediction": {
+      "name": "express_phobia",
+      "confidence": 0.22407940030097961
+    }
+  },
+  {
+    "text": "I feel like everyone else has friends but me",
+    "intent": "express_social_difficulties",
+    "intent_prediction": {
+      "name": "express_loneliness",
+      "confidence": 0.6914980411529541
+    }
+  },
+  {
+    "text": "I have social anxiety that prevents me from joining activities",
+    "intent": "express_social_difficulties",
+    "intent_prediction": {
+      "name": "express_anxiety",
+      "confidence": 0.9288576245307922
+    }
+  },
+  {
+    "text": "howdy",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "how_are_you",
+      "confidence": 0.7526221871376038
+    }
+  },
+  {
+    "text": "hi bot",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "bot_challenge",
+      "confidence": 0.6949515342712402
+    }
+  },
+  {
+    "text": "take care",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "express_caring",
+      "confidence": 0.6488838195800781
+    }
+  },
+  {
+    "text": "sounds good",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "express_approval",
+      "confidence": 0.9354938268661499
+    }
+  },
+  {
+    "text": "ya",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.5634514093399048
+    }
+  },
+  {
+    "text": "alright",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "express_caring",
+      "confidence": 0.8199831247329712
+    }
+  },
+  {
+    "text": "yes please",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "help",
+      "confidence": 0.45694389939308167
+    }
+  },
+  {
+    "text": "never",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.15985043346881866
+    }
+  },
+  {
+    "text": "i don't think so",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "express_disapproval",
+      "confidence": 0.774093747138977
+    }
+  },
+  {
+    "text": "negative",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "express_depression",
+      "confidence": 0.5724911093711853
+    }
+  },
+  {
+    "text": "not what i meant",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "express_confusion",
+      "confidence": 0.5161395072937012
+    }
+  },
+  {
+    "text": "who are you?",
+    "intent": "bot_challenge",
+    "intent_prediction": {
+      "name": "ask_name",
+      "confidence": 0.9567789435386658
+    }
+  },
+  {
+    "text": "is this automated?",
+    "intent": "bot_challenge",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.2916516363620758
+    }
+  },
+  {
+    "text": "show me how",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "how_are_you",
+      "confidence": 0.5820479393005371
+    }
+  },
+  {
+    "text": "guide me",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "user_need_help",
+      "confidence": 0.6656494140625
+    }
+  },
+  {
+    "text": "what are my options",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "ask_capabilities",
+      "confidence": 0.24734526872634888
+    }
+  },
+  {
+    "text": "what now",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "ask_capabilities",
+      "confidence": 0.1483270674943924
+    }
+  },
+  {
+    "text": "exit",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.4798809587955475
+    }
+  },
+  {
+    "text": "wrap up",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "express_surprise",
+      "confidence": 0.26819050312042236
+    }
+  },
+  {
+    "text": "let's start again",
+    "intent": "restart",
+    "intent_prediction": {
+      "name": "express_disappointment",
+      "confidence": 0.43105313181877136
+    }
+  },
+  {
+    "text": "start from scratch",
+    "intent": "restart",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.32766634225845337
+    }
+  },
+  {
+    "text": "clean slate",
+    "intent": "restart",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.3922133445739746
+    }
+  },
+  {
+    "text": "fix my computer",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.13029107451438904
+    }
+  },
+  {
+    "text": "what's the meaning of life",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "express_confusion",
+      "confidence": 0.3422391712665558
+    }
+  },
+  {
+    "text": "translate this",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.3366623520851135
+    }
+  },
+  {
+    "text": "tell me about yourself",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "ask_name",
+      "confidence": 0.24927473068237305
+    }
+  },
+  {
+    "text": "financial advice",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "express_financial_stress",
+      "confidence": 0.806258499622345
+    }
+  },
+  {
+    "text": "are you okay",
+    "intent": "how_are_you",
+    "intent_prediction": {
+      "name": "bot_challenge",
+      "confidence": 0.5787822604179382
+    }
+  },
+  {
+    "text": "what's new",
+    "intent": "how_are_you",
+    "intent_prediction": {
+      "name": "restart",
+      "confidence": 0.5554333925247192
+    }
+  },
+  {
+    "text": "you alright?",
+    "intent": "how_are_you",
+    "intent_prediction": {
+      "name": "express_caring",
+      "confidence": 0.9247074723243713
+    }
+  },
+  {
+    "text": "i'm having a hard time",
+    "intent": "user_need_help",
+    "intent_prediction": {
+      "name": "express_pride",
+      "confidence": 0.20065386593341827
+    }
+  },
+  {
+    "text": "everything is difficult",
+    "intent": "user_need_help",
+    "intent_prediction": {
+      "name": "how_are_you",
+      "confidence": 0.15545916557312012
+    }
+  },
+  {
+    "text": "things are hard",
+    "intent": "user_need_help",
+    "intent_prediction": {
+      "name": "how_are_you",
+      "confidence": 0.1362721025943756
+    }
+  },
+  {
+    "text": "everything's too much",
+    "intent": "user_need_help",
+    "intent_prediction": {
+      "name": "how_are_you",
+      "confidence": 0.1547904908657074
+    }
+  },
+  {
+    "text": "feeling stuck",
+    "intent": "user_need_help",
+    "intent_prediction": {
+      "name": "help",
+      "confidence": 0.9603374600410461
+    }
+  },
+  {
+    "text": "what should i call you",
+    "intent": "ask_name",
+    "intent_prediction": {
+      "name": "help",
+      "confidence": 0.28330448269844055
+    }
+  },
+  {
+    "text": "what's your designation",
+    "intent": "ask_name",
+    "intent_prediction": {
+      "name": "ask_capabilities",
+      "confidence": 0.7288406491279602
+    }
+  },
+  {
+    "text": "how can you help me",
+    "intent": "ask_capabilities",
+    "intent_prediction": {
+      "name": "help",
+      "confidence": 0.9008793234825134
+    }
+  },
+  {
+    "text": "what's your purpose",
+    "intent": "ask_capabilities",
+    "intent_prediction": {
+      "name": "express_bullying",
+      "confidence": 0.46294042468070984
+    }
+  },
+  {
+    "text": "explain your abilities",
+    "intent": "ask_capabilities",
+    "intent_prediction": {
+      "name": "express_admiration",
+      "confidence": 0.5400769710540771
+    }
+  },
+  {
+    "text": "what assistance can you give",
+    "intent": "ask_capabilities",
+    "intent_prediction": {
+      "name": "help",
+      "confidence": 0.8717359900474548
+    }
+  },
+  {
+    "text": "what's your name again",
+    "intent": "bot_name",
+    "intent_prediction": {
+      "name": "ask_name",
+      "confidence": 0.5602846145629883
+    }
+  },
+  {
+    "text": "i really look up to you",
+    "intent": "express_admiration",
+    "intent_prediction": {
+      "name": "express_disgust",
+      "confidence": 0.437906950712204
+    }
+  },
+  {
+    "text": "i've always looked up to people like you",
+    "intent": "express_admiration",
+    "intent_prediction": {
+      "name": "express_social_difficulties",
+      "confidence": 0.43464645743370056
+    }
+  },
+  {
+    "text": "😂😂😂",
+    "intent": "express_amusement",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.27731817960739136
+    }
+  },
+  {
+    "text": "hehe that's amusing",
+    "intent": "express_amusement",
+    "intent_prediction": {
+      "name": "express_joy",
+      "confidence": 0.18679597973823547
+    }
+  },
+  {
+    "text": "i cant take this anymore!!!",
+    "intent": "express_anger",
+    "intent_prediction": {
+      "name": "express_neutral",
+      "confidence": 0.2324073165655136
+    }
+  },
+  {
+    "text": "this is frustrating",
+    "intent": "express_annoyance",
+    "intent_prediction": {
+      "name": "express_anger",
+      "confidence": 0.81228107213974
+    }
+  },
+  {
+    "text": "this is such a hassle",
+    "intent": "express_annoyance",
+    "intent_prediction": {
+      "name": "bot_name",
+      "confidence": 0.16927210986614227
+    }
+  },
+  {
+    "text": "this is driving me crazy",
+    "intent": "express_annoyance",
+    "intent_prediction": {
+      "name": "express_love",
+      "confidence": 0.5885544419288635
+    }
+  },
+  {
+    "text": "that works for me",
+    "intent": "express_approval",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.2632601261138916
+    }
+  },
+  {
+    "text": "im all for it",
+    "intent": "express_approval",
+    "intent_prediction": {
+      "name": "express_desire",
+      "confidence": 0.6861573457717896
+    }
+  },
+  {
+    "text": "im in agreement",
+    "intent": "express_approval",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.5892357230186462
+    }
+  },
+  {
+    "text": "approved!",
+    "intent": "express_approval",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.5458728075027466
+    }
+  },
+  {
+    "text": "your wellbeing matters to me",
+    "intent": "express_caring",
+    "intent_prediction": {
+      "name": "express_neutral",
+      "confidence": 0.2979597747325897
+    }
+  },
+  {
+    "text": "how are you feeling? i care",
+    "intent": "express_caring",
+    "intent_prediction": {
+      "name": "how_are_you",
+      "confidence": 0.40719330310821533
+    }
+  },
+  {
+    "text": "you're in my thoughts",
+    "intent": "express_caring",
+    "intent_prediction": {
+      "name": "express_grief",
+      "confidence": 0.36949121952056885
+    }
+  },
+  {
+    "text": "sending you caring thoughts",
+    "intent": "express_caring",
+    "intent_prediction": {
+      "name": "help",
+      "confidence": 0.14682282507419586
+    }
+  },
+  {
+    "text": "this doesn't make sense",
+    "intent": "express_confusion",
+    "intent_prediction": {
+      "name": "express_disapproval",
+      "confidence": 0.5032828450202942
+    }
+  },
+  {
+    "text": "you lost me there",
+    "intent": "express_confusion",
+    "intent_prediction": {
+      "name": "express_love",
+      "confidence": 0.30046823620796204
+    }
+  },
+  {
+    "text": "i cant wrap my head around this",
+    "intent": "express_confusion",
+    "intent_prediction": {
+      "name": "express_surprise",
+      "confidence": 0.21807646751403809
+    }
+  },
+  {
+    "text": "what else can you tell me?",
+    "intent": "express_curiosity",
+    "intent_prediction": {
+      "name": "ask_capabilities",
+      "confidence": 0.31127768754959106
+    }
+  },
+  {
+    "text": "that's exactly what i want",
+    "intent": "express_desire",
+    "intent_prediction": {
+      "name": "express_approval",
+      "confidence": 0.36851394176483154
+    }
+  },
+  {
+    "text": "i need this so badly",
+    "intent": "express_desire",
+    "intent_prediction": {
+      "name": "express_disapproval",
+      "confidence": 0.4816603362560272
+    }
+  },
+  {
+    "text": "this isn't what i hoped for",
+    "intent": "express_disappointment",
+    "intent_prediction": {
+      "name": "express_desire",
+      "confidence": 0.1868802309036255
+    }
+  },
+  {
+    "text": "im crushed by this outcome",
+    "intent": "express_disappointment",
+    "intent_prediction": {
+      "name": "express_neutral",
+      "confidence": 0.44158685207366943
+    }
+  },
+  {
+    "text": "i strongly disagree",
+    "intent": "express_disapproval",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.9194483160972595
+    }
+  },
+  {
+    "text": "im not in favor of this at all",
+    "intent": "express_disapproval",
+    "intent_prediction": {
+      "name": "express_desire",
+      "confidence": 0.37406760454177856
+    }
+  },
+  {
+    "text": "im against this whole concept",
+    "intent": "express_disapproval",
+    "intent_prediction": {
+      "name": "express_grief",
+      "confidence": 0.2315187305212021
+    }
+  },
+  {
+    "text": "that makes me want to throw up",
+    "intent": "express_disgust",
+    "intent_prediction": {
+      "name": "express_desire",
+      "confidence": 0.1634361892938614
+    }
+  },
+  {
+    "text": "i'm beyond thrilled!",
+    "intent": "express_excitement",
+    "intent_prediction": {
+      "name": "express_joy",
+      "confidence": 0.900006115436554
+    }
+  },
+  {
+    "text": "i'm stoked about this opportunity",
+    "intent": "express_excitement",
+    "intent_prediction": {
+      "name": "express_desire",
+      "confidence": 0.8014581799507141
+    }
+  },
+  {
+    "text": "im scared to death",
+    "intent": "express_fear",
+    "intent_prediction": {
+      "name": "express_grief_loss",
+      "confidence": 0.3349008858203888
+    }
+  },
+  {
+    "text": "i feel like something bad is going to happen",
+    "intent": "express_fear",
+    "intent_prediction": {
+      "name": "express_anxiety",
+      "confidence": 0.7931214570999146
+    }
+  },
+  {
+    "text": "i cant shake this feeling of dread",
+    "intent": "express_fear",
+    "intent_prediction": {
+      "name": "express_desire",
+      "confidence": 0.20942184329032898
+    }
+  },
+  {
+    "text": "im so scared i feel sick",
+    "intent": "express_fear",
+    "intent_prediction": {
+      "name": "express_disgust",
+      "confidence": 0.7647311091423035
+    }
+  },
+  {
+    "text": "you're amazing thank you",
+    "intent": "express_gratitude",
+    "intent_prediction": {
+      "name": "express_admiration",
+      "confidence": 0.2865349054336548
+    }
+  },
+  {
+    "text": "the grief is overwhelming",
+    "intent": "express_grief",
+    "intent_prediction": {
+      "name": "express_grief_loss",
+      "confidence": 0.7331946492195129
+    }
+  },
+  {
+    "text": "this grief is consuming me",
+    "intent": "express_grief",
+    "intent_prediction": {
+      "name": "express_grief_loss",
+      "confidence": 0.26798638701438904
+    }
+  },
+  {
+    "text": "i cant imagine life without them",
+    "intent": "express_grief",
+    "intent_prediction": {
+      "name": "express_love",
+      "confidence": 0.7330308556556702
+    }
+  },
+  {
+    "text": "im on cloud nine",
+    "intent": "express_joy",
+    "intent_prediction": {
+      "name": "express_pride",
+      "confidence": 0.5489397048950195
+    }
+  },
+  {
+    "text": "im walking on sunshine",
+    "intent": "express_joy",
+    "intent_prediction": {
+      "name": "express_relationship_problems",
+      "confidence": 0.2186456322669983
+    }
+  },
+  {
+    "text": "i have such strong feelings for you",
+    "intent": "express_love",
+    "intent_prediction": {
+      "name": "express_neutral",
+      "confidence": 0.8129401803016663
+    }
+  },
+  {
+    "text": "im on edge about this whole thing",
+    "intent": "express_nervousness",
+    "intent_prediction": {
+      "name": "express_love",
+      "confidence": 0.2450794279575348
+    }
+  },
+  {
+    "text": "im freaking out a bit",
+    "intent": "express_nervousness",
+    "intent_prediction": {
+      "name": "express_optimism",
+      "confidence": 0.24149391055107117
+    }
+  },
+  {
+    "text": "i'm indifferent to this",
+    "intent": "express_neutral",
+    "intent_prediction": {
+      "name": "express_desire",
+      "confidence": 0.3586479425430298
+    }
+  },
+  {
+    "text": "this doesn't affect me much",
+    "intent": "express_neutral",
+    "intent_prediction": {
+      "name": "express_disapproval",
+      "confidence": 0.4507298469543457
+    }
+  },
+  {
+    "text": "tomorrow will be better",
+    "intent": "express_optimism",
+    "intent_prediction": {
+      "name": "express_relief",
+      "confidence": 0.2159426212310791
+    }
+  },
+  {
+    "text": "i have high hopes for this",
+    "intent": "express_optimism",
+    "intent_prediction": {
+      "name": "express_disappointment",
+      "confidence": 0.9519779682159424
+    }
+  },
+  {
+    "text": "i believe good things are coming",
+    "intent": "express_optimism",
+    "intent_prediction": {
+      "name": "express_surprise",
+      "confidence": 0.47921139001846313
+    }
+  },
+  {
+    "text": "im expecting the best outcome",
+    "intent": "express_optimism",
+    "intent_prediction": {
+      "name": "express_disappointment",
+      "confidence": 0.24369150400161743
+    }
+  },
+  {
+    "text": "im confident this will work out",
+    "intent": "express_optimism",
+    "intent_prediction": {
+      "name": "express_work_stress",
+      "confidence": 0.6917875409126282
+    }
+  },
+  {
+    "text": "i did it and i feel amazing",
+    "intent": "express_pride",
+    "intent_prediction": {
+      "name": "express_excitement",
+      "confidence": 0.5135690569877625
+    }
+  },
+  {
+    "text": "i exceeded my own expectations",
+    "intent": "express_pride",
+    "intent_prediction": {
+      "name": "express_disappointment",
+      "confidence": 0.6503866910934448
+    }
+  },
+  {
+    "text": "i never thought about it that way before",
+    "intent": "express_realization",
+    "intent_prediction": {
+      "name": "express_pride",
+      "confidence": 0.262023389339447
+    }
+  },
+  {
+    "text": "oh i understand now",
+    "intent": "express_realization",
+    "intent_prediction": {
+      "name": "express_confusion",
+      "confidence": 0.48136183619499207
+    }
+  },
+  {
+    "text": "i finally grasp what youre explaining",
+    "intent": "express_realization",
+    "intent_prediction": {
+      "name": "express_relief",
+      "confidence": 0.8379757404327393
+    }
+  },
+  {
+    "text": "the weight has been lifted",
+    "intent": "express_relief",
+    "intent_prediction": {
+      "name": "express_realization",
+      "confidence": 0.6500176787376404
+    }
+  },
+  {
+    "text": "thats the best news ive heard all day",
+    "intent": "express_relief",
+    "intent_prediction": {
+      "name": "express_amusement",
+      "confidence": 0.6362301707267761
+    }
+  },
+  {
+    "text": "im truly sorry for hurting you",
+    "intent": "express_remorse",
+    "intent_prediction": {
+      "name": "express_abuse",
+      "confidence": 0.42752593755722046
+    }
+  },
+  {
+    "text": "i wish i had made a different choice",
+    "intent": "express_remorse",
+    "intent_prediction": {
+      "name": "express_loneliness",
+      "confidence": 0.23911547660827637
+    }
+  },
+  {
+    "text": "if i could go back and change things i would",
+    "intent": "express_remorse",
+    "intent_prediction": {
+      "name": "express_suicidal_thoughts",
+      "confidence": 0.10704100131988525
+    }
+  },
+  {
+    "text": "im beating myself up over this",
+    "intent": "express_remorse",
+    "intent_prediction": {
+      "name": "restart",
+      "confidence": 0.15749362111091614
+    }
+  },
+  {
+    "text": "im just really unhappy",
+    "intent": "express_sadness",
+    "intent_prediction": {
+      "name": "express_joy",
+      "confidence": 0.8104506134986877
+    }
+  },
+  {
+    "text": "i'm speechless",
+    "intent": "express_surprise",
+    "intent_prediction": {
+      "name": "user_need_help",
+      "confidence": 0.3951810896396637
+    }
+  },
+  {
+    "text": "im stunned",
+    "intent": "express_surprise",
+    "intent_prediction": {
+      "name": "express_depression",
+      "confidence": 0.13181762397289276
+    }
+  },
+  {
+    "text": "i wasnt expecting that at all",
+    "intent": "express_surprise",
+    "intent_prediction": {
+      "name": "express_disappointment",
+      "confidence": 0.9480196833610535
+    }
+  },
+  {
+    "text": "feeling overwhelmed with school work",
+    "intent": "express_academic_stress",
+    "intent_prediction": {
+      "name": "express_work_stress",
+      "confidence": 0.3862667679786682
+    }
+  },
+  {
+    "text": "my professors expect too much",
+    "intent": "express_academic_stress",
+    "intent_prediction": {
+      "name": "express_nervousness",
+      "confidence": 0.1541159749031067
+    }
+  },
+  {
+    "text": "my colleagues are difficult to work with",
+    "intent": "express_work_stress",
+    "intent_prediction": {
+      "name": "express_bullying",
+      "confidence": 0.44218605756759644
+    }
+  },
+  {
+    "text": "work is making me anxious",
+    "intent": "express_work_stress",
+    "intent_prediction": {
+      "name": "express_nervousness",
+      "confidence": 0.2204625904560089
+    }
+  },
+  {
+    "text": "feeling stuck in my career",
+    "intent": "express_work_stress",
+    "intent_prediction": {
+      "name": "express_relief",
+      "confidence": 0.16820034384727478
+    }
+  },
+  {
+    "text": "what if i fail",
+    "intent": "express_performance_anxiety",
+    "intent_prediction": {
+      "name": "express_academic_stress",
+      "confidence": 0.5912498831748962
+    }
+  },
+  {
+    "text": "everyone is better than me",
+    "intent": "express_performance_anxiety",
+    "intent_prediction": {
+      "name": "express_love",
+      "confidence": 0.25232529640197754
+    }
+  },
+  {
+    "text": "my mind goes blank during tests",
+    "intent": "express_performance_anxiety",
+    "intent_prediction": {
+      "name": "express_academic_stress",
+      "confidence": 0.21426056325435638
+    }
+  },
+  {
+    "text": "nervous about upcoming evaluation",
+    "intent": "express_performance_anxiety",
+    "intent_prediction": {
+      "name": "express_nervousness",
+      "confidence": 0.6913129091262817
+    }
+  },
+  {
+    "text": "I'm not sure if I should stay in this relationship",
+    "intent": "express_relationship_problems",
+    "intent_prediction": {
+      "name": "express_abuse",
+      "confidence": 0.33997267484664917
+    }
+  },
+  {
+    "text": "We've been growing apart lately",
+    "intent": "express_relationship_problems",
+    "intent_prediction": {
+      "name": "express_anxiety",
+      "confidence": 0.14003464579582214
+    }
+  },
+  {
+    "text": "I feel like my relationship is toxic",
+    "intent": "express_relationship_problems",
+    "intent_prediction": {
+      "name": "express_anxiety",
+      "confidence": 0.2869502305984497
+    }
+  },
+  {
+    "text": "I'm struggling to connect with my partner",
+    "intent": "express_relationship_problems",
+    "intent_prediction": {
+      "name": "express_abuse",
+      "confidence": 0.35483887791633606
+    }
+  },
+  {
+    "text": "My siblings and I don't get along",
+    "intent": "express_family_conflict",
+    "intent_prediction": {
+      "name": "express_loneliness",
+      "confidence": 0.5339967012405396
+    }
+  },
+  {
+    "text": "No one really understands me",
+    "intent": "express_loneliness",
+    "intent_prediction": {
+      "name": "express_grief_loss",
+      "confidence": 0.21315020322799683
+    }
+  },
+  {
+    "text": "It's been months since I had a real conversation",
+    "intent": "express_loneliness",
+    "intent_prediction": {
+      "name": "express_anxiety",
+      "confidence": 0.17250007390975952
+    }
+  },
+  {
+    "text": "I'm so sad and I don't know why",
+    "intent": "express_depression",
+    "intent_prediction": {
+      "name": "express_identity_struggles",
+      "confidence": 0.21058772504329681
+    }
+  },
+  {
+    "text": "Everything feels hopeless",
+    "intent": "express_depression",
+    "intent_prediction": {
+      "name": "user_need_help",
+      "confidence": 0.3489696979522705
+    }
+  },
+  {
+    "text": "I feel so heavy and tired",
+    "intent": "express_depression",
+    "intent_prediction": {
+      "name": "express_sadness",
+      "confidence": 0.6948094964027405
+    }
+  },
+  {
+    "text": "I'm in a really dark place right now",
+    "intent": "express_depression",
+    "intent_prediction": {
+      "name": "user_need_help",
+      "confidence": 0.32016000151634216
+    }
+  },
+  {
+    "text": "I keep playing worst-case scenarios in my head",
+    "intent": "express_anxiety",
+    "intent_prediction": {
+      "name": "express_suicidal_thoughts",
+      "confidence": 0.1197928860783577
+    }
+  },
+  {
+    "text": "My anxiety is interfering with my daily life",
+    "intent": "express_anxiety",
+    "intent_prediction": {
+      "name": "express_family_conflict",
+      "confidence": 0.6385754942893982
+    }
+  },
+  {
+    "text": "My thoughts are spiraling out of control",
+    "intent": "express_anxiety",
+    "intent_prediction": {
+      "name": "express_reproductive_health",
+      "confidence": 0.1391950398683548
+    }
+  },
+  {
+    "text": "I want to stop but don't know how",
+    "intent": "express_addiction",
+    "intent_prediction": {
+      "name": "express_abuse",
+      "confidence": 0.4166952967643738
+    }
+  },
+  {
+    "text": "I use to cope with stress and negative feelings",
+    "intent": "express_addiction",
+    "intent_prediction": {
+      "name": "express_depression",
+      "confidence": 0.7643144130706787
+    }
+  },
+  {
+    "text": "I've lost control over how much I use",
+    "intent": "express_addiction",
+    "intent_prediction": {
+      "name": "express_identity_struggles",
+      "confidence": 0.1713424175977707
+    }
+  },
+  {
+    "text": "Food controls my life",
+    "intent": "express_eating_disorder",
+    "intent_prediction": {
+      "name": "express_abuse",
+      "confidence": 0.6221896409988403
+    }
+  },
+  {
+    "text": "I count every calorie I consume",
+    "intent": "express_eating_disorder",
+    "intent_prediction": {
+      "name": "express_identity_struggles",
+      "confidence": 0.22434522211551666
+    }
+  },
+  {
+    "text": "My weight determines my self-worth",
+    "intent": "express_eating_disorder",
+    "intent_prediction": {
+      "name": "express_identity_struggles",
+      "confidence": 0.3183475732803345
+    }
+  },
+  {
+    "text": "Crowds make me extremely anxious",
+    "intent": "express_phobia",
+    "intent_prediction": {
+      "name": "express_anxiety",
+      "confidence": 0.9518900513648987
+    }
+  },
+  {
+    "text": "I'm considering taking my own life",
+    "intent": "express_suicidal_thoughts",
+    "intent_prediction": {
+      "name": "express_identity_struggles",
+      "confidence": 0.4208076596260071
+    }
+  },
+  {
+    "text": "I've gathered materials to harm myself",
+    "intent": "express_suicidal_thoughts",
+    "intent_prediction": {
+      "name": "express_loneliness",
+      "confidence": 0.19209179282188416
+    }
+  },
+  {
+    "text": "I've tried everything and nothing helps",
+    "intent": "express_suicidal_thoughts",
+    "intent_prediction": {
+      "name": "express_depression",
+      "confidence": 0.48284560441970825
+    }
+  },
+  {
+    "text": "I miss them so much it physically hurts",
+    "intent": "express_grief_loss",
+    "intent_prediction": {
+      "name": "express_grief",
+      "confidence": 0.8416057825088501
+    }
+  },
+  {
+    "text": "I can't stop crying since the funeral",
+    "intent": "express_grief_loss",
+    "intent_prediction": {
+      "name": "express_trauma",
+      "confidence": 0.10503371804952621
+    }
+  },
+  {
+    "text": "I'm angry they left me",
+    "intent": "express_grief_loss",
+    "intent_prediction": {
+      "name": "express_loneliness",
+      "confidence": 0.2828204333782196
+    }
+  },
+  {
+    "text": "I feel numb since the loss",
+    "intent": "express_grief_loss",
+    "intent_prediction": {
+      "name": "express_depression",
+      "confidence": 0.6059786677360535
+    }
+  },
+  {
+    "text": "My body reacts even when my mind tries to forget",
+    "intent": "express_trauma",
+    "intent_prediction": {
+      "name": "express_body_image",
+      "confidence": 0.48873183131217957
+    }
+  },
+  {
+    "text": "My partner hits me when they get angry",
+    "intent": "express_abuse",
+    "intent_prediction": {
+      "name": "express_relationship_problems",
+      "confidence": 0.49259960651397705
+    }
+  },
+  {
+    "text": "I'm being manipulated and gaslighted",
+    "intent": "express_abuse",
+    "intent_prediction": {
+      "name": "express_anxiety",
+      "confidence": 0.18374811112880707
+    }
+  },
+  {
+    "text": "I'm being stalked by my ex",
+    "intent": "express_abuse",
+    "intent_prediction": {
+      "name": "express_financial_stress",
+      "confidence": 0.19429899752140045
+    }
+  },
+  {
+    "text": "I'm being blackmailed with private information/photos",
+    "intent": "express_bullying",
+    "intent_prediction": {
+      "name": "express_eating_disorder",
+      "confidence": 0.3006889522075653
+    }
+  },
+  {
+    "text": "They're trying to turn everyone against me",
+    "intent": "express_bullying",
+    "intent_prediction": {
+      "name": "express_loneliness",
+      "confidence": 0.3006879389286041
+    }
+  },
+  {
+    "text": "I feel isolated because of my health limitations",
+    "intent": "express_chronic_illness",
+    "intent_prediction": {
+      "name": "express_loneliness",
+      "confidence": 0.48479413986206055
+    }
+  },
+  {
+    "text": "I'm experiencing painful menstrual cramps",
+    "intent": "express_reproductive_health",
+    "intent_prediction": {
+      "name": "express_suicidal_thoughts",
+      "confidence": 0.3954562246799469
+    }
+  },
+  {
+    "text": "I'm struggling with the decision to have children",
+    "intent": "express_reproductive_health",
+    "intent_prediction": {
+      "name": "express_disapproval",
+      "confidence": 0.11136609315872192
+    }
+  },
+  {
+    "text": "My cycle affects my chronic health condition",
+    "intent": "express_reproductive_health",
+    "intent_prediction": {
+      "name": "express_chronic_illness",
+      "confidence": 0.9762903451919556
+    }
+  },
+  {
+    "text": "I feel alone in my fertility journey",
+    "intent": "express_reproductive_health",
+    "intent_prediction": {
+      "name": "express_loneliness",
+      "confidence": 0.6395102143287659
+    }
+  },
+  {
+    "text": "I feel ugly compared to everyone else",
+    "intent": "express_body_image",
+    "intent_prediction": {
+      "name": "express_social_difficulties",
+      "confidence": 0.613311231136322
+    }
+  },
+  {
+    "text": "Social media makes me feel terrible about my body",
+    "intent": "express_body_image",
+    "intent_prediction": {
+      "name": "express_phobia",
+      "confidence": 0.22546277940273285
+    }
+  },
+  {
+    "text": "I want to love my body but don't know how",
+    "intent": "express_body_image",
+    "intent_prediction": {
+      "name": "express_eating_disorder",
+      "confidence": 0.1571270376443863
+    }
+  },
+  {
+    "text": "I can't afford the basics right now",
+    "intent": "express_financial_stress",
+    "intent_prediction": {
+      "name": "express_depression",
+      "confidence": 0.8036773204803467
+    }
+  },
+  {
+    "text": "I'm worried about becoming homeless",
+    "intent": "express_financial_stress",
+    "intent_prediction": {
+      "name": "express_anxiety",
+      "confidence": 0.32724446058273315
+    }
+  },
+  {
+    "text": "I'm spending too much on emotional shopping",
+    "intent": "express_financial_stress",
+    "intent_prediction": {
+      "name": "express_depression",
+      "confidence": 0.534379780292511
+    }
+  },
+  {
+    "text": "I feel lost about my purpose in life",
+    "intent": "express_identity_struggles",
+    "intent_prediction": {
+      "name": "express_bullying",
+      "confidence": 0.7208530902862549
+    }
+  },
+  {
+    "text": "I feel caught between two cultures",
+    "intent": "express_identity_struggles",
+    "intent_prediction": {
+      "name": "express_relationship_problems",
+      "confidence": 0.12664943933486938
+    }
+  },
+  {
+    "text": "I feel like I'm living someone else's life",
+    "intent": "express_identity_struggles",
+    "intent_prediction": {
+      "name": "express_depression",
+      "confidence": 0.18552491068840027
+    }
+  },
+  {
+    "text": "I'm questioning everything I thought I knew about myself",
+    "intent": "express_identity_struggles",
+    "intent_prediction": {
+      "name": "express_social_difficulties",
+      "confidence": 0.28278112411499023
+    }
+  },
+  {
+    "text": "I have trouble making friends",
+    "intent": "express_social_difficulties",
+    "intent_prediction": {
+      "name": "express_loneliness",
+      "confidence": 0.49553295969963074
+    }
+  },
+  {
+    "text": "People always seem to misunderstand me",
+    "intent": "express_social_difficulties",
+    "intent_prediction": {
+      "name": "express_loneliness",
+      "confidence": 0.7697125673294067
+    }
+  },
+  {
+    "text": "I get anxious at social gatherings",
+    "intent": "express_social_difficulties",
+    "intent_prediction": {
+      "name": "express_anxiety",
+      "confidence": 0.7487954497337341
+    }
+  },
+  {
+    "text": "I struggle to maintain relationships",
+    "intent": "express_social_difficulties",
+    "intent_prediction": {
+      "name": "express_abuse",
+      "confidence": 0.6534647941589355
+    }
+  }
+]
