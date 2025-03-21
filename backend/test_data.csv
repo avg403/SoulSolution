@@ -1,0 +1,6 @@
+text,true_sentiment
+"I am feeling really happy today!","happiness"
+"I am extremely sad and lonely.","sad"
+"I am so angry right now!","anger"
+"I feel anxious about my future.","anxiety"
+"I feel depressed about my life."."depression"

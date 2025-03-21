@@ -1,0 +1,680 @@
+{
+  "express_family_conflict": {
+    "precision": 0.71875,
+    "recall": 0.7666666666666667,
+    "f1-score": 0.7419354838709677,
+    "support": 30,
+    "confused_with": {
+      "express_relationship_problems": 3,
+      "express_anxiety": 1
+    }
+  },
+  "express_relationship_problems": {
+    "precision": 0.4594594594594595,
+    "recall": 0.5666666666666667,
+    "f1-score": 0.5074626865671642,
+    "support": 30,
+    "confused_with": {
+      "express_anxiety": 2,
+      "express_abuse": 2
+    }
+  },
+  "express_loneliness": {
+    "precision": 0.42105263157894735,
+    "recall": 0.5333333333333333,
+    "f1-score": 0.47058823529411764,
+    "support": 30,
+    "confused_with": {
+      "express_grief_loss": 4,
+      "express_depression": 3
+    }
+  },
+  "express_confusion": {
+    "precision": 0.39285714285714285,
+    "recall": 0.44,
+    "f1-score": 0.4150943396226415,
+    "support": 25,
+    "confused_with": {
+      "express_disapproval": 2,
+      "express_love": 2
+    }
+  },
+  "express_remorse": {
+    "precision": 0.5,
+    "recall": 0.46153846153846156,
+    "f1-score": 0.48000000000000004,
+    "support": 26,
+    "confused_with": {
+      "express_desire": 3,
+      "express_abuse": 1
+    }
+  },
+  "express_trauma": {
+    "precision": 0.6086956521739131,
+    "recall": 0.4666666666666667,
+    "f1-score": 0.5283018867924527,
+    "support": 30,
+    "confused_with": {
+      "express_grief_loss": 5,
+      "express_remorse": 3
+    }
+  },
+  "express_divorce_concerns": {
+    "precision": 1.0,
+    "recall": 0.9666666666666667,
+    "f1-score": 0.983050847457627,
+    "support": 30,
+    "confused_with": {
+      "express_relationship_problems": 1
+    }
+  },
+  "express_performance_anxiety": {
+    "precision": 0.7083333333333334,
+    "recall": 0.5666666666666667,
+    "f1-score": 0.6296296296296297,
+    "support": 30,
+    "confused_with": {
+      "express_academic_stress": 3,
+      "express_fear": 2
+    }
+  },
+  "express_relief": {
+    "precision": 0.4642857142857143,
+    "recall": 0.5,
+    "f1-score": 0.4814814814814815,
+    "support": 26,
+    "confused_with": {
+      "express_realization": 2,
+      "express_gratitude": 2
+    }
+  },
+  "goodbye": {
+    "precision": 0.6923076923076923,
+    "recall": 0.6206896551724138,
+    "f1-score": 0.6545454545454545,
+    "support": 29,
+    "confused_with": {
+      "affirm": 4,
+      "express_abuse": 1
+    }
+  },
+  "express_grief_loss": {
+    "precision": 0.3142857142857143,
+    "recall": 0.36666666666666664,
+    "f1-score": 0.3384615384615384,
+    "support": 30,
+    "confused_with": {
+      "express_grief": 7,
+      "express_identity_struggles": 3
+    }
+  },
+  "express_fear": {
+    "precision": 0.4090909090909091,
+    "recall": 0.34615384615384615,
+    "f1-score": 0.37500000000000006,
+    "support": 26,
+    "confused_with": {
+      "express_phobia": 3,
+      "express_anxiety": 2
+    }
+  },
+  "express_anxiety": {
+    "precision": 0.23684210526315788,
+    "recall": 0.3,
+    "f1-score": 0.2647058823529412,
+    "support": 30,
+    "confused_with": {
+      "express_grief_loss": 3,
+      "express_phobia": 3
+    }
+  },
+  "express_body_image": {
+    "precision": 0.5862068965517241,
+    "recall": 0.5666666666666667,
+    "f1-score": 0.576271186440678,
+    "support": 30,
+    "confused_with": {
+      "express_eating_disorder": 4,
+      "express_identity_struggles": 2
+    }
+  },
+  "express_suicidal_thoughts": {
+    "precision": 0.45454545454545453,
+    "recall": 0.4838709677419355,
+    "f1-score": 0.46874999999999994,
+    "support": 31,
+    "confused_with": {
+      "express_reproductive_health": 2,
+      "express_loneliness": 2
+    }
+  },
+  "express_amusement": {
+    "precision": 0.625,
+    "recall": 0.6,
+    "f1-score": 0.6122448979591836,
+    "support": 25,
+    "confused_with": {
+      "express_joy": 2,
+      "affirm": 1
+    }
+  },
+  "express_annoyance": {
+    "precision": 0.6,
+    "recall": 0.48,
+    "f1-score": 0.5333333333333332,
+    "support": 25,
+    "confused_with": {
+      "express_anger": 3,
+      "express_nervousness": 2
+    }
+  },
+  "thank": {
+    "precision": 0.76,
+    "recall": 0.6785714285714286,
+    "f1-score": 0.7169811320754718,
+    "support": 28,
+    "confused_with": {
+      "express_gratitude": 6,
+      "affirm": 2
+    }
+  },
+  "express_nervousness": {
+    "precision": 0.5185185185185185,
+    "recall": 0.5384615384615384,
+    "f1-score": 0.5283018867924528,
+    "support": 26,
+    "confused_with": {
+      "express_anxiety": 3,
+      "express_fear": 2
+    }
+  },
+  "express_depression": {
+    "precision": 0.22857142857142856,
+    "recall": 0.26666666666666666,
+    "f1-score": 0.24615384615384614,
+    "support": 30,
+    "confused_with": {
+      "express_suicidal_thoughts": 4,
+      "express_grief_loss": 3
+    }
+  },
+  "express_excitement": {
+    "precision": 0.6,
+    "recall": 0.5769230769230769,
+    "f1-score": 0.5882352941176471,
+    "support": 26,
+    "confused_with": {
+      "express_joy": 2,
+      "express_disappointment": 2
+    }
+  },
+  "express_neutral": {
+    "precision": 0.5263157894736842,
+    "recall": 0.38461538461538464,
+    "f1-score": 0.4444444444444444,
+    "support": 26,
+    "confused_with": {
+      "express_optimism": 3,
+      "express_disapproval": 2
+    }
+  },
+  "express_phobia": {
+    "precision": 0.6388888888888888,
+    "recall": 0.7666666666666667,
+    "f1-score": 0.696969696969697,
+    "support": 30,
+    "confused_with": {
+      "express_anxiety": 3,
+      "express_fear": 1
+    }
+  },
+  "express_abuse": {
+    "precision": 0.4482758620689655,
+    "recall": 0.43333333333333335,
+    "f1-score": 0.44067796610169496,
+    "support": 30,
+    "confused_with": {
+      "express_relationship_problems": 4,
+      "express_anxiety": 2
+    }
+  },
+  "express_caring": {
+    "precision": 0.5416666666666666,
+    "recall": 0.52,
+    "f1-score": 0.5306122448979592,
+    "support": 25,
+    "confused_with": {
+      "express_desire": 2,
+      "ask_capabilities": 1
+    }
+  },
+  "express_disapproval": {
+    "precision": 0.4074074074074074,
+    "recall": 0.4230769230769231,
+    "f1-score": 0.4150943396226415,
+    "support": 26,
+    "confused_with": {
+      "express_approval": 3,
+      "deny": 3
+    }
+  },
+  "express_financial_stress": {
+    "precision": 0.6666666666666666,
+    "recall": 0.5333333333333333,
+    "f1-score": 0.5925925925925926,
+    "support": 30,
+    "confused_with": {
+      "express_anxiety": 3,
+      "express_depression": 2
+    }
+  },
+  "affirm": {
+    "precision": 0.32432432432432434,
+    "recall": 0.4,
+    "f1-score": 0.3582089552238806,
+    "support": 30,
+    "confused_with": {
+      "express_approval": 4,
+      "help": 3
+    }
+  },
+  "express_admiration": {
+    "precision": 0.42857142857142855,
+    "recall": 0.48,
+    "f1-score": 0.4528301886792452,
+    "support": 25,
+    "confused_with": {
+      "express_pride": 2,
+      "ask_capabilities": 2
+    }
+  },
+  "express_disappointment": {
+    "precision": 0.5,
+    "recall": 0.6538461538461539,
+    "f1-score": 0.5666666666666668,
+    "support": 26,
+    "confused_with": {
+      "express_trauma": 1,
+      "express_optimism": 1
+    }
+  },
+  "express_realization": {
+    "precision": 0.6153846153846154,
+    "recall": 0.3076923076923077,
+    "f1-score": 0.4102564102564103,
+    "support": 26,
+    "confused_with": {
+      "express_relief": 6,
+      "user_need_help": 1
+    }
+  },
+  "express_bullying": {
+    "precision": 0.7894736842105263,
+    "recall": 0.5,
+    "f1-score": 0.6122448979591837,
+    "support": 30,
+    "confused_with": {
+      "express_embarrassment": 2,
+      "express_identity_struggles": 2
+    }
+  },
+  "express_eating_disorder": {
+    "precision": 0.6363636363636364,
+    "recall": 0.7,
+    "f1-score": 0.6666666666666666,
+    "support": 30,
+    "confused_with": {
+      "express_body_image": 2,
+      "express_identity_struggles": 2
+    }
+  },
+  "bot_name": {
+    "precision": 0.896551724137931,
+    "recall": 0.896551724137931,
+    "f1-score": 0.896551724137931,
+    "support": 29,
+    "confused_with": {
+      "ask_name": 2,
+      "express_grief": 1
+    }
+  },
+  "out_of_scope": {
+    "precision": 0.4444444444444444,
+    "recall": 0.13793103448275862,
+    "f1-score": 0.21052631578947367,
+    "support": 29,
+    "confused_with": {
+      "user_need_help": 3,
+      "goodbye": 3
+    }
+  },
+  "restart": {
+    "precision": 0.7586206896551724,
+    "recall": 0.7586206896551724,
+    "f1-score": 0.7586206896551724,
+    "support": 29,
+    "confused_with": {
+      "affirm": 1,
+      "stop": 1
+    }
+  },
+  "express_reproductive_health": {
+    "precision": 0.4838709677419355,
+    "recall": 0.5,
+    "f1-score": 0.4918032786885246,
+    "support": 30,
+    "confused_with": {
+      "express_addiction": 3,
+      "express_eating_disorder": 2
+    }
+  },
+  "express_joy": {
+    "precision": 0.5,
+    "recall": 0.5384615384615384,
+    "f1-score": 0.5185185185185186,
+    "support": 26,
+    "confused_with": {
+      "express_excitement": 3,
+      "express_admiration": 1
+    }
+  },
+  "express_embarrassment": {
+    "precision": 0.5769230769230769,
+    "recall": 0.5769230769230769,
+    "f1-score": 0.5769230769230769,
+    "support": 26,
+    "confused_with": {
+      "express_suicidal_thoughts": 3,
+      "express_remorse": 2
+    }
+  },
+  "express_desire": {
+    "precision": 0.4117647058823529,
+    "recall": 0.5384615384615384,
+    "f1-score": 0.4666666666666667,
+    "support": 26,
+    "confused_with": {
+      "express_disappointment": 2,
+      "express_anger": 2
+    }
+  },
+  "how_are_you": {
+    "precision": 0.5428571428571428,
+    "recall": 0.6551724137931034,
+    "f1-score": 0.5937499999999999,
+    "support": 29,
+    "confused_with": {
+      "affirm": 3,
+      "bot_challenge": 2
+    }
+  },
+  "express_surprise": {
+    "precision": 0.5263157894736842,
+    "recall": 0.38461538461538464,
+    "f1-score": 0.4444444444444444,
+    "support": 26,
+    "confused_with": {
+      "user_need_help": 2,
+      "express_anger": 1
+    }
+  },
+  "greet": {
+    "precision": 0.8064516129032258,
+    "recall": 0.8333333333333334,
+    "f1-score": 0.819672131147541,
+    "support": 30,
+    "confused_with": {
+      "affirm": 1,
+      "bot_challenge": 1
+    }
+  },
+  "express_chronic_illness": {
+    "precision": 0.7333333333333333,
+    "recall": 0.7333333333333333,
+    "f1-score": 0.7333333333333333,
+    "support": 30,
+    "confused_with": {
+      "express_reproductive_health": 2,
+      "express_grief_loss": 2
+    }
+  },
+  "express_academic_stress": {
+    "precision": 0.625,
+    "recall": 0.5,
+    "f1-score": 0.5555555555555556,
+    "support": 30,
+    "confused_with": {
+      "express_nervousness": 2,
+      "express_work_stress": 2
+    }
+  },
+  "express_identity_struggles": {
+    "precision": 0.4186046511627907,
+    "recall": 0.6,
+    "f1-score": 0.49315068493150693,
+    "support": 30,
+    "confused_with": {
+      "express_relationship_problems": 2,
+      "express_social_difficulties": 2
+    }
+  },
+  "user_need_help": {
+    "precision": 0.21875,
+    "recall": 0.2413793103448276,
+    "f1-score": 0.22950819672131145,
+    "support": 29,
+    "confused_with": {
+      "help": 4,
+      "how_are_you": 3
+    }
+  },
+  "express_anger": {
+    "precision": 0.47619047619047616,
+    "recall": 0.4,
+    "f1-score": 0.43478260869565216,
+    "support": 25,
+    "confused_with": {
+      "express_annoyance": 2,
+      "express_optimism": 2
+    }
+  },
+  "express_approval": {
+    "precision": 0.4166666666666667,
+    "recall": 0.4,
+    "f1-score": 0.4081632653061225,
+    "support": 25,
+    "confused_with": {
+      "affirm": 4,
+      "express_disapproval": 4
+    }
+  },
+  "express_love": {
+    "precision": 0.5357142857142857,
+    "recall": 0.5769230769230769,
+    "f1-score": 0.5555555555555555,
+    "support": 26,
+    "confused_with": {
+      "express_confusion": 3,
+      "express_caring": 2
+    }
+  },
+  "express_optimism": {
+    "precision": 0.46153846153846156,
+    "recall": 0.46153846153846156,
+    "f1-score": 0.46153846153846156,
+    "support": 26,
+    "confused_with": {
+      "express_disappointment": 2,
+      "express_joy": 2
+    }
+  },
+  "express_social_difficulties": {
+    "precision": 0.42857142857142855,
+    "recall": 0.3,
+    "f1-score": 0.3529411764705882,
+    "support": 30,
+    "confused_with": {
+      "express_loneliness": 5,
+      "express_relationship_problems": 2
+    }
+  },
+  "express_addiction": {
+    "precision": 0.6206896551724138,
+    "recall": 0.6,
+    "f1-score": 0.6101694915254238,
+    "support": 30,
+    "confused_with": {
+      "express_abuse": 3,
+      "express_relationship_problems": 2
+    }
+  },
+  "bot_challenge": {
+    "precision": 0.7333333333333333,
+    "recall": 0.7857142857142857,
+    "f1-score": 0.7586206896551724,
+    "support": 28,
+    "confused_with": {
+      "how_are_you": 2,
+      "express_body_image": 1
+    }
+  },
+  "express_curiosity": {
+    "precision": 0.6538461538461539,
+    "recall": 0.6538461538461539,
+    "f1-score": 0.6538461538461539,
+    "support": 26,
+    "confused_with": {
+      "express_desire": 2,
+      "express_love": 1
+    }
+  },
+  "express_work_stress": {
+    "precision": 0.56,
+    "recall": 0.4666666666666667,
+    "f1-score": 0.509090909090909,
+    "support": 30,
+    "confused_with": {
+      "user_need_help": 2,
+      "express_financial_stress": 2
+    }
+  },
+  "express_sadness": {
+    "precision": 0.5333333333333333,
+    "recall": 0.6153846153846154,
+    "f1-score": 0.5714285714285715,
+    "support": 26,
+    "confused_with": {
+      "express_depression": 3,
+      "express_grief": 2
+    }
+  },
+  "ask_capabilities": {
+    "precision": 0.42424242424242425,
+    "recall": 0.5,
+    "f1-score": 0.4590163934426229,
+    "support": 28,
+    "confused_with": {
+      "help": 5,
+      "express_admiration": 3
+    }
+  },
+  "ask_name": {
+    "precision": 0.5806451612903226,
+    "recall": 0.6428571428571429,
+    "f1-score": 0.6101694915254238,
+    "support": 28,
+    "confused_with": {
+      "ask_capabilities": 3,
+      "out_of_scope": 2
+    }
+  },
+  "express_grief": {
+    "precision": 0.3870967741935484,
+    "recall": 0.46153846153846156,
+    "f1-score": 0.42105263157894735,
+    "support": 26,
+    "confused_with": {
+      "express_grief_loss": 3,
+      "express_sadness": 3
+    }
+  },
+  "express_gratitude": {
+    "precision": 0.6060606060606061,
+    "recall": 0.7692307692307693,
+    "f1-score": 0.6779661016949152,
+    "support": 26,
+    "confused_with": {
+      "thank": 3,
+      "express_admiration": 1
+    }
+  },
+  "express_disgust": {
+    "precision": 0.75,
+    "recall": 0.6923076923076923,
+    "f1-score": 0.7199999999999999,
+    "support": 26,
+    "confused_with": {
+      "express_desire": 1,
+      "express_confusion": 1
+    }
+  },
+  "stop": {
+    "precision": 0.7391304347826086,
+    "recall": 0.5666666666666667,
+    "f1-score": 0.6415094339622641,
+    "support": 30,
+    "confused_with": {
+      "affirm": 4,
+      "express_curiosity": 2
+    }
+  },
+  "help": {
+    "precision": 0.3939393939393939,
+    "recall": 0.4482758620689655,
+    "f1-score": 0.41935483870967744,
+    "support": 29,
+    "confused_with": {
+      "user_need_help": 5,
+      "ask_capabilities": 5
+    }
+  },
+  "deny": {
+    "precision": 0.6896551724137931,
+    "recall": 0.6451612903225806,
+    "f1-score": 0.6666666666666667,
+    "support": 31,
+    "confused_with": {
+      "affirm": 4,
+      "express_disapproval": 2
+    }
+  },
+  "express_pride": {
+    "precision": 0.6923076923076923,
+    "recall": 0.6923076923076923,
+    "f1-score": 0.6923076923076923,
+    "support": 26,
+    "confused_with": {
+      "express_disappointment": 1,
+      "express_excitement": 1
+    }
+  },
+  "accuracy": 0.5432900432900433,
+  "macro avg": {
+    "precision": 0.552251382044878,
+    "recall": 0.5419491205864956,
+    "f1-score": 0.541530285796115,
+    "support": 1848
+  },
+  "weighted avg": {
+    "precision": 0.5538688565542456,
+    "recall": 0.5432900432900433,
+    "f1-score": 0.5429538592673205,
+    "support": 1848
+  },
+  "micro avg": {
+    "precision": 0.5432900432900433,
+    "recall": 0.5432900432900433,
+    "f1-score": 0.5432900432900433,
+    "support": 1848
+  }
+}
