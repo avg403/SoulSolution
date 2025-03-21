@@ -5,6 +5,8 @@ import {
   FaPaperPlane,
   FaSignOutAlt,
   FaTrash,
+  FaUser,
+  FaChevronDown,
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
@@ -23,6 +25,7 @@ import {
 import "./ChatInterface.css";
 import logoround from "../../Image/logoround.png";
 import botAvatar from "../../Image/logoround.png";
+import defaultprof from "../../Image/defaultprofile.jpg";
 
 interface Message {
   content: string;
@@ -32,9 +35,132 @@ interface Message {
   source?: string; // Added to track source of response (rasa/fallback)
 }
 
+interface UserProfile {
+  username: string;
+  age: number;
+  gender: string;
+  profilePicture?: string;
+}
+
 const MESSAGES_TO_RETAIN = 20; // Increased to provide better context
 
-const Navbar = ({ onClearChat }: { onClearChat: () => void }) => {
+const ProfileButton = ({
+  userProfile,
+}: {
+  userProfile: UserProfile | null;
+}) => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  if (!userProfile) {
+    return <div className="profile-loading">Loading profile...</div>;
+  }
+
+  return (
+    <div className="profile-container" ref={dropdownRef}>
+      <div
+        className="profile-button"
+        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+      >
+        <div
+          className="profile-picture"
+          style={{
+            backgroundImage: `url(${
+              userProfile.profilePicture || defaultprof
+            })`,
+          }}
+        ></div>
+        <div className="profile-info">
+          <span>Hi, {userProfile.username}</span>
+          <FaChevronDown
+            className={`dropdown-icon ${isDropdownOpen ? "open" : ""}`}
+          />
+        </div>
+      </div>
+
+      {isDropdownOpen && (
+        <div className="profile-dropdown">
+          <div
+            className="dropdown-item"
+            onClick={() => {
+              setIsModalOpen(true);
+              setIsDropdownOpen(false);
+            }}
+          >
+            <FaUser />
+            <span>View Profile</span>
+          </div>
+        </div>
+      )}
+
+      {isModalOpen && (
+        <div className="profile-modal-overlay">
+          <div className="profile-modal">
+            <div className="modal-header">
+              <h2>User Profile</h2>
+              <button
+                className="close-button"
+                onClick={() => setIsModalOpen(false)}
+              >
+                ×
+              </button>
+            </div>
+            <div className="modal-content">
+              <div
+                className="modal-profile-picture"
+                style={{
+                  backgroundImage: `url(${
+                    userProfile.profilePicture || defaultprof
+                  })`,
+                }}
+              ></div>
+              <div className="profile-details">
+                <div className="profile-detail">
+                  <span className="detail-label">Username:</span>
+                  <span className="detail-value">{userProfile.username}</span>
+                </div>
+                <div className="profile-detail">
+                  <span className="detail-label">Age:</span>
+                  <span className="detail-value">{userProfile.age}</span>
+                </div>
+                <div className="profile-detail">
+                  <span className="detail-label">Gender:</span>
+                  <span className="detail-value">{userProfile.gender}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+const Navbar = ({
+  onClearChat,
+  userProfile, //included userprofile in destructuring
+}: {
+  onClearChat: () => void;
+  userProfile: UserProfile | null;
+}) => {
   const navigate = useNavigate();
 
   const handleLogout = async () => {
@@ -52,6 +178,7 @@ const Navbar = ({ onClearChat }: { onClearChat: () => void }) => {
   return (
     <div className="sidebar">
       <img src={logoround} alt="SoulSolution Logo" className="app-logo" />
+      <ProfileButton userProfile={userProfile} />
       <div className="nav-buttons">
         <button
           className="nav-button"
@@ -172,7 +299,46 @@ const ChatInterface = () => {
   const [isInitialized, setIsInitialized] = useState<boolean>(false);
   const [sessionId, setSessionId] = useState<string>("");
   const [clearTimestamp, setClearTimestamp] = useState<number | null>(null);
+  const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // Load user profile
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      if (!auth.currentUser) {
+        console.log("No authenticated user found.");
+        return;
+      }
+
+      try {
+        const userId = auth.currentUser.uid;
+        const userDocRef = doc(db, "users", userId);
+        const userDoc = await getDoc(userDocRef);
+
+        if (userDoc.exists()) {
+          const userData = userDoc.data();
+          console.log("Fetched user profile:", userData);
+          setUserProfile({
+            username: userData.username || "User",
+            age: userData.age || 0,
+            gender: userData.gender || "Not specified",
+            profilePicture: userData.profilePicture || null,
+          });
+        } else {
+          console.log("No user profile found");
+          setUserProfile({
+            username: "User",
+            age: 0,
+            gender: "Not specified",
+          });
+        }
+      } catch (error) {
+        console.error("Error fetching user profile:", error);
+      }
+    };
+
+    fetchUserProfile();
+  }, []);
 
   // Load messages when component mounts
   useEffect(() => {
@@ -515,7 +681,7 @@ const ChatInterface = () => {
 
   return (
     <div className="chat-interface">
-      <Navbar onClearChat={handleClearChat} />
+      <Navbar onClearChat={handleClearChat} userProfile={userProfile} />
       <div className="chat-area">
         <div className="messages-container">
           {displayedMessages.map((message, index) => (
