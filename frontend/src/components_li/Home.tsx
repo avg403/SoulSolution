@@ -1,94 +1,104 @@
 import React from "react";
-import "./Home.css";
+import { useNavigate } from "react-router-dom";
+
+import "./home.css";
+import panda from "../../Image/panda.gif";
 import logoround from "../../Image/logoround.png";
 
 const Home: React.FC = () => {
+  const navigate = useNavigate(); // Initialize navigation function
   return (
-    <div className="homepage">
-      {/* Navbar */}
-      <nav className="navbar">
-        <div className="navbar-container">
-          <a href="/" className="navbar-logo">
+    <div className="app">
+      <header className="header">
+        <div className="container header-container">
+          <div className="logo">
+            <img
+              src={logoround}
+              alt="SoulSolution Logo"
+              className="logo-image"
+            />
             SoulSolution
-          </a>
-          <ul className="navbar-menu">
-            <li>
-              <a href="#features">Features</a>
-            </li>
-            <li>
-              <a href="#about">About</a>
-            </li>
-            <li>
-              <a href="#contact">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-
-      {/* Hero Section */}
-      <section className="hero-section">
-        <div className="hero-content">
-          <h1>Your Personal Counselling Companion</h1>
-          <p>
-            Empowering you to find clarity and peace through AI-driven
-            counselling.
-          </p>
-          <a href="#get-started" className="cta-button">
-            Get Started
-          </a>
-        </div>
-        <div className="hero-image">
-          <img src={logoround} alt="SoulSolution" className="app-logo" />
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section id="features" className="features-section">
-        <h2>Why Choose SoulSolution?</h2>
-        <div className="features-grid">
-          <div className="feature-card">
-            <h3>24/7 Availability</h3>
-            <p>Access counselling support anytime, anywhere.</p>
           </div>
-          <div className="feature-card">
-            <h3>AI-Powered Insights</h3>
-            <p>Get personalized advice based on your unique needs.</p>
+
+          <nav className="main-nav">
+            <ul>
+              <li>
+                <a href="#about">About</a>
+              </li>
+
+              <li>
+                <a href="#contact">Contact Us</a>
+              </li>
+            </ul>
+          </nav>
+          <button className="cta-button" onClick={() => navigate("/login")}>
+            Try it for free!
+          </button>
+        </div>
+      </header>
+
+      <section className="hero">
+        <div className="container">
+          <div className="hero-content">
+            <h1>AI-Powered Mental Health Support Available 24/7</h1>
+            <p>
+              Talk to SoulSolution anytime you need emotional support or
+              guidance.
+            </p>
+            <button className="cta-button" onClick={() => navigate("/login")}>
+              Chat with SoulSolution
+            </button>
           </div>
-          <div className="feature-card">
-            <h3>Confidential & Secure</h3>
-            <p>Your privacy is our top priority.</p>
+          <div className="hero-image">
+            <img src={panda} alt="SoulSolution" />
           </div>
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="about-section">
-        <h2>About SoulSolution</h2>
-        <p>
-          SoulSolution is a counselling chatbot designed to help you navigate
-          life's challenges. Whether you're dealing with stress, anxiety, or
-          just need someone to talk to, SoulSolution is here for you.
-        </p>
+      <section className="features" id="about">
+        <div className="container">
+          <h2>How SoulSolution Helps You</h2>
+          <div className="feature-grid">
+            <div className="feature-card">
+              <div className="feature-icon">🧠</div>
+              <h3>Emotional Support</h3>
+              <p>
+                Get support when you're feeling anxious, stressed, or
+                overwhelmed.
+              </p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon">💭</div>
+              <h3>Guided Reflection</h3>
+              <p>
+                Process your thoughts and feelings with guided conversations.
+              </p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon">🛌</div>
+              <h3>Sleep & Relaxation</h3>
+              <p>
+                Learn techniques to improve sleep quality and reduce stress.
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="contact-section">
-        <h2>Contact Us</h2>
-        <p>Have questions or feedback? We'd love to hear from you!</p>
-        <form className="contact-form">
-          <input type="text" placeholder="Your Name" required />
-          <input type="email" placeholder="Your Email" required />
-          <textarea placeholder="Your Message" required></textarea>
-          <button type="submit">Send Message</button>
-        </form>
+      <section className="contact" id="contact">
+        <div className="container">
+          <h2>Contact Us</h2>
+          <p>We would love to hear from you! Reach out to us anytime.</p>
+          <form className="contact-form">
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit" className="cta-button">
+              Send Message
+            </button>
+          </form>
+        </div>
       </section>
-
-      {/* Footer */}
-      <footer className="footer">
-        <p>
-          &copy; {new Date().getFullYear()} SoulSolution. All rights reserved.
-        </p>
-      </footer>
     </div>
   );
 };
