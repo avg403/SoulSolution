@@ -19,11 +19,18 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        {/* Default route - Redirect to login */}
-        <Route path="/" element={<Navigate to="/login" replace />} />
+        {/* Default route - Redirect to home */}
+        <Route path="/" element={<Navigate to="/home" replace />} />
 
         {/* Home Route */}
-        <Route path="/home" element={<Home />} />
+        <Route
+          path="/home"
+          element={
+            <div className="home-background">
+              <Home />
+            </div>
+          }
+        />
 
         {/* Login and Signup Routes */}
         <Route path="/login" element={<Login />} />
