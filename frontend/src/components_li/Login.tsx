@@ -15,6 +15,8 @@ const Login: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [unverifiedEmail, setUnverifiedEmail] = useState<boolean>(false);
   const [resendSuccess, setResendSuccess] = useState<string | null>(null);
+  const [showErrorPopup, setShowErrorPopup] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>("");
   const navigate = useNavigate();
 
   const handleLogin = async (e: FormEvent) => {
@@ -22,6 +24,7 @@ const Login: React.FC = () => {
     setError(null);
     setResendSuccess(null);
     setUnverifiedEmail(false);
+    setShowErrorPopup(false);
 
     try {
       const userCredential = await signInWithEmailAndPassword(
@@ -68,19 +71,29 @@ const Login: React.FC = () => {
           }
         }
       } else {
-        setError("User data not found. Please check your account.");
+        showPopupError("User data not found. Please check your account.");
       }
     } catch (err: any) {
       if (err.code === "auth/invalid-email") {
-        setError("Invalid email format.");
+        showPopupError("Invalid email format.");
       } else if (err.code === "auth/user-not-found") {
-        setError("No user found with this email.");
-      } else if (err.code === "auth/wrong-password") {
-        setError("Incorrect password.");
+        showPopupError("No user found with this email.");
+      } else if (err.code === "auth/wrong-password" || err.code === "auth/invalid-credential") {
+        showPopupError("Invalid email or password. Please check your credentials.");
       } else {
-        setError("An unknown error occurred: " + err.message);
+        showPopupError("An error occurred during login. Please try again.");
+        console.error("Login error:", err);
       }
     }
+  };
+
+  const showPopupError = (message: string) => {
+    setErrorMessage(message);
+    setShowErrorPopup(true);
+  };
+
+  const closeErrorPopup = () => {
+    setShowErrorPopup(false);
   };
 
   const handleResendVerification = async () => {
@@ -103,7 +116,7 @@ const Login: React.FC = () => {
         "Verification email has been resent. Please check your inbox."
       );
     } catch (err: any) {
-      setError("Failed to resend verification email: " + err.message);
+      showPopupError("Failed to resend verification email: " + err.message);
     }
   };
 
@@ -187,6 +200,24 @@ const Login: React.FC = () => {
         <Link to="/forgotpassword">Forget password?</Link> or{" "}
         <Link to="/signup">Sign up</Link>
       </div>
+
+      {/* Error Popup */}
+      {showErrorPopup && (
+        <div className="popup-overlay">
+          <div className="popup-content">
+            <div className="popup-header">
+              <h4>Error</h4>
+              <button className="close-btn" onClick={closeErrorPopup}>×</button>
+            </div>
+            <div className="popup-body">
+              <p>{errorMessage}</p>
+            </div>
+            <div className="popup-footer">
+              <button className="btn" onClick={closeErrorPopup}>OK</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

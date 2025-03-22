@@ -1,10 +1,9 @@
-import React, { useState, FormEvent, useEffect } from "react";
+import React, { useState, FormEvent } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import {
   createUserWithEmailAndPassword,
   sendEmailVerification,
   fetchSignInMethodsForEmail,
-  onAuthStateChanged,
 } from "firebase/auth";
 import { setDoc, doc } from "firebase/firestore";
 import { auth, db } from "../firebase";
@@ -32,17 +31,8 @@ const Signup: React.FC = () => {
   const [verificationSent, setVerificationSent] = useState<boolean>(false);
   const navigate = useNavigate();
 
-  // Monitor auth state
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user?.emailVerified) {
-        // If the user is already verified, redirect to the home page or dashboard
-        navigate("/dashboard");
-      }
-    });
-
-    return () => unsubscribe();
-  }, [navigate]);
+  // Remove the problematic useEffect that was causing auto-redirect
+  // We don't need to monitor auth state on the signup page
 
   // Email format validation
   const validateEmailFormat = (email: string): boolean => {
@@ -195,6 +185,9 @@ const Signup: React.FC = () => {
         emailVerified: false, // Will be updated when user verifies
         createdAt: new Date().toISOString(),
       });
+
+      // Sign out the user until they verify their email
+      await auth.signOut();
 
       setVerificationSent(true);
       setSuccess(
