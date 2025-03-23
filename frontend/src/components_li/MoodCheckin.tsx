@@ -4,7 +4,7 @@ import { db, auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./MoodCheckIn.css"; // External CSS file
-import moodcheck from "../../Image/moodcheckin.png"; // Adjust the path to your image
+import moodcheck from "../../Image/moodcheckin.png";
 
 const MoodCheckIn: React.FC = () => {
   const [selectedMood, setSelectedMood] = useState<string | null>(null);
