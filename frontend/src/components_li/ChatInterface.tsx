@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, ChangeEvent } from "react";
 import {
   FaRegSmile,
   FaChartBar,
@@ -7,10 +7,12 @@ import {
   FaTrash,
   FaUser,
   FaChevronDown,
+  FaEdit,
+  FaUpload,
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
-import { auth, db } from "../firebase";
+import { auth, db, storage } from "../firebase";
 import {
   collection,
   doc,
@@ -20,8 +22,9 @@ import {
   orderBy,
   limit,
   getDocs,
-  Timestamp,
+  updateDoc,
 } from "firebase/firestore";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import "./ChatInterface.css";
 import logoround from "../../Image/logoround.png";
 import botAvatar from "../../Image/logoround.png";
@@ -46,12 +49,28 @@ const MESSAGES_TO_RETAIN = 20; // Increased to provide better context
 
 const ProfileButton = ({
   userProfile,
+  refreshProfile,
 }: {
   userProfile: UserProfile | null;
+  refreshProfile: () => void;
 }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditMode, setIsEditMode] = useState(false);
+  const [editedProfile, setEditedProfile] = useState<UserProfile | null>(null);
+  const [imageFile, setImageFile] = useState<File | null>(null);
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [isUploading, setIsUploading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // Initialize edited profile when userProfile changes
+  useEffect(() => {
+    if (userProfile) {
+      setEditedProfile({ ...userProfile });
+    }
+  }, [userProfile]);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -69,6 +88,92 @@ const ProfileButton = ({
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  // Handle image file selection
+  const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      const file = e.target.files[0];
+
+      // Check file size (limit to 5MB)
+      if (file.size > 5 * 1024 * 1024) {
+        setErrorMessage("Image size should be less than 5MB");
+        return;
+      }
+
+      // Check file type
+      if (!file.type.match("image.*")) {
+        setErrorMessage("Please select an image file");
+        return;
+      }
+
+      setImageFile(file);
+      setErrorMessage(null);
+
+      // Create preview
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setImagePreview(e.target?.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  // Open file selector
+  const handleSelectImage = () => {
+    fileInputRef.current?.click();
+  };
+
+  // Handle profile updates
+  const handleSaveProfile = async () => {
+    if (!editedProfile || !auth.currentUser) return;
+
+    setIsUploading(true);
+    setErrorMessage(null);
+
+    try {
+      const userId = auth.currentUser.uid;
+      const userDocRef = doc(db, "users", userId);
+
+      // Upload image if selected
+      let profileImageUrl = editedProfile.profilePicture;
+
+      if (imageFile) {
+        const storageRef = ref(storage, `profilePictures/${userId}`);
+        await uploadBytes(storageRef, imageFile);
+        profileImageUrl = await getDownloadURL(storageRef);
+      }
+
+      // Update profile data
+      await updateDoc(userDocRef, {
+        username: editedProfile.username,
+        age: editedProfile.age,
+        gender: editedProfile.gender,
+        profilePicture: profileImageUrl,
+      });
+
+      // Exit edit mode and refresh profile
+      setIsEditMode(false);
+      refreshProfile();
+    } catch (error) {
+      console.error("Error updating profile:", error);
+      setErrorMessage("Failed to update profile. Please try again.");
+    } finally {
+      setIsUploading(false);
+    }
+  };
+
+  // Handle input changes
+  const handleInputChange = (
+    field: keyof UserProfile,
+    value: string | number
+  ) => {
+    if (editedProfile) {
+      setEditedProfile({
+        ...editedProfile,
+        [field]: value,
+      });
+    }
+  };
 
   if (!userProfile) {
     return <div className="profile-loading">Loading profile...</div>;
@@ -103,10 +208,22 @@ const ProfileButton = ({
             onClick={() => {
               setIsModalOpen(true);
               setIsDropdownOpen(false);
+              setIsEditMode(false);
             }}
           >
             <FaUser />
             <span>View Profile</span>
+          </div>
+          <div
+            className="dropdown-item"
+            onClick={() => {
+              setIsModalOpen(true);
+              setIsDropdownOpen(false);
+              setIsEditMode(true);
+            }}
+          >
+            <FaEdit />
+            <span>Edit Profile</span>
           </div>
         </div>
       )}
@@ -115,37 +232,159 @@ const ProfileButton = ({
         <div className="profile-modal-overlay">
           <div className="profile-modal">
             <div className="modal-header">
-              <h2>User Profile</h2>
+              <h2>{isEditMode ? "Edit Profile" : "User Profile"}</h2>
               <button
                 className="close-button"
-                onClick={() => setIsModalOpen(false)}
+                onClick={() => {
+                  setIsModalOpen(false);
+                  setImagePreview(null);
+                  setErrorMessage(null);
+                  // Reset to original values if in edit mode
+                  if (isEditMode && userProfile) {
+                    setEditedProfile({ ...userProfile });
+                  }
+                }}
               >
                 ×
               </button>
             </div>
-            <div className="modal-content">
-              <div
-                className="modal-profile-picture"
-                style={{
-                  backgroundImage: `url(${
-                    userProfile.profilePicture || defaultprof
-                  })`,
-                }}
-              ></div>
-              <div className="profile-details">
-                <div className="profile-detail">
-                  <span className="detail-label">Username:</span>
-                  <span className="detail-value">{userProfile.username}</span>
-                </div>
-                <div className="profile-detail">
-                  <span className="detail-label">Age:</span>
-                  <span className="detail-value">{userProfile.age}</span>
-                </div>
-                <div className="profile-detail">
-                  <span className="detail-label">Gender:</span>
-                  <span className="detail-value">{userProfile.gender}</span>
-                </div>
-              </div>
+            <div className="prof-edit-modal-content">
+              {isEditMode ? (
+                <>
+                  <div
+                    className="prof-edit-profile-picture prof-edit-picture-container"
+                    style={{
+                      backgroundImage: `url(${
+                        imagePreview ||
+                        editedProfile?.profilePicture ||
+                        defaultprof
+                      })`,
+                    }}
+                  >
+                    <button
+                      className="prof-edit-photo-upload-button"
+                      onClick={handleSelectImage}
+                    >
+                      <FaUpload />
+                    </button>
+                    <input
+                      type="file"
+                      ref={fileInputRef}
+                      onChange={handleImageChange}
+                      accept="image/*"
+                      style={{ display: "none" }}
+                    />
+                  </div>
+
+                  {errorMessage && (
+                    <div className="prof-edit-error-message">
+                      {errorMessage}
+                    </div>
+                  )}
+
+                  <div className="prof-edit-form">
+                    <div className="prof-edit-form-group">
+                      <label>Username:</label>
+                      <input
+                        type="text"
+                        value={editedProfile?.username || ""}
+                        onChange={(e) =>
+                          handleInputChange("username", e.target.value)
+                        }
+                      />
+                    </div>
+                    <div className="prof-edit-form-group">
+                      <label>Age:</label>
+                      <input
+                        type="number"
+                        value={editedProfile?.age || ""}
+                        onChange={(e) => {
+                          const age =
+                            e.target.value === ""
+                              ? ""
+                              : parseInt(e.target.value);
+                          if (age === "" || (age >= 1 && age <= 120)) {
+                            handleInputChange("age", age);
+                          }
+                        }}
+                        min="1"
+                        max="120"
+                      />
+                    </div>
+
+                    <div className="prof-edit-form-group">
+                      <label>Gender:</label>
+                      <select
+                        value={editedProfile?.gender || ""}
+                        onChange={(e) =>
+                          handleInputChange("gender", e.target.value)
+                        }
+                      >
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Prefer not to say">
+                          Prefer not to say
+                        </option>
+                      </select>
+                    </div>
+
+                    <div className="prof-edit-form-buttons">
+                      <button
+                        className="prof-edit-save-button"
+                        onClick={handleSaveProfile}
+                        disabled={isUploading}
+                      >
+                        {isUploading ? "Saving..." : "Save Changes"}
+                      </button>
+                      <button
+                        className="prof-edit-cancel-button"
+                        onClick={() => {
+                          setIsEditMode(false);
+                          setImagePreview(null);
+                          if (userProfile) {
+                            setEditedProfile({ ...userProfile });
+                          }
+                        }}
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div
+                    className="modal-profile-picture"
+                    style={{
+                      backgroundImage: `url(${
+                        userProfile.profilePicture || defaultprof
+                      })`,
+                    }}
+                  ></div>
+                  <div className="profile-details">
+                    <div className="profile-detail">
+                      <span className="detail-label">Username:</span>
+                      <span className="detail-value">
+                        {userProfile.username}
+                      </span>
+                    </div>
+                    <div className="profile-detail">
+                      <span className="detail-label">Age:</span>
+                      <span className="detail-value">{userProfile.age}</span>
+                    </div>
+                    <div className="profile-detail">
+                      <span className="detail-label">Gender:</span>
+                      <span className="detail-value">{userProfile.gender}</span>
+                    </div>
+                    <button
+                      className="edit-button"
+                      onClick={() => setIsEditMode(true)}
+                    >
+                      <FaEdit /> Edit Profile
+                    </button>
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -156,10 +395,12 @@ const ProfileButton = ({
 
 const Navbar = ({
   onClearChat,
-  userProfile, //included userprofile in destructuring
+  userProfile,
+  refreshProfile,
 }: {
   onClearChat: () => void;
   userProfile: UserProfile | null;
+  refreshProfile: () => void;
 }) => {
   const navigate = useNavigate();
 
@@ -178,7 +419,10 @@ const Navbar = ({
   return (
     <div className="sidebar">
       <img src={logoround} alt="SoulSolution Logo" className="app-logo" />
-      <ProfileButton userProfile={userProfile} />
+      <ProfileButton
+        userProfile={userProfile}
+        refreshProfile={refreshProfile}
+      />
       <div className="nav-buttons">
         <button
           className="nav-button"
@@ -246,11 +490,26 @@ const MessageInput = ({
   </div>
 );
 
-const Message = ({ message }: { message: Message }) => (
+const Message = ({
+  message,
+  userProfile,
+}: {
+  message: Message;
+  userProfile: UserProfile | null;
+}) => (
   <div className={`message ${message.isUser ? "user" : "assistant"}`}>
     <div className="avatar">
       {/* Add image for assistant messages */}
       {!message.isUser && <img src={botAvatar} alt="Bot Avatar" />}
+
+      {/* Add user profile picture for user messages */}
+      {message.isUser && (
+        <img
+          src={userProfile?.profilePicture || defaultprof}
+          alt="User Avatar"
+          className="user-avatar"
+        />
+      )}
     </div>
     <div className="message-content">
       {message.content.split("\n").map((line, i) => (
@@ -302,42 +561,36 @@ const ChatInterface = () => {
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  // Function to refresh user profile
+  const refreshUserProfile = async () => {
+    if (!auth.currentUser) {
+      console.log("No authenticated user found.");
+      return;
+    }
+
+    try {
+      const userId = auth.currentUser.uid;
+      const userDocRef = doc(db, "users", userId);
+      const userDoc = await getDoc(userDocRef);
+
+      if (userDoc.exists()) {
+        const userData = userDoc.data();
+        console.log("Refreshed user profile:", userData);
+        setUserProfile({
+          username: userData.username || "User",
+          age: userData.age || 0,
+          gender: userData.gender || "Not specified",
+          profilePicture: userData.profilePicture || null,
+        });
+      }
+    } catch (error) {
+      console.error("Error refreshing user profile:", error);
+    }
+  };
+
   // Load user profile
   useEffect(() => {
-    const fetchUserProfile = async () => {
-      if (!auth.currentUser) {
-        console.log("No authenticated user found.");
-        return;
-      }
-
-      try {
-        const userId = auth.currentUser.uid;
-        const userDocRef = doc(db, "users", userId);
-        const userDoc = await getDoc(userDocRef);
-
-        if (userDoc.exists()) {
-          const userData = userDoc.data();
-          console.log("Fetched user profile:", userData);
-          setUserProfile({
-            username: userData.username || "User",
-            age: userData.age || 0,
-            gender: userData.gender || "Not specified",
-            profilePicture: userData.profilePicture || null,
-          });
-        } else {
-          console.log("No user profile found");
-          setUserProfile({
-            username: "User",
-            age: 0,
-            gender: "Not specified",
-          });
-        }
-      } catch (error) {
-        console.error("Error fetching user profile:", error);
-      }
-    };
-
-    fetchUserProfile();
+    refreshUserProfile();
   }, []);
 
   // Load messages when component mounts
@@ -681,11 +934,19 @@ const ChatInterface = () => {
 
   return (
     <div className="chat-interface">
-      <Navbar onClearChat={handleClearChat} userProfile={userProfile} />
+      <Navbar
+        onClearChat={handleClearChat}
+        userProfile={userProfile}
+        refreshProfile={refreshUserProfile}
+      />
       <div className="chat-area">
         <div className="messages-container">
           {displayedMessages.map((message, index) => (
-            <Message key={`${index}-${message.timestamp}`} message={message} />
+            <Message
+              key={`${index}-${message.timestamp}`}
+              message={message}
+              userProfile={userProfile}
+            />
           ))}
           {isLoading && (
             <div className="message assistant">
