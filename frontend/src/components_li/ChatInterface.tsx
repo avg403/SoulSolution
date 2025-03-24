@@ -194,10 +194,14 @@ const Navbar = ({
           <FaChartBar />
           <span>Analytics</span>
         </button>
-        <button className="nav-button">
-          <span>🎥</span>
-          <span>Watch Video</span>
-        </button>
+        <button
+  className="nav-button"
+  onClick={() => navigate("/mood-video-recommender")}
+>
+  <span>🎥</span>
+  <span>Watch Video</span>
+</button>
+
         <button className="nav-button" onClick={onClearChat}>
           <FaTrash />
           <span>Clear Chat</span>
