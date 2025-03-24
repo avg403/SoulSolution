@@ -14,6 +14,7 @@ import PrivateRoute from "./components_li/PrivateRoute"; // Private route for pr
 import MoodCheckin from "./components_li/MoodCheckin";
 import DataVisualization from "./components_li/DataVisualization";
 import Home from "./components_li/Home";
+import MoodVideoRecommender from "./components_li/MoodVideoRecommender";
 
 const App = () => {
   return (
@@ -64,6 +65,11 @@ const App = () => {
             </PrivateRoute>
           }
         />
+
+<Route>
+  <Route path="/mood-video-recommender" element={<MoodVideoRecommender />} />
+</Route>
+
         <Route
           path="/mood-checkin"
           element={
