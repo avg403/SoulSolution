@@ -69,60 +69,29 @@ const MoodVideoRecommender: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [headingText, setHeadingText] = useState<string>("EmotionFlix: Videos for Every Feeling");
   const [showEmojis, setShowEmojis] = useState<boolean>(true);
+  const [showBackButton, setShowBackButton] = useState<boolean>(true);
 
-  useEffect(() => {
-    setIsLoading(true);
-    
-    // Try to get videos from the imported videoLibrary, fall back if needed
-    let moodVideos: Video[] = [];
-    
-    try {
-      // First try to use the imported videoLibrary
-      if (videoLibrary && videoLibrary[selectedMood]) {
-        moodVideos = videoLibrary[selectedMood];
-      } else {
-        // Fallback to our embedded library
-        moodVideos = fallbackVideoLibrary[selectedMood];
-      }
-    } catch (error) {
-      console.error("Error loading videos:", error);
-      moodVideos = fallbackVideoLibrary[selectedMood];
-    }
-    
-    // Simulate API delay
-    setTimeout(() => {
-      setVideos(moodVideos || []);
-      setIsLoading(false);
-    }, 400);
-
-    // Apply background color to document body based on mood
-    document.body.style.backgroundColor = getMoodColor();
-    document.body.style.margin = "0";
-    document.body.style.padding = "0";
-    document.body.style.transition = "background-color 0.3s ease";
-    
-  }, [selectedMood]);
-
-  const openVideo = (url: string) => {
-    window.open(url, "_blank");
+  const handleGoBack = () => {
+    console.log("Going back to previous page");
+    window.history.back();
   };
 
-  // Function to get appropriate background color based on mood
+
   const getMoodColor = () => {
     switch (selectedMood) {
-      case "HAPPY": return "#FFEB3B"; // Yellow
-      case "EXCITED": return "#FF9800"; // Orange
-      case "RELAXED": return "#4FC3F7"; // Light Blue
-      case "NEUTRAL": return "#E0E0E0"; // Light Gray
-      case "CONFUSED": return "#CE93D8"; // Light Purple
-      case "BORED": return "#B0BEC5"; // Blue Gray
-      case "SAD": return "#90CAF9"; // Baby Blue
-      case "ANGRY": return "#FF5252"; // Red
-      default: return "#E0E0E0"; // Default Light Gray
+      case "HAPPY": return "#FFEB3B"; 
+      case "EXCITED": return "#FF9800";
+      case "RELAXED": return "#4FC3F7";
+      case "NEUTRAL": return "#E0E0E0";
+      case "CONFUSED": return "#CE93D8";
+      case "BORED": return "#B0BEC5";
+      case "SAD": return "#90CAF9";
+      case "ANGRY": return "#FF5252";
+      default: return "#E0E0E0";
     }
   };
 
-  // Function to get appropriate text color based on mood
+
   const getMoodTextColor = () => {
     switch (selectedMood) {
       case "HAPPY": 
@@ -131,13 +100,13 @@ const MoodVideoRecommender: React.FC = () => {
       case "NEUTRAL": 
       case "CONFUSED": 
       case "BORED": 
-      case "SAD": return "#212121"; // Dark text for light backgrounds
-      case "ANGRY": return "#FFFFFF"; // White text for dark backgrounds
+      case "SAD": return "#212121";
+      case "ANGRY": return "#FFFFFF";
       default: return "#212121";
     }
   };
 
-  // Function to get emojis for each mood
+
   const getMoodEmojis = () => {
     switch (selectedMood) {
       case "HAPPY": return "😊 😄 🥳";
@@ -145,32 +114,58 @@ const MoodVideoRecommender: React.FC = () => {
       case "RELAXED": return "😌 🧘 🌊";
       case "NEUTRAL": return "😐 📊 🔍";
       case "CONFUSED": return "🤔 ❓ 🧩";
-      case "BORED": return "😴 🥱 ⏱️";
-      case "SAD": return "😢 🌧️ 💭";
+      case "BORED": return "😴 🥱 ⏱";
+      case "SAD": return "😢 🌧 💭";
       case "ANGRY": return "😠 🔥 💢";
       default: return "📺 🎬 🎦";
     }
   };
 
-  // Function to toggle emoji visibility
+  useEffect(() => {
+    setIsLoading(true);
+    
+    let moodVideos: Video[] = [];
+    
+    try {
+      if (videoLibrary && videoLibrary[selectedMood]) {
+        moodVideos = videoLibrary[selectedMood];
+      } else {
+        moodVideos = fallbackVideoLibrary[selectedMood];
+      }
+    } catch (error) {
+      console.error("Error loading videos:", error);
+      moodVideos = fallbackVideoLibrary[selectedMood];
+    }
+    
+    setTimeout(() => {
+      setVideos(moodVideos || []);
+      setIsLoading(false);
+    }, 400);
+    
+  }, [selectedMood]);
+
+  const openVideo = (url: string) => {
+    window.open(url, "_blank");
+  };
+
   const toggleEmojiVisibility = () => {
     setShowEmojis(!showEmojis);
   };
 
-  // Function to create emoji background pattern
+
   const createEmojiBackground = () => {
     if (!showEmojis) return null;
     
     const emojis = getMoodEmojis().split(' ');
     const background = [];
     
-    // Create a repeated pattern of emojis
+
     for (let i = 0; i < 50; i++) {
       const emoji = emojis[i % emojis.length];
       const top = Math.random() * 100;
       const left = Math.random() * 100;
-      const opacity = Math.random() * 0.15 + 0.05; // Increased opacity between 0.05 and 0.2
-      const size = Math.random() * 1.8 + 0.8; // Increased size between 0.8em and 2.6em
+      const opacity = Math.random() * 0.15 + 0.05;
+      const size = Math.random() * 1.8 + 0.8;
       
       background.push(
         <div 
@@ -181,8 +176,8 @@ const MoodVideoRecommender: React.FC = () => {
             left: `${left}%`,
             fontSize: `${size}em`,
             opacity: opacity,
-            transform: 'rotate(' + (Math.random() * 40 - 20) + 'deg)',
-            pointerEvents: 'none', // Make the emojis non-interactive
+            transform: `rotate(${Math.random() * 40 - 20}deg)`,
+            pointerEvents: 'none',
             zIndex: 0
           }}
         >
@@ -195,24 +190,28 @@ const MoodVideoRecommender: React.FC = () => {
   };
 
   return (
-    <div style={{
-      minHeight: "100vh",
-      width: "100%",
-      padding: "20px",
-      fontFamily: "Arial, sans-serif",
-      position: "relative",
-      overflow: "hidden", // Keep emojis contained
-      boxSizing: "border-box"
-    }}>
+    <div 
+      className="mood-video-recommender"
+      style={{
+        minHeight: "100vh",
+        width: "100%",
+        padding: "20px",
+        fontFamily: "Arial, sans-serif",
+        position: "relative",
+        overflow: "hidden",
+        boxSizing: "border-box",
+        backgroundColor: getMoodColor(), // Scoped background color
+      }}
+    >
       {/* Emoji Background */}
       <div style={{
-        position: "fixed", // Changed to fixed to cover entire viewport
+        position: "fixed",
         top: 0,
         left: 0,
         right: 0,
         bottom: 0,
         zIndex: 0,
-        display: showEmojis ? "block" : "none" // Control visibility
+        display: showEmojis ? "block" : "none"
       }}>
         {createEmojiBackground()}
       </div>
@@ -225,50 +224,77 @@ const MoodVideoRecommender: React.FC = () => {
         boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
         padding: "30px",
         textAlign: "center",
-        position: "relative", // Keep content above emojis
+        position: "relative",
         zIndex: 1
       }}>
-        {/* Title */}
+        {/* Back Button */}
+        {showBackButton && (
+          <button 
+            onClick={handleGoBack}
+            style={{
+              position: "absolute",
+              top: "15px",
+              right: "15px",
+              backgroundColor: "transparent",
+              border: "none",
+              fontSize: "24px",
+              cursor: "pointer",
+              color: "#666",
+              zIndex: 10
+            }}
+            title="Go Back"
+          >
+            ✕
+          </button>
+        )}
+
         <div style={{
-          marginBottom: "30px",
-          position: "relative"
+          position: "relative",
+          marginBottom: "30px"
         }}>
           <h1 style={{
             fontSize: "2.5rem",
             color: "#333",
             fontWeight: "bold",
             margin: "0 auto",
-            maxWidth: "85%" // Leave space for the toggle button
+            maxWidth: "85%"
           }}>
             {headingText}
           </h1>
           
-          {/* Emoji Toggle Button - Moved to a better position */}
-          <button 
-            onClick={toggleEmojiVisibility}
-            style={{
-              position: "absolute",
-              top: "5px", // Positioned at top
-              right: "10px", // Right aligned
-              backgroundColor: getMoodColor(),
-              color: getMoodTextColor(),
-              border: "none",
-              borderRadius: "50%",
-              width: "40px",
-              height: "40px",
-              fontSize: "1.2rem",
-              cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              boxShadow: "0 2px 5px rgba(0,0,0,0.2)"
-            }}
-            title={showEmojis ? "Hide Emoji Background" : "Show Emoji Background"}
-          >
-            {showEmojis ? "🙈" : "🙉"}
-          </button>
-        </div>
+          {/* Emoji Toggle Button */}
+         
 
+
+        <div style={{
+            position: "absolute",
+            right: "-3px", // Adjust this value to move further right
+            display: "flex",
+            alignItems: "center"
+          }}>
+            <button 
+              onClick={toggleEmojiVisibility}
+              style={{
+                backgroundColor: getMoodColor(),
+                color: getMoodTextColor(),
+                border: "none",
+                borderRadius: "50%",
+                width: "40px",
+                height: "40px",
+                fontSize: "1.2rem",
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                boxShadow: "0 2px 5px rgba(0,0,0,0.2)",
+                zIndex: 20
+              }}
+              title={showEmojis ? "Hide Emoji Background" : "Show Emoji Background"}
+            >
+              {showEmojis ? "🙈" : "🙉"}
+            </button>
+          </div>
+        </div>
         {/* Mood Selector */}
         <div style={{
           marginBottom: "30px",
