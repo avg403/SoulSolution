@@ -8,8 +8,8 @@
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   line-height: 1.6;
-
 }
+
 .home-background {
   background-image: url("/homebg.svg");
   background-size: cover;
@@ -29,7 +29,6 @@ body::before {
   background: rgba(0, 0, 0, 0.5); /* Adjust the last value (0.5) for more or less transparency */
   z-index: -1;
 }
-
 
 .app {
   width: 100%;
@@ -59,21 +58,20 @@ body::before {
   padding: 20px 40px; /* Increased padding for a full-width look */
   width: 100%;
 }
+
 .logo {
   display: flex;
   align-items: center;
   gap: 10px; /* Space between logo and text */
   font-size: 24px; /* Adjust text size if needed */
   font-weight: 700;
-  color:  #2d4a57; /* Ensure the text remains white */
+  color: #2d4a57; /* Ensure the text remains white */
 }
 
 .logo-image {
   height: 0.5em; /* Makes logo same height as text */
   width: auto; /* Keeps aspect ratio */
 }
-
-
 
 .main-nav ul {
   display: flex;
@@ -121,7 +119,6 @@ body::before {
   gap: 60px;
   align-items: center;
   margin-left: 300px;
-  
 }
 
 .hero-content h1 {
@@ -129,7 +126,7 @@ body::before {
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 24px;
-  color:  #1E293B;
+  color: #1E293B;
 }
 
 .hero-content p {
@@ -242,11 +239,94 @@ body::before {
   width: 100%;
 }
 
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal Box */
+.modal {
+  background: white;
+  padding: 30px;
+  width: 320px;
+  min-height: auto;
+  max-height: 200px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease-in-out;
+  position: relative;
+  z-index: 1001;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ensure the modal content is visible */
+.modal p {
+  color: #333;
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+/* Modal Close Button */
+.modal-close-btn {
+  background-color:rgb(208, 4, 4);
+  color: white;
+  padding: 12px 24px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  min-width: 120px;
+  transition: background-color 0.2s;
+}
+
+.modal-close-btn:hover {
+  background-color: #2549c5;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Make sure modal is properly sized on mobile */
+@media (max-width: 768px) {
+  .modal {
+    width: 85%;
+    max-width: 320px;
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .hero .container {
     grid-template-columns: 1fr;
     text-align: center;
+    margin-left: auto;
   }
   
   .hero-content h1 {
@@ -268,5 +348,11 @@ body::before {
   
   .contact-form {
     width: 90%;
+  }
+
+  .hero-image img {
+    width: 70%;
+    margin: 0 auto;
+    display: block;
   }
 }
