@@ -67,3 +67,11 @@ node_modules/
 
 # dataconnect generated files
 .dataconnect
+
+# Machine learning models
+*.safetensors
+
+# Rasa cache and models
+.rasa/cache/
+backend/rasa/.rasa/cache/
+backend/rasa/models/
