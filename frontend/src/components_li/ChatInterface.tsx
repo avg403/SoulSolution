@@ -62,6 +62,7 @@ const ProfileButton = ({
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [isUploading, setIsUploading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -94,9 +95,9 @@ const ProfileButton = ({
     if (e.target.files && e.target.files[0]) {
       const file = e.target.files[0];
 
-      // Check file size (limit to 5MB)
-      if (file.size > 5 * 1024 * 1024) {
-        setErrorMessage("Image size should be less than 5MB");
+      // Check file size (limit to 1MB)
+      if (file.size > 1 * 1024 * 1024) {
+        setErrorMessage("Image size should be less than 1MB");
         return;
       }
 
@@ -109,7 +110,7 @@ const ProfileButton = ({
       setImageFile(file);
       setErrorMessage(null);
 
-      // Create preview
+      // Create preview and store base64 directly
       const reader = new FileReader();
       reader.onload = (e) => {
         setImagePreview(e.target?.result as string);
@@ -129,31 +130,51 @@ const ProfileButton = ({
 
     setIsUploading(true);
     setErrorMessage(null);
+    setSuccessMessage(null);
+
+    // age validation
+    if (
+      editedProfile.age === undefined ||
+      editedProfile.age === null ||
+      editedProfile.age === 0 ||
+      isNaN(Number(editedProfile.age))
+    ) {
+      setErrorMessage("Please enter a valid age");
+      setIsUploading(false);
+      return;
+    }
 
     try {
       const userId = auth.currentUser.uid;
       const userDocRef = doc(db, "users", userId);
 
-      // Upload image if selected
-      let profileImageUrl = editedProfile.profilePicture;
-
-      if (imageFile) {
-        const storageRef = ref(storage, `profilePictures/${userId}`);
-        await uploadBytes(storageRef, imageFile);
-        profileImageUrl = await getDownloadURL(storageRef);
-      }
-
-      // Update profile data
-      await updateDoc(userDocRef, {
+      // Store the base64 image data directly if available
+      const profileData = {
         username: editedProfile.username,
         age: editedProfile.age,
         gender: editedProfile.gender,
-        profilePicture: profileImageUrl,
+        profilePicture: imagePreview || editedProfile.profilePicture || "",
+        updatedAt: new Date(),
+      };
+
+      // Update the document in Firestore
+      await updateDoc(userDocRef, profileData);
+
+      // Update the local edited profile
+      setEditedProfile({
+        ...editedProfile,
+        profilePicture: imagePreview || editedProfile.profilePicture,
       });
 
-      // Exit edit mode and refresh profile
-      setIsEditMode(false);
-      refreshProfile();
+      // Show success message
+      //setSuccessMessage("Profile updated successfully!");
+
+      // Exit edit mode and refresh profile after a short delay
+      setTimeout(() => {
+        setIsEditMode(false);
+        refreshProfile();
+        setSuccessMessage(null);
+      }, 1500);
     } catch (error) {
       console.error("Error updating profile:", error);
       setErrorMessage("Failed to update profile. Please try again.");
@@ -239,6 +260,7 @@ const ProfileButton = ({
                   setIsModalOpen(false);
                   setImagePreview(null);
                   setErrorMessage(null);
+                  setSuccessMessage(null);
                   // Reset to original values if in edit mode
                   if (isEditMode && userProfile) {
                     setEditedProfile({ ...userProfile });
@@ -282,6 +304,12 @@ const ProfileButton = ({
                     </div>
                   )}
 
+                  {successMessage && (
+                    <div className="prof-edit-success-message">
+                      {successMessage}
+                    </div>
+                  )}
+
                   <div className="prof-edit-form">
                     <div className="prof-edit-form-group">
                       <label>Username:</label>
@@ -297,14 +325,20 @@ const ProfileButton = ({
                       <label>Age:</label>
                       <input
                         type="number"
-                        value={editedProfile?.age || ""}
+                        value={
+                          editedProfile?.age === 0
+                            ? ""
+                            : editedProfile?.age || ""
+                        }
                         onChange={(e) => {
-                          const age =
-                            e.target.value === ""
-                              ? ""
-                              : parseInt(e.target.value);
-                          if (age === "" || (age >= 1 && age <= 120)) {
-                            handleInputChange("age", age);
+                          const value = e.target.value;
+                          if (value === "") {
+                            handleInputChange("age", 0); // or maybe null if you want more strictness
+                          } else {
+                            const age = parseInt(value);
+                            if (age >= 1 && age <= 120) {
+                              handleInputChange("age", age);
+                            }
                           }
                         }}
                         min="1"
@@ -341,6 +375,8 @@ const ProfileButton = ({
                         onClick={() => {
                           setIsEditMode(false);
                           setImagePreview(null);
+                          setErrorMessage(null);
+                          setSuccessMessage(null);
                           if (userProfile) {
                             setEditedProfile({ ...userProfile });
                           }
@@ -439,12 +475,12 @@ const Navbar = ({
           <span>Analytics</span>
         </button>
         <button
-  className="nav-button"
-  onClick={() => navigate("/mood-video-recommender")}
->
-  <span>🎥</span>
-  <span>Watch Video</span>
-</button>
+          className="nav-button"
+          onClick={() => navigate("/mood-video-recommender")}
+        >
+          <span>🎥</span>
+          <span>Watch Video</span>
+        </button>
 
         <button className="nav-button" onClick={onClearChat}>
           <FaTrash />
