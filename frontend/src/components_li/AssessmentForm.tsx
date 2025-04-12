@@ -27,6 +27,7 @@ const AssessmentForm: React.FC = () => {
   });
 
   const [error, setError] = useState<string>("");
+  const [ageError, setAgeError] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [showModal, setShowModal] = useState<boolean>(false);
   const [imageFile, setImageFile] = useState<File | null>(null);
@@ -63,7 +64,35 @@ const AssessmentForm: React.FC = () => {
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
+    
+    // Validate age when it changes
+    if (name === "age") {
+      validateAge(value);
+    }
+    
     setFormData({ ...formData, [name]: value });
+  };
+
+  // Function to validate age
+  const validateAge = (age: string) => {
+    const ageNum = parseInt(age, 10);
+    
+    if (age === "") {
+      setAgeError("");
+      return false;
+    } else if (isNaN(ageNum)) {
+      setAgeError("Age must be a number");
+      return false;
+    } else if (ageNum < 1) {
+      setAgeError("Age cannot be negative or zero");
+      return false;
+    } else if (ageNum > 120) {
+      setAgeError("Age cannot be greater than 120");
+      return false;
+    } else {
+      setAgeError("");
+      return true;
+    }
   };
 
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -108,6 +137,12 @@ const AssessmentForm: React.FC = () => {
     // Basic validation
     if (!formData.username || !formData.age) {
       setError("Please fill in all required fields.");
+      return;
+    }
+
+    // Validate age before submission
+    if (!validateAge(formData.age)) {
+      setError("Please correct the age field before submitting.");
       return;
     }
 
@@ -220,12 +255,15 @@ const AssessmentForm: React.FC = () => {
               <input
                 type="number"
                 name="age"
-                className="form-control"
+                className={`form-control ${ageError ? 'is-invalid' : ''}`}
                 value={formData.age}
                 onChange={handleChange}
-                placeholder="Enter your age"
+                placeholder="Enter your age (1-120)"
+                min="1"
+                max="120"
                 required
               />
+              {ageError && <div className="invalid-feedback">{ageError}</div>}
             </div>
 
             <div className="col-md-6">

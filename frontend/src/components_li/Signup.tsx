@@ -29,10 +29,8 @@ const Signup: React.FC = () => {
   const [emailError, setEmailError] = useState<string>("");
   const [isCheckingEmail, setIsCheckingEmail] = useState<boolean>(false);
   const [verificationSent, setVerificationSent] = useState<boolean>(false);
+  const [showEmailExistsPopup, setShowEmailExistsPopup] = useState<boolean>(false);
   const navigate = useNavigate();
-
-  // Remove the problematic useEffect that was causing auto-redirect
-  // We don't need to monitor auth state on the signup page
 
   // Email format validation
   const validateEmailFormat = (email: string): boolean => {
@@ -72,6 +70,8 @@ const Signup: React.FC = () => {
   // Handle email change with debounce
   const handleEmailChange = (email: string) => {
     setFormData({ ...formData, email });
+    // Clear any previous error when user starts typing again
+    setError("");
 
     if (!email) {
       setEmailError("");
@@ -136,6 +136,11 @@ const Signup: React.FC = () => {
     }
   };
 
+  // Close the email exists popup
+  const closeEmailExistsPopup = () => {
+    setShowEmailExistsPopup(false);
+  };
+
   // Form submission handler
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -157,12 +162,6 @@ const Signup: React.FC = () => {
 
     if (passwordStrength < 60) {
       setError("Please use a stronger password");
-      return;
-    }
-
-    // Check if email exists one last time
-    const emailExists = await checkEmailExists(email);
-    if (emailExists) {
       return;
     }
 
@@ -197,10 +196,80 @@ const Signup: React.FC = () => {
       // Clear form
       setFormData({ email: "", password: "", confirmPassword: "" });
     } catch (error: any) {
-      console.error("Error during signup: ", error.message);
-      setError(error.message);
+      console.error("Error during signup: ", error);
+      
+      // Check for email-already-in-use error
+      if (error.code === "auth/email-already-in-use") {
+        // Instead of setting an error message, show the popup
+        setShowEmailExistsPopup(true);
+      } else {
+        // For other errors, display the regular error message
+        setError(error.message || "An error occurred during sign up");
+      }
     }
   };
+
+  // Email exists popup component
+  const EmailExistsPopup = () => (
+    <div className="modal-overlay" style={{
+      position: "fixed",
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: "rgba(0, 0, 0, 0.5)",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      zIndex: 1000
+    }}>
+      <div className="modal-container" style={{
+        backgroundColor: "white",
+        padding: "20px",
+        borderRadius: "8px",
+        maxWidth: "400px",
+        width: "90%",
+        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
+        textAlign: "center"
+      }}>
+        <div style={{ marginBottom: "15px", color: "#EA4335" }}>
+          <i className="fas fa-exclamation-circle" style={{ fontSize: "48px" }}></i>
+        </div>
+        <h5 style={{ color: "#333", marginBottom: "15px", fontWeight: "bold" }}>Email Already Exists</h5>
+        <p style={{ marginBottom: "20px", color: "#555" }}>
+          The email address <strong>{formData.email}</strong> is already registered. 
+          Please use a different email address or login with this email.
+        </p>
+        <div style={{ display: "flex", justifyContent: "space-between", marginTop: "20px" }}>
+          <button 
+            className="btn" 
+            onClick={closeEmailExistsPopup}
+            style={{ 
+              flex: "1", 
+              marginRight: "10px", 
+              backgroundColor: "#f1f1f1", 
+              color: "#333",
+              border: "none"
+            }}
+          >
+            Try Again
+          </button>
+          <Link 
+            to="/login" 
+            className="btn" 
+            style={{ 
+              flex: "1", 
+              backgroundColor: "#4285F4", 
+              color: "white",
+              border: "none"
+            }}
+          >
+            Go to Login
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
 
   // If verification email is sent, show verification instructions
   if (verificationSent) {
@@ -250,6 +319,9 @@ const Signup: React.FC = () => {
   // Regular signup form
   return (
     <div className="wrapper">
+      {/* Email Exists Popup */}
+      {showEmailExistsPopup && <EmailExistsPopup />}
+      
       <div className="logo">
         <img src={logo} alt="Logo" />
       </div>
